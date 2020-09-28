@@ -1,8 +1,8 @@
 # Título Inicial
 
-Este texto apresenta um [teste de link aqui](https://www.youtube.com/watch?v=5B4bHSiOOO8) de um vídeo do YouTube.
+Este texto apresenta um [teste de link aqui](https://www.youtube.com/watch?v=5B4bHSiOOO8) de um vídeo do **YouTube**.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files
+Este texto apresenta outro [teste de link aqui](https://miro.medium.com/max/700/0*SjaSaU5YPd8u0Mr8), agora usando como exemplo uma **imagem**.
 
 ### Mark
 
@@ -35,3 +35,5 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 ### Support or Contact
 
 Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+
