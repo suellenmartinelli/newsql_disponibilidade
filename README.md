@@ -4,6 +4,8 @@ Este texto apresenta um [teste de link aqui](https://www.youtube.com/watch?v=5B4
 
 Este texto apresenta outro [teste de link aqui](https://miro.medium.com/max/700/0*SjaSaU5YPd8u0Mr8), agora usando como exemplo uma **imagem**.
 
+Nesta linha há o exemplo de um 'trecho.codigo()' embutido no parágrafo, mostrando a formatação alterada.
+
 ### Mark
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
