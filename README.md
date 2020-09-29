@@ -1,6 +1,6 @@
 <a name="a"></a>
 # Sumário
-1. [Título Inicial](#ancora1)
+- [Título Inicial](#ancora1)
   - [Mark](#ancora2)
   - [Jekyll Themes](#ancora3)
     - [Support or Contact](#ancora4)
