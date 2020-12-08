@@ -1,12 +1,8 @@
-
-# Tutorial sobre diponibilidade em NewSQL
-
-Projeto final da matéria de TBD_2020
+A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos teóricos relacionados até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
 
 # SUMÁRIO
-
-- [INTRODUÇÃO](#INTRODUÇÃO)
-	- [O que é NewSQL?](#O-que-é-NewSQL?)
+- [INTRODUÇÃO](#intro-sec1)
+	- [O que é NewSQL?](#newsql-sec1a)
 	- [O que é Disponibilidade?](#O-que-é-Disponibilidade?)
 	- [Contextualização do Tutorial](#Contextualização-do-Tutorial)
 	- [Recursos Utilizados](#Recursos-Utilizados)
@@ -25,13 +21,12 @@ Projeto final da matéria de TBD_2020
 - [GLOSSÁRIO](#GLOSSÁRIO)
 - [Referências Bibliográficas](#Referências-Bibliográficas)
 
+<a id="intro-sec1"></a>
+# INTRODUÇÃO
+Também são apresentados as descrições acerca da configuração dos recursos utilizados. Este primeiro tópico foca em expor algumas definições respectivas a: NewSQL; disponibilidade; e terminologias relacionadas aos recursos selecionados.
 
-
-
-## INTRODUÇÃO
-A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos relacionados até o passo a passo das práticas a serem desenvolvidas. Também são apresentados as descrições acerca da configuração dos recursos utilizados. Este primeiro tópico foca em expor algumas definições respectivas a: NewSQL, disponibilidade e terminologias relacionadas aos recursos selecionados.
-
-### O que é NewSQL?
+<a id="newsql-sec1a"></a>
+## O que é NewSQL?
 Os bancos de dados relacionais tradicionais surgiram em um tempo onde a necessidade de armazenamento e gravações eram menores e o acesso não era concorrido (STONEBRAKER et al. 2007). Com a web 3.0, onde milhões de dados são gerados, gravados e acessados com rapidez,  foi criado o NoSQL. Oferecendo acesso rápido e escalonamento horizontal, o NoSQL objetivou-se em resolver problemas relacionados à manutenção e interação com dados volumosos. Para lidar com o novo contexto o NoSQL se apoia no teorema CAP (Consistency, Availability e Partition tolerance), onde para se obter alta disponibilidade se faz necessário manejar os níveis de consistência.
 
 O NoSQL trouxe alterações em relação ao paradigma relacional em termos de uso e manutenção das bases de dados. O primeiro ponto a ser observado é que o NoSQL não utiliza a linguagem SQL para consultas e gravações, e para garantir disponibilidade os resultados podem não ser consistentes.
@@ -43,24 +38,28 @@ O NoSQL trouxe alterações em relação ao paradigma relacional em termos de us
 * Arquitetura que forneça um maior desempenho por nó de processamento; 
 * Arquitetura escalável, com memória distribuída e com capacidade de funcionar em um aglomerado com um grande número de nós.
 
-### O que é Disponibilidade?
-### Contextualização do Tutorial
-### Recursos Utilizados
-## INSTALAÇÃO DAS FERRAMENTAS
-### Docker
-### CockroachDB
-### MemSQL
-## CRIAÇÃO DO CLUSTER UTILIZANDO O DOCKER
-### CockroachDB
-### MemSQL
-## TRABALHANDO COM A DISPONIBILIDADE: PRÁTICAS E RESULTADOS
-### Estudo de caso com o CockroachDB
-### Estudo de caso com o MemSQL
-## CONCLUSÃO
-### Sumarização do que foi aprendido
-## GLOSSÁRIO
-## Referências Bibliográficas
+## O que é Disponibilidade?
+## Contextualização do Tutorial
+## Recursos Utilizados
 
+# INSTALAÇÃO DAS FERRAMENTAS
+## Docker
+## CockroachDB
+## MemSQL
+
+# CRIAÇÃO DO CLUSTER UTILIZANDO O DOCKER
+## CockroachDB
+## MemSQL
+
+# TRABALHANDO COM A DISPONIBILIDADE: PRÁTICAS E RESULTADOS
+## Estudo de caso com o CockroachDB
+## Estudo de caso com o MemSQL
+
+# CONCLUSÃO
+## Sumarização do que foi aprendido
+
+# GLOSSÁRIO
+## Referências Bibliográficas
 
 
 
