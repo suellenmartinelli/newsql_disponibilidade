@@ -4,6 +4,7 @@
 
 A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos teóricos relacionados até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
 
+<a id="sumario"></a>
 # Sumário
 - [Introdução](#intro-sec1)
 	- [O que é NewSQL?](#newsql-sec1a)
@@ -54,8 +55,14 @@ Outro fator relativo às replicações é a tolerância a falhas. Na hipótese d
 <a id="contexto-sec1c"></a>
 ## Contextualização do Tutorial
 
+Como enredo deste tutorial, a base de dados Northwind será utilizada. Esta base foi originalmente criada pela Microsoft e tem sido usada como contexto de estudo para vários tutoriais relacionados a banco de dados. Os dados são relativos a um cenário de vendas de uma empresa fictícia chamada “Northwind Traders”, que importa e exporta alimentos para todo o mundo (YUGABYTE, 2020). A base inclui dados sobre fornecedores, clientes, funcionários, produtos, distribuidores e ordens de pedidos.
+
+Esta mesma 
+
 <a id="recursos-sec1d"></a>
 ## Recursos Utilizados
+
+Voltar ao Sumário:
 
 <a id="instalacoes-sec2"></a>
 # Instalação das Ferramentas
@@ -102,7 +109,7 @@ Outro fator relativo às replicações é a tolerância a falhas. Na hipótese d
 <a id="MONGODB-2020"></a>
 - MONGODB. MongoDB Documentation: Replication. 2020. Disponível em: <https://docs.mongodb.com/manual/replication/>. Acesso em: 19 out. 2020.
 <a id="REZENDE-2013"></a>
-- REZENDE, Ricardo. Alta disponibilidade no banco de dados Oracle. 2013. Disponível em: <https://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle/28971>. Acesso em: 18 out. 2020.
+- REZENDE, Ricardo. Alta disponibilidade no banco de dados Oracle. DevMedia. 2013. Disponível em: <https://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle/28971>. Acesso em: 18 out. 2020.
 <a id="STONEBRAKER-2011"></a>
 - STONEBRAKER, M., CATTELL, R. 10 Rules for Scalable Performance in ‘Simple Operation’ Datastores. Communications Of The Acm, v. 54, n. 6, p. 72-80, jun. 2011. Disponível em: <https://doi.org/10.1145/1953122.1953144>. Acesso em: 17 out. 2020.
 <a id="STONEBRAKER-2007"></a>
