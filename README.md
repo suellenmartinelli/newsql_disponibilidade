@@ -96,7 +96,7 @@ O NoSQL trouxe alterações em relação ao paradigma relacional em termos de us
 **----------------- não apagar os comandos / conteúdos abaixo para vermos como exemplos de marcação do markdown ----------------------**
 
 <a name="a"></a>
-# Sumário
+# Dica de Sumário
 - [Título Inicial](#ancora1)
   - [Mark](#ancora2)
   - [Jekyll Themes](#ancora3)
@@ -105,9 +105,11 @@ O NoSQL trouxe alterações em relação ao paradigma relacional em termos de us
 
 
 <a id="ancora1"></a>
-# Título Inicial - NewSQL e Disponibilidade
+# Dicas de Formatação para o Markdown
 
 Este texto apresenta um [teste de link aqui](https://www.youtube.com/watch?v=5B4bHSiOOO8) de um vídeo do **YouTube**.
+
+**Dica para inserir figuras no tutorial --> [acesse este material](https://www.youtube.com/watch?v=nvPOUdz5PL4) e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.**
 
 Este texto apresenta outro [teste de link aqui](https://miro.medium.com/max/700/0*SjaSaU5YPd8u0Mr8), agora usando como exemplo uma **imagem**.
 
@@ -136,8 +138,6 @@ Syntax highlighted code block
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
-
-**Dica para inserir figuras no tutorial --> [acesse este material](https://www.youtube.com/watch?v=nvPOUdz5PL4) e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.**
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
