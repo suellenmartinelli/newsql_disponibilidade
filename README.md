@@ -1,6 +1,8 @@
 A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos teóricos relacionados até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
 
-![logo-ufscar](https://user-images.githubusercontent.com/72040964/101507403-46565b00-3955-11eb-9eaa-2f56a2502228.png)
+<p align="center">
+  <img src="image-gerais/logo-ppgccs.png" width="350" alt="texto de exemplo">
+</p>
 
 # Sumário
 - [Introdução](#intro-sec1)
@@ -109,7 +111,14 @@ O NoSQL trouxe alterações em relação ao paradigma relacional em termos de us
 
 Este texto apresenta um [teste de link aqui](https://www.youtube.com/watch?v=5B4bHSiOOO8) de um vídeo do **YouTube**.
 
-**Dica para inserir figuras no tutorial --> [acesse este material](https://www.youtube.com/watch?v=nvPOUdz5PL4) e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.**
+**Exemplo 1 para add figuras:**  --> [acesse este material](https://www.youtube.com/watch?v=nvPOUdz5PL4) e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.
+
+**Exemplo 2 para add figuras:** --> add código HTML chamando o caminho da figura a partir do subdiretório da imagem que deseja exibir, tipo:
+```markdown
+<p align="center">
+  <img src="image-gerais/logo-ppgccs.png" width="350" alt="texto de exemplo">
+</p>
+```
 
 Este texto apresenta outro [teste de link aqui](https://miro.medium.com/max/700/0*SjaSaU5YPd8u0Mr8), agora usando como exemplo uma **imagem**.
 
