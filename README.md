@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="image-gerais/logos.PNG" width="690" height="160" alt="texto de exemplo">
+  <img src="image-gerais/logos2.PNG" width="650" height="150" alt="texto de exemplo">
 </p>
 
 A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos teóricos relacionados até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
