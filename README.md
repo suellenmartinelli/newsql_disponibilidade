@@ -1,29 +1,29 @@
 A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos teóricos relacionados até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
 
-# SUMÁRIO
-- [INTRODUÇÃO](#intro-sec1)
+# Sumário
+- [Introdução](#intro-sec1)
 	- [O que é NewSQL?](#newsql-sec1a)
-	- [O que é Disponibilidade?](#O-que-é-Disponibilidade?)
-	- [Contextualização do Tutorial](#Contextualização-do-Tutorial)
-	- [Recursos Utilizados](#Recursos-Utilizados)
-- [INSTALAÇÃO DAS FERRAMENTAS](#INSTALAÇÃO-DAS-FERRAMENTAS)
-	- [Docker](#Docker)
-	- [CockroachDB](#CockroachDB)
-	- [MemSQL](#MemSQL)
-- [CRIAÇÃO DO CLUSTER UTILIZANDO O DOCKER](#CRIAÇÃO-DO-CLUSTER-UTILIZANDO-O-DOCKER)
-	- [CockroachDB](#CockroachDB)
-	- [MemSQL](#MemSQL)
-- [TRABALHANDO COM A DISPONIBILIDADE: PRÁTICAS E RESULTADOS](#TRABALHANDO-COM-A-DISPONIBILIDADE-PRÁTICAS-E-RESULTADOS)
-	- [Estudo de caso com o CockroachDB](#Estudo-de-caso-com-o-CockroachDB)
-	- [Estudo de caso com o MemSQL](#Estudo-de-caso-com-o-MemSQL)
-- [CONCLUSÃO](#CONCLUSÃO)
-	- [Sumarização do que foi aprendido](#Sumarização-do-que-foi-aprendido)
-- [GLOSSÁRIO](#GLOSSÁRIO)
-- [Referências Bibliográficas](#Referências-Bibliográficas)
+	- [O que é Disponibilidade?](#disponibilidade-sec1b)
+	- [Contextualização do Tutorial](#contexto-sec1c)
+	- [Recursos Utilizados](#recursos-sec1d)
+- [Instalação das Ferramentas](#instalacoes-sec2)
+	- [Docker](#docker-sec2a)
+	- [CockroachDB](#cockroachdb-sec2b)
+	- [MemSQL](#memsql-sec2c)
+- [Criação do Cluster Utilizando o Docker](#criar-cluster-sec3)
+	- [CockroachDB](#cockroachdb-sec3a)
+	- [MemSQL](#memsql-sec3b)
+- [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4)
+	- [Estudo de caso com o CockroachDB](#estudo-cockroachdb-sec4a)
+	- [Estudo de caso com o MemSQL](#estudo-memsql-sec4b)
+- [Conclusão](#conclusao-sec5)
+	- [Sumarização do que foi aprendido](#aprendizados-sec5a)
+- [Glossário](#glossario-sec6)
+- [Referências Bibliográficas](#referencias-sec7)
 
 <a id="intro-sec1"></a>
-# INTRODUÇÃO
-Também são apresentados as descrições acerca da configuração dos recursos utilizados. Este primeiro tópico foca em expor algumas definições respectivas a: NewSQL; disponibilidade; e terminologias relacionadas aos recursos selecionados.
+# Introdução
+A Introdução contempla uma visão geral dos tópicos a serem abordados no tutorial. Também são apresentados as algumas descrições acerca da configuração dos recursos utilizados. Este primeiro tópico foca em expor definições respectivas a: NewSQL, disponibilidade e terminologias relacionadas aos recursos selecionados.
 
 <a id="newsql-sec1a"></a>
 ## O que é NewSQL?
@@ -38,32 +38,60 @@ O NoSQL trouxe alterações em relação ao paradigma relacional em termos de us
 * Arquitetura que forneça um maior desempenho por nó de processamento; 
 * Arquitetura escalável, com memória distribuída e com capacidade de funcionar em um aglomerado com um grande número de nós.
 
+<a id="disponibilidade-sec1b"></a>
 ## O que é Disponibilidade?
+
+<a id="contexto-sec1c"></a>
 ## Contextualização do Tutorial
+
+<a id="recursos-sec1d"></a>
 ## Recursos Utilizados
 
-# INSTALAÇÃO DAS FERRAMENTAS
+<a id="instalacoes-sec2"></a>
+# Instalação das Ferramentas
+
+<a id="docker-sec2a"></a>
 ## Docker
+
+<a id="cockroachdb-sec2b"></a>
 ## CockroachDB
+
+<a id="memsql-sec2c"></a>
 ## MemSQL
 
-# CRIAÇÃO DO CLUSTER UTILIZANDO O DOCKER
+<a id="criar-cluster-sec3"></a>
+# Criação do Cluster Utilizando o Docker
+
+<a id="cockroachdb-sec3a"></a>
 ## CockroachDB
+
+<a id="memsql-sec3b"></a>
 ## MemSQL
 
-# TRABALHANDO COM A DISPONIBILIDADE: PRÁTICAS E RESULTADOS
+<a id="praticas-sec4"></a>
+# Trabalhando com a Disponibilidade: Práticas e Resultados
+
+<a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
+
+<a id="estudo-memsql-sec4b"></a>
 ## Estudo de caso com o MemSQL
 
-# CONCLUSÃO
+<a id="conclusao-sec5"></a>
+# Conclusão
+
+<a id="aprendizados-sec5a"></a>
 ## Sumarização do que foi aprendido
 
-# GLOSSÁRIO
-## Referências Bibliográficas
+<a id="glossario-sec6"></a>
+# Glossário
+
+<a id="referencias-sec7"></a>
+# Referências Bibliográficas
 
 
 
--------------------------------
+**----------------- não apagar os comandos / conteúdos abaixo para vermos como exemplos de marcação do markdown ----------------------**
 
 <a name="a"></a>
 # Sumário
