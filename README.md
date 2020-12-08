@@ -31,7 +31,7 @@ A Introdução contempla uma visão geral dos tópicos a serem abordados no tuto
 
 <a id="newsql-sec1a"></a>
 ## O que é NewSQL?
-Os bancos de dados relacionais tradicionais surgiram em um tempo onde a necessidade de armazenamento e gravações eram menores e o acesso não era concorrido (STONEBRAKER et al. 2007). Com a web 3.0, onde milhões de dados são gerados, gravados e acessados com rapidez,  foi criado o NoSQL. Oferecendo acesso rápido e escalonamento horizontal, o NoSQL objetivou-se em resolver problemas relacionados à manutenção e interação com dados volumosos. Para lidar com o novo contexto o NoSQL se apoia no teorema CAP (Consistency, Availability e Partition tolerance), onde para se obter alta disponibilidade se faz necessário manejar os níveis de consistência.
+Os bancos de dados relacionais tradicionais surgiram em um tempo onde a necessidade de armazenamento e gravações eram menores e o acesso não era concorrido [(STONEBRAKER et al. 2007)](#STONEBRAKER-2007). Com a web 3.0, onde milhões de dados são gerados, gravados e acessados com rapidez,  foi criado o NoSQL. Oferecendo acesso rápido e escalonamento horizontal, o NoSQL objetivou-se em resolver problemas relacionados à manutenção e interação com dados volumosos. Para lidar com o novo contexto o NoSQL se apoia no teorema CAP (Consistency, Availability e Partition tolerance), onde para se obter alta disponibilidade se faz necessário manejar os níveis de consistência.
 
 O NoSQL trouxe alterações em relação ao paradigma relacional em termos de uso e manutenção das bases de dados. O primeiro ponto a ser observado é que o NoSQL não utiliza a linguagem SQL para consultas e gravações, e para garantir disponibilidade os resultados podem não ser consistentes.
  Estas alterações geraram grandes dúvidas quanto a sua adesão por parte da comunidade que já estava habituada com os paradigmas tradicionais, desta forma, iniciaram pesquisas para desenvolver um SGBDR que utilizasse a mesma linguagem já conhecida e consolidada no mercado, garantisse transações ACID e fossem escaláveis e altamente disponíveis. Fruto destas pesquisas surgiram os SGBDs New SQL. Segundo Stonebraker e Cattel (2011), as cinco características de um SGBD NewSQL são: 
@@ -93,6 +93,8 @@ O NoSQL trouxe alterações em relação ao paradigma relacional em termos de us
 <a id="referencias-sec7"></a>
 # Referências Bibliográficas
 
+<a id="STONEBRAKER-2007"></a>
+- STONEBRAKER, M. et al., 2007. “The End of an Architectural Era (It´s Time for a Complete Rewrite)”. In: Proceedings of the 33rd International Conference on Very Large Database, p. 1150-1160.
 
 
 **----------------- não apagar os comandos / conteúdos abaixo para vermos como exemplos de marcação do markdown ----------------------**
