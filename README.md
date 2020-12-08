@@ -3,7 +3,7 @@
 
 Projeto final da matéria de TBD_2020
 
-## SUMÁRIO
+# SUMÁRIO
 
 - [INTRODUÇÃO](#INTRODUÇÃO)
 	- [O que é NewSQL?](#O-que-é-NewSQL?)
@@ -29,7 +29,7 @@ Projeto final da matéria de TBD_2020
 
 
 ## INTRODUÇÃO
-A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos relacionados até o passo a passo das práticas a serem desenvolvidas. Também são apresentados as descrições acerca da configuração dos recursos utilizados. Este primeiro tópico foca em expor algumas definições respectivas a: NewSQL; disponibilidade; e terminologias relacionadas aos recursos selecionados.
+A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos relacionados até o passo a passo das práticas a serem desenvolvidas. Também são apresentados as descrições acerca da configuração dos recursos utilizados. Este primeiro tópico foca em expor algumas definições respectivas a: NewSQL, disponibilidade e terminologias relacionadas aos recursos selecionados.
 
 ### O que é NewSQL?
 Os bancos de dados relacionais tradicionais surgiram em um tempo onde a necessidade de armazenamento e gravações eram menores e o acesso não era concorrido (STONEBRAKER et al. 2007). Com a web 3.0, onde milhões de dados são gerados, gravados e acessados com rapidez,  foi criado o NoSQL. Oferecendo acesso rápido e escalonamento horizontal, o NoSQL objetivou-se em resolver problemas relacionados à manutenção e interação com dados volumosos. Para lidar com o novo contexto o NoSQL se apoia no teorema CAP (Consistency, Availability e Partition tolerance), onde para se obter alta disponibilidade se faz necessário manejar os níveis de consistência.
