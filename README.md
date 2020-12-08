@@ -1,5 +1,4 @@
-Projeto desenvolvido para a disciplina de Processamento Massivo de Dados (UFSCar - Profa. Dra. Sahudy Gonzalez) , com a finalidade de elaborar um tutorial prático com códigos e exemplos de uso de dois bancos de dados do tipo NewSQL, avaliados sob a ótica da disponibilidade.
-Integrantes do Grupo: Angelica Cunha dos Santos, Maulon Macedo e Suéllen Rodolfo Martinelli
+
 
 <a name="a"></a>
 # Sumário
