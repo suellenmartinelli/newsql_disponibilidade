@@ -1,7 +1,7 @@
 A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos teóricos relacionados até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
 
 <p align="center">
-  <img src="image-gerais/logo-ppgccs.png" width="350" alt="texto de exemplo">
+  <img src="image-gerais/logos.png" width="700" height="200" alt="texto de exemplo">
 </p>
 
 # Sumário
