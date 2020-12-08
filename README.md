@@ -62,7 +62,8 @@ Esta mesma
 <a id="recursos-sec1d"></a>
 ## Recursos Utilizados
 
-Voltar ao Sumário:
+| -------:
+| Voltar ao Sumário
 
 <a id="instalacoes-sec2"></a>
 # Instalação das Ferramentas
