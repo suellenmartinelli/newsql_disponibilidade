@@ -1,6 +1,6 @@
 A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos teóricos relacionados até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
 
-<img src="https://github.com/suellenmartinelli/newsql_disponibilidade/image-gerais/logo-ufscar.png?w=512" height="150" width="150">
+<img src="https://github.com/suellenmartinelli/newsql_disponibilidade/image-gerais/logo-ufscar.png?raw=true" height="150" width="150">
 
 # Sumário
 - [Introdução](#intro-sec1)
