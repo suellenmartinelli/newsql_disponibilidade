@@ -137,7 +137,7 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 
-**Dica para inserir figuras no tutorial --> acesse este material https://www.youtube.com/watch?v=nvPOUdz5PL4 e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.**
+**Dica para inserir figuras no tutorial --> [acesse este material](https://www.youtube.com/watch?v=nvPOUdz5PL4) e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.**
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
