@@ -186,16 +186,6 @@ Neste tópico serão abordados os passos e códigos utilizados para instalar as 
 
 Este texto apresenta um [teste de link aqui](https://www.youtube.com/watch?v=5B4bHSiOOO8) de um vídeo do **YouTube**.
 
-**Exemplo para add códigos diferentes sobre um mesmo tema:**
-
-~~~javascript
-Esta é uma linha de código para ser feita no JavaScript.
-~~~
-
-~~~php
-Esta é uma linha de código para ser feita no PHP.
-~~~
-
 **Exemplo 1 para add figuras:**  --> [acesse este material](https://www.youtube.com/watch?v=nvPOUdz5PL4) e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.
 
 **Exemplo 2 para add figuras:** --> add código HTML chamando o caminho da figura a partir do subdiretório da imagem que deseja exibir, tipo:
