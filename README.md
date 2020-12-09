@@ -55,14 +55,15 @@ Outro fator relativo às replicações é a tolerância a falhas. Na hipótese d
 <a id="contexto-sec1c"></a>
 ## Contextualização do Tutorial
 
-Como enredo deste tutorial, a base de dados Northwind será utilizada. Esta base foi originalmente criada pela Microsoft e tem sido usada como contexto de estudo para vários tutoriais relacionados a banco de dados. Os dados são relativos a um cenário de vendas de uma empresa fictícia chamada “Northwind Traders”, que importa e exporta alimentos para todo o mundo (YUGABYTE, 2020). A base inclui dados sobre fornecedores, clientes, funcionários, produtos, distribuidores e ordens de pedidos.
+Como enredo deste tutorial, a base de dados Northwind será utilizada. Esta base foi originalmente criada pela Microsoft e tem sido usada como contexto de estudo para vários tutoriais relacionados a banco de dados. Os dados são relativos a um cenário de vendas de uma empresa fictícia chamada “Northwind Traders”, que importa e exporta alimentos para todo o mundo [(YUGABYTE, 2020)](#YUGABYTE-2020). A base inclui dados sobre fornecedores, clientes, funcionários, produtos, distribuidores e ordens de pedidos.
 
 Esta mesma 
 
 <a id="recursos-sec1d"></a>
 ## Recursos Utilizados
 
-<p align="right">[Voltar ao Sumário](#sumario)</p>
+| :-------:
+| [Voltar ao Sumário](#sumario)
 
 <a id="instalacoes-sec2"></a>
 # Instalação das Ferramentas
@@ -76,6 +77,9 @@ Esta mesma
 <a id="memsql-sec2c"></a>
 ## MemSQL
 
+| :-------:
+| [Voltar ao Sumário](#sumario)
+
 <a id="criar-cluster-sec3"></a>
 # Criação do Cluster Utilizando o Docker
 
@@ -84,6 +88,9 @@ Esta mesma
 
 <a id="memsql-sec3b"></a>
 ## MemSQL
+
+| :-------:
+| [Voltar ao Sumário](#sumario)
 
 <a id="praticas-sec4"></a>
 # Trabalhando com a Disponibilidade: Práticas e Resultados
@@ -94,6 +101,9 @@ Esta mesma
 <a id="estudo-memsql-sec4b"></a>
 ## Estudo de caso com o MemSQL
 
+| :-------:
+| [Voltar ao Sumário](#sumario)
+
 <a id="conclusao-sec5"></a>
 # Conclusão
 
@@ -102,6 +112,9 @@ Esta mesma
 
 <a id="glossario-sec6"></a>
 # Glossário
+
+| :-------:
+| [Voltar ao Sumário](#sumario)
 
 <a id="referencias-sec7"></a>
 # Referências Bibliográficas
@@ -115,7 +128,7 @@ Esta mesma
 <a id="STONEBRAKER-2007"></a>
 - STONEBRAKER, M. et al. The End of an Architectural Era (It’s Time for a Complete Rewrite). Vldb '07: Proceedings Of The 33Rd International Conference On Very Large Data Bases, p. 1150-1160, jul. 2007. Disponível em: <http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf>. Acesso em: 18 out. 2020.
 <a id="YUGABYTE-2020"></a>
--
+- YUGABYTE. Northwind sample database. 2020. Disponível em: <https://docs.yugabyte.com/latest/sample-data/northwind/>. Acesso em: 19 out. 2020.
 
 
 # Fim do tutorial e dicas de formatação markdown
