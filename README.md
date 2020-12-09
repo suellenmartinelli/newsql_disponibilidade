@@ -92,10 +92,41 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 <a id="instalacoes-sec2"></a>
 # Instalação das Ferramentas
 
-Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção conterá informações como: partes de tutoriais oficiais da instalação já disponíveis na Internet; recomendações sobre os ambientes de instalação; prints de tela; e informações relacionadas a configuração do ambiente.
+Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção contém informações como: partes de tutoriais oficiais da instalação já disponíveis na Internet; recomendações sobre os ambientes de instalação; prints de tela; e informações relacionadas a configuração do ambiente.
 
 <a id="docker-sec2a"></a>
 ## Docker
+
+Para o tutorial de instalação do **Docker** será considerado um computador com o sistema operacional Linux Mint na versão 18.3. Informações sobre a instalação em outros sistemas operacionais podem ser consultados diretamente na documentação oficial por meio dos links:
+
+- Windows: [Tutorial de instalação no Windows](https://docs.docker.com/docker-for-windows/install/)
+- Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
+
+Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissões de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `sudo -v`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
+
+Após constatar que possui privilégios de administrador você deve atualizar o cache das listas de repositórios, para isto execute o comando `sudo apt-get update`. Pronto, privilégios checados, lista de repositórios atualizada, estamos prontos para a instalação!
+
+Para começar a instalação devemos primeiro garantir que as dependências do instalador do docker estão satisfeitas, estas depêndencias são:
+
+- `apt-transport-https`: para permitir que o gerenciador de pacotes transfira os dados através de https;
+- `ca-certificates`: habilitar o sistema a verificar certificados de segurança;
+- `curl`: para transfirir dados;
+- `software-properties-common`: scripts para gerenciar o software.
+
+Para instalar todos eles ao mesmo tempo podemos executar apenas um comando: `sudo apt-get install  curl apt-transport-https ca-certificates software-properties-common`. Não se preocupe em analisar se estes softwares já estão presentes no seu sistema, o `APT-GET` é inteligente e não irá baixar pacotes que já estão instalados, e caso a versão instalada seja antiga ele irá atualizar ;).
+
+A instalação oficial do Docker não está presente nas listas básicas de aplicativos do Linux. Mas isto não é motivo para preocupação, com apenas duas linhas de código já seremos capazes de acessar o repositório oficial. O primeiro passo é adicionar a chave CPG oficial do docker para garantir a segurança enquanto baixamos os arquivos do repositório oficial, o comando é este: `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`.
+
+Tendo adicionado a chave agora vamos adicionar o repositório da última versão estável do Docker em nossas lista através do comando: `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`. Como acabamos de adicionar um novo repositório em nossas listas, devemos atualizar novamente o cache com o comando `sudo apt-get update`.
+
+Chegou a hora esperada: instalar o docker-ce. Para isto basta executar o comando: `sudo apt install docker-ce`. Após concluir o processo de instalação (que é todo automatizado) podemos confirmar se o docker está ligado através do comando: `sudo systemctl status docker`, caso tenha ocorrido tudo bem devemos observar uma mensagem deste tipo:
+
+<p align="center">
+  <img src="image-instalacoes/docker-status.png" width="530" height="80">
+</p>
+
+Neste ponto estamos habilitados a seguir com as instalações, pois nosso docker está instalado e operante :D.
+
 
 <a id="cockroachdb-sec2b"></a>
 ## CockroachDB
@@ -185,6 +216,16 @@ Neste tópico serão abordados os passos e códigos utilizados para instalar as 
 **Site sobre comandos markdown:** <https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open>
 
 Este texto apresenta um [teste de link aqui](https://www.youtube.com/watch?v=5B4bHSiOOO8) de um vídeo do **YouTube**.
+
+**Exemplo para add códigos diferentes sobre um mesmo tema:**
+
+~~~Linux
+Esta é uma linha de código para ser feita no Linux.
+~~~
+
+~~~Windows
+Esta é uma linha de código para ser feita no Windows.
+~~~
 
 **Exemplo 1 para add figuras:**  --> [acesse este material](https://www.youtube.com/watch?v=nvPOUdz5PL4) e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.
 
