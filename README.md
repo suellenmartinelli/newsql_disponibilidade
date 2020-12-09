@@ -139,19 +139,19 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 # Referências Bibliográficas
 
 <a id="BRITO-2020"></a>
-- BRITO, Michelli. [Containers e Docker](https://www.youtube.com/watch?v=TR8zX1D6abU). 2020.
+- BRITO, Michelli. [Containers e Docker](https://www.youtube.com/watch?v=TR8zX1D6abU). Canal Michelli Brito, 2020.
 <a id="MOLL-2019"></a>
-- MOLL, Vinicius. Como construir uma aplicação com Docker? 2019. GeekHunter. Disponível em: <https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/>. Acesso em: 18 out. 2020.
+- MOLL, Vinicius. [Como construir uma aplicação com Docker?](https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/) 2019. GeekHunter.
 <a id="MONGODB-2020"></a>
-- MONGODB. MongoDB Documentation: Replication. 2020. Disponível em: <https://docs.mongodb.com/manual/replication/>. Acesso em: 19 out. 2020.
+- MONGODB. [MongoDB Documentation: Replication](https://docs.mongodb.com/manual/replication/). 2020.
 <a id="REZENDE-2013"></a>
-- REZENDE, Ricardo. Alta disponibilidade no banco de dados Oracle. DevMedia. 2013. Disponível em: <https://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle/28971>. Acesso em: 18 out. 2020.
+- REZENDE, Ricardo. [Alta disponibilidade no banco de dados Oracle](https://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle/28971). DevMedia. 2013.
 <a id="STONEBRAKER-2011"></a>
-- STONEBRAKER, Michael, CATTELL, Rick. 10 Rules for Scalable Performance in ‘Simple Operation’ Datastores. Communications Of The Acm, v. 54, n. 6, p. 72-80, jun. 2011. Disponível em: <https://doi.org/10.1145/1953122.1953144>. Acesso em: 17 out. 2020.
+- STONEBRAKER, Michael, CATTELL, [Rick. 10 Rules for Scalable Performance in ‘Simple Operation’ Datastores](https://doi.org/10.1145/1953122.1953144). Communications Of The Acm, v. 54, n. 6, p. 72-80, jun. 2011.
 <a id="STONEBRAKER-2007"></a>
-- STONEBRAKER, Michael et al. The End of an Architectural Era (It’s Time for a Complete Rewrite). Vldb '07: Proceedings Of The 33Rd International Conference On Very Large Data Bases, p. 1150-1160, jul. 2007. Disponível em: <http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf>. Acesso em: 18 out. 2020.
+- STONEBRAKER, Michael et al. [The End of an Architectural Era (It’s Time for a Complete Rewrite)](http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf). VLDB '07: Proceedings Of The 33Rd International Conference On Very Large Data Bases, p. 1150-1160, jul. 2007.
 <a id="YUGABYTE-2020"></a>
-- YUGABYTE. Northwind sample database. 2020. Disponível em: <https://docs.yugabyte.com/latest/sample-data/northwind/>. Acesso em: 19 out. 2020.
+- YUGABYTE. [Northwind sample database](https://docs.yugabyte.com/latest/sample-data/northwind/). YugabytesDB, 2020.
 
 
 # Fim do tutorial e dicas de formatação markdown
