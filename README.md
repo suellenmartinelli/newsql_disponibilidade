@@ -92,8 +92,13 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 <a id="instalacoes-sec2"></a>
 # Instalação das Ferramentas
 
+Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção conterá informações como: partes de tutoriais oficiais da instalação já disponíveis na Internet; recomendações sobre os ambientes de instalação; prints de tela; e informações relacionadas a configuração do ambiente.
+
 <a id="docker-sec2a"></a>
 ## Docker
+
+Passo 1. ??????
+Passo 2. ????
 
 <a id="cockroachdb-sec2b"></a>
 ## CockroachDB
