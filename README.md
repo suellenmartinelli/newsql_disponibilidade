@@ -97,9 +97,6 @@ Neste tópico serão abordados os passos e códigos utilizados para instalar as 
 <a id="docker-sec2a"></a>
 ## Docker
 
-Passo 1. ??????
-Passo 2. ????
-
 <a id="cockroachdb-sec2b"></a>
 ## CockroachDB
 
@@ -188,6 +185,16 @@ Passo 2. ????
 **Site sobre comandos markdown:** <https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open>
 
 Este texto apresenta um [teste de link aqui](https://www.youtube.com/watch?v=5B4bHSiOOO8) de um vídeo do **YouTube**.
+
+**Exemplo para add códigos diferentes sobre um mesmo tema:**
+
+~~~Linux
+Esta é uma linha de código para ser feita no Linux.
+~~~
+
+~~~Windows
+Esta é uma linha de código para ser feita no Windows.
+~~~
 
 **Exemplo 1 para add figuras:**  --> [acesse este material](https://www.youtube.com/watch?v=nvPOUdz5PL4) e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.
 
