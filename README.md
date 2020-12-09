@@ -139,7 +139,7 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 # Referências Bibliográficas
 
 <a id="BRITO-2020"></a>
-- BRITO, Michelli. Containers e Docker. 2020. Disponível em: <https://www.youtube.com/watch?v=TR8zX1D6abU>. Acesso em: 18 out. 2020. 
+- BRITO, Michelli. [Containers e Docker](https://www.youtube.com/watch?v=TR8zX1D6abU). 2020.
 <a id="MOLL-2019"></a>
 - MOLL, Vinicius. Como construir uma aplicação com Docker? 2019. GeekHunter. Disponível em: <https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/>. Acesso em: 18 out. 2020.
 <a id="MONGODB-2020"></a>
