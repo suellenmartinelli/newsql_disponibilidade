@@ -30,6 +30,8 @@ A estrutura deste tutorial online está fixada em cinco tópicos gerais que trat
 # Introdução
 A Introdução contempla uma visão geral dos tópicos a serem abordados no tutorial. Também são apresentados as algumas descrições acerca da configuração dos recursos utilizados. Este primeiro tópico foca em expor definições respectivas a: NewSQL, disponibilidade e terminologias relacionadas aos recursos selecionados.
 
+>@Suellen: apontamento da @Sahudy na apresentação - é preciso falar quais são os recursos de alta disponibilidade que cada banco disponibiliza, junto de estudos comparativos de benchmark entre as ferramentas selecionadas. Pode ser que esse tipo de informação fique pertinente após a subseção de 'recursos utilizados'.
+
 <a id="newsql-sec1a"></a>
 ## O que é NewSQL?
 Os bancos de dados relacionais tradicionais surgiram em um tempo onde a necessidade de armazenamento e gravações eram menores e o acesso não era concorrido [(STONEBRAKER et al. 2007)](#STONEBRAKER-2007). Com a web 3.0, onde milhões de dados são gerados, gravados e acessados com rapidez,  foi criado o NoSQL. Oferecendo acesso rápido e escalonamento horizontal, o NoSQL objetivou-se em resolver problemas relacionados à manutenção e interação com dados volumosos. Para lidar com o novo contexto o NoSQL se apoia no teorema CAP (**C**onsistency, **A**vailability e **P**artition tolerance), onde para se obter alta disponibilidade se faz necessário manejar os níveis de consistência.
@@ -57,10 +59,12 @@ Outro fator relativo às replicações é a tolerância a falhas. Na hipótese d
 
 Como enredo deste tutorial, a base de dados Northwind será utilizada. Esta base foi originalmente criada pela Microsoft e tem sido usada como contexto de estudo para vários tutoriais relacionados a banco de dados. Os dados são relativos a um cenário de vendas de uma empresa fictícia chamada “Northwind Traders”, que importa e exporta alimentos para todo o mundo [(YUGABYTE, 2020)](#YUGABYTE-2020). A base inclui dados sobre fornecedores, clientes, funcionários, produtos, distribuidores e ordens de pedidos.
 
->@Suellen: pode ser que aqui precisemos explicar um pouco mais sobre o BD a ser usado relacionado a uma "intro" dos cenários dos estudos que vamos apresentar em seções. posteriores 
+>@Suellen: pode ser que aqui precisemos explicar um pouco mais sobre o BD a ser usado relacionado a uma "intro" dos cenários dos estudos que vamos apresentar em seções. posteriores. 
 
 <a id="recursos-sec1d"></a>
 ## Recursos Utilizados
+
+>@Suellen: um dos comentários da @Sahudy na apresentação foi "tentar falar o essencial na intro, deixar o tutorial enxuto". Pode ser que esta subsação diminua...
 
 Os recursos que serão utilizados para a elaboração deste tutorial são: Docker; CockroachDB; e MemSQL.
 
@@ -92,41 +96,10 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 <a id="instalacoes-sec2"></a>
 # Instalação das Ferramentas
 
-Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção contém informações como: partes de tutoriais oficiais da instalação já disponíveis na Internet; recomendações sobre os ambientes de instalação; prints de tela; e informações relacionadas a configuração do ambiente.
+Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção conterá informações como: partes de tutoriais oficiais da instalação já disponíveis na Internet; recomendações sobre os ambientes de instalação; prints de tela; e informações relacionadas a configuração do ambiente.
 
 <a id="docker-sec2a"></a>
 ## Docker
-
-Para o tutorial de instalação do **Docker** será considerado um computador com o sistema operacional Linux Mint na versão 18.3. Este tutorial segue as recomendações encontradas no [tutorial de como instalar docker disponibilizado pela Hostinger](https://www.hostinger.com.br/tutoriais/install-docker-ubuntu). Informações sobre a instalação em outros sistemas operacionais podem ser consultados diretamente na documentação oficial por meio dos links:
-
-- Windows: [Tutorial de instalação no Windows](https://docs.docker.com/docker-for-windows/install/)
-- Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
-
-Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissões de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `sudo -v`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
-
-Após constatar que possui privilégios de administrador você deve atualizar o cache das listas de repositórios, para isto execute o comando `sudo apt-get update`. Pronto, privilégios checados, lista de repositórios atualizada, estamos prontos para a instalação!
-
-Para começar a instalação devemos primeiro garantir que as dependências do instalador do docker estão satisfeitas, estas depêndencias são:
-
-- `apt-transport-https`: para permitir que o gerenciador de pacotes transfira os dados através de https;
-- `ca-certificates`: habilitar o sistema a verificar certificados de segurança;
-- `curl`: para transfirir dados;
-- `software-properties-common`: scripts para gerenciar o software.
-
-Para instalar todos eles ao mesmo tempo podemos executar apenas um comando: `sudo apt-get install  curl apt-transport-https ca-certificates software-properties-common`. Não se preocupe em analisar se estes softwares já estão presentes no seu sistema, o `APT-GET` é inteligente e não irá baixar pacotes que já estão instalados, e caso a versão instalada seja antiga ele irá atualizar ;).
-
-A instalação oficial do Docker não está presente nas listas básicas de aplicativos do Linux. Mas isto não é motivo para preocupação, com apenas duas linhas de código já seremos capazes de acessar o repositório oficial. O primeiro passo é adicionar a chave CPG oficial do docker para garantir a segurança enquanto baixamos os arquivos do repositório oficial, o comando é este: `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`.
-
-Tendo adicionado a chave agora vamos adicionar o repositório da última versão estável do Docker em nossas lista através do comando: `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`. Como acabamos de adicionar um novo repositório em nossas listas, devemos atualizar novamente o cache com o comando `sudo apt-get update`.
-
-Chegou a hora esperada: instalar o docker-ce. Para isto basta executar o comando: `sudo apt install docker-ce`. Após concluir o processo de instalação (que é todo automatizado) podemos confirmar se o docker está ligado através do comando: `sudo systemctl status docker`, caso tenha ocorrido tudo bem devemos observar uma mensagem deste tipo:
-
-<p align="center">
-  <img src="image-instalacoes/docker-status.png" width="530" height="80">
-</p>
-
-Neste ponto estamos habilitados a seguir com as instalações, pois nosso docker está instalado e operante :D.
-
 
 <a id="cockroachdb-sec2b"></a>
 ## CockroachDB
@@ -152,6 +125,14 @@ Neste ponto estamos habilitados a seguir com as instalações, pois nosso docker
 <a id="praticas-sec4"></a>
 # Trabalhando com a Disponibilidade: Práticas e Resultados
 
+>@Suellen: um dos comentários da @Sahudy na planilha foi "slide 10. def dos conceitos em cada implementacao." Acredito que nesta seção, termos como JOIN, INSERT, UPDATE e outras coisas que aparecerem, precisam ter um explicação sucinta na seção Glossário.
+
+>@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
+
+>@Suellen: apontamento da @Sahudy na apresentação - focar em comandos do tipo leitura-escrita e escrita-escrita, que são os tipos que apresentarão "problemas" ao funcionamento dos bancos.
+
+>@Suellen: ideia para expor resultados em cada estudo, segundo apontamentos da @Sahudy - comparar comandos e seus resultados em grupos de leitura-leitura, leitura-escrita e escrita-escrita.
+
 <a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
 
@@ -163,6 +144,8 @@ Neste ponto estamos habilitados a seguir com as instalações, pois nosso docker
 
 <a id="conclusao-sec5"></a>
 # Conclusão
+
+>@Suellen: apontamento da @Sahudy na apresentação - apresentar uma tabela comparativa de 'desempenho' dos bancos, no sentido de comportamento deles ao tratar de cada tipo de requisição. Acredito que isso pode ser aqui ou em subseções de cada estudo de caso aplicado na seção 4.
 
 <a id="aprendizados-sec5a"></a>
 ## Sumarização do que foi aprendido
@@ -216,16 +199,6 @@ Neste ponto estamos habilitados a seguir com as instalações, pois nosso docker
 **Site sobre comandos markdown:** <https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open>
 
 Este texto apresenta um [teste de link aqui](https://www.youtube.com/watch?v=5B4bHSiOOO8) de um vídeo do **YouTube**.
-
-**Exemplo para add códigos diferentes sobre um mesmo tema:**
-
-~~~Linux
-Esta é uma linha de código para ser feita no Linux.
-~~~
-
-~~~Windows
-Esta é uma linha de código para ser feita no Windows.
-~~~
 
 **Exemplo 1 para add figuras:**  --> [acesse este material](https://www.youtube.com/watch?v=nvPOUdz5PL4) e faça os passos. É basicamente lançar uma imagem para a área de 'Issues' do github, copiar o código gerado da figura e não salvá-la no Issues. Basta ir ao README e colar o código da imagem copiado no Issues.
 
