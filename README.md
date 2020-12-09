@@ -62,8 +62,7 @@ Esta mesma
 <a id="recursos-sec1d"></a>
 ## Recursos Utilizados
 
-| -------:
-| Voltar ao Sumário
+<p align="right">[Voltar ao Sumário](#sumario)</p>
 
 <a id="instalacoes-sec2"></a>
 # Instalação das Ferramentas
@@ -115,7 +114,8 @@ Esta mesma
 - STONEBRAKER, M., CATTELL, R. 10 Rules for Scalable Performance in ‘Simple Operation’ Datastores. Communications Of The Acm, v. 54, n. 6, p. 72-80, jun. 2011. Disponível em: <https://doi.org/10.1145/1953122.1953144>. Acesso em: 17 out. 2020.
 <a id="STONEBRAKER-2007"></a>
 - STONEBRAKER, M. et al. The End of an Architectural Era (It’s Time for a Complete Rewrite). Vldb '07: Proceedings Of The 33Rd International Conference On Very Large Data Bases, p. 1150-1160, jul. 2007. Disponível em: <http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf>. Acesso em: 18 out. 2020.
-
+<a id="YUGABYTE-2020"></a>
+-
 
 
 # Fim do tutorial e dicas de formatação markdown
