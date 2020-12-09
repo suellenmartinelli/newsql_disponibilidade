@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="image-gerais/logos2.PNG" width="600" height="140" alt="texto de exemplo">
+  <img src="image-gerais/logos2.PNG" width="530" height="130" alt="texto de exemplo">
 </p>
 
 A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos teóricos relacionados até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
@@ -64,7 +64,7 @@ Como enredo deste tutorial, a base de dados Northwind será utilizada. Esta base
 
 Os recursos que serão utilizados para a elaboração deste tutorial são: Docker; CockroachDB; e MemSQL.
 
-O Docker é uma plataforma open source que fornece recursos para criar, executar, manejar e publicar containers (MOLL, 2019). Containers são abstrações a nível de sistema operacional e se caracterizam por agrupar códigos, bibliotecas e dependências com o intuito de garantir a execução de um determinado aplicativo em um ambiente isolado do sistema host (BRITO, 2020). A imagem de um container no Docker gera um pacote de software leve, autônomo e executável que inclui tudo o que é necessário para executar um aplicativo (DOCKER, 2020).
+O Docker é uma plataforma open source que fornece recursos para criar, executar, manejar e publicar containers [(MOLL, 2019)](#MOLL-2019). Containers são abstrações a nível de sistema operacional e se caracterizam por agrupar códigos, bibliotecas e dependências com o intuito de garantir a execução de um determinado aplicativo em um ambiente isolado do sistema host [(BRITO, 2020)](#BRITO-2020). A imagem de um container no Docker gera um pacote de software leve, autônomo e executável que inclui tudo o que é necessário para executar um aplicativo (DOCKER, 2020).
 
 A finalidade de utilização do Docker neste tutorial encontra-se em abstrair especificidades relacionadas ao sistema host durante a instalação e utilização das ferramentas de banco de dados. Os clusters que servirão para as provas de conceito serão criados sob containers levando em consideração as recomendações dos desenvolvedores das ferramentas utilizadas. A versão utilizada neste tutorial será a Docker Community Edition (Docker CE, versão 19.03, gratuita).
 
@@ -138,14 +138,18 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 <a id="referencias-sec7"></a>
 # Referências Bibliográficas
 
+<a id="BRITO-2020"></a>
+- BRITO, Michelli. Containers e Docker. 2020. Disponível em: <https://www.youtube.com/watch?v=TR8zX1D6abU>. Acesso em: 18 out. 2020. 
+<a id="MOLL-2019"></a>
+- MOLL, Vinicius. Como construir uma aplicação com Docker? 2019. GeekHunter. Disponível em: <https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/>. Acesso em: 18 out. 2020.
 <a id="MONGODB-2020"></a>
 - MONGODB. MongoDB Documentation: Replication. 2020. Disponível em: <https://docs.mongodb.com/manual/replication/>. Acesso em: 19 out. 2020.
 <a id="REZENDE-2013"></a>
 - REZENDE, Ricardo. Alta disponibilidade no banco de dados Oracle. DevMedia. 2013. Disponível em: <https://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle/28971>. Acesso em: 18 out. 2020.
 <a id="STONEBRAKER-2011"></a>
-- STONEBRAKER, M., CATTELL, R. 10 Rules for Scalable Performance in ‘Simple Operation’ Datastores. Communications Of The Acm, v. 54, n. 6, p. 72-80, jun. 2011. Disponível em: <https://doi.org/10.1145/1953122.1953144>. Acesso em: 17 out. 2020.
+- STONEBRAKER, Michael, CATTELL, Rick. 10 Rules for Scalable Performance in ‘Simple Operation’ Datastores. Communications Of The Acm, v. 54, n. 6, p. 72-80, jun. 2011. Disponível em: <https://doi.org/10.1145/1953122.1953144>. Acesso em: 17 out. 2020.
 <a id="STONEBRAKER-2007"></a>
-- STONEBRAKER, M. et al. The End of an Architectural Era (It’s Time for a Complete Rewrite). Vldb '07: Proceedings Of The 33Rd International Conference On Very Large Data Bases, p. 1150-1160, jul. 2007. Disponível em: <http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf>. Acesso em: 18 out. 2020.
+- STONEBRAKER, Michael et al. The End of an Architectural Era (It’s Time for a Complete Rewrite). Vldb '07: Proceedings Of The 33Rd International Conference On Very Large Data Bases, p. 1150-1160, jul. 2007. Disponível em: <http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf>. Acesso em: 18 out. 2020.
 <a id="YUGABYTE-2020"></a>
 - YUGABYTE. Northwind sample database. 2020. Disponível em: <https://docs.yugabyte.com/latest/sample-data/northwind/>. Acesso em: 19 out. 2020.
 
