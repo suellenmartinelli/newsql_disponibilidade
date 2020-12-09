@@ -149,6 +149,8 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 - COCKROACH LABS. [CockroachDB: Distributed SQL](https://www.cockroachlabs.com/product/). Cockroach Labs, 2020a.
 <a id="DOCKER-2020"></a>
 - DOCKER. [What is a Container?: a standardized unit of software](https://www.docker.com/resources/what-container). Docker Inc. 2020.
+<a id="MEMSQL-2020A"></a>
+- MEMSQL. [How MemSQL Works](https://docs.memsql.com/v7.1/introduction/how-memsql-works/). MemSQL Docs, 2020a. 
 <a id="MOLL-2019"></a>
 - MOLL, Vinicius. [Como construir uma aplicação com Docker?](https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/) GeekHunter, 2019.
 <a id="MONGODB-2020"></a>
