@@ -97,7 +97,7 @@ Neste tópico serão abordados os passos e códigos utilizados para instalar as 
 <a id="docker-sec2a"></a>
 ## Docker
 
-Para o tutorial de instalação do **Docker** será considerado um computador com o sistema operacional Linux Mint na versão 18.3. Informações sobre a instalação em outros sistemas operacionais podem ser consultados diretamente na documentação oficial por meio dos links:
+Para o tutorial de instalação do **Docker** será considerado um computador com o sistema operacional Linux Mint na versão 18.3. Este tutorial segue as recomendações encontradas no [tutorial de como instalar docker disponibilizado pela Hostinger](https://www.hostinger.com.br/tutoriais/install-docker-ubuntu). Informações sobre a instalação em outros sistemas operacionais podem ser consultados diretamente na documentação oficial por meio dos links:
 
 - Windows: [Tutorial de instalação no Windows](https://docs.docker.com/docker-for-windows/install/)
 - Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
