@@ -189,7 +189,7 @@ Para organizar os arquivos do Docker devemos criar uma pasta chamada `cockroach-
 
 Para iniciar o primeiro container iremos executar no terminal o seguinte comando:
 
-~~~docker run
+~~~docker
 docker run -d \
 --name=roach1 \
 --hostname=roach1 \
@@ -217,7 +217,7 @@ Após executar este comando teremos o container principal ativo, porém, ainda f
 
 Então para subir o container **roach2**:
 
-~~~docker run
+~~~docker
 docker run -d \
 --name=roach2 \
 --hostname=roach2 \
@@ -230,7 +230,7 @@ cockroachdb/cockroach:v20.1.7 start \
 
 E o container **roach3**:
 
-~~~docker run
+~~~docker
 docker run -d \
 --name=roach3 \
 --hostname=roach3 \
