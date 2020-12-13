@@ -119,7 +119,7 @@ Para o tutorial de instalação do **Docker** será considerado um computador co
 - Windows: [Tutorial de instalação no Windows](https://docs.docker.com/docker-for-windows/install/)
 - Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
 
-Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissões de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `<span style="color:blue"> sudo -v </span>`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
+Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissões de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `sudo -v`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
 
 Após constatar que possui privilégios de administrador você deve atualizar o cache das listas de repositórios, para isto execute o comando `sudo apt-get update`. Pronto, privilégios checados, lista de repositórios atualizada, estamos prontos para a instalação!
 
