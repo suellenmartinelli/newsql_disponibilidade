@@ -99,6 +99,8 @@ Benchmarks são ......... Existem na literatura alguns estudos recentes que apre
 
 O trabalho de [Knob et al. (2019)](#KNOB-2019) compara soluções NewSQL, sendo duas delas o MemSQL e CockroachDB, utilizando-se de dois softwares de benchmark focados em transações OLTP (*Yahoo! Cloud Serving Benchmark - YCSB* e *Voter*) em um ambiente distribuído. Os experimentos realizados tiveram uma infraestrutura e configuração padronizados para cada solução NewSQL avaliada, considerando um cluster de três nós físicos. As métricas avaliadas pelo experimento foram a taxa de transações executadas no tempo (*Throughput*) e a latência das transações,  através da análise da média geral das latências. 
 
+>@Suellen: Dar o resumo de cada benchmarck (cenário) de Knob et al (2019) e refazer os gráficos do artigo (somente com MemSQL e CockroachDB) para mostrá-los.
+
 <span style="color:blue"> teste de texto com cor text</span>
 
 | :-------:
@@ -117,7 +119,7 @@ Para o tutorial de instalação do **Docker** será considerado um computador co
 - Windows: [Tutorial de instalação no Windows](https://docs.docker.com/docker-for-windows/install/)
 - Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
 
-Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissões de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `sudo -v`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
+Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissões de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `<span style="color:blue"> sudo -v </span>`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
 
 Após constatar que possui privilégios de administrador você deve atualizar o cache das listas de repositórios, para isto execute o comando `sudo apt-get update`. Pronto, privilégios checados, lista de repositórios atualizada, estamos prontos para a instalação!
 
