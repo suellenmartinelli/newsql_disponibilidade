@@ -258,17 +258,25 @@ A criação do cluster utilizando o MemSQL acontece de forma transparente para o
 
 >@Suellen: um dos comentários da @Sahudy na planilha foi "slide 10. def dos conceitos em cada implementacao." Acredito que nesta seção, termos como JOIN, INSERT, UPDATE e outras coisas que aparecerem, precisam ter um explicação sucinta na seção Glossário.
 
->@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
-
 >@Suellen: apontamento da @Sahudy na apresentação - focar em comandos do tipo leitura-escrita e escrita-escrita, que são os tipos que apresentarão "problemas" ao funcionamento dos bancos.
 
 >@Suellen: ideia para expor resultados em cada estudo, segundo apontamentos da @Sahudy - comparar comandos e seus resultados em grupos de leitura-leitura, leitura-escrita e escrita-escrita.
 
+>@Suellen: Colocar aqui uma breve lógica do funcionamento de cada BD, de acordo com o que temos no relatório (seção 4) + artigo Knob et al. (2019).
+
 <a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
 
+>@Suellen: Descrição do estudo e comandos aplicados ao BD; resultados obtidos no BD
+
+>@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
+
 <a id="estudo-memsql-sec4b"></a>
 ## Estudo de caso com o MemSQL
+
+>@Suellen: Descrição do estudo e comandos aplicados ao BD; resultados obtidos no BD
+
+>@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
