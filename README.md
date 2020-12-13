@@ -78,7 +78,9 @@ O CockroachDB é um dos bancos de dados selecionados para o tutorial. Ele é um 
 
 O CockroachDB é caracterizado por ser um sistema que permite o desenvolvimento de aplicações com alta disponibilidade. Seus recursos permitem manejar situações relacionadas a queda de alguns nós da infraestrutura de forma transparente, sem que a aplicação perca acesso aos dados [(PAT RESEARCH, 2020)](#PAT-2020).
 
-A escolha do CockroachDB deve-se a documentação e materiais de apoio (blog, vídeos) disponíveis no site oficial para utilização do banco. Além de ser um banco de dados dedicado a tratar a disponibilidade. A versão utilizada é o CockroachDB (versão 20.1.7, gratuita).
+Lançado em 2015, o CockroachDB foi criado para ser um BD open source e distribuído, de forma que uma instância pode ser levantada em um computador pessoal comum e ajudar no processamento de requisições. O produto é distribuído nas versões Core e Enterprise, sendo a primeira gratuita [(KNOB et al. 2019)](#KNOB-2019). 
+
+A escolha do CockroachDB deve-se a documentação e materiais de apoio (blog, vídeos) disponíveis no site oficial para utilização do banco. Além de ser um banco de dados dedicado a tratar a disponibilidade. A versão utilizada é o CockroachDB Core (versão 20.1.7, gratuita).
 
 >@Suellen: cabe aqui uma imagem para expor o "visual" da aplicação CockroachDB.
 
@@ -296,6 +298,8 @@ A criação do cluster utilizando o MemSQL acontece de forma transparente para o
 - COCKROACH LABS. [CockroachDB: Distributed SQL](https://www.cockroachlabs.com/product/). Cockroach Labs, 2020a.
 <a id="DOCKER-2020"></a>
 - DOCKER. [What is a Container?: a standardized unit of software](https://www.docker.com/resources/what-container). Docker Inc. 2020.
+<a id="KNOB-2019"></a>
+- ?????????????????????????????????
 <a id="MEMSQL-2020A"></a>
 - MEMSQL. [How MemSQL Works](https://docs.memsql.com/v7.1/introduction/how-memsql-works/). MemSQL Docs, 2020a. 
 <a id="MOLL-2019"></a>
