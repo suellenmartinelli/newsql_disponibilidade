@@ -78,8 +78,6 @@ O CockroachDB é um dos bancos de dados selecionados para o tutorial. Ele é um 
 
 O CockroachDB é caracterizado por ser um sistema que permite o desenvolvimento de aplicações com alta disponibilidade. Seus recursos permitem manejar situações relacionadas a queda de alguns nós da infraestrutura de forma transparente, sem que a aplicação perca acesso aos dados [(PAT RESEARCH, 2020)](#PAT-2020).
 
-Lançado em 2015, o CockroachDB foi criado para ser um BD open source e distribuído, de forma que uma instância pode ser levantada em um computador pessoal comum e ajudar no processamento de requisições. O produto é distribuído nas versões Core e Enterprise, sendo a primeira gratuita [(KNOB et al. 2019)](#KNOB-2019). 
-
 A escolha do CockroachDB deve-se a documentação e materiais de apoio (blog, vídeos) disponíveis no site oficial para utilização do banco. Além de ser um banco de dados dedicado a tratar a disponibilidade. A versão utilizada é o CockroachDB Core (versão 20.1.7, gratuita).
 
 >@Suellen: cabe aqui uma imagem para expor o "visual" da aplicação CockroachDB.
