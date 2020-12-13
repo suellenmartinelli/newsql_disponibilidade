@@ -31,7 +31,7 @@ A estrutura deste tutorial online está fixada em cinco tópicos gerais que trat
 # Introdução
 A Introdução contempla uma visão geral dos tópicos a serem abordados no tutorial. Também são apresentados as algumas descrições acerca da configuração dos recursos utilizados. Este primeiro tópico foca em expor definições respectivas a: NewSQL, disponibilidade e terminologias relacionadas aos recursos selecionados.
 
->@Suellen: apontamento da @Sahudy na apresentação - é preciso falar quais são os recursos de alta disponibilidade que cada banco disponibiliza, junto de estudos comparativos de benchmark entre as ferramentas selecionadas. Pode ser que esse tipo de informação fique pertinente após a subseção de 'recursos utilizados'.
+<span style="color:green"> >@Suellen: apontamento da @Sahudy na apresentação - é preciso falar quais são os recursos de alta disponibilidade que cada banco disponibiliza, junto de estudos comparativos de benchmark entre as ferramentas selecionadas. Pode ser que esse tipo de informação fique pertinente após a subseção de 'recursos utilizados'. </span>
 
 <a id="newsql-sec1a"></a>
 ## O que é NewSQL?
