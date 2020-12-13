@@ -97,13 +97,13 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 
 Benchmarks são ......... Existem na literatura alguns estudos recentes que apresentam .....
 
-O trabalho de [Knob et al. (2019)](#KNOB-2019) compara soluções NewSQL, sendo duas delas o MemSQL e CockroachDB, utilizando-se de dois softwares de benchmark focados em transações OLTP (*Yahoo! Cloud Serving Benchmark - YCSB* e *Voter*) em um ambiente distribuído. Os experimentos realizados tiveram uma infraestrutura e configuração padronizados para cada solução NewSQL avaliada, considerando um cluster de três nós físicos. As métricas avaliadas pelo experimento foram a taxa de transações executadas no tempo (*Throughput*) e a latência das transações,  através da análise da média geral das latências. 
+O trabalho de [Knob et al. (2019)](#KNOB-2019) compara soluções NewSQL, sendo duas delas o MemSQL e CockroachDB, utilizando-se de dois softwares de benchmark focados em transações OLTP (*Yahoo! Cloud Serving Benchmark - YCSB* e *Voter*) em um ambiente distribuído. Os experimentos consideraram um cluster de três nós físicos e as métricas avaliadas foram a taxa de transações executadas no tempo (*Throughput*) e a latência das transações, através da análise da média geral das latências. 
 
-O benchmark YCSB gera uma carga de trabalho mista com operações de leitura e escrita, incluindo diferentes volumes de dados e número de requisições. A ferramenta realiza escolhas aleatórias, como as operações que serão feitas (Insert, Update, Read ou Scan), qual registro ler ou escrever, e quantos registros examinar. Neste teste, foram configurados um fator de escala como 1000, 64 usuarios virtuais emulados para manipulação (64 conexões simultâneas) e um limite do teste de 300 segundos.  
+O benchmark YCSB gera uma carga de trabalho mista com operações de leitura e escrita, incluindo diferentes volumes de dados e número de requisições. A ferramenta realiza escolhas aleatórias, como as operações que serão feitas (Insert, Update, Read ou Scan), qual registro ler ou escrever, e quantos registros examinar. Já o benchmark Voter simula a saturação de um cenário em que o BD receberá requisições constantes, sendo cada requisição associada ao voto de uma pessoa para um determinado candidato. Ao receber uma requisição, a aplicação invoca uma transação para atualizar o número total de votos de cada participante, enquanto uma segunda transação contabiliza todos os votos. Cada teste foi configurado com um fator de escala em 1000 e com 64 usuários virtuais emulados para manipulação (64 conexões simultâneas).
 
->@Suellen: Dar o resumo de cada benchmarck (cenário) de Knob et al (2019) e refazer os gráficos do artigo (somente com MemSQL e CockroachDB) para mostrá-los.
+O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que a solução MemSQL obteve alta taxa de throughput e baixa latencia, apresentando uma discrepancia considerável sobre o CockroachDB com as piores médias de transação por segundo, como apresenta ?????????????, respectivamente.
 
-<span style="color:blue"> teste de texto com cor text</span>
+>@Suellen: gráficos ou quadros para expor resultados dos BDs.
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
