@@ -99,7 +99,7 @@ Benchmarks são ......... Existem na literatura alguns estudos recentes que apre
 
 O trabalho de [Knob et al. (2019)](#KNOB-2019) compara soluções NewSQL, sendo duas delas o MemSQL e CockroachDB, utilizando-se de dois softwares de benchmark focados em transações OLTP (*Yahoo! Cloud Serving Benchmark - YCSB* e *Voter*) em um ambiente distribuído. Os experimentos realizados tiveram uma infraestrutura e configuração padronizados para cada solução NewSQL avaliada, considerando um cluster de três nós físicos. As métricas avaliadas pelo experimento foram a taxa de transações executadas no tempo (*Throughput*) e a latência das transações,  através da análise da média geral das latências. 
 
-
+<span style="color:blue"> teste de texto com cor text</span>
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
