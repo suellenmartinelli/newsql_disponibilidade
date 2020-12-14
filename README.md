@@ -11,7 +11,7 @@ A estrutura deste tutorial online está fixada em cinco tópicos gerais que trat
 	2. [O que é Disponibilidade?](#disponibilidade-sec1b)
 	3. [Contextualização do Tutorial](#contexto-sec1c)
 	4. [Recursos Utilizados](#recursos-sec1d)
-	5. [Benchmarks com CockroachBD e MemSQL](#benchmark-sec1e)
+	5. [Benchmarks com CockroachDB e MemSQL](#benchmark-sec1e)
 2. [Instalação das Ferramentas](#instalacoes-sec2)
 	1. [Docker](#docker-sec2a)
 	2. [CockroachDB](#cockroachdb-sec2b)
@@ -93,7 +93,7 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 >@Suellen: cabe aqui uma imagem para expor o "visual" da aplicação MemSQL.
 
 <a id="benchmark-sec1e"></a>
-## Benchmarks com CockroachBD e MemSQL
+## Benchmarks com CockroachDB e MemSQL
 
 Benchmarks são ......... Existem na literatura alguns estudos recentes que apresentam .....
 
