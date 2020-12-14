@@ -101,15 +101,15 @@ O trabalho de [Knob et al. (2019)](#KNOB-2019) compara soluções NewSQL, sendo 
 
 O benchmark YCSB gera uma carga de trabalho mista com operações de leitura e escrita, incluindo diferentes volumes de dados e número de requisições. A ferramenta realiza escolhas aleatórias, como as operações que serão feitas (Insert, Update, Read ou Scan), qual registro ler ou escrever, e quantos registros examinar. Já o benchmark Voter simula a saturação de um cenário em que o BD receberá requisições constantes, sendo cada requisição associada ao voto de uma pessoa para um determinado candidato. Ao receber uma requisição, a aplicação invoca uma transação para atualizar o número total de votos de cada participante, enquanto uma segunda transação contabiliza todos os votos. Cada teste foi configurado com um fator de escala em 1000 e com 64 usuários virtuais emulados para manipulação (64 conexões simultâneas).
 
-O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que a solução MemSQL obteve alta taxa de throughput e baixa latencia, apresentando uma discrepancia considerável sobre o CockroachDB com as piores médias de transação por segundo, como apresenta ?????????????, respectivamente.
+O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que a solução MemSQL obteve alta taxa de throughput e baixa latência, apresentando uma discrepancia considerável sobre o CockroachDB com as piores médias de transação por segundo, como apresenta os resultados da Figura X.  ......................
 
 <p align="center">
-  <img src="image-gerais/logo-ppgccs.png" width="350">
+  <img src="image-intro/quadro-knob-2019.PNG" width="300">
   <br/>
-  <caption><span style="color:#696969"> Figura 1: ????????? | Fonte: ????? </span></caption>
+  <caption><span style="color:#696969"> Figura X: ????????? | Fonte: ????? </span></caption>
 </p>
 
->@Suellen: gráficos ou quadros para expor resultados dos BDs.
+>@Suellen: falar de mais um estudo.
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
