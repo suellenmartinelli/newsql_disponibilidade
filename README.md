@@ -106,7 +106,7 @@ O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que ao analisar as médias 
 <p align="center">
   <img src="image-intro/quadro-knob-2019.PNG" width="650">
   <br/>
-  <caption><span style="color:#696969"> Figura X: ????????? | Fonte: Adaptado de Knob et al. (2019) </span></caption>
+  <caption><span style="color:#696969"> Figura X: Medidas obtidas nos benchmarks | Fonte: Adaptado de Knob et al. (2019) </span></caption>
 </p>
 
 O segundo estudo apresentado trata de .....
