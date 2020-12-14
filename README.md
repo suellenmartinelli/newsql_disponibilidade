@@ -105,8 +105,12 @@ O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que a solução MemSQL obte
 
 <p align="center">
   <img src="image-gerais/logo-ppgccs.png" width="350">
-	>Figura X: descrição da imagem usando o recurso de comentário do markdown
 </p>
+
+<figure>
+	<img src="image-gerais/logo-ppgccs.png" width="350" />
+	<figcaption>Figura 1 - Balão (imagem: Freepik)</figcaption>
+</figure>
 
 >@Suellen: gráficos ou quadros para expor resultados dos BDs.
 
