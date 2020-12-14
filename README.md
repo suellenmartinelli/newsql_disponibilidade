@@ -111,7 +111,7 @@ O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que ao analisar as médias 
 
 O segundo estudo apresentado trata de .....
 
->@Suellen: falar de mais um estudo, com foco em disponibilidade.
+>@Suellen: falar de mais um estudo, com foco em disponibilidade. Pode ser que o artigo do Kaur et al. seja viável aqui...
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
