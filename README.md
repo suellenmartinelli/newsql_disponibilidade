@@ -104,7 +104,7 @@ O benchmark YCSB gera uma carga de trabalho mista com operações de leitura e e
 O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que a solução MemSQL obteve alta taxa de throughput e baixa latência, apresentando uma discrepancia considerável sobre o CockroachDB com as piores médias de transação por segundo, como apresenta os resultados da Figura X.  ......................
 
 <p align="center">
-  <img src="image-intro/quadro-knob-2019.PNG" width="300">
+  <img src="image-intro/quadro-knob-2019.PNG" width="650">
   <br/>
   <caption><span style="color:#696969"> Figura X: ????????? | Fonte: ????? </span></caption>
 </p>
