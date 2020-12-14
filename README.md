@@ -105,7 +105,7 @@ O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que a solução MemSQL obte
 
 <p align="center">
   <img src="image-gerais/logo-ppgccs.png" width="350">
-  </br>
+  <br/>
   <caption><span style="color:blue"> Figura 1: ????????? | Fonte: ????? </span></caption>
 </p>
 
