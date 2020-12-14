@@ -95,7 +95,7 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 <a id="benchmark-sec1e"></a>
 ## Benchmarks com CockroachDB e MemSQL
 
-Benchmarks são ......... Existem na literatura alguns estudos recentes que apresentam .....
+Benchmark (na computação) é o ato de comparar de forma eficiente a performance entre dispositivos ou softwares utilizando um ou mais programas para efetuar simulações, testes padronizados e ensaios. Para comparar o desempenho de softwares de maneira equivalente, é preciso realizar uma série de testes e analisar diferentes tipos de dados [(COSTA, 2020)](#COSTA-2020). Existem na literatura alguns estudos recentes que apresentam benchmarks com diferentes soluções NewSQL. Aqui, serão comentados dois estudos identificados.
 
 O trabalho de [Knob et al. (2019)](#KNOB-2019) compara soluções NewSQL, sendo duas delas o MemSQL e CockroachDB, utilizando-se de dois softwares de benchmark focados em transações OLTP (*Yahoo! Cloud Serving Benchmark - YCSB* e *Voter*) em um ambiente distribuído. Os experimentos consideraram um cluster de três nós físicos e as métricas avaliadas foram a taxa de transações executadas no tempo (*Throughput*) e a latência das transações, através da análise da média geral das latências. 
 
@@ -109,7 +109,9 @@ O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que ao analisar as médias 
   <caption><span style="color:#696969"> Figura X: ????????? | Fonte: Adaptado de Knob et al. (2019) </span></caption>
 </p>
 
->@Suellen: falar de mais um estudo.
+O segundo estudo apresentado trata de .....
+
+>@Suellen: falar de mais um estudo, com foco em disponibilidade.
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
@@ -323,10 +325,12 @@ A criação do cluster utilizando o MemSQL acontece de forma transparente para o
 - BRITO, Michelli. [Containers e Docker](https://www.youtube.com/watch?v=TR8zX1D6abU). Canal Michelli Brito, 2020.
 <a id="COCKROACH-2020A"></a>
 - COCKROACH LABS. [CockroachDB: Distributed SQL](https://www.cockroachlabs.com/product/). Cockroach Labs, 2020a.
+<a id="COSTA-2020"></a>
+- COSTA, Matheus Bigogno. [O que é Benchmark?](https://canaltech.com.br/hardware/O-que-e-Benchmark/). CanalTech, 2020.
 <a id="DOCKER-2020"></a>
 - DOCKER. [What is a Container?: a standardized unit of software](https://www.docker.com/resources/what-container). Docker Inc. 2020.
 <a id="KNOB-2019"></a>
-- ?????????????????????????????????
+- KNOB, Ronan R. et al. [Uma Análise de Soluções NewSQL](??? LINK ????). ????? EVENTO ?????, p. ??? - ???, MÊS. 2019.
 <a id="MEMSQL-2020A"></a>
 - MEMSQL. [How MemSQL Works](https://docs.memsql.com/v7.1/introduction/how-memsql-works/). MemSQL Docs, 2020a. 
 <a id="MOLL-2019"></a>
