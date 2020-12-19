@@ -298,6 +298,60 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 <a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
 
+- **Passo 1: Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de daods Northwind pronto para uso, abra a tela ??????????. Nela, execute os comandos (Grupo A) apresentados, de uma só vez:**
+
+>@Suéllen: COMANDOS DO GRUPO A
+
+Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execução dos comandos e tudo correr como esperado, o retorno apresentado após a última instrução será “??????”, como mostra a Figura X.
+
+>@Suéllen: figura X para apresentar saída ao final da execução dos comandos do Grupo A.
+
+Observe saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas na tela ????????????, como no exemplo da Figura Y.
+
+>@Suéllen: figura Y para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD
+
+- **Passo 2: Agora vamos forçar a queda de um dos nós secundários do nosso cluster no CockroachDB. Para isso, acesse a tela ?????????? e aplique a seguinte instrução:**
+
+>@Suéllen: COMANDO PARA QUEDA DE UM NÓ SECUNDÁRIO NO COCKROACHDB
+
+Novamente, observe as respostas emitidas pela aplicação e confira se realmente o seu cluster agora está operando com dois nós. Se a resposta emitida for “???????????????” quer dizer que nossa configuração está ok. 
+
+- **Passo 3: Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). Novamente, acesse a tela ????????? e rode as instruções a seguir, de uma só vez:**
+
+>@Suéllen: COMANDOS DO GRUPO B
+
+Observe as saídas emitidas pela aplicação. E agora, tudo ocorreu bem? Se a aplicação te retornar uma mensagem tipo “?????????????”, quer dizer que o banco de dados não suportou operar com 2 nós e ficou indisponível, como mostra a Figura Z.
+
+>@Suéllen: figura Z para apresentar saída ao final da execução dos comandos do Grupo B (PRIMEIRA TENTATIVA).
+
+Porém, se o CockroachDB fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com 2 nós em atividade o banco manteve-se disponível. 
+
+Antes de prosseguir, independentemente do resultado obtido até esta etapa, observe novamente as saídas de tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas na tela ???????????? e, em especial, identificar onde ocorreu uma falha, como no exemplo da Figura X.
+
+>@Suéllen: figura X para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD - Grupo B - Primeira Tentativa.
+
+Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, vá direto para a próxima subseção.
+
+- **Passo 4: Vamos retornar o nosso cluster no CockroachDB para a configuração inicial (com 3 nós), subindo um nó secundário. Para isso, acesse a tela ?????????? e aplique a seguinte instrução:**
+
+>@Suéllen: COMANDO PARA ATIVAR UM NÓ SECUNDÁRIO NO COCKROACHDB
+
+Repare nas respostas emitidas pela aplicação e confira se realmente o seu cluster voltou a operar com três nós. Se a resposta emitida for “???????????????” quer dizer que nossa configuração está ok.
+
+- **Passo 5: Novamente, vamos executar nosso segundo grupo de comandos (Grupo B). Acesse a tela ????????? e rode as instruções a seguir, de uma só vez:**
+
+>@Suéllen: COMANDOS DO GRUPO B - MESMOS COMANDOS, SEGUNDA TENTATIVA
+
+Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se a aplicação te retornar uma mensagem tipo “?????????????”, semelhante a mensagem obtida ao efetuar o Passo 1, então quer dizer que nosso banco só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
+Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas na tela ????????????, como no exemplo da Figura S.
+
+>@Suéllen: figura S para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD
+
+Desta vez, faça uma comparação pessoal destes resultados, com os valores obtidos após a execução dos comandos do Grupo A. Logo logo vamos discutir estes resultados com você.
+
+
+**O ESTUDO DE CASO TERMINA AQUI, ABAIXO APENAS COMENTÁRIOS DA SEÇÃO.**
+
 >@Suellen: Descrição do estudo e comandos aplicados ao BD; resultados obtidos no BD
 
 >@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
