@@ -287,12 +287,13 @@ A base de dados Northwind possui 13 tabelas no total (como mostrado na seção X
 
 Os 60 comandos do experimento prático são divididos em dois conjuntos (Grupo A e Grupo B), com 30 instruções cada. Essa divisão também distribui igualmente a variedade de comandos por tipo em cada grupo. Ou seja, cada grupo possui 10 comandos de escrita-escrita, mais 10 instruções de leitura-escrita e outros 10 comandos de leitura-leitura, organizados de maneira intercalada. Cada grupo de comandos precisa ser executado na mesma ordem, respeitando a sequência em que são apresentados neste tutorial.
 
+Diante desta introdução, siga os procedimentos dados em cada estudo de caso a seguir. Após o passo a passo efetuado em cada estudo, este tutorial abordará sobre algumas métricas e resultados obtidos na aplicação dos comandos, respectivos à disponibilidade dos dados.
 
 >@Suellen: um dos comentários da @Sahudy na planilha foi "slide 10. def dos conceitos em cada implementacao." Acredito que nesta seção, termos como JOIN, INSERT, UPDATE e outras coisas que aparecerem, precisam ter um explicação sucinta na seção Glossário.
 
 >@Suellen: apontamento da @Sahudy na apresentação - focar em comandos do tipo leitura-escrita e escrita-escrita, que são os tipos que apresentarão "problemas" ao funcionamento dos bancos.
 
->@Suellen: Colocar aqui uma breve lógica do funcionamento de cada BD, de acordo com o que temos no relatório (seção 4) + artigo Knob et al. (2019). ----  será que ainda será aqui isso??????
+>@Suellen: Colocar aqui uma breve lógica do funcionamento de cada BD, de acordo com o que temos no relatório (seção 4) + artigo Knob et al. (2019). -  SERÁ QUE AINDA VAI SER AQUI NESTA SEÇÃO PARA FALAR DISSO?
 
 <a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
