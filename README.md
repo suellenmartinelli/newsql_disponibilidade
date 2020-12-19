@@ -301,6 +301,8 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 
 - **Passo 1: Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de daods Northwind pronto para uso, abra a tela ??????????. Nela, execute os comandos (Grupo A) apresentados, de uma só vez:**
 
+>@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos.
+
 ~~~SQL
 -- comandos 1
 INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('NTLSU', 'Nestlé S.A.', 'Paul Bulcke', 'Accounting Manager', '5505 Blue Lagoon Drive', 'Vevey', 'Vaud', '78988-555', 'Suíça');
@@ -393,12 +395,6 @@ select customers.contact_name, customers.phone, orders.ship_name, orders.order_i
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11082, 'LAMBR', 2, '2020-03-15', '2020-04-05', 1, 90.74, 'Lojas Americanas S.A.', 'Av. dos Oitis, nº 1.460, Distrito Industrial', 'Rio de Janeiro', 'RJ', '89000-565', 'Brazil');
 ~~~~
 
->@Suéllen: COMANDOS DO GRUPO A
-
-~~~SQL
-select * from teste_de_SQL;
-~~~
-
 Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execução dos comandos e tudo correr como esperado, o retorno apresentado após a última instrução será “??????”, como mostra a Figura X.
 
 >@Suéllen: figura X para apresentar saída ao final da execução dos comandos do Grupo A.
@@ -414,6 +410,8 @@ Observe saídas respectivas ao tempo de execução das instruções, frequência
 Novamente, observe as respostas emitidas pela aplicação e confira se realmente o seu cluster agora está operando com dois nós. Se a resposta emitida for “???????????????” quer dizer que nossa configuração está ok. 
 
 - **Passo 3: Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). Novamente, acesse a tela ????????? e rode as instruções a seguir, de uma só vez:**
+
+>@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos.
 
 >@Suéllen: COMANDOS DO GRUPO B
 
@@ -436,6 +434,8 @@ Se ao final do Passo 3 você não obteve um retorno positivo do banco em relaç�
 Repare nas respostas emitidas pela aplicação e confira se realmente o seu cluster voltou a operar com três nós. Se a resposta emitida for “???????????????” quer dizer que nossa configuração está ok.
 
 - **Passo 5: Novamente, vamos executar nosso segundo grupo de comandos (Grupo B). Acesse a tela ????????? e rode as instruções a seguir, de uma só vez:**
+
+>@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos.
 
 >@Suéllen: COMANDOS DO GRUPO B - MESMOS COMANDOS, SEGUNDA TENTATIVA
 
