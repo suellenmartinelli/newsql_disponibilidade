@@ -284,7 +284,11 @@ Para realizar um teste de disponibilidade em cada uma das soluções NewSQL apre
 
 A base de dados Northwind possui 13 tabelas no total (como mostrado na seção X), porém, vale ressaltar que os comandos apresentados para a prática destinam-se apenas às tabelas “customers” e “orders”. As instruções foram limitadas a estas duas tabelas justamente para ser possível avaliar resultados acerca da disponibilidade fornecida por diferentes soluções NewSQL que foram submetidas ao mesmo conteúdo de teste.
 
->@Suellen: imagem com a relação de tabelas a serem trabalhadas no experimento
+<p align="center">
+  <img src="images-praticas/tables-estudo-caso.PNG" width="650">
+  <br/>
+  <caption><span style="color:#696969"> Figura X: description | Fonte: ref yugabyte </span></caption>
+</p>
 
 Os 60 comandos do experimento prático são divididos em dois conjuntos (Grupo A e Grupo B), com 30 instruções cada. Essa divisão também distribui igualmente a variedade de comandos por tipo em cada grupo. Ou seja, cada grupo possui 10 comandos de escrita-escrita, mais 10 instruções de leitura-escrita e outros 10 comandos de leitura-leitura, organizados de maneira intercalada. Cada grupo de comandos precisa ser executado na mesma ordem, respeitando a sequência em que são apresentados neste tutorial.
 
