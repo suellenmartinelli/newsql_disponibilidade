@@ -22,6 +22,7 @@ A estrutura deste tutorial online está fixada em cinco tópicos gerais que trat
 4. [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4)
 	1. [Estudo de caso com o CockroachDB](#estudo-cockroachdb-sec4a)
 	2. [Estudo de caso com o MemSQL](#estudo-memsql-sec4b)
+	3. [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c)
 5. [Conclusão](#conclusao-sec5)
 	1. [Sumarização do que foi aprendido](#aprendizados-sec5a)
 6. [Glossário](#glossario-sec6)
@@ -366,6 +367,9 @@ Desta vez, faça uma comparação pessoal destes resultados, com os valores obti
 >@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
 
 >@Suellen: ideia para expor resultados em cada estudo, segundo apontamentos da @Sahudy - comparar comandos e seus resultados em grupos de leitura-leitura, leitura-escrita e escrita-escrita.
+
+<a id="#resultados-sec4c"></a>
+## Resultados e comparações entre o CockroachDB e o MemSQL
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
