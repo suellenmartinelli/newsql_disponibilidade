@@ -285,7 +285,7 @@ Para realizar um teste de disponibilidade em cada uma das soluções NewSQL apre
 A base de dados Northwind possui 13 tabelas no total (como mostrado na seção X), porém, vale ressaltar que os comandos apresentados para a prática destinam-se apenas às tabelas “customers” e “orders”. As instruções foram limitadas a estas duas tabelas justamente para ser possível avaliar resultados acerca da disponibilidade fornecida por diferentes soluções NewSQL que foram submetidas ao mesmo conteúdo de teste.
 
 <p align="center">
-  <img src="images-praticas/tables-estudo-caso.PNG" width="650">
+  <img src="images-praticas/tables2-estudo-caso.PNG" width="500">
   <br/>
   <caption><span style="color:#696969"> Figura X: description | Fonte: ref yugabyte </span></caption>
 </p>
