@@ -350,26 +350,19 @@ Pela última vez, observe as saídas respectivas ao tempo de execução das inst
 
 Desta vez, faça uma comparação pessoal destes resultados, com os valores obtidos após a execução dos comandos do Grupo A. Logo logo vamos discutir estes resultados com você.
 
-
-**O ESTUDO DE CASO TERMINA AQUI, ABAIXO APENAS COMENTÁRIOS DA SEÇÃO.**
-
->@Suellen: Descrição do estudo e comandos aplicados ao BD; resultados obtidos no BD
-
->@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
-
->@Suellen: ideia para expor resultados em cada estudo, segundo apontamentos da @Sahudy - comparar comandos e seus resultados em grupos de leitura-leitura, leitura-escrita e escrita-escrita.
-
 <a id="estudo-memsql-sec4b"></a>
 ## Estudo de caso com o MemSQL
 
->@Suellen: Descrição do estudo e comandos aplicados ao BD; resultados obtidos no BD
+>@Suellen: ao terminar o primeiro estudo de caso, replicar neste BD, com as alterações pertinentes ao MemSQL
+
+<a id="resultados-sec4c"></a>
+## Resultados e comparações entre o CockroachDB e o MemSQL
 
 >@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
 
->@Suellen: ideia para expor resultados em cada estudo, segundo apontamentos da @Sahudy - comparar comandos e seus resultados em grupos de leitura-leitura, leitura-escrita e escrita-escrita.
+>@Suellen: Descrição do estudo e comandos aplicados ao BD; resultados obtidos no BD
 
-<a id="#resultados-sec4c"></a>
-## Resultados e comparações entre o CockroachDB e o MemSQL
+>@Suellen: ideia para expor resultados em cada estudo, segundo apontamentos da @Sahudy - comparar comandos e seus resultados em grupos de leitura-leitura, leitura-escrita e escrita-escrita.
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
