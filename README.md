@@ -303,6 +303,10 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 
 >@Suéllen: COMANDOS DO GRUPO A
 
+~~~SQL
+select * from teste_de_SQL;
+~~~
+
 Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execução dos comandos e tudo correr como esperado, o retorno apresentado após a última instrução será “??????”, como mostra a Figura X.
 
 >@Suéllen: figura X para apresentar saída ao final da execução dos comandos do Grupo A.
