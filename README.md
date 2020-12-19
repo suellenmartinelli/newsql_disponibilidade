@@ -301,7 +301,7 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 
 - **Passo 1: Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de daods Northwind pronto para uso, abra a tela ??????????. Nela, execute os comandos (Grupo A) apresentados, de uma só vez:**
 
->@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos.
+>@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos. Ou se ficar melhor, fornecer um link que dê aceso somente so SQL deste grupo de código.
 
 ~~~SQL
 -- comandos 1
@@ -411,7 +411,7 @@ Novamente, observe as respostas emitidas pela aplicação e confira se realmente
 
 - **Passo 3: Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). Novamente, acesse a tela ????????? e rode as instruções a seguir, de uma só vez:**
 
->@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos.
+>@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos. Ou se ficar melhor, fornecer um link que dê aceso somente so SQL deste grupo de código.
 
 ~~~SQL
 -- comando 1
@@ -525,7 +525,7 @@ Repare nas respostas emitidas pela aplicação e confira se realmente o seu clus
 
 - **Passo 5: Novamente, vamos executar nosso segundo grupo de comandos (Grupo B). Acesse a tela ????????? e rode as instruções a seguir, de uma só vez:**
 
->@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos.
+>@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos. Ou se ficar melhor, fornecer um link que dê aceso somente so SQL deste grupo de código.
 
 ~~~SQL
 -- comando 1
