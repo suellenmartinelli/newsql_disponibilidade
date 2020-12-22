@@ -369,7 +369,7 @@ Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execu�
 
 <p align="center">
   <img src="images-praticas/passo1-GA-saidas-terminal.png" width="300">
-  <br/>
+  <br>
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos. | Fonte: Elaborado pelo(a) autor(a). </span></caption>
 </p>
 
