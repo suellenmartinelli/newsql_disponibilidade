@@ -379,7 +379,7 @@ Observe saídas respectivas ao tempo de execução das instruções, frequência
 
 Para confirmar se nosso banco no CockroachDB está operando apenas com dois nós, execute a instrução `docker ps -a` para listar os containers no Docker. Se apenas o *“roach2”* aparecer com o status como *“Exited”* e os demais containers do CockroachDB como *“Up”*, quer dizer que tudo está ok.
 
-- **Passo 3:** Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao terminal SQL e **rode as instruções a seguir, de uma só vez** (você também pode [acessar os comandos do Grupo B aqui]()):
+- **Passo 3:** Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao terminal SQL e **rode as instruções a seguir, de uma só vez** (você também pode [acessar os comandos do Grupo B aqui](codes-sql/GRUPOB_comandos.sql)):
 
 ~~~SQL
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11083, 'QUEEN', 2, '2020-06-14', '2020-06-30', 5, 100.28, 'Queen Cozinha', 'Alameda dos Canàrios, 891', 'São Paulo', 'SP', '05487-020', 'Brazil');
@@ -445,120 +445,89 @@ select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month f
 
 Observe as saídas emitidas pela aplicação. E agora, tudo ocorreu bem? Se a aplicação te retornar uma mensagem tipo “?????????????”, quer dizer que o banco de dados não suportou operar com 2 nós e ficou indisponível, como mostra a Figura Z.
 
->@Suéllen: figura Z para apresentar saída ao final da execução dos comandos do Grupo B (PRIMEIRA TENTATIVA).
+>@Suéllen: figura Z para apresentar saída ao final da execução dos comandos do Grupo B (PRIMEIRA TENTATIVA). - NO MEU TESTE NÃO HOUVE QUEDA, FUNCIONOU NA PRIMEIRA.
 
 Porém, se o CockroachDB fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com 2 nós em atividade o banco manteve-se disponível. 
 
-Antes de prosseguir, independentemente do resultado obtido até esta etapa, observe novamente as saídas de tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas na tela ???????????? e, em especial, identificar onde ocorreu uma falha, como no exemplo da Figura X.
+Antes de prosseguir, independentemente do resultado obtido até esta etapa, retorne ao navegador no endereço `http://localhost:8080` e observe novamente as saídas de tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas. Em especial, identifique onde ocorreu uma falha, semelhante ao exemplo da Figura X.
 
 >@Suéllen: figura X para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD - Grupo B - Primeira Tentativa.
 
-Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, vá direto para a próxima subseção.
+Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, *efetue somente o Passo 4 e vá direto para a próxima subseção.* Em breve vamos discutir estes resultados com você. ;)
 
-- **Passo 4: Vamos retornar o nosso cluster no CockroachDB para a configuração inicial (com 3 nós), subindo um nó secundário. Para isso, acesse a tela ?????????? e aplique a seguinte instrução:**
+- **Passo 4:** Vamos **retornar o nosso cluster no CockroachDB para a configuração inicial** (com 3 nós), subindo um nó secundário. <br> Para isso, retorne para o terminal Linux que deixamos aberto e aplique o comando `docker start roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno.
 
 >@Suéllen: COMANDO PARA ATIVAR UM NÓ SECUNDÁRIO NO COCKROACHDB
 
-Repare nas respostas emitidas pela aplicação e confira se realmente o seu cluster voltou a operar com três nós. Se a resposta emitida for “???????????????” quer dizer que nossa configuração está ok.
+Para confirmar se nosso banco no CockroachDB voltou a operar com três nós, execute novamente a instrução `docker ps -a` para listar os containers no Docker. Se todos os containers do CockroachDB mostrarem o status como *“Up”* quer dizer que tudo está ok.
 
-- **Passo 5: Novamente, vamos executar nosso segundo grupo de comandos (Grupo B). Acesse a tela ????????? e rode as instruções a seguir, de uma só vez:**
-
->@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos. Ou se ficar melhor, fornecer um link que dê aceso somente so SQL deste grupo de código.
+- **Passo 5:** Novamente, vamos executar nosso segundo grupo de comandos (Grupo B). Retorne ao terminal SQL e **rode as instruções a seguir, de uma só vez** (você também pode [acessar os comandos do Grupo B aqui](codes-sql/GRUPOB_comandos.sql)):
 
 ~~~SQL
--- comando 1
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11083, 'QUEEN', 2, '2020-06-14', '2020-06-30', 5, 100.28, 'Queen Cozinha', 'Alameda dos Canàrios, 891', 'São Paulo', 'SP', '05487-020', 'Brazil');
 
--- comando 2
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11084, 'QUICK', 6, '2020-05-02', '2020-06-05', 2, 210.88, 'QUICK-Stop', 'Taucherstraße 10', 'Cunewalde', '01307', 'Germany');
 
--- comando 3
 select EXTRACT(Month from order_date) mes_pedido, customer_id from orders where EXTRACT(Year from order_date) = 1998 AND ship_country like 'UK' order by mes_pedido;
 
--- comando 4
 UPDATE orders SET freight = freight + (freight * 0.25) WHERE ship_country like 'Brazil' OR ship_country like 'Argentina' OR ship_country like 'Venezuela';
 
--- comando 5
 select min(orders.freight) as menor_frete_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'UK' or orders.ship_country like 'Ireland' group by customers.city order by menor_frete_por_cidade;
 
--- comando 6
 update orders set shipped_date = '2020-12-20' WHERE EXTRACT(Year from required_date) = 2020 AND shipped_date is null;
 
--- comando 7
 INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('BKGUS', 'Burger King Corporation', 'Keith J. Kramer', 'Owner', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
 
--- comando 8
 select contact_name, contact_title, company_name, address from customers where contact_title like 'Owner%' and phone is null order by contact_name;
 
--- comando 9
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11085, 'BKGUS', 8, '2020-09-06', '2020-11-01', 1, 65.97, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
 
--- comando 10
 UPDATE orders SET freight = freight - (freight * 0.50) WHERE ship_region like 'SP' OR ship_region like 'RJ';
 
--- comando 11
 select count(orders.ship_city) as pedidos_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'Canada' group by customers.city order by pedidos_por_cidade desc;
 
--- comando 12
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11086, 'EASTC', 9, '2020-11-12', '2020-11-30', 3, 102.97, 'Eastern Connection', '35 King George', 'London', 'WX3 6FW', 'UK');
 
--- comando 13
 INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('MLIBR', 'Mercado Livre', 'Fernanda Macedo', 'Order Administrator', 'Av. das Nações Unidas, 439 - Pres. Altino', 'São Paulo', 'SP', '06233-200', 'Brazil', '(11)1545-9898');
 
--- comando 14
 update orders set shipped_date = '2020-12-25' WHERE shipped_date is null;
 
--- comando 15
 select count(EXTRACT(Year from required_date)) as pedidos_em_1996, ship_country from orders where EXTRACT(Year from required_date) = 1996 group by ship_country;
 
--- comando 16
 UPDATE customers SET country = 'Spain' WHERE city in ('Madrid', 'Barcelona', 'Sevilla');
 
--- comando 17
 INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('SINMO', 'Sinhá Moça', 'Karla Silveira', 'Sales Manager', 'Rua Floriano Peixoto, 526', 'Capão Bonito', 'SP', '18300-250', 'Brazil', '(15)3542-5787');
 
--- comando 18
 select customers.contact_name, customers.phone, orders.ship_name, orders.order_id, EXTRACT(Year from orders.shipped_date) as ano_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE orders.ship_city in ('Seattle', 'Boise', 'Elgin') AND EXTRACT(Year from orders.shipped_date) between 1996 and 1998 order by customers.contact_name;
 
--- comando 19
 UPDATE orders SET ship_country = 'Spain' WHERE ship_city in ('Madrid', 'Barcelona', 'Sevilla');
 
--- comando 20
 update customers set customer_id = 'CARBBQ', company_name = 'Carlinhos BBQ Lanches', contact_title = 'Owner' where customer_id = 'SINMO';
 
--- comando 21
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11087, 'CARBBQ', 5, '2020-10-06', '2020-11-01', 1, 19.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
 
--- comando 22
 select max(freight), ship_region from orders where ship_country = 'Brazil' group by ship_region;
 
--- comando 23
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11088, 'BKGUS', 1, '2020-03-06', '2020-04-05', 4, 45.30, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', '78988-555', 'USA');
 
--- comando 24
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11089, 'CARBBQ', 9, '2020-04-03', '2020-06-09', 3, 80.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
 
--- comando 25
 update orders set ship_region = 'SP' where ship_city = 'Capão Bonito' and ship_region is null;
 
--- comando 26
 select avg(orders.freight) as frete_medio_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country in ('Brazil', 'Mexico') group by customers.city order by frete_medio_por_cidade;
 
--- comando 27
 select distinct ship_city, ship_region, ship_country from orders where ship_region is not null AND ship_country in ('UK', 'USA', 'Canada');
 
--- comando 28
 update orders set ship_region = 'Flórida'  where ship_city = 'Miami' and ship_region is null;
 
--- comando 29
 update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_date) = 2020 AND ship_via between 1 and 4;
 
--- comando 30
 select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
 ~~~
 
-Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se a aplicação te retornar uma mensagem tipo “?????????????”, semelhante a mensagem obtida ao efetuar o Passo 1, então quer dizer que nosso banco só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
-Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas na tela ????????????, como no exemplo da Figura S.
+Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se a aplicação te retornar emitir o tempo de execução de cada comando, semelhante ao que ocorreu no Passo 1, então quer dizer que nosso banco só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
+
+Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao retornar no navegador no endereço `http://localhost:8080`, como no exemplo da Figura S.
 
 >@Suéllen: figura S para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD
 
