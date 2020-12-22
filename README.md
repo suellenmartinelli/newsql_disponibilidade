@@ -296,16 +296,12 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 
 >@Suellen: um dos comentários da @Sahudy na planilha foi "slide 10. def dos conceitos em cada implementacao." Acredito que nesta seção, termos como JOIN, INSERT, UPDATE e outras coisas que aparecerem, precisam ter um explicação sucinta na seção Glossário.
 
->@Suellen: apontamento da @Sahudy na apresentação - focar em comandos do tipo leitura-escrita e escrita-escrita, que são os tipos que apresentarão "problemas" ao funcionamento dos bancos.
-
->@Suellen: Colocar aqui uma breve lógica do funcionamento de cada BD, de acordo com o que temos no relatório (seção 4) + artigo Knob et al. (2019). -  SERÁ QUE AINDA VAI SER AQUI NESTA SEÇÃO PARA FALAR DISSO?
-
 >@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos. Ou se ficar melhor, fornecer um link que dê aceso somente so SQL deste grupo de código.
 
 <a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
 
-- **Passo 1:** Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de dados Northwind pronto para uso, retorne para o terminal SQL. <br> Caso você tenha fechado esta tela, execute novamente a instrução `docker exec -it roach1 ./cockroach sql --insecure` em um terminal Linux e, na sequência, aplique um `USE northwind;`<br> Dentro do terminal SQL e do BD Northwind, **execute os comandos (Grupo A) apresentados, de uma só vez** (você também pode [acessar os comandos do Grupo A aqui](https://github.com/suellenmartinelli/newsql_disponibilidade/codes-sql/GRUPOA_comandos.sql)):
+- **Passo 1:** Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de dados Northwind pronto para uso, retorne para o terminal SQL. <br> Caso você tenha fechado esta tela, execute novamente a instrução `docker exec -it roach1 ./cockroach sql --insecure` em um terminal Linux e, na sequência, aplique um `USE northwind;`<br> Dentro do terminal SQL e do BD Northwind, **execute os comandos (Grupo A) apresentados, de uma só vez** (você também pode [acessar os comandos do Grupo A aqui](codes-sql/GRUPOA_comandos.sql)):
 
 ~~~SQL
 INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('NTLSU', 'Nestlé S.A.', 'Paul Bulcke', 'Accounting Manager', '5505 Blue Lagoon Drive', 'Vevey', 'Vaud', '78988-555', 'Suíça');
@@ -383,99 +379,67 @@ Observe saídas respectivas ao tempo de execução das instruções, frequência
 
 Para confirmar se nosso banco no CockroachDB está operando apenas com dois nós, execute a instrução `docker ps -a` para listar os containers no Docker. Se apenas o *“roach2”* aparecer com o status como *“Exited”* e os demais containers do CockroachDB como *“Up”*, quer dizer que tudo está ok.
 
-- **Passo 3: Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). Novamente, acesse a tela ????????? e rode as instruções a seguir, de uma só vez:**
-
->@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos. Ou se ficar melhor, fornecer um link que dê aceso somente so SQL deste grupo de código.
+- **Passo 3:** Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao terminal SQL e **rode as instruções a seguir, de uma só vez** (você também pode [acessar os comandos do Grupo B aqui]()):
 
 ~~~SQL
--- comando 1
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11083, 'QUEEN', 2, '2020-06-14', '2020-06-30', 5, 100.28, 'Queen Cozinha', 'Alameda dos Canàrios, 891', 'São Paulo', 'SP', '05487-020', 'Brazil');
 
--- comando 2
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11084, 'QUICK', 6, '2020-05-02', '2020-06-05', 2, 210.88, 'QUICK-Stop', 'Taucherstraße 10', 'Cunewalde', '01307', 'Germany');
 
--- comando 3
 select EXTRACT(Month from order_date) mes_pedido, customer_id from orders where EXTRACT(Year from order_date) = 1998 AND ship_country like 'UK' order by mes_pedido;
 
--- comando 4
 UPDATE orders SET freight = freight + (freight * 0.25) WHERE ship_country like 'Brazil' OR ship_country like 'Argentina' OR ship_country like 'Venezuela';
 
--- comando 5
 select min(orders.freight) as menor_frete_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'UK' or orders.ship_country like 'Ireland' group by customers.city order by menor_frete_por_cidade;
 
--- comando 6
 update orders set shipped_date = '2020-12-20' WHERE EXTRACT(Year from required_date) = 2020 AND shipped_date is null;
 
--- comando 7
 INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('BKGUS', 'Burger King Corporation', 'Keith J. Kramer', 'Owner', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
 
--- comando 8
 select contact_name, contact_title, company_name, address from customers where contact_title like 'Owner%' and phone is null order by contact_name;
 
--- comando 9
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11085, 'BKGUS', 8, '2020-09-06', '2020-11-01', 1, 65.97, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
 
--- comando 10
 UPDATE orders SET freight = freight - (freight * 0.50) WHERE ship_region like 'SP' OR ship_region like 'RJ';
 
--- comando 11
 select count(orders.ship_city) as pedidos_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'Canada' group by customers.city order by pedidos_por_cidade desc;
 
--- comando 12
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11086, 'EASTC', 9, '2020-11-12', '2020-11-30', 3, 102.97, 'Eastern Connection', '35 King George', 'London', 'WX3 6FW', 'UK');
 
--- comando 13
 INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('MLIBR', 'Mercado Livre', 'Fernanda Macedo', 'Order Administrator', 'Av. das Nações Unidas, 439 - Pres. Altino', 'São Paulo', 'SP', '06233-200', 'Brazil', '(11)1545-9898');
 
--- comando 14
 update orders set shipped_date = '2020-12-25' WHERE shipped_date is null;
 
--- comando 15
 select count(EXTRACT(Year from required_date)) as pedidos_em_1996, ship_country from orders where EXTRACT(Year from required_date) = 1996 group by ship_country;
 
--- comando 16
 UPDATE customers SET country = 'Spain' WHERE city in ('Madrid', 'Barcelona', 'Sevilla');
 
--- comando 17
 INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('SINMO', 'Sinhá Moça', 'Karla Silveira', 'Sales Manager', 'Rua Floriano Peixoto, 526', 'Capão Bonito', 'SP', '18300-250', 'Brazil', '(15)3542-5787');
 
--- comando 18
 select customers.contact_name, customers.phone, orders.ship_name, orders.order_id, EXTRACT(Year from orders.shipped_date) as ano_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE orders.ship_city in ('Seattle', 'Boise', 'Elgin') AND EXTRACT(Year from orders.shipped_date) between 1996 and 1998 order by customers.contact_name;
 
--- comando 19
 UPDATE orders SET ship_country = 'Spain' WHERE ship_city in ('Madrid', 'Barcelona', 'Sevilla');
 
--- comando 20
 update customers set customer_id = 'CARBBQ', company_name = 'Carlinhos BBQ Lanches', contact_title = 'Owner' where customer_id = 'SINMO';
 
--- comando 21
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11087, 'CARBBQ', 5, '2020-10-06', '2020-11-01', 1, 19.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
 
--- comando 22
 select max(freight), ship_region from orders where ship_country = 'Brazil' group by ship_region;
 
--- comando 23
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11088, 'BKGUS', 1, '2020-03-06', '2020-04-05', 4, 45.30, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', '78988-555', 'USA');
 
--- comando 24
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11089, 'CARBBQ', 9, '2020-04-03', '2020-06-09', 3, 80.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
 
--- comando 25
 update orders set ship_region = 'SP' where ship_city = 'Capão Bonito' and ship_region is null;
 
--- comando 26
 select avg(orders.freight) as frete_medio_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country in ('Brazil', 'Mexico') group by customers.city order by frete_medio_por_cidade;
 
--- comando 27
 select distinct ship_city, ship_region, ship_country from orders where ship_region is not null AND ship_country in ('UK', 'USA', 'Canada');
 
--- comando 28
 update orders set ship_region = 'Flórida'  where ship_city = 'Miami' and ship_region is null;
 
--- comando 29
 update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_date) = 2020 AND ship_via between 1 and 4;
 
--- comando 30
 select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
 ~~~
 
@@ -608,9 +572,9 @@ Desta vez, faça uma comparação pessoal destes resultados, com os valores obti
 <a id="resultados-sec4c"></a>
 ## Resultados e comparações entre o CockroachDB e o MemSQL
 
->@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
+>@Suellen: Relacionar aqui uma breve lógica do funcionamento de cada BD (baseado no conteúdo da seção 4 do relatório + artigo Knob et al. (2019)), junto dos resultados obtidos em cada teste.
 
->@Suellen: Descrição do estudo e comandos aplicados ao BD; resultados obtidos no BD
+>@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
 
 >@Suellen: ideia para expor resultados em cada estudo, segundo apontamentos da @Sahudy - comparar comandos e seus resultados em grupos de leitura-leitura, leitura-escrita e escrita-escrita.
 
