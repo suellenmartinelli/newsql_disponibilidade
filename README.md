@@ -369,8 +369,7 @@ Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execu�
 
 <p align="center">
   <img src="images-praticas/passo1-GA-saidas-terminal.png" width="300">
-  <br>
-  <br>
+  <br/>
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos. | Fonte: Elaborado pelo(a) autor(a). </span></caption>
 </p>
 
@@ -379,7 +378,7 @@ Observe saídas respectivas ao tempo de execução das instruções, frequência
 >@Suéllen: figura Y para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD
 
 <p align="center">
-  <img src="images-praticas/passo1-GA-CKLabs.png" width="500">
+  <img src="images-praticas/passo1-GA-CKLabs.png" width="700">
   <br/>
   <caption><span style="color:#696969"> Figura Y: Exemplos de saídas obtidas via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
