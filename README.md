@@ -388,7 +388,7 @@ Observe saídas respectivas ao tempo de execução das instruções, frequência
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno, como na Figura Z.
 
 <p align="center">
-  <img src="images-praticas/passo2-docker-stop.png" width="400">
+  <img src="images-praticas/passo2-docker-stop.png" width="530">
  </p>
   <p>
   <caption><span style="color:#696969"> Figura Z: Desativando um nó no cluster do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
@@ -462,19 +462,29 @@ select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month f
 
 Observe as saídas emitidas pela aplicação. E agora, tudo ocorreu bem? Se a aplicação te retornar uma mensagem tipo “?????????????”, quer dizer que o banco de dados não suportou operar com 2 nós e ficou indisponível, como mostra a Figura Z.
 
->@Suéllen: figura Z para apresentar saída ao final da execução dos comandos do Grupo B (PRIMEIRA TENTATIVA). - NO MEU TESTE NÃO HOUVE QUEDA, FUNCIONOU NA PRIMEIRA.
+>@Suéllen: figura Z para apresentar saída COM QUEDA ao final da execução dos comandos do Grupo B (PRIMEIRA TENTATIVA). - NO MEU TESTE NÃO HOUVE QUEDA, FUNCIONOU NA PRIMEIRA.
 
 Porém, se o CockroachDB fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com 2 nós em atividade o banco manteve-se disponível. 
 
 Antes de prosseguir, independentemente do resultado obtido até esta etapa, retorne ao navegador no endereço `http://localhost:8080` e observe novamente as saídas de tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas. Em especial, identifique onde ocorreu uma falha, semelhante ao exemplo da Figura X.
 
->@Suéllen: figura X para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD - Grupo B - Primeira Tentativa.
+<p align="center">
+  <img src="images-praticas/passo3-GB-CKLabs.png" width="570">
+ </p>
+  <p>
+  <caption><span style="color:#696969"> Figura X: Exemplos de saídas obtidas via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
 
 Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, *efetue somente o Passo 4 e vá direto para a próxima subseção.* Em breve vamos discutir estes resultados com você. ;)
 
-- **Passo 4:** Vamos **retornar o nosso cluster no CockroachDB para a configuração inicial** (com 3 nós), subindo um nó secundário. <br> Para isso, retorne para o terminal Linux que deixamos aberto e aplique o comando `docker start roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno.
+- **Passo 4:** Vamos **retornar o nosso cluster no CockroachDB para a configuração inicial** (com 3 nós), subindo um nó secundário. <br> Para isso, retorne para o terminal Linux que deixamos aberto e aplique o comando `docker start roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno. como mostra a Figura Y.
 
->@Suéllen: COMANDO PARA ATIVAR UM NÓ SECUNDÁRIO NO COCKROACHDB
+<p align="center">
+  <img src="images-praticas/passo4-docker-start.png" width="530">
+ </p>
+  <p>
+  <caption><span style="color:#696969"> Figura Z: Ativando um nó no cluster do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
 
 Para confirmar se nosso banco no CockroachDB voltou a operar com três nós, execute novamente a instrução `docker ps -a` para listar os containers no Docker. Se todos os containers do CockroachDB mostrarem o status como *“Up”* quer dizer que tudo está ok.
 
@@ -546,7 +556,12 @@ Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se 
 
 Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao retornar no navegador no endereço `http://localhost:8080`, como no exemplo da Figura S.
 
->@Suéllen: figura S para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD
+<p align="center">
+  <img src="images-praticas/passo1-GA-CKLabs.png" width="570">
+ </p>
+  <p>
+  <caption><span style="color:#696969"> Figura S: Exemplos de saídas obtidas via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
 
 Desta vez, faça uma comparação pessoal destes resultados, com os valores obtidos após a execução dos comandos do Grupo A. Logo logo vamos discutir estes resultados com você.
 
