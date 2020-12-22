@@ -367,11 +367,21 @@ INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_dat
 
 Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execução dos comandos e tudo correr como esperado, o CockroachDB vai emitir o tempo de execução de cada comando. O retorno apresentado após a última instrução será semelhante ao mostrado na Figura X.
 
->@Suéllen: figura X para apresentar saída ao final da execução dos comandos do Grupo A.
+<p align="center">
+  <img src="images-praticas/passo1-GA-saidas-terminal.png" width="300">
+  <br/>
+  <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos. | Fonte: Elaborado pelo(a) autor(a). </span></caption>
+</p>
 
 Observe saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao acessar `http://localhost:8080` no seu navegador, como no exemplo da Figura Y.
 
 >@Suéllen: figura Y para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD
+
+<p align="center">
+  <img src="images-praticas/passo1-GA-saidas-terminal.png" width="300">
+  <br/>
+  <caption><span style="color:#696969"> Figura Y: Exemplos de saídas obtidas via ?????? | Fonte: Elaborado pelo(a) autor(a). </span></caption>
+</p>
 
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno.
 
