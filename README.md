@@ -106,7 +106,8 @@ O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que ao analisar as médias 
 
 <p align="center">
   <img src="image-intro/quadro-knob-2019.PNG" width="650">
-  <br/>
+  </p>
+  <p>
   <caption><span style="color:#696969"> Figura X: Medidas obtidas nos benchmarks | Fonte: Adaptado de Knob et al. (2019) </span></caption>
 </p>
 
@@ -286,7 +287,8 @@ A base de dados Northwind possui 13 tabelas no total (como mostrado na seção X
 
 <p align="center">
   <img src="images-praticas/tables2-estudo-caso.PNG" width="500">
-  <br/>
+</p>
+  <p>
   <caption><span style="color:#696969"> Figura X: description | Fonte: ref yugabyte </span></caption>
 </p>
 
@@ -377,16 +379,22 @@ Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execu�
 Observe saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao acessar `http://localhost:8080` no seu navegador. Ele dará acesso ao *Cockroach Labs*, ambiente gráfico do CockroachDB, como no exemplo da Figura Y. Para alterar a visualização dos tipos de gráficos, basta acessar as áreas destacadas em verde na imagem.
 
 <p align="center">
-  <img src="images-praticas/passo1-GA-CKLabs.png" width="560">
-  <br/>
+  <img src="images-praticas/passo1-GA-CKLabs.png" width="570">
+ </p>
+  <p>
   <caption><span style="color:#696969"> Figura Y: Exemplos de saídas obtidas via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-- **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno.
+- **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno, como na Figura Z.
 
->@Suéllen: COMANDO PARA QUEDA DE UM NÓ SECUNDÁRIO NO COCKROACHDB
+<p align="center">
+  <img src="images-praticas/passo2-docker-stop.png" width="400">
+ </p>
+  <p>
+  <caption><span style="color:#696969"> Figura Z: Desativando um nó no cluster do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
 
-Para confirmar se nosso banco no CockroachDB está operando apenas com dois nós, execute a instrução `docker ps -a` para listar os containers no Docker. Se apenas o *“roach2”* aparecer com o status como *“Exited”* e os demais containers do CockroachDB como *“Up”*, quer dizer que tudo está ok.
+Para confirmar se nosso banco no CockroachDB está operando apenas com dois nós, execute a instrução `docker ps -a` para listar os containers no Docker. Se apenas o *roach2* aparecer com o status como *Exited* e os demais containers do CockroachDB como *Up*, quer dizer que tudo está ok.
 
 - **Passo 3:** Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao terminal SQL e **rode as instruções a seguir, de uma só vez** (você também pode [acessar os comandos do Grupo B aqui](codes-sql/GRUPOB_comandos.sql)):
 
