@@ -554,14 +554,7 @@ select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month f
 
 Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se a aplicação te retornar emitir o tempo de execução de cada comando, semelhante ao que ocorreu no Passo 1, então quer dizer que nosso banco só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
 
-Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao retornar no navegador no endereço `http://localhost:8080`, como no exemplo da Figura S.
-
-<p align="center">
-  <img src="images-praticas/passo1-GA-CKLabs.png" width="570">
- </p>
-  <p>
-  <caption><span style="color:#696969"> Figura S: Exemplos de saídas obtidas via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
-</p>
+Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao retornar no navegador no endereço `http://localhost:8080`, no ambiente gráfico do CockroachDB Labs.
 
 Desta vez, faça uma comparação pessoal destes resultados, com os valores obtidos após a execução dos comandos do Grupo A. Logo logo vamos discutir estes resultados com você.
 
