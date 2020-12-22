@@ -305,7 +305,10 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 <a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
 
-- **Passo 1:** Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de dados Northwind pronto para uso, retorne para o terminal SQL. Caso você tenha fechado esta tela, execute novamente a instrução `docker exec -it roach1 ./cockroach sql --insecure` em um terminal Linux e, na sequência, aplique um `USE northwind;` 
+- **Passo 1:** Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de dados Northwind pronto para uso, retorne para o terminal SQL. 
+
+Caso você tenha fechado esta tela, execute novamente a instrução `docker exec -it roach1 ./cockroach sql --insecure` em um terminal Linux e, na sequência, aplique um `USE northwind;` 
+
 Dentro do terminal SQL e do BD Northwind, **execute os comandos (Grupo A) apresentados, de uma só vez** (você também pode acessar os comandos do Grupo A aqui):
 
 ~~~SQL
