@@ -475,7 +475,7 @@ Antes de prosseguir, independentemente do resultado obtido até esta etapa, reto
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas obtidas via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, *efetue somente o Passo 4 e vá direto para a próxima subseção.* Em breve vamos discutir estes resultados com você. ;)
+Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, *efetue somente o Passo 4 e [vá direto para a próxima subseção](#estudo-memsql-sec4b).* Em breve vamos discutir estes resultados com você. ;)
 
 - **Passo 4:** Vamos **retornar o nosso cluster no CockroachDB para a configuração inicial** (com 3 nós), subindo um nó secundário. <br> Para isso, retorne para o terminal Linux que deixamos aberto e aplique o comando `docker start roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno. como mostra a Figura Y.
 
