@@ -300,13 +300,13 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 
 >@Suellen: Colocar aqui uma breve lógica do funcionamento de cada BD, de acordo com o que temos no relatório (seção 4) + artigo Knob et al. (2019). -  SERÁ QUE AINDA VAI SER AQUI NESTA SEÇÃO PARA FALAR DISSO?
 
+>@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos. Ou se ficar melhor, fornecer um link que dê aceso somente so SQL deste grupo de código.
+
 <a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
 
 - **Passo 1:** Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de dados Northwind pronto para uso, retorne para o terminal SQL. Caso você tenha fechado esta tela, execute novamente a instrução `docker exec -it roach1 ./cockroach sql --insecure` em um terminal Linux e, na sequência, aplique um `USE northwind;` 
 Dentro do terminal SQL e do BD Northwind, **execute os comandos (Grupo A) apresentados, de uma só vez** (você também pode acessar os comandos do Grupo A aqui):
-
->@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos. Ou se ficar melhor, fornecer um link que dê aceso somente so SQL deste grupo de código.
 
 ~~~SQL
 INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('NTLSU', 'Nestlé S.A.', 'Paul Bulcke', 'Accounting Manager', '5505 Blue Lagoon Drive', 'Vevey', 'Vaud', '78988-555', 'Suíça');
@@ -370,19 +370,19 @@ select customers.contact_name, customers.phone, orders.ship_name, orders.order_i
 INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11082, 'LAMBR', 2, '2020-03-15', '2020-04-05', 1, 90.74, 'Lojas Americanas S.A.', 'Av. dos Oitis, nº 1.460, Distrito Industrial', 'Rio de Janeiro', 'RJ', '89000-565', 'Brazil');
 ~~~~
 
-Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execução dos comandos e tudo correr como esperado, o retorno apresentado após a última instrução será “??????”, como mostra a Figura X.
+Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execução dos comandos e tudo correr como esperado, o CockroachDB vai emitir o tempo de execução de cada comando. O retorno apresentado após a última instrução será semelhante ao mostrado na Figura X.
 
 >@Suéllen: figura X para apresentar saída ao final da execução dos comandos do Grupo A.
 
-Observe saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas na tela ????????????, como no exemplo da Figura Y.
+Observe saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao acessar `http://localhost:8080` no seu navegador, como no exemplo da Figura Y.
 
 >@Suéllen: figura Y para apresentar tela com gráficos / números / índices emitidos ao executar essas instruções no BD
 
-- **Passo 2: Agora vamos forçar a queda de um dos nós secundários do nosso cluster no CockroachDB. Para isso, acesse a tela ?????????? e aplique a seguinte instrução:**
+- **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno.
 
 >@Suéllen: COMANDO PARA QUEDA DE UM NÓ SECUNDÁRIO NO COCKROACHDB
 
-Novamente, observe as respostas emitidas pela aplicação e confira se realmente o seu cluster agora está operando com dois nós. Se a resposta emitida for “???????????????” quer dizer que nossa configuração está ok. 
+Para confirmar se nosso banco no CockroachDB está operando apenas com dois nós, execute a instrução `docker ps -a` para listar os containers no Docker. Se apenas o *“roach2”* aparecer com o status como *“Exited”* e os demais containers do CockroachDB como *“Up”*, quer dizer que tudo está ok.
 
 - **Passo 3: Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). Novamente, acesse a tela ????????? e rode as instruções a seguir, de uma só vez:**
 
