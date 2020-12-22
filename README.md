@@ -369,14 +369,15 @@ Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execu�
 
 <p align="center">
   <img src="images-praticas/passo1-GA-saidas-terminal.png" width="300">
-  <br/>
+  </p>
+  <p>
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos. | Fonte: Elaborado pelo(a) autor(a). </span></caption>
 </p>
 
 Observe saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao acessar `http://localhost:8080` no seu navegador. Ele dará acesso ao *Cockroach Labs*, ambiente gráfico do CockroachDB, como no exemplo da Figura Y. Para alterar a visualização dos tipos de gráficos, basta acessar as áreas destacadas em verde na imagem.
 
 <p align="center">
-  <img src="images-praticas/passo1-GA-CKLabs.png" width="700">
+  <img src="images-praticas/passo1-GA-CKLabs.png" width="560">
   <br/>
   <caption><span style="color:#696969"> Figura Y: Exemplos de saídas obtidas via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
