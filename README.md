@@ -650,7 +650,7 @@ Observe saídas respectivas ao tempo de execução das instruções e outras mé
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver todos os nós ativos e, com o *Console* ainda ativo, execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como nas marcações em verde da Figura Z.
 
 <p align="center">
-  <img src="images-praticas/passo2-desativa-no-memsql.png" width="600">
+  <img src="images-praticas/passo2-desativa-no-memsql.png" width="630">
  </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura Z: Desativando um nó no cluster do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
