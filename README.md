@@ -564,7 +564,7 @@ Desta vez, faça uma comparação pessoal destes resultados, com os valores obti
 - **Passo 1:** Com o **MemSQL ativo com 3 nós em seu cluster e com o banco de dados Northwind** pronto para uso, retorne ao MemSQL Studio aberto em seu navegador via `http://localhost:8080`. <br> Dentro do MemSQL Studio acesse a opção *SQL Editor* no menu lateral e na área em branco aplique o comando `USE northwind;` para ser executado, clicando em *Run CTRL*, como mostra os destaques em verde na Figura A.
 
 <p align="center">
-  <img src="images-praticas/passo1-localizacao-memsql.png" width="650">
+  <img src="images-praticas/passo1-localizacao-memsql.png" width="630">
   </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura A: Localização do SQL Editor no MemSQL Studio | Fonte: Elaborado pelo(a) autor(a) </span></caption>
@@ -637,7 +637,7 @@ INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_dat
 Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução dos comandos e tudo correr como esperado, o MemSQL vai emitir o tempo de execução de cada comando, via *Log*, opção localizada no inferior da tela. O retorno apresentado após a última instrução será semelhante ao mostrado na Figura X.
 
 <p align="center">
-  <img src="images-praticas/passo1-GA-saidas-terminal.png" width="300">
+  <img src="images-praticas/passo1-GA-codes.png" width="630">
   </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
@@ -645,12 +645,7 @@ Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução 
 
 Observe saídas respectivas ao tempo de execução das instruções e outras métricas ao acessar a área de ??????????? no MemSQL Studio, como no exemplo da Figura Y. Para alterar a visualização dos tipos de gráficos, basta acessar as áreas destacadas em verde na imagem.
 
-<p align="center">
-  <img src="images-praticas/passo1-GA-CKLabs.png" width="570">
- </p>
-  <p align="center">
-  <caption><span style="color:#696969"> Figura Y: Exemplos de gráficos obtidos via MemSQL Studio | Fonte: Elaborado pelo(a) autor(a) </span></caption>
-</p>
+>@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura Y: Exemplos de gráficos obtidos via MemSQL Studio | Fonte: Elaborado pelo(a) autor(a)"
 
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio e execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como na Figura Z.
 
