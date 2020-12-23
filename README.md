@@ -140,10 +140,29 @@ significa que está na opção de containers do Windows, e para mudar, basta cli
 <p align="center">
   <img src="image-gerais/LinuxContainers_Wind.jpg" width="300">
   </p>
-  <p>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Switch to Linux Containers | Fonte: do autor </span></caption>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Switch to Linux Containers | Fonte: do autor </span></caption>
+</p>
+	- O Docker no Windows possui uma interface Gráfica, onde é possível realizar algumas configurações e ações nos container e imagens.
+	
+<p align="center">
+  <img src="image-gerais/WinCont.png" width="550">
+  </p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Interface gráfica Containers | Fonte: do autor </span></caption>
 </p>
 
+<p align="center">
+  <img src="image-gerais/winimage.png" width="550">
+  </p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Interface gráfica Imagens | Fonte: do autor </span></caption>
+</p>
+	- As ações na interface gráfica são limitadas, para utilizar os recursos do Docker utilize o Power Shell.
+	- Todos os comandos do docker utilizados neste capítulo podem ser reproduzidos no Windows sem o uso do comando sudo( comando de super usuário no Linux), para isso utilize o Power Shell e o execute como administrador.
+	<p align="center">
+  <img src="image-gerais/winshell.png" width="550">
+  </p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Interface gráfica Imagens | Fonte: do autor </span></caption>
+</p>
+	
 - Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
 
 Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissões de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `sudo -v`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
