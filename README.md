@@ -645,7 +645,7 @@ Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução 
 
 Observe saídas respectivas ao tempo de execução das instruções e outras métricas ao acessar a área de ??????????? no MemSQL Studio, como no exemplo da Figura Y. Para alterar a visualização dos tipos de gráficos, basta acessar as áreas destacadas em verde na imagem.
 
->@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura Y: Exemplos de gráficos obtidos via MemSQL Studio | Fonte: Elaborado pelo(a) autor(a)"
+>@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura Y: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
 
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio e execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como na Figura Z.
 
@@ -731,12 +731,7 @@ Porém, se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 
 
 Antes de prosseguir, independentemente do resultado obtido até esta etapa, retorne ao MemSQL e vá em ???????????????????. Observe novamente as saídas de tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas. Em especial, identifique onde ocorreu uma falha, semelhante ao exemplo da Figura X.
 
-<p align="center">
-  <img src="images-praticas/passo3-GB-CKLabs.png" width="570">
- </p>
-  <p align="center">
-  <caption><span style="color:#696969"> Figura X: Exemplos de gráficos obtidos via MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
-</p>
+>@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura X: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
 
 Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, *efetue somente o Passo 4 e vá direto para a próxima subseção.* Em breve vamos discutir estes resultados com você. ;)
 
@@ -820,12 +815,7 @@ Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se 
 
 Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao retornar no MemSQL em ???????????????????, como no exemplo da Figura S.
 
-<p align="center">
-  <img src="images-praticas/passo1-GA-CKLabs.png" width="570">
- </p>
-  <p align="center">
-  <caption><span style="color:#696969"> Figura S: Exemplos de gráficos obtidos via MemSQL Studio | Fonte: Elaborado pelo(a) autor(a) </span></caption>
-</p>
+>@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura S: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
 
 Desta vez, faça uma comparação pessoal destes resultados, com os valores obtidos após a execução dos comandos do Grupo A. Logo logo vamos discutir estes resultados com você.
 
