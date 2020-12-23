@@ -141,7 +141,7 @@ significa que está na opção de containers do Windows, e para mudar, basta cli
   <img src="image-gerais/LinuxContainers_Wind.jpg" width="300">
   </p>
   <p>
-  &nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Switch to Linux Containers | Fonte: do autor </span></caption>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Switch to Linux Containers | Fonte: do autor </span></caption>
 </p>
 
 - Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
