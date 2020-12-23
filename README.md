@@ -685,7 +685,7 @@ select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month f
 Observe as saídas emitidas pela aplicação, semelhantes a Figura X. Se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com um nó a menos funcionando no cluster, o banco manteve-se disponível. 
 
 <p align="center">
-  <img src="images-praticas/passo3-GB-memsql-NOVA.png" width="300">
+  <img src="images-praticas/passo3-GB-memsql-NOVA.png" width="630">
   </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
