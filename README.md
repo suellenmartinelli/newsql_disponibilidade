@@ -17,8 +17,10 @@ A estrutura deste tutorial online está fixada em cinco tópicos gerais que trat
 	2. [CockroachDB](#cockroachdb-sec2b)
 	3. [MemSQL](#memsql-sec2c)
 3. [Criação do Cluster Utilizando o Docker](#criar-cluster-sec3)
-	1. [CockroachDB](#cockroachdb-sec3a)
-	2. [MemSQL](#memsql-sec3b)
+	1. [Topologia do cluster no CockroachDB](#topologia-cockroach-sec3)
+	2. [Criar cluster no CockroachDB](#cockroachdb-sec3a)
+	3. [Topologia do cluster no MemSQL](#topologia-memsql-sec3)
+	4. [Criar cluster no MemSQL](#memsql-sec3b)
 4. [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4)
 	1. [Estudo de caso com o CockroachDB](#estudo-cockroachdb-sec4a)
 	2. [Estudo de caso com o MemSQL](#estudo-memsql-sec4b)
@@ -234,11 +236,11 @@ Ao executar o `docker-compose.yaml` o Docker pode criar alguns arquivos ocultos 
 | :-------:
 | [Voltar ao Sumário](#sumario)
 
-<a id="criar-cluster-sec3"></a>
-# Criação do Cluster Utilizando o Docker
+<a id="topologia-cockroach-sec3"></a>
+## Topologia do cluster no CockroachDB
 
 <a id="cockroachdb-sec3a"></a>
-## CockroachDB
+## Criar cluster no CockroachDB
 
 Para criar o cluster com o CockroachBD será necessário criar três containers, cada um terá uma instancia do banco de dados e representará um computador diferente. A comunicação entre os containers acontecerá por meio de uma rede interna do Docker, e este será o primeiro passo para criar o cluster. Para criar a rede devemos executar o comando: `docker network create -d bridge roachnet`. Este comando irá criar, no ambiente do Docker, uma rede chamada **roachnet**. Isto significa que apenas os containers podem ver e usar essa rede, exatamente como uma rede local. O nome roachnet é arbitrário e pode ser alternado conforme seu gosto, basta recordá-lo pois iremos utilizar nos próximos comandos.
 
@@ -304,8 +306,11 @@ Após executar estes comandos com sucesso teremos três containers ligados, cada
 
 Os comandos aqui contidos para criação de containers são para Linux, caso necessite realizar a criação no Windows ou Mac acesse a [documentação](https://www.cockroachlabs.com/docs/v20.2/start-a-local-cluster-in-docker-windows) e escolha seu sistema operacional: 
 
+<a id="topologia-memsql-sec3"></a>
+## Topologia do cluster no MemSQL
+
 <a id="memsql-sec3b"></a>
-## MemSQL
+## Criar cluster no MemSQL
 
 A criação do cluster utilizando o MemSQL acontece de forma transparente para o usuário, para iniciar o processo é necessário abrir o terminal e navegar até a pasta onde o arquivo `docker-compose.yaml` foi salvo. Após acessar a pasta executar o comando: `docker-compose up`, ao executar este comando o docker irá vasculhar a pasta atual por um arquivo `docker-compose.yaml` e quando encontrar irá executá-lo. Neste ponto todos os comandos escritos no arquivo `docker-compose.yaml` serão executados. Caso seja a primeira execução é neste ponto que a imagem do sistema será baixada do Docker Hub.
 
