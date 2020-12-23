@@ -288,7 +288,7 @@ A base de dados Northwind possui 13 tabelas no total (como mostrado na seção X
 <p align="center">
   <img src="images-praticas/tables2-estudo-caso.PNG" width="500">
 </p>
-  <p>
+  <p align="center">
   <caption><span style="color:#696969"> Figura X: description | Fonte: ref yugabyte </span></caption>
 </p>
 
@@ -372,7 +372,7 @@ Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execu�
 <p align="center">
   <img src="images-praticas/passo1-GA-saidas-terminal.png" width="300">
   </p>
-  <p>
+  <p align="center">
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
@@ -381,8 +381,8 @@ Observe saídas respectivas ao tempo de execução das instruções, frequência
 <p align="center">
   <img src="images-praticas/passo1-GA-CKLabs.png" width="570">
  </p>
-  <p>
-  <caption><span style="color:#696969"> Figura Y: Exemplos de saídas obtidas via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura Y: Exemplos de gráficos obtidos via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno, como na Figura Z.
@@ -390,7 +390,7 @@ Observe saídas respectivas ao tempo de execução das instruções, frequência
 <p align="center">
   <img src="images-praticas/passo2-docker-stop.png" width="530">
  </p>
-  <p>
+  <p align="center">
   <caption><span style="color:#696969"> Figura Z: Desativando um nó no cluster do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
@@ -471,8 +471,8 @@ Antes de prosseguir, independentemente do resultado obtido até esta etapa, reto
 <p align="center">
   <img src="images-praticas/passo3-GB-CKLabs.png" width="570">
  </p>
-  <p>
-  <caption><span style="color:#696969"> Figura X: Exemplos de saídas obtidas via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: Exemplos de gráficos obtidos via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
 Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, *efetue somente o Passo 4 e [vá direto para a próxima subseção](#estudo-memsql-sec4b).* Em breve vamos discutir estes resultados com você. ;)
@@ -482,7 +482,7 @@ Se ao final do Passo 3 você não obteve um retorno positivo do banco em relaç�
 <p align="center">
   <img src="images-praticas/passo4-docker-start.png" width="530">
  </p>
-  <p>
+  <p align="center">
   <caption><span style="color:#696969"> Figura Z: Ativando um nó no cluster do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
