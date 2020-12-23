@@ -647,7 +647,7 @@ Observe saídas respectivas ao tempo de execução das instruções e outras mé
 
 >@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura Y: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
 
-- **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio e execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como na Figura Z.
+- **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver todos os nós ativos e, com o *Console* ainda ativo, execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como na Figura Z.
 
 <p align="center">
   <img src="images-praticas/passo2-docker-stop.png" width="530">
@@ -656,7 +656,7 @@ Observe saídas respectivas ao tempo de execução das instruções e outras mé
   <caption><span style="color:#696969"> Figura Z: Desativando um nó no cluster do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-Para confirmar se nosso banco no MemSQL está operando apenas com dois nós, vá até a opção *Nodes* no menu lateral e consulte a lista de nós. Se um dos nós do tipo *Leaf* mostrar o *State* como *????*, quer dizer que tudo está ok.
+Para confirmar se nosso banco no MemSQL está operando apenas com dois nós, consulte a lista de nós presente na tela. Se um dos nós do tipo *Leaf* mostrar o *CPU Usage* como *????*, quer dizer que um nó foi desativado e tudo está ok.
 
 - **Passo 3:** Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao *SQL Editor* do MemSQL Studio e **rode as instruções a seguir, de uma só vez**. Para isso, deixe todos os comandos selecionados antes de clicar em *Run CTRL* (você também pode [acessar os comandos do Grupo B aqui](codes-sql/GRUPOB_comandos.sql)):
 
