@@ -129,6 +129,16 @@ Neste tópico serão abordados os passos e códigos utilizados para instalar as 
 Para o tutorial de instalação do **Docker** será considerado um computador com o sistema operacional Linux Mint na versão 18.3. Informações sobre a instalação em outros sistemas operacionais podem ser consultados diretamente na documentação oficial por meio dos links:
 
 - Windows: [Tutorial de instalação no Windows](https://docs.docker.com/docker-for-windows/install/)
+*Observações importantes para Windows:* 
+O docker para ser instalado precisa do Hyper - v, que é a virtualização do Windows, o Windows Home não traz este recurso, para isso é necessário atualizar a versão e a build, atualizar o WSL,  e instalar uma distro do Linux de sua preferência. Instruções de como realizar a verificação e a instalação presentes na documentação oficial da Microsoft: 
+https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-2---update-to-wsl-2
+
+Para as demais versões do Windows, basta seguir a documentação oficial do Docker com as instalações.
+
+Após a instalação do docker verificar se está em um Container Linux, para o Windows Home os containers por padrão são Linux e não há como alterar, já nas demais versões a opção de outros containers vem habilitada. 
+Para verificar se está em um container Linux, com o Docker ativo, procure pelo ícone do docker na barra de tarefas e clique com o botão direito sobre ele, se houver uma opção  “Switch to Windows containers…”, significa que você está no container Linux, se a opção for  “Switch to Linux containers…”
+significa que está na opção de containers do windows, e para mudar, basta clicar nesta opção.
+
 - Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
 
 Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissões de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `sudo -v`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
