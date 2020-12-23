@@ -637,7 +637,7 @@ INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_dat
 Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução dos comandos e tudo correr como esperado, o MemSQL vai emitir o tempo de execução de cada comando, via *Log*, opção localizada no inferior da tela. O retorno apresentado após a última instrução será semelhante ao mostrado na Figura X.
 
 <p align="center">
-  <img src="images-praticas/passo1-GA-codes.png" width="630">
+  <img src="images-praticas/passo1-GA-codes.png" width="670">
   </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
