@@ -552,7 +552,7 @@ update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_d
 select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
 ~~~
 
-Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se a aplicação te retornar emitir o tempo de execução de cada comando, semelhante ao que ocorreu no Passo 1, então quer dizer que nosso banco só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
+Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se a aplicação emitir o tempo de execução de cada comando, semelhante ao que ocorreu no Passo 1, então quer dizer que o CockroachDB só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
 
 Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao retornar no navegador no endereço `http://localhost:8080`, no ambiente gráfico do CockroachDB Labs.
 
@@ -816,9 +816,9 @@ update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_d
 select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
 ~~~
 
-Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se a aplicação emitir o tempo de execução de cada comando, semelhante ao que ocorreu no Passo 1, então quer dizer que nosso banco só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
+Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se a aplicação emitir o tempo de execução de cada comando, semelhante ao que ocorreu no Passo 1, então quer dizer que o MemSQL só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
 
-Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao retornar no MemSQL em ???????????????????, como no exemplo da Figura S.
+Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao retornar no MemSQL Studio em ???????????????????, como no exemplo da Figura S.
 
 >@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura S: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
 
