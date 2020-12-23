@@ -309,6 +309,9 @@ Os comandos aqui contidos para criação de containers são para Linux, caso nec
 
 A criação do cluster utilizando o MemSQL acontece de forma transparente para o usuário, para iniciar o processo é necessário abrir o terminal e navegar até a pasta onde o arquivo `docker-compose.yaml` foi salvo. Após acessar a pasta executar o comando: `docker-compose up`, ao executar este comando o docker irá vasculhar a pasta atual por um arquivo `docker-compose.yaml` e quando encontrar irá executá-lo. Neste ponto todos os comandos escritos no arquivo `docker-compose.yaml` serão executados. Caso seja a primeira execução é neste ponto que a imagem do sistema será baixada do Docker Hub.
 
+Se ao executar o documento  o sistema indicar que o *docker-compose up* não é um comando reconhecido, é necessário instalar o módulo de docker compose, acesse a  [documentação](https://docs.docker.com/compose/install/) siga as instruções referente ao seu sistema operacional.
+
+
 
 
 
