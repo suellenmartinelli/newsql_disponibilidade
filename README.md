@@ -647,7 +647,7 @@ Observe saídas respectivas ao tempo de execução das instruções e outras mé
 
 >@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura Y: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
 
-- **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver todos os nós ativos e, com o *Console* ainda ativo, execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como nas marcações em verde da Figura Z.
+- **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver todos os nós ativos e, com o *Console* ainda aberto, execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como nas marcações em verde da Figura Z.
 
 <p align="center">
   <img src="images-praticas/passo2-desativa-no2-memsql.png" width="630">
@@ -740,16 +740,16 @@ Antes de prosseguir, independentemente do resultado obtido até esta etapa, reto
 
 Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, *efetue somente o Passo 4 e vá direto para a próxima subseção.* Em breve vamos discutir estes resultados com você. ;)
 
-- **Passo 4:** Vamos **retornar o nosso cluster no MemSQL para a configuração inicial** (com 3 nós), subindo um nó secundário. <br> Para isso, retorne para o *SQL Editor*, clique no botão *Console* na área inferior da tela do MemSQL Studio e execute o comando `ATTACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como na Figura Y.
+- **Passo 4:** Vamos **retornar o nosso cluster no MemSQL para a configuração inicial** (com 3 nós), subindo um nó secundário. <br> Para isso, retorne para o *SQL Editor*, clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver a lista de nós e, com o *Console* ainda aberto, execute o comando `ATTACH LEAF '127.0.0.1':3307;`, como mostra as áreas demarcadas em verde na Figura Z. Aguarde ele confirmar a operação no retorno do *Console*.
 
 <p align="center">
-  <img src="images-praticas/passo4-docker-start.png" width="530">
+  <img src="images-praticas/passo4-retorno-no-memsql.png" width="550">
  </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura Z: Ativando um nó no cluster do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-Para confirmar se nosso banco no MemSQL voltou a operar com três nós, vá até a opção *Nodes* no menu lateral e consulte a lista de nós. Se todos os nśo apresentarem o *State* como *Online* quer dizer que tudo está ok.
+Após a operação, clique no botão de atualização dos nós no canto superior direito da tela, ao lado de *Last Update*. Para confirmar se nosso banco no MemSQL voltou a operar com três nós, vá até a opção *Nodes* no menu lateral e consulte a lista de nós. Se todos os nós apresentarem o *State* como *Online* e o *CPU Usage* estiver em funcionamento quer dizer que tudo está ok.
 
 - **Passo 5:** Novamente, vamos executar nosso segundo grupo de comandos (Grupo B). Retorne ao *SQL Editor* do MemSQL Studio e **rode as instruções a seguir, de uma só vez**. Para isso, deixe todos os comandos selecionados antes de clicar em *Run CTRL* (você também pode [acessar os comandos do Grupo B aqui](codes-sql/GRUPOB_comandos.sql)):
 
