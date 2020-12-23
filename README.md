@@ -723,13 +723,18 @@ update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_d
 select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
 ~~~
 
-Observe as saídas emitidas pela aplicação, via *Log*. E agora, tudo ocorreu bem? Se a aplicação te retornar uma mensagem tipo “?????????????”, quer dizer que o banco de dados não suportou operar com 2 nós e ficou indisponível, como mostra a Figura Z.
+Observe as saídas emitidas pela aplicação. E agora, tudo ocorreu bem? Se a aplicação te retornar uma mensagem tipo **ERROR 1777 ER_DISTRIBUTED_PARTITION_HAS_NO_INSTANCES**, quer dizer que o banco de dados não suportou operar com 2 nós e ficou indisponível, como mostra a mensagem em destaque na Figura Z.
 
->@Suéllen: figura Z para apresentar saída COM QUEDA ao final da execução dos comandos do Grupo B (PRIMEIRA TENTATIVA). 
+<p align="center">
+  <img src="images-praticas/passo3-falha-GB-memsql.png" width="630">
+ </p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura Z: Falha na execução de comandos com 2 nós ativos no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
 
-Porém, se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com 2 nós em atividade o banco manteve-se disponível. 
+Porém, se o MemSQL fornecer uma mensagem semelhante aos retornos obtidos no Passo 1, então quer dizer que mesmo com 2 nós em atividade o banco manteve-se disponível. 
 
-Antes de prosseguir, independentemente do resultado obtido até esta etapa, retorne ao MemSQL e vá em ???????????????????. Observe novamente as saídas de tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas. Em especial, identifique onde ocorreu uma falha, semelhante ao exemplo da Figura X.
+Antes de prosseguir, independentemente do resultado obtido até esta etapa, retorne ao MemSQL Studio e vá em ???????????????????. Observe novamente as saídas de tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas. Em especial, identifique onde ocorreu uma falha, semelhante ao exemplo da Figura X.
 
 >@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura X: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
 
