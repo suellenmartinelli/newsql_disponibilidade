@@ -178,7 +178,7 @@ A instalação oficial do Docker não está presente nas listas básicas de apli
 
 Tendo adicionado a chave agora vamos adicionar o repositório da última versão estável do Docker em nossas lista através do comando: `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`. Como acabamos de adicionar um novo repositório em nossas listas, devemos atualizar novamente o cache com o comando `sudo apt-get update`.
 
-*Obs.:* - Caso ocorra algum erro 404 ao procurar a release do Linux que está usando, significa que no momento a release não existe no repositório, neste caso altere o código, onde ele puxa a release do seu Linux, e insira manualmente uma release existente no link: https://download.docker.com/linux/ubuntu/dists/ Sugerimos a release **bionic**  `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"`
+*Obs.:* - Caso ocorra algum erro 404 ao procurar a release do Linux que está usando, significa que no momento a release não existe no repositório, neste caso altere o código, onde ele puxa a release do seu Linux, e insira manualmente uma release existente no  [repositório](https://download.docker.com/linux/ubuntu/dists/). Sugerimos a release **bionic**  `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"`
 
 Chegou a hora esperada: instalar o docker-ce. Para isto basta executar o comando: `sudo apt install docker-ce`. Após concluir o processo de instalação (que é todo automatizado) podemos confirmar se o docker está ligado através do comando: `sudo systemctl status docker`, caso tenha ocorrido tudo bem devemos observar uma mensagem deste tipo:
 
