@@ -519,7 +519,7 @@ Em breve, uma avaliação deste resultado será feita na seção [Resultados e c
 <a id="estudo-memsql-sec4b"></a>
 ## Estudo de caso com o MemSQL
 
-- **Passo 1:** Com o **MemSQL ativo com 3 nós em seu cluster e com o banco de dados Northwind** pronto para uso, retorne ao MemSQL Studio aberto em seu navegador via `http://localhost:8080`. <br> Dentro do MemSQL Studio acesse a opção *SQL Editor* no menu lateral e na área em branco aplique o comando `USE northwind;` para ser executado, clicando em *Run CTRL*, como mostra os destaques em verde na Figura A.
+- **Passo 1:** Com o **MemSQL ativo com 5 nós em seu cluster e com o banco de dados Northwind** pronto para uso, retorne ao MemSQL Studio aberto em seu navegador via `http://localhost:8080`. <br> Dentro do MemSQL Studio acesse a opção *SQL Editor* no menu lateral e na área em branco aplique o comando `USE northwind;` para ser executado, clicando em *Run CTRL*, como mostra os destaques em verde na Figura A.
 
 <p align="center">
   <img src="images-praticas/passo1-localizacao-memsql.png" width="630">
@@ -601,14 +601,10 @@ Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução 
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-Observe saídas respectivas ao tempo de execução das instruções e outras métricas ao acessar a área de ??????????? no MemSQL Studio, como no exemplo da Figura Y. Para alterar a visualização dos tipos de gráficos, basta acessar as áreas destacadas em verde na imagem.
-
->@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura Y: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
-
-- **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver todos os nós ativos e, com o *Console* ainda aberto, execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como nas marcações em verde da Figura Z.
+- **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários (*Leaf*) do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver todos os nós ativos e, com o *Console* ainda aberto, execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como nas marcações em verde da Figura Z.
 
 <p align="center">
-  <img src="images-praticas/passo2-desativa-no2-memsql.png" width="630">
+  <img src="images-praticas/passo2-desativa-no2-memsql-NOVA.png" width="630">
  </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura Z: Desativando um nó no cluster do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
@@ -681,106 +677,25 @@ update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_d
 select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
 ~~~
 
-Observe as saídas emitidas pela aplicação. E agora, tudo ocorreu bem? Se a aplicação te retornar uma mensagem tipo **ERROR 1777 ER_DISTRIBUTED_PARTITION_HAS_NO_INSTANCES**, quer dizer que o banco de dados não suportou operar com 2 nós e ficou indisponível, como mostra a mensagem em destaque na Figura Z.
+Observe as saídas emitidas pela aplicação, semelhantes a Figura X. Se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com um nó a menos funcionando no cluster, o banco manteve-se disponível. 
+
+<p align="center">
+  <img src="images-praticas/passo3-GB-memsql-NOVA.png" width="300">
+  </p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
+
+**Observação:** Caso um nó crítico seja desativado, após executar o Grupo B de comandos você terá uma saída semelhante a da Figura Y, com um erro tipo  **ERROR 1777 ER_DISTRIBUTED_PARTITION_HAS_NO_INSTANCES**. <br> Isso representa que o banco de dados não suportou operar com 4 nós e só conseguiu fornecer disponibilidade com os 5 nós em operação. 
 
 <p align="center">
   <img src="images-praticas/passo3-falha-GB-memsql.png" width="630">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura Z: Falha na execução de comandos com 2 nós ativos no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura Z: Falha na execução de comandos com 4 nós ativos no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-Porém, se o MemSQL fornecer uma mensagem semelhante aos retornos obtidos no Passo 1, então quer dizer que mesmo com 2 nós em atividade o banco manteve-se disponível. 
-
-Antes de prosseguir, independentemente do resultado obtido até esta etapa, retorne ao MemSQL Studio e vá em ???????????????????. Observe novamente as saídas de tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas. Em especial, identifique onde ocorreu uma falha, semelhante ao exemplo da Figura X.
-
->@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura X: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
-
-Se ao final do Passo 3 você não obteve um retorno positivo do banco em relação à disponibilidade, prossiga com as etapas seguintes deste experimento. Caso contrário, *efetue somente o Passo 4 e vá direto para a próxima subseção.* Em breve vamos discutir estes resultados com você. ;)
-
-- **Passo 4:** Vamos **retornar o nosso cluster no MemSQL para a configuração inicial** (com 3 nós), subindo um nó secundário. <br> Para isso, retorne para o *SQL Editor*, clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver a lista de nós e, com o *Console* ainda aberto, execute o comando `ATTACH LEAF '127.0.0.1':3307;`, como mostra as áreas demarcadas em verde na Figura Z. Aguarde ele confirmar a operação no retorno do *Console*.
-
-<p align="center">
-  <img src="images-praticas/passo4-retorno-no-memsql.png" width="550">
- </p>
-  <p align="center">
-  <caption><span style="color:#696969"> Figura Z: Ativando um nó no cluster do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
-</p>
-
-Após a operação, clique no botão de atualização dos nós no canto superior direito da tela, ao lado de *Last Update*. Para confirmar se nosso banco no MemSQL voltou a operar com três nós, vá até a opção *Nodes* no menu lateral e consulte a lista de nós. Se todos os nós apresentarem o *State* como *Online* e o *CPU Usage* estiver em funcionamento quer dizer que tudo está ok.
-
-- **Passo 5:** Novamente, vamos executar nosso segundo grupo de comandos (Grupo B). Retorne ao *SQL Editor* do MemSQL Studio e **rode as instruções a seguir, de uma só vez**. Para isso, deixe todos os comandos selecionados antes de clicar em *Run CTRL* (você também pode [acessar os comandos do Grupo B aqui](codes-sql/GRUPOB_comandos.sql)):
-
-
-~~~SQL
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11083, 'QUEEN', 2, '2020-06-14', '2020-06-30', 5, 100.28, 'Queen Cozinha', 'Alameda dos Canàrios, 891', 'São Paulo', 'SP', '05487-020', 'Brazil');
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11084, 'QUICK', 6, '2020-05-02', '2020-06-05', 2, 210.88, 'QUICK-Stop', 'Taucherstraße 10', 'Cunewalde', '01307', 'Germany');
-
-select EXTRACT(Month from order_date) mes_pedido, customer_id from orders where EXTRACT(Year from order_date) = 1998 AND ship_country like 'UK' order by mes_pedido;
-
-UPDATE orders SET freight = freight + (freight * 0.25) WHERE ship_country like 'Brazil' OR ship_country like 'Argentina' OR ship_country like 'Venezuela';
-
-select min(orders.freight) as menor_frete_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'UK' or orders.ship_country like 'Ireland' group by customers.city order by menor_frete_por_cidade;
-
-update orders set shipped_date = '2020-12-20' WHERE EXTRACT(Year from required_date) = 2020 AND shipped_date is null;
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('BKGUS', 'Burger King Corporation', 'Keith J. Kramer', 'Owner', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
-
-select contact_name, contact_title, company_name, address from customers where contact_title like 'Owner%' and phone is null order by contact_name;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11085, 'BKGUS', 8, '2020-09-06', '2020-11-01', 1, 65.97, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
-
-UPDATE orders SET freight = freight - (freight * 0.50) WHERE ship_region like 'SP' OR ship_region like 'RJ';
-
-select count(orders.ship_city) as pedidos_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'Canada' group by customers.city order by pedidos_por_cidade desc;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11086, 'EASTC', 9, '2020-11-12', '2020-11-30', 3, 102.97, 'Eastern Connection', '35 King George', 'London', 'WX3 6FW', 'UK');
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('MLIBR', 'Mercado Livre', 'Fernanda Macedo', 'Order Administrator', 'Av. das Nações Unidas, 439 - Pres. Altino', 'São Paulo', 'SP', '06233-200', 'Brazil', '(11)1545-9898');
-
-update orders set shipped_date = '2020-12-25' WHERE shipped_date is null;
-
-select count(EXTRACT(Year from required_date)) as pedidos_em_1996, ship_country from orders where EXTRACT(Year from required_date) = 1996 group by ship_country;
-
-UPDATE customers SET country = 'Spain' WHERE city in ('Madrid', 'Barcelona', 'Sevilla');
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('SINMO', 'Sinhá Moça', 'Karla Silveira', 'Sales Manager', 'Rua Floriano Peixoto, 526', 'Capão Bonito', 'SP', '18300-250', 'Brazil', '(15)3542-5787');
-
-select customers.contact_name, customers.phone, orders.ship_name, orders.order_id, EXTRACT(Year from orders.shipped_date) as ano_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE orders.ship_city in ('Seattle', 'Boise', 'Elgin') AND EXTRACT(Year from orders.shipped_date) between 1996 and 1998 order by customers.contact_name;
-
-UPDATE orders SET ship_country = 'Spain' WHERE ship_city in ('Madrid', 'Barcelona', 'Sevilla');
-
-update customers set company_name = 'Carlinhos BBQ Lanches', contact_title = 'Owner' where customer_id = 'SINMO';
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11087, 'SINMO', 5, '2020-10-06', '2020-11-01', 1, 19.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
-
-select max(freight), ship_region from orders where ship_country = 'Brazil' group by ship_region;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11088, 'BKGUS', 1, '2020-03-06', '2020-04-05', 4, 45.30, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', '78988-555', 'USA');
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11089, 'SINMO', 9, '2020-04-03', '2020-06-09', 3, 80.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
-
-update orders set ship_region = 'SP' where ship_city = 'Capão Bonito' and ship_region is null;
-
-select avg(orders.freight) as frete_medio_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country in ('Brazil', 'Mexico') group by customers.city order by frete_medio_por_cidade;
-
-select distinct ship_city, ship_region, ship_country from orders where ship_region is not null AND ship_country in ('UK', 'USA', 'Canada');
-
-update orders set ship_region = 'Flórida'  where ship_city = 'Miami' and ship_region is null;
-
-update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_date) = 2020 AND ship_via between 1 and 4;
-
-select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
-~~~
-
-Observe as saídas emitidas pela aplicação. E desta vez, tudo ocorreu bem? Se a aplicação emitir o tempo de execução de cada comando, semelhante ao que ocorreu no Passo 1, então quer dizer que o MemSQL só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
-
-Pela última vez, observe as saídas respectivas ao tempo de execução das instruções, frequência de requisições a um nó específico e outras métricas ao retornar no MemSQL Studio em ???????????????????, como no exemplo da Figura S.
-
->@Suellen: Fiz o teste mas sem ter localizado essa área de gráficos, pois ainda não localizei na ferramenta. Por isso está sem a figura com gráficos respectivos à manipulação do BD. Colocar figura com a legenda "Figura S: Exemplos de gráficos obtidos via MemSQL Studio - Fonte: Elaborado pelo(a) autor(a)"
-
-Desta vez, faça uma comparação pessoal destes resultados, com os valores obtidos após a execução dos comandos do Grupo A. Logo logo vamos discutir estes resultados com você.
+Em relação ao MemSQL essa falha pode ocorrer quando o nó inativo tiver um nível de redundância (*redundancy_level*) igual a 2, equivalente a configuração de *High Availability*. Uma avaliação deste resultado será feita na seção a seguir.
 
 <a id="resultados-sec4c"></a>
 ## Resultados e comparações entre o CockroachDB e o MemSQL
