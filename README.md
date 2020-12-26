@@ -705,11 +705,31 @@ Em relação ao MemSQL essa falha pode ocorrer quando o nó inativo tiver um ní
 <a id="resultados-sec4c"></a>
 ## Resultados e comparações entre o CockroachDB e o MemSQL
 
->@Suellen: Relacionar aqui uma breve lógica do funcionamento de cada BD (baseado no conteúdo da seção 4 do relatório + artigo Knob et al. (2019)), junto dos resultados obtidos em cada teste.
+Na prova de conceito efetuada com o CockroachDB e o MemSQL sobre a disponibilidade das soluções, ambas tiveram resultados satisfatórios mesmo ao forçar a queda de um nó no cluster, conforme práticas efetuadas neste tutorial. Realmente as soluções cumprem o aspecto de alta disponibilidade (*high availability*) prometidos em suas documentações oficiais.
 
->@Suellen: apontamento da @Sahudy na apresentação - os mesmos dados e tabelas (comandos) devem ser afetados nos dois bancos (para gerar concorrência). Isso vale para todos os tipos de comando (joins, inserts, updates, etc).
+Porém, foram notadas algumas caraterísticas que diferenciam cada solução NewSQL utilizada quando se fala de alta disponibilidade na prática. O Quadro X apresenta um resumo dessas diferenças e de características presentes em cada prova de conceito realizada, sendo elas discutidas a seguir.
 
->@Suellen: ideia para expor resultados em cada estudo, segundo apontamentos da @Sahudy - comparar comandos e seus resultados em grupos de leitura-leitura, leitura-escrita e escrita-escrita.
+<p align="center">
+  <img src="images-resultados/quadro-comparativo.png" width="550">
+ </p>
+  <p align="center">
+  <caption><span style="color:#696969"> Quadro X: Características dos Bancos de Dados CockroachDB e MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
+
+A justificativa para a elaboração desse layout na organização dos clusters deve-se à composição de uma estrutura mínima que atendesse ao fator de alta disponibilidade em cada solução NewSQL. Portanto, o conteúdo prático das provas de conceito foram iguais nos dois estudos de caso, com o intuito de verificar se a disponibilidade dos dados era mantida mesmo diante da queda de um nó, mas cada solução necessitava de uma composição diferente em seu cluster.
+
+Todavia, para as duas soluções NewSQL, a queda de um dos nós no teste não poderia ser o Principal (ou Master), devido a ambos usarem o modelo de distribuição de coordenador-subordinado e terem a necessidade do nó Master estar em operação para o banco se manter disponível. 
+
+Em relação aos nós secundários do CockroachDB, independente de qual nó tivesse a queda, o banco manteve-se disponível. Ele só ficou indisponível quando eram desativados os dois nós secundários e mantido somente o nó principal em funcionamento. Na Figura X há um exemplo em que foi feita a queda em todos os nós secundários e enviada uma consulta SELECT. O terminal do banco ficou “em espera” e só retornou a consulta ao reativar um dos nós secundários.
+
+<p align="center">
+  <img src="images-resultados/queda-total2-cockroachDB.png" width="630">
+ </p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: Situação em que o banco ficaria indisponível no CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
+
+>@Suellen: passar o resto da seção aqui...
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
