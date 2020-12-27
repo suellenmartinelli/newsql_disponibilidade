@@ -713,7 +713,7 @@ Porém, foram notadas algumas caraterísticas que diferenciam cada solução New
   <img src="images-resultados/quadro-comparativo.png" width="550">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Quadro X: Características dos Bancos de Dados CockroachDB e MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Quadro X: Características dos Bancos de Dados CockroachDB e MemSQL | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
 A justificativa para a elaboração desse layout na organização dos clusters deve-se à composição de uma estrutura mínima que atendesse ao fator de alta disponibilidade em cada solução NewSQL. Portanto, o conteúdo prático das provas de conceito foram iguais nos dois estudos de caso, com o intuito de verificar se a disponibilidade dos dados era mantida mesmo diante da queda de um nó, mas cada solução necessitava de uma composição diferente em seu cluster.
@@ -726,10 +726,27 @@ Em relação aos nós secundários do CockroachDB, independente de qual nó tive
   <img src="images-resultados/queda-total2-cockroachDB.png" width="630">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura X: Situação em que o banco ficaria indisponível no CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura X: Situação em que o banco ficaria indisponível no CockroachDB | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
->@Suellen: passar o resto da seção aqui...
+O comportamento exibido na Figura X é justificado pela lógica de armazenamento utilizada pelo CockroachDB, uma vez que os dados que pertencem a um mesmo registro armazenado em uma tabela são salvos em vários intervalos mapeados e replicados entre diferentes nós do cluster. Mesmo efetuando uma operação de leitura, como o SELECT, devido a arquitetura do CockroachDB o nó Master depende de consultar dados (por meio de chaves) em ranges localizados nos nós secundários [(COCKROACH LABS, 2020b)](#COCKROACH-2020B). 
+
+Já no caso dos nós secundários existentes no cluster do MemSQL a disponibilidade dos dados depende em qual grupo de redundância cada nó opera. Um grupo de disponibilidade é um conjunto de nós que armazenam dados de maneira redundante para garantir alta disponibilidade. Cada grupo de disponibilidade contém uma cópia de cada partição do sistema - algumas como mestres e outras como réplicas. Atualmente, MemSQL suporta até dois grupos de disponibilidade [(MEMSQL, 2020b)](#MEMSQL-2020B), sendo eles o *redundancy-1* (redundância-1) e o *redundancy-* (redundância-2).
+
+No ambiente organizado para a prova de conceito, os dois nós que pertencem ao grupo de redundância-1 não possuem cópias extras de seus dados e, caso ocorra uma falha em um nó secundário, o cluster fica offline até tal nó voltar ao sistema [(MEMSQL, 2020c)](#MEMSQL-2020C). Ou seja, independente do número de nós que o cluster tivesse, se todos os nós fossem de redundância-1, a queda de um dos nós tornaria o banco indisponível. Outros dois nós do cluster do MemSQL foram configurados com redundância-2, que são capazes de lidar com falhas em nós secundários e gerar réplicas dos dados para manter o banco de dados online. 
+
+Mesmo com essa configuração, a disponibilidade do banco só será mantida se houver a queda de alguns nós secundários e não todos. Essas configurações que podem ser aplicadas nos nós refletem também no algoritmo de balanceamento utilizado por cada grupo de nós em relação a distribuição dos dados no cluster [(MEMSQL, 2020c)](#MEMSQL-2020C). O Quadro Y exibe diferentes combinações de nós (com status de online e offline) do cluster do MemSQL, considerando a mesma disposição elaborada para a prova de conceito, com o intuito de exemplifficar em quais casos a disponibilidade dos dados seria mantida.
+
+<p align="center">
+  <img src="images-resultados/quadro-disponibilidade-memsql.png" width="600">
+ </p>
+  <p align="center">
+  <caption><span style="color:#696969"> Quadro Y: Cenários de disponibilidade do cluster no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
+
+Diante de uma análise das combinações exemplificadas no Quadro Y, apenas duas combinações podem ser generalizadas ao considerar o cluster na situação de disponível: quando fica offline somente um nó de redundância-1; ou quando há queda de apenas um nó de redundância-2. Como o MemSQL trabalha com a fragmentação dos dados usando índices e cada nó é relacionado a um nó específico para a troca de dados (em sua configuração padrão), a queda de um nó em particular pode trazer mais danos ao funcionamento do cluster. Por exemplo, o nó configurado na 3310, ao ser o único nó de redundância-2 a sofrer uma queda, junto de qualquer outro nó de redundância-1 que também esteja offline, torna o cluster indisponível (cenários de 11 à 14). O cluster apresenta menos chance de se tornar indisponível quando, nesta mesma lógica, o nó de redundância-2 desativado é o de porta 3309 (cenários de 4 à 7).
+
+De maneira geral, as soluções realmente conseguem manter a disponibilidade dos dados caso ocorra queda de um nó. Porém, para elaborar um banco de dados persistente a cenários mais “drásticos” é necessário utilizar da versão paga do software, disponível por cada solução NewSQL, para ser possível aplicar outras estruturas e configurações capazes de deixar tanto o CockroachDB como o MemSQL ainda mais robustos em relação ao fator de disponibilidade.
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
@@ -755,6 +772,8 @@ Em relação aos nós secundários do CockroachDB, independente de qual nó tive
 - BRITO, Michelli. [Containers e Docker](https://www.youtube.com/watch?v=TR8zX1D6abU). Canal Michelli Brito, 2020.
 <a id="COCKROACH-2020A"></a>
 - COCKROACH LABS. [CockroachDB: Distributed SQL](https://www.cockroachlabs.com/product/). Cockroach Labs, 2020a.
+<a id="COCKROACH-2020B"></a>
+- COCKROACH LABS. [CockroachDB: Architecture Overview](https://www.cockroachlabs.com/docs/v20.1/architecture/). Cockroach Labs, 2020b.
 <a id="COSTA-2020"></a>
 - COSTA, Matheus Bigogno. [O que é Benchmark?](https://canaltech.com.br/hardware/O-que-e-Benchmark/). CanalTech, 2020.
 <a id="DOCKER-2020"></a>
@@ -763,6 +782,10 @@ Em relação aos nós secundários do CockroachDB, independente de qual nó tive
 - KNOB, Ronan R. et al. [Uma Análise de Soluções NewSQL](??? LINK ????). ????? EVENTO ?????, p. ??? - ???, MÊS. 2019.
 <a id="MEMSQL-2020A"></a>
 - MEMSQL. [How MemSQL Works](https://docs.memsql.com/v7.1/introduction/how-memsql-works/). MemSQL Docs, 2020a. 
+<a id="MEMSQL-2020B"></a>
+- MEMSQL. [High Availability](https://docs.singlestore.com/v7.3/key-concepts-and-features/distributed-architecture/high-availability/). MemSQL Docs, 2020b. 
+<a id="MEMSQL-2020C"></a>
+- MEMSQL. [Managing High Availability (MemSQL Ops)](https://docs.singlestore.com/v7.1/tools/memsql-ops/managing-high-availability/). MemSQL Docs, 2020c. 
 <a id="MOLL-2019"></a>
 - MOLL, Vinicius. [Como construir uma aplicação com Docker?](https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/) GeekHunter, 2019.
 <a id="MONGODB-2020"></a>
