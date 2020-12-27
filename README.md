@@ -749,7 +749,13 @@ De maneira geral, as soluções realmente conseguem manter a disponibilidade dos
 <a id="conclusao-sec5"></a>
 # Conclusão
 
->@Suellen: apontamento da @Sahudy na apresentação - apresentar uma tabela comparativa de 'desempenho' dos bancos, no sentido de comportamento deles ao tratar de cada tipo de requisição. Acredito que isso pode ser aqui ou em subseções de cada estudo de caso aplicado na seção 4.
+A finalidade deste tutorial foi apresentar uma visão prática do aspecto de disponibilidade aplicado em duas soluções NewSQL diferentes por meio de uma prova de conceito. A disponibilidade foi abordada a partir do uso da mesma base de dados (a Northwind) nas aplicações CockroachDB e MemSQL, sendo replicado os mesmos grupos de comandos SQL em cada uma das provas de conceito.
+
+Sobre a preparação dos ambientes de cada aplicação, como a instalação de ferramentas e a organização do cluster, usuários com mais experiência em ambiente Linux e com conhecimentos prévios em Docker podem apresentar mais facilidade para a realização deste tutorial. Quanto a “subir” a base de dados Northwind e efetuar comandos (como leituras e gravações) as soluções NewSQL podem ser de simples operação aos usuários que possuem conhecimentos básicos de SQL, uma vez que elas utilizam da mesma linguagem usada por bancos de dados relacionais.
+
+Já em relação às provas de conceitos apresentadas neste tutorial, elas serviram para fornecer uma breve experiência sobre como cada solução NewSQL iria se comportar, frente a queda de um nó no cluster. Como discutido na seção de [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c), cada solução precisa de um ambiente mínimo diferente para fornecer alta disponibilidade dos dados e, por isso, o cluster de cada prova de conceito tinha quantidade de nós e configurações distintas. Todavia, os grupos de códigos e processos aplicados foram os mesmos nos dois estudos de caso.
+
+Os dois estudos de caso apresentaram um funcionamento positivo do banco, mantendo a disponibilidade dos dados mesmo com a queda de um nó. Porém, é preciso levar em conta o modelo de distribuição e a lógica de armazenamento em que cada banco de dados funciona, para compreender os diferentes cenários em que tanto o CockroachDB como o MemSQL são capazes de manter a disponibilidade dos dados. Outro fator para garantir a alta disponibilidade é a aquisição das versões pagas do CockroachDB e do MemSQL, tendo em vista que as versões gratuitas das aplicações limitam o uso de determinadas configurações, capazes de manter a alta disponibilidade dos dados.
 
 <a id="aprendizados-sec5a"></a>
 ## Sumarização do que foi aprendido
