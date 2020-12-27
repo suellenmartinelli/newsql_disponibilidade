@@ -733,7 +733,7 @@ No ambiente organizado para a prova de conceito, os dois nós que pertencem ao g
 Mesmo com essa configuração, a disponibilidade do banco só será mantida se houver a queda de alguns nós secundários e não todos. Essas configurações que podem ser aplicadas nos nós refletem também no algoritmo de balanceamento utilizado por cada grupo de nós em relação a distribuição dos dados no cluster [(MEMSQL, 2020c)](#MEMSQL-2020C). O Quadro Y exibe diferentes combinações de nós (com status de online e offline) do cluster do MemSQL, considerando a mesma disposição elaborada para a prova de conceito, com o intuito de exemplifficar em quais casos a disponibilidade dos dados seria mantida.
 
 <p align="center">
-  <img src="images-resultados/quadro-disponibilidade-memsql.png" width="600">
+  <img src="images-resultados/quadro-disponibilidade-memsql.png" width="610">
  </p>
   <p align="center">
   <caption><span style="color:#696969"> Quadro Y: Cenários de disponibilidade do cluster no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
