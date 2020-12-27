@@ -17,10 +17,12 @@ A estrutura deste tutorial online está fixada em cinco tópicos gerais que trat
 	2. [CockroachDB](#cockroachdb-sec2b)
 	3. [MemSQL](#memsql-sec2c)
 3. [Criação do Cluster Utilizando o Docker](#criar-cluster-sec3)
-	1. [Topologia do cluster no CockroachDB](#topologia-cockroach-sec3)
-	2. [Criar cluster no CockroachDB](#cockroachdb-sec3a)
-	3. [Topologia do cluster no MemSQL](#topologia-memsql-sec3)
-	4. [Criar cluster no MemSQL](#memsql-sec3b)
+	1. [CockroachDB](#cockroach-sec3)
+		1. [Topologia do Cluster](#topologia-cockroach-sec3)
+		2. [Criação do Cluster](#cockroachdb-sec3a)
+	2. [MemSQL](#memsql-sec3)
+		1. [Topologia do Cluster](#topologia-memsql-sec3)
+		2. [Criação do Cluster](#memsql-sec3b)
 4. [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4)
 	1. [Estudo de caso com o CockroachDB](#estudo-cockroachdb-sec4a)
 	2. [Estudo de caso com o MemSQL](#estudo-memsql-sec4b)
@@ -232,15 +234,20 @@ Ao executar o `docker-compose.yaml` o Docker pode criar alguns arquivos ocultos 
 - O download da imagem oficial do Docker Hub só vai acontecer na primeira inicialização do cluster que será descrita na seção de criação de cluster usando o [MemSQL](#memsql-sec3b);
 - O sistema exige ao menos 10GB livres no HD para poder iniciar, ele irá ocupar todo este espaço, mas é um requisito para criar o cluster.
 
-
 | :-------:
 | [Voltar ao Sumário](#sumario)
 
+<a id="criar-cluster-sec3"></a>
+# Criação do Cluster Utilizando o Docker
+
+<a id="cockroach-sec3"></a>
+## CockroachDB
+
 <a id="topologia-cockroach-sec3"></a>
-## Topologia do cluster no CockroachDB
+### Topologia do Cluster
 
 <a id="cockroachdb-sec3a"></a>
-## Criar cluster no CockroachDB
+### Criação do Cluster
 
 Para criar o cluster com o CockroachBD será necessário criar três containers, cada um terá uma instancia do banco de dados e representará um computador diferente. A comunicação entre os containers acontecerá por meio de uma rede interna do Docker, e este será o primeiro passo para criar o cluster. Para criar a rede devemos executar o comando: `docker network create -d bridge roachnet`. Este comando irá criar, no ambiente do Docker, uma rede chamada **roachnet**. Isto significa que apenas os containers podem ver e usar essa rede, exatamente como uma rede local. O nome roachnet é arbitrário e pode ser alternado conforme seu gosto, basta recordá-lo pois iremos utilizar nos próximos comandos.
 
@@ -304,13 +311,16 @@ Após executar estes comandos com sucesso teremos três containers ligados, cada
 
 **Recordando**: Cada container é uma instalação unica do CockroachDB. O unico container que tem comunicação aberta com a maquina host é o principal. O dados utilizados pelo banco (incluindo os binários que salvam as informações armazenadas dentro do banco) serão salvas na pasta atrelada à tag `v`. A comunicação entre containers é feita via rede interna do Docker.
 
-Os comandos aqui contidos para criação de containers são para Linux, caso necessite realizar a criação no Windows ou Mac acesse a [documentação](https://www.cockroachlabs.com/docs/v20.2/start-a-local-cluster-in-docker-windows) e escolha seu sistema operacional: 
+Os comandos aqui contidos para criação de containers são para Linux, caso necessite realizar a criação no Windows ou Mac acesse a [documentação](https://www.cockroachlabs.com/docs/v20.2/start-a-local-cluster-in-docker-windows) e escolha seu sistema operacional. 
+
+<a id="memsql-sec3"></a>
+## MemSQL
 
 <a id="topologia-memsql-sec3"></a>
-## Topologia do cluster no MemSQL
+### Topologia do Cluster
 
 <a id="memsql-sec3b"></a>
-## Criar cluster no MemSQL
+### Criação do Cluster
 
 A criação do cluster utilizando o MemSQL acontece de forma transparente para o usuário, para iniciar o processo é necessário abrir o terminal e navegar até a pasta onde o arquivo `docker-compose.yaml` foi salvo. Após acessar a pasta executar o comando: `docker-compose up`, ao executar este comando o docker irá vasculhar a pasta atual por um arquivo `docker-compose.yaml` e quando encontrar irá executá-lo. Neste ponto todos os comandos escritos no arquivo `docker-compose.yaml` serão executados. Caso seja a primeira execução é neste ponto que a imagem do sistema será baixada do Docker Hub.
 
