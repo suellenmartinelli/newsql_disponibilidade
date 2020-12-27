@@ -774,7 +774,7 @@ De maneira geral, as soluções realmente conseguem manter a disponibilidade dos
 <a id="DOCKER-2020"></a>
 - DOCKER. [What is a Container?: a standardized unit of software](https://www.docker.com/resources/what-container). Docker Inc. 2020.
 <a id="KNOB-2019"></a>
-- KNOB, Ronan R. et al. [Uma Análise de Soluções NewSQL](??? LINK ????). ????? EVENTO ?????, p. ??? - ???, MÊS. 2019.
+- KNOB, Ronan R. et al. [Uma Análise de Soluções NewSQL](https://sol.sbc.org.br/index.php/erbd/article/view/8475). In: XV Escola Regional de Banco de Dados (ERBD), 2019, Chapecó. Porto Alegre: Sociedade Brasileira de Computação, p. 21 - 30. ISSN 2595-413X.
 <a id="MEMSQL-2020A"></a>
 - MEMSQL. [How MemSQL Works](https://docs.memsql.com/v7.1/introduction/how-memsql-works/). MemSQL Docs, 2020a. 
 <a id="MEMSQL-2020B"></a>
