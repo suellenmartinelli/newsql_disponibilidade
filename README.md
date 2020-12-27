@@ -718,7 +718,7 @@ Todavia, para as duas soluções NewSQL, a queda de um dos nós no teste não po
 Em relação aos nós secundários do CockroachDB, independente de qual nó tivesse a queda, o banco manteve-se disponível. Ele só ficou indisponível quando eram desativados os dois nós secundários e mantido somente o nó principal em funcionamento. Na Figura X há um exemplo em que foi feita a queda em todos os nós secundários e enviada uma consulta SELECT. O terminal do banco ficou “em espera” e só retornou a consulta ao reativar um dos nós secundários.
 
 <p align="center">
-  <img src="images-resultados/queda-total2-cockroachDB.png" width="630">
+  <img src="images-resultados/queda-total3-cockroachDB.png" width="630">
  </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura X: Situação em que o banco ficaria indisponível no CockroachDB | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
