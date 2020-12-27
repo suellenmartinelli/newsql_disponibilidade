@@ -104,13 +104,13 @@ O trabalho de [Knob et al. (2019)](#KNOB-2019) compara soluções NewSQL, sendo 
 
 O benchmark YCSB gera uma carga de trabalho mista com operações de leitura e escrita, incluindo diferentes volumes de dados e número de requisições. A ferramenta realiza escolhas aleatórias, como as operações que serão feitas (Insert, Update, Read ou Scan), qual registro ler ou escrever, e quantos registros examinar. Já o benchmark Voter simula a saturação de um cenário em que o BD receberá requisições constantes, sendo cada requisição associada ao voto de uma pessoa para um determinado candidato. Ao receber uma requisição, a aplicação invoca uma transação para atualizar o número total de votos de cada participante, enquanto uma segunda transação contabiliza todos os votos. Cada teste foi configurado com um fator de escala em 1000 e com 64 usuários virtuais emulados para manipulação (64 conexões simultâneas).
 
-O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que ao analisar as médias de transações por segundo, nos dois benchmarks, o MemSQL foi superior ao CockroachDB, tanto em ambientes que solicitam requisições variadas como uniformes. Já os resultados sobre a latência média do CockroachDB no benchmark YCSB mostrou que em 99% das requisições feitas ao BD, a latência média era de quase 24 segundos, apresentando um desempenho ruim do CockroachDB quando comparado ao MemSQL. Essa discrepância não ocorreu no benchmark Voter, que trabalhou com transações menores e de apenas um tipo. Assim, o MemSQL obteve alta taxa de *throughput* e baixa latência, com diferenças consideráveis ao CockroachDB, como apresenta os resultados da <span style="color:red">Figura X</span>. 
+O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que ao analisar as médias de transações por segundo, nos dois benchmarks, o MemSQL foi superior ao CockroachDB, tanto em ambientes que solicitam requisições variadas como uniformes. Já os resultados sobre a latência média do CockroachDB no benchmark YCSB mostrou que em 99% das requisições feitas ao BD, a latência média era de quase 24 segundos, apresentando um desempenho ruim do CockroachDB quando comparado ao MemSQL. Essa discrepância não ocorreu no benchmark Voter, que trabalhou com transações menores e de apenas um tipo. Assim, o MemSQL obteve alta taxa de *throughput* e baixa latência, com diferenças consideráveis ao CockroachDB, como apresenta os resultados da Tabela X.
 
 <p align="center">
-  <img src="image-intro/quadro-knob-2019.PNG" width="650">
+  <img src="image-intro/quadro-intro.png" width="620">
   </p>
-  <p>
-  <caption><span style="color:#696969"> Figura X: Medidas obtidas nos benchmarks | Fonte: Adaptado de Knob et al. (2019) </span></caption>
+  <p align="center">
+  <caption><span style="color:#696969"> Tabela X: Medidas obtidas nos benchmarks | Fonte: Adaptado de Knob et al. (2019) </span></caption>
 </p>
 
 O segundo estudo apresentado trata de .....
@@ -315,11 +315,6 @@ Os comandos aqui contidos para criação de containers são para Linux, caso nec
 A criação do cluster utilizando o MemSQL acontece de forma transparente para o usuário, para iniciar o processo é necessário abrir o terminal e navegar até a pasta onde o arquivo `docker-compose.yaml` foi salvo. Após acessar a pasta executar o comando: `docker-compose up`, ao executar este comando o docker irá vasculhar a pasta atual por um arquivo `docker-compose.yaml` e quando encontrar irá executá-lo. Neste ponto todos os comandos escritos no arquivo `docker-compose.yaml` serão executados. Caso seja a primeira execução é neste ponto que a imagem do sistema será baixada do Docker Hub.
 
 Se ao executar o documento  o sistema indicar que o *docker-compose up* não é um comando reconhecido, é necessário instalar o módulo de docker compose, acesse a  [documentação](https://docs.docker.com/compose/install/) siga as instruções referente ao seu sistema operacional.
-
-
-
-
-
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
