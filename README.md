@@ -754,6 +754,14 @@ De maneira geral, as soluções realmente conseguem manter a disponibilidade dos
 <a id="aprendizados-sec5a"></a>
 ## Sumarização do que foi aprendido
 
+Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tutorial, e que também podem ser obtidos por parte de alunos e professores da área de Ciência da Computação ao estudarem este material são:
+
+- Conhecimentos acerca dos aspectos teóricos que envolveram as provas de conceito apresentadas;
+- Aprendizagem prática que incorporou desde a instalação de aplicações (Docker, CockroachDB e MemSQL), até a configuração dos clusters e realização das provas de conceito;
+- Experiência prática no ambiente Linux para realizar todas as configurações necessárias e gerar um ambiente apto para ser utilizado por cada solução NewSQL;
+- Experiência prática ao operar a base de dados northwind no CockroachDB e no MemSQL;
+- Compreensão sobre as diferentes arquiteturas de cada solução NewSQL e como elas influenciam na disponibilidade de cada banco de dados;
+
 <a id="glossario-sec6"></a>
 # Glossário
 
