@@ -760,7 +760,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 - Aprendizagem prática que incorporou desde a instalação de aplicações (Docker, CockroachDB e MemSQL), até a configuração dos clusters e realização das provas de conceito;
 - Experiência prática no ambiente Linux para realizar todas as configurações necessárias e gerar um ambiente apto para ser utilizado por cada solução NewSQL;
 - Experiência prática ao operar a base de dados northwind no CockroachDB e no MemSQL;
-- Compreensão sobre as diferentes arquiteturas de cada solução NewSQL e como elas influenciam na disponibilidade de cada banco de dados.
+- Compreensão sobre as diferentes arquiteturas de cada solução NewSQL usada neste tutorial e como elas influenciam na disponibilidade de cada banco de dados.
 
 <a id="glossario-sec6"></a>
 # Glossário
