@@ -100,24 +100,31 @@ A escolha do MemSQL também é associada a documentação e materiais de apoio d
 <a id="benchmark-sec1e"></a>
 ## Benchmarks com CockroachDB e MemSQL
 
-Benchmark (na computação) é o ato de comparar de forma eficiente a performance entre dispositivos ou softwares utilizando um ou mais programas para efetuar simulações, testes padronizados e ensaios. Para comparar o desempenho de softwares de maneira equivalente, é preciso realizar uma série de testes e analisar diferentes tipos de dados [(COSTA, 2020)](#COSTA-2020). Existem na literatura alguns estudos recentes que apresentam benchmarks com diferentes soluções NewSQL. Aqui, serão comentados dois estudos identificados.
+Benchmark (na computação) é o ato de comparar de forma eficiente e equivalente a performance entre dispositivos ou softwares utilizando um ou mais programas para efetuar simulações, testes padronizados e ensaios, analisando diferentes tipos de dados [(COSTA, 2020)](#COSTA-2020). Existem na literatura alguns estudos recentes que apresentam benchmarks com diferentes soluções NewSQL. Aqui, serão comentados dois estudos identificados.
 
-O trabalho de [Knob et al. (2019)](#KNOB-2019) compara soluções NewSQL, sendo duas delas o MemSQL e CockroachDB, utilizando-se de dois softwares de benchmark focados em transações OLTP (*Yahoo! Cloud Serving Benchmark - YCSB* e *Voter*) em um ambiente distribuído. Os experimentos consideraram um cluster de três nós físicos e as métricas avaliadas foram a taxa de transações executadas no tempo (*Throughput*) e a latência das transações, através da análise da média geral das latências. 
+O trabalho de [Knob et al. (2019)](#KNOB-2019) compara soluções NewSQL, sendo duas delas o MemSQL e CockroachDB, utilizando-se de dois softwares de benchmark (*Yahoo! Cloud Serving Benchmark - YCSB* e *Voter*) focados em transações OLTP (*Online Transaction Processing*) em um ambiente distribuído. Os experimentos consideraram um cluster de três nós físicos e as métricas avaliadas foram a taxa de transações executadas no tempo (*Throughput*) e a latência das transações, através da análise da média geral das latências. 
 
-O benchmark YCSB gera uma carga de trabalho mista com operações de leitura e escrita, incluindo diferentes volumes de dados e número de requisições. A ferramenta realiza escolhas aleatórias, como as operações que serão feitas (Insert, Update, Read ou Scan), qual registro ler ou escrever, e quantos registros examinar. Já o benchmark Voter simula a saturação de um cenário em que o BD receberá requisições constantes, sendo cada requisição associada ao voto de uma pessoa para um determinado candidato. Ao receber uma requisição, a aplicação invoca uma transação para atualizar o número total de votos de cada participante, enquanto uma segunda transação contabiliza todos os votos. Cada teste foi configurado com um fator de escala em 1000 e com 64 usuários virtuais emulados para manipulação (64 conexões simultâneas).
+O YCSB gera uma carga de trabalho mista com operações de leitura e escrita, incluindo diferentes volumes de dados e número de requisições. A ferramenta realiza escolhas aleatórias, como as operações que serão feitas (INSERT, UPDATE, SELECT), qual registro ler ou escrever, e quantos registros examinar. Já o Voter simula a saturação de um cenário em que o BD receberá requisições constantes, sendo cada requisição associada ao voto de uma pessoa para um determinado candidato. Ao receber uma requisição, a aplicação invoca uma transação para atualizar o número total de votos de cada participante, enquanto uma segunda transação contabiliza todos os votos. Cada teste foi configurado com um fator de escala em 1000 e com 64 usuários virtuais emulados para manipulação (64 conexões simultâneas).
 
-O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que ao analisar as médias de transações por segundo, nos dois benchmarks, o MemSQL foi superior ao CockroachDB, tanto em ambientes que solicitam requisições variadas como uniformes. Já os resultados sobre a latência média do CockroachDB no benchmark YCSB mostrou que em 99% das requisições feitas ao BD, a latência média era de quase 24 segundos, apresentando um desempenho ruim do CockroachDB quando comparado ao MemSQL. Essa discrepância não ocorreu no benchmark Voter, que trabalhou com transações menores e de apenas um tipo. Assim, o MemSQL obteve alta taxa de *throughput* e baixa latência, com diferenças consideráveis ao CockroachDB, como apresenta os resultados da Tabela X.
+O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que ao analisar as médias de transações por segundo, nos dois benchmarks, o MemSQL foi superior ao CockroachDB, tanto em ambientes que solicitam requisições variadas como uniformes. Já os resultados sobre a latência média do CockroachDB no benchmark YCSB mostrou que em 99% das requisições feitas ao BD, a latência média era de quase 24 segundos, apresentando um desempenho ruim do CockroachDB quando comparado ao MemSQL. Essa discrepância não ocorreu no Voter, que trabalhou com transações menores e de apenas um tipo. Assim, o MemSQL obteve alta taxa de *throughput* e baixa latência, com diferenças consideráveis ao CockroachDB, como apresenta os resultados da Tabela X.
 
 <p align="center">
   <img src="image-intro/quadro-intro.png" width="620">
   </p>
   <p align="center">
-  <caption><span style="color:#696969"> Tabela X: Medidas obtidas nos benchmarks | Fonte: Adaptado de Knob et al. (2019) </span></caption>
+  <caption><span style="color:#696969"> Tabela X: Valores obtidos nos benchmarks | Fonte: Adaptado de Knob et al. (2019) </span></caption>
 </p>
 
-O segundo estudo apresentado trata de .....
+O segundo estudo apresentado, desenvolvido por [Kaur e Sachdeva (2017)](#KAUR-2017), efetuou um benchmark com quatro soluções NewSQL (entre elas o CockroachDB e o MemSQL), dedicou-se a analisar o desempenho dos bancos ao lidarem com operações de leitura, gravação e atualização. Cada solução NewSQL foi instalada em um mesmo sistema operacional, configuradas com base de dados e carga de trabalho iguais. Como parâmetros considerados para gerar uma análise comparativa, foram extraídas a latência de leitura, a latência de gravação, a latência de atualização e o tempo de execução das operações, sendo a média obtida em cada parâmetro apresentado na Tabela Y.
 
->@Suellen: falar de mais um estudo, com foco em disponibilidade. Pode ser que o artigo do Kaur et al. seja viável aqui...
+<p align="center">
+  <img src="image-intro/quadro2-intro.png" width="620">
+  </p>
+  <p align="center">
+  <caption><span style="color:#696969"> Tabela Y: Valores obtidos no benchmark | Fonte: Adaptado de ????? </span></caption>
+</p>
+
+Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferentes parâmetros de latência. Inclusive, entre os demais bancos de dados (Volt DB e NuoDB) comparados no estudo de [Kaur e Sachdeva (2017)](#KAUR-2017), o CockroachDB foi o que apresentou as latências mais altas. O tempo de execução médio das consultas, mesmo sendo um pouco mais rápido que o MemSQL, não tira a vantagem do MemSQL, pensando no desempenho geral de cada aplicação.
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
@@ -797,6 +804,8 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 - COSTA, Matheus Bigogno. [O que é Benchmark?](https://canaltech.com.br/hardware/O-que-e-Benchmark/). CanalTech, 2020.
 <a id="DOCKER-2020"></a>
 - DOCKER. [What is a Container?: a standardized unit of software](https://www.docker.com/resources/what-container). Docker Inc. 2020.
+<a id="KAUR-2017"></a>
+- KAUR, Karambir; SACHDEVA, Monika [Performance evaluation of NewSQL databases](https://ieeexplore.ieee.org/document/8068585). 2017 International Conference on Inventive Systems and Control (ICISC), 2017, Coimbatore, India. p. 1 - 5. DOI 10.1109/ICISC.2017.8068585.
 <a id="KNOB-2019"></a>
 - KNOB, Ronan R. et al. [Uma Análise de Soluções NewSQL](https://sol.sbc.org.br/index.php/erbd/article/view/8475). In: XV Escola Regional de Banco de Dados (ERBD), 2019, Chapecó. Porto Alegre: Sociedade Brasileira de Computação, p. 21 - 30. ISSN 2595-413X.
 <a id="MEMSQL-2020A"></a>
