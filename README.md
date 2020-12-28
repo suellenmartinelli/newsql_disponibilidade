@@ -118,7 +118,7 @@ O estudo de [Knob et al. (2019)](#KNOB-2019) revelou que ao analisar as médias 
 O segundo estudo apresentado, desenvolvido por [Kaur e Sachdeva (2017)](#KAUR-2017), efetuou um benchmark com quatro soluções NewSQL (entre elas o CockroachDB e o MemSQL), dedicou-se a analisar o desempenho dos bancos ao lidarem com operações de leitura, gravação e atualização. Cada solução NewSQL foi instalada em um mesmo sistema operacional, configuradas com base de dados e carga de trabalho iguais. Como parâmetros considerados para gerar uma análise comparativa, foram extraídas a latência de leitura, a latência de gravação, a latência de atualização e o tempo de execução das operações, sendo a média obtida em cada parâmetro apresentado na Tabela Y.
 
 <p align="center">
-  <img src="image-intro/quadro2-intro.png" width="450">
+  <img src="image-intro/quadro2-intro.png" width="500">
   </p>
   <p align="center">
   <caption><span style="color:#696969"> Tabela Y: Valores obtidos no benchmark | Fonte: Adaptado de Kaur e Sachdeva (2017) </span></caption>
