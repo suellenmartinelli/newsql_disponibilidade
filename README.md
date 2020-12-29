@@ -1,9 +1,10 @@
+<div align="justify">
+
 <p align="center">
   <img src="image-gerais/logos2.PNG" width="530" height="130" alt="texto de exemplo">
 </p>
-<div align="justify">
+
 A estrutura deste tutorial online está fixada em sete tópicos gerais que tratam desde os aspectos teóricos até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
-</div>
 
 <a id="sumario"></a>
 # Sumário
@@ -1001,3 +1002,4 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 <a id="YUGABYTE-2020"></a>
 - YUGABYTE. [Northwind sample database](https://docs.yugabyte.com/latest/sample-data/northwind/). YugabytesDB, 2020.
 
+</div>
