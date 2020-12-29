@@ -147,7 +147,8 @@ Para o tutorial de instalação do **Docker** será considerado um computador co
 
 	- Após a instalação do docker verificar se está em um Container Linux, para o Windows Home os containers por padrão são Linux e não há como alterar, já nas demais versões a opção de outros containers vem habilitada. 
 	- Para verificar se está em um container Linux, com o Docker ativo, procure pelo ícone do docker na barra de tarefas e clique com o botão direito sobre ele, se houver uma opção  “Switch to Windows containers…”, significa que você está no container Linux, se a opção for  “Switch to Linux containers…”
-significa que está na opção de containers do Windows, e para mudar, basta clicar nesta opção.<p align="center">
+significa que está na opção de containers do Windows, e para mudar, basta clicar nesta opção.
+	<p align="center">
   		<img src="image-gerais/LinuxContainers_Wind.jpg" width="300">
   	</p>
   	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Switch to Linux Containers | Fonte: do autor </span></caption>
