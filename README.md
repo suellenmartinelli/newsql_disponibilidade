@@ -47,29 +47,44 @@ A Introdução contempla uma visão geral dos tópicos a serem abordados e algum
 
 <div align="justify">
 Os bancos de dados relacionais tradicionais surgiram em um tempo onde a necessidade de armazenamento e gravações eram menores e o acesso não era concorrido [(STONEBRAKER et al. 2007)](#STONEBRAKER-2007). Com a web 3.0, onde milhões de dados são gerados, gravados e acessados com rapidez, foi criado o NoSQL. Oferecendo acesso rápido e escalonamento horizontal, o NoSQL focou em resolver problemas relacionados à manutenção e interação com dados volumosos. Para lidar com o novo contexto o NoSQL se apoia no teorema CAP *(**C**onsistency, **A**vailability e **P**artition tolerance)*, onde para se obter alta disponibilidade se faz necessário manejar os níveis de consistência.
+</div>
 
+<div align="justify">
 O NoSQL trouxe alterações em relação ao paradigma relacional em termos de uso e manutenção das bases de dados. O primeiro ponto a ser observado é que o NoSQL não utiliza a linguagem SQL para consultas e gravações, e para garantir disponibilidade os resultados podem não ser consistentes. Estas alterações geraram grandes dúvidas quanto a sua adesão por parte da comunidade que já estava habituada com os paradigmas tradicionais. Desta forma, iniciaram-se pesquisas para desenvolver um SGBD *(**S**istema de **G**erenciamento de **B**anco de **D**ados)* que utilizasse a mesma linguagem já conhecida e consolidada no mercado, que garantisse transações ACID *(**A**tomicity, **C**onsistency, **I**solation, **D**urability)*, que fossem escaláveis e altamente disponíveis. Como fruto destas pesquisas surgiram os SGBDs NewSQL.
+</div>
 
+<div align="justify">
 Segundo [Stonebraker e Cattell (2011)](#STONEBRAKER-2011), as cinco características de um SGBD NewSQL são: 
- 
+ </div>
+
 * Linguagem SQL como meio de interação entre o SGBD e a aplicação; 
 * Suporte para transações ACID; 
 * Controle de concorrência não bloqueante, para que as leituras e escritas não causem conflitos entre si; 
 * Arquitetura que forneça um maior desempenho por nó de processamento; 
 * Arquitetura escalável, com memória distribuída e com capacidade de funcionar em um aglomerado com um grande número de nós.
 
+<div align="justify">
 O paradigma NewSQL surge então para combinar os benefícios do paradigma relacional com o tratamento de Big Data suportados pelo paradigma NoSQL. Sistemas NewSQL são soluções modernas que buscam prover o mesmo desempenho escalável dos BDs NoSQL para transações OLTP *(Online Transaction Processing)* com suporte a todas as propriedades ACID, como encontrado nos bancos de dados relacionais [(KNOB et al., 2019)](#KNOB-2019).
+</div>
 
 <a id="disponibilidade-sec1b"></a>
 ## O que é Disponibilidade?
 
+<div align="justify">
 A disponibilidade é a uma característica de sistemas que podem se manter ativos pelo máximo de tempo possível. Em sistemas de banco de dados isto significa atender uma requisição do usuário (seja ela de leitura, escrita ou atualização) sempre que solicitado. Desta forma pode-se concluir que um sistema é disponível quando responde sempre às requisições com sucesso, e indisponível quando ocorre falha ao concretizar uma consulta [(REZENDE, 2013)](#REZENDE-2013). 
+</div>
 
+<div align="justify">
 Uma das grandes diferenças entre os bancos de dados relacionais tradicionais e os bancos de dados NoSQL está no tratamento da disponibilidade. Para garantir disponibilidade, os bancos NoSQL podem manejar cópias das informações em vários servidores, clusters e/ou nós. A replicação através de redundância aumenta a disponibilidade dos dados, podendo ainda melhorar a capacidade de resposta à leituras, pois com diversas cópias vários clientes podem solicitar a leitura a partir de locais diferentes. 
+</div>
 
+<div align="justify">
 Outro fator relativo às replicações é a tolerância a falhas. Na hipótese de um servidor, ou cluster, ou nó falhar, o sistema direciona a requisição para outro ponto que contenha o mesmo dado, logo, quanto maior o número de réplicas melhor poderão ser trabalhadas as questões relacionadas à tolerância a falhas [(MONGODB, 2020)](#MONGODB-2020).
+</div>
 
+<div align="justify">
 Um conceito similar é a alta disponibilidade *(high avaliability)*, que caracteriza sistemas de informação resistentes a falhas de hardware, software e energia, cujo objetivo é manter os serviços disponíveis o maior tempo possível. Geralmente, quanto maior a necessidade de alta disponibilidade, maior precisa ser a redundância dos dados e custo das soluções, tendo em vista que isso depende do tipo de serviço (ramo da empresa, necessidades comerciais, etc) que se pretende disponibilizar [(WIKIPÉDIA, 2020)](#WIKI-2020). 
+</div>
 
 <a id="contexto-sec1c"></a>
 ## Contextualização do Tutorial
@@ -125,7 +140,7 @@ O MemSQL também tem como característica chave fornecer alta disponibilidade em
   <caption><span style="color:#696969"> Figura Y: Terminal SQL e ambiente de gestão do MemSQL | Fonte: Elaborado pelo(a) autor(a)</span></caption>
 </p>
 
-Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação, além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL é a popularidade delas, como mostra o gráfico da Figura Z. Neste gráfico, o *score* é apresentando considerando o valor medido no primeiro mês de cada trimestre, em cada ano.
+Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação, além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL é a popularidade delas, como mostra o gráfico da Figura Z. Neste gráfico, o *score* é apresentado considerando o valor medido no primeiro mês de cada trimestre, em cada ano.
 
 <p align="center">
   <img src="image-intro/????????.png" width="610">
@@ -164,7 +179,7 @@ O segundo estudo apresentado, desenvolvido por [Kaur e Sachdeva (2017)](#KAUR-20
 </p>
 
 Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferentes parâmetros de latência. Inclusive, entre os demais bancos de dados (Volt DB e NuoDB) comparados no estudo de [Kaur e Sachdeva (2017)](#KAUR-2017), o CockroachDB foi o que apresentou as latências mais altas. O tempo de execução médio das consultas, mesmo sendo um pouco mais rápido que o MemSQL, não tira a vantagem do MemSQL, pensando no desempenho geral de cada aplicação.
-</div>
+
 | :-------:
 | [Voltar ao Sumário](#sumario)
 
