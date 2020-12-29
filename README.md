@@ -311,7 +311,7 @@ Ao final será formada a topologia abaixo:
 <p align="center">
   	<img src="image-cluster/clusroach.PNG" width="550">
   	</p>
- 	 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Topologia de clusters CockroachDB | Fonte: do autor </span></caption>
+ 	 <p  align="center"><caption><span style="color:#696969"> Figura X: Topologia de clusters CockroachDB | Fonte: do autor </span></caption>
 	</p>
 
 
@@ -406,7 +406,7 @@ Basta copiar todo o conteúdo do arquivo de create disponível [aqui](codes-sql/
 <p align="center">
   <img src="image-cluster/create_barataDB.png" width="500">
 </p>
-  <p align="center">
+<p align="center">
   <caption><span style="color:#696969"> Figura X: description </span></caption>
 </p>
 
@@ -433,7 +433,7 @@ Ao final será formada a topologia abaixo:
 <p align="center">
   	<img src="image-cluster/clusmem.PNG" width="550">
   	</p>
- 	 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Topologia de clusters MemSQL| Fonte: do autor </span></caption>
+ 	 <p align="center"><caption><span style="color:#696969"> Figura X: Topologia de clusters MemSQL| Fonte: do autor </span></caption>
 	</p>
 
 
@@ -997,7 +997,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 <a id="STONEBRAKER-2007"></a>
 - STONEBRAKER, Michael et al. [The End of an Architectural Era (It’s Time for a Complete Rewrite)](http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf). VLDB '07: Proceedings Of The 33Rd International Conference On Very Large Data Bases, p. 1150-1160, jul. 2007.
 <a id="WIKI-2020"></a>
-- WIKIPÉDIA. [Sistema de alta disponibilidade](https://pt.wikipedia.org/wiki/Sistema_de_alta_disponibilidade/). 2020.
+- WIKIPEDIA. [Sistema de alta disponibilidade](https://pt.wikipedia.org/wiki/Sistema_de_alta_disponibilidade/). 2020.
 <a id="YUGABYTE-2020"></a>
 - YUGABYTE. [Northwind sample database](https://docs.yugabyte.com/latest/sample-data/northwind/). YugabytesDB, 2020.
 
