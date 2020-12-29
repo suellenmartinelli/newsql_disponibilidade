@@ -1,10 +1,10 @@
-<div align="justify">
-
 <p align="center">
   <img src="image-gerais/logos2.PNG" width="530" height="130" alt="texto de exemplo">
 </p>
 
+<div align="justify">
 A estrutura deste tutorial online está fixada em sete tópicos gerais que tratam desde os aspectos teóricos até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
+</div>
 
 <a id="sumario"></a>
 # Sumário
@@ -122,7 +122,7 @@ O MemSQL também tem como característica chave fornecer alta disponibilidade em
   <caption><span style="color:#696969"> Figura Y: Terminal SQL e ambiente de gestão do MemSQL | Fonte: Elaborado pelo(a) autor(a)</span></caption>
 </p>
 
-Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação, além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL é a popularidade delas, como mostra o gráfico da Figura Z. 
+Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação, além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL é a popularidade delas, como mostra o gráfico da Figura Z. Neste gráf
 
 <p align="center">
   <img src="image-intro/????????.png" width="610">
@@ -131,7 +131,7 @@ Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e mater
   <caption><span style="color:#696969"> Figura Z: Popularidade do CockroachDB e MemSQL | Fonte: Adaptado de DB-Engines (2020) </span></caption>
 </p>
 
-Segundo o DB-Engines Ranking, que classifica os SGBDs de acordo com sua popularidade, apresentam o CockroachDB e o MemSQL com um crescimento rápido a partir de um curto período de tempo observado (entre anoX e anoY). A popularidade é extraída diante de um *score* calculado a partir de métricas como número de menções aos sistemas em sites de busca e frequência de discussões técnicas em fóruns acerca de cada banco [(DB-ENGINES, 2020)](#DB-ENGINES-2020).
+Segundo o DB-Engines Ranking, que classifica os SGBDs de acordo com sua popularidade, apresentam o CockroachDB e o MemSQL com um crescimento rápido a partir de um curto período de tempo observado (entre 2013 e 2020). A popularidade é extraída diante de um *score* calculado a partir de métricas como número de menções aos sistemas em sites de busca e frequência de discussões técnicas em fóruns acerca de cada banco [(DB-ENGINES, 2020)](#DB-ENGINES-2020).
 
 <a id="benchmark-sec1e"></a>
 ## Benchmarks com CockroachDB e MemSQL
@@ -1002,4 +1002,3 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 <a id="YUGABYTE-2020"></a>
 - YUGABYTE. [Northwind sample database](https://docs.yugabyte.com/latest/sample-data/northwind/). YugabytesDB, 2020.
 
-</div>
