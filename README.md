@@ -142,13 +142,12 @@ Para o tutorial de instalação do **Docker** será considerado um computador co
 - Windows: [Tutorial de instalação no Windows](https://docs.docker.com/docker-for-windows/install/)
 	- *Observações importantes para Windows:* 
 	- O docker para ser instalado precisa do Hyper - v, que é a virtualização do Windows, o Windows Home não traz este recurso, para isso é necessário atualizar a versão e a build, atualizar o WSL,  e instalar uma distro do Linux de sua preferência. Instruções de como realizar a verificação e a instalação presentes na documentação oficial da Microsoft: https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-2---update-to-wsl-2
-
  	- Para as demais versões do Windows, basta seguir a documentação oficial do Docker com as instalações.
-
 	- Após a instalação do docker verificar se está em um Container Linux, para o Windows Home os containers por padrão são Linux e não há como alterar, já nas demais versões a opção de outros containers vem habilitada. 
 	- Para verificar se está em um container Linux, com o Docker ativo, procure pelo ícone do docker na barra de tarefas e clique com o botão direito sobre ele, se houver uma opção  “Switch to Windows containers…”, significa que você está no container Linux, se a opção for  “Switch to Linux containers…”
 significa que está na opção de containers do Windows, e para mudar, basta clicar nesta opção.
-	<p align="center">
+
+<p align="center">
   		<img src="image-gerais/LinuxContainers_Wind.jpg" width="300">
   	</p>
   	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Switch to Linux Containers | Fonte: do autor </span></caption>
