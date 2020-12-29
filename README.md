@@ -166,10 +166,10 @@ significa que está na opção de containers do Windows, e para mudar, basta cli
 </p>
 	
 <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Interface gráfica Imagens | Fonte: do autor </span> </caption>
-</p>
+</p><br>
 
-	- As ações na interface gráfica são limitadas, para utilizar os recursos do Docker utilize o Power Shell.
-	- Todos os comandos do docker utilizados neste capítulo podem ser reproduzidos no Windows sem o uso do comando sudo( comando de super usuário no Linux), para isso utilize o Power Shell e o execute como administrador.
+- As ações na interface gráfica são limitadas, para utilizar os recursos do Docker utilize o Power Shell.
+- Todos os comandos do docker utilizados neste capítulo podem ser reproduzidos no Windows sem o uso do comando sudo( comando de super usuário no Linux), para isso utilize o Power Shell e o execute como administrador.
 	
 <p align="center">
 <img src="image-gerais/winshell.png" width="550">
