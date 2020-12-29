@@ -680,7 +680,7 @@ select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month f
 Observe as saídas emitidas pela aplicação, semelhantes a Figura 21. Se o CockroachDB fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com 2 nós em atividade o banco manteve-se disponível. Caso queira observar outras métricas (gráficos) via Cockroach Labs, retorne ao `http://localhost:8080`.
 
 <p align="center">
-  <img src="images-praticas/saidas-GB-cockroachdb.png" width="350">
+  <img src="images-praticas/saidas-GB-cockroachdb.png" width="550">
   </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura 21: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
