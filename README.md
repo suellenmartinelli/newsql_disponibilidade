@@ -866,7 +866,7 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura 25. Se o MemS
   <img src="images-praticas/passo3-falha-GB-memsql.png" width="630">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 26: Falha na execução de comandos com 4 nós ativos no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 26: Falha na execução de comandos com 4 nós ativos no MemSQL | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
 Uma avaliação dos resultados será feita na seção a seguir.
