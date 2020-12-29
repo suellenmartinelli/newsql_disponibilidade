@@ -18,11 +18,11 @@ A estrutura deste tutorial online está fixada em cinco tópicos gerais que trat
 	3. [MemSQL](#memsql-sec2c)
 3. [Criação do Cluster Utilizando o Docker](#criar-cluster-sec3)
 	1. [CockroachDB](#cockroach-sec3)
-		- [Topologia do Cluster](#topologia-cockroach-sec3)
+- [Topologia do Cluster](#topologia-cockroach-sec3)
 		- [Criação do Cluster](#cockroachdb-sec3a)
 	2. [MemSQL](#memsql-sec3)
 		- [Topologia do Cluster](#topologia-memsql-sec3)
-		- [Criação do Cluster](#memsql-sec3b)
+- [Criação do Cluster](#memsql-sec3b)
 4. [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4)
 	1. [Estudo de caso com o CockroachDB](#estudo-cockroachdb-sec4a)
 	2. [Estudo de caso com o MemSQL](#estudo-memsql-sec4b)
@@ -31,6 +31,16 @@ A estrutura deste tutorial online está fixada em cinco tópicos gerais que trat
 	1. [Sumarização do que foi aprendido](#aprendizados-sec5a)
 6. [Glossário](#glossario-sec6)
 7. [Referências Bibliográficas](#referencias-sec7)
+
+
+3. Criação do Cluster Utilizando o Docker
+    3.1. CockroachDB
+           3.1.1. Topologia do cluster 
+           3.1.2. Criação do cluster
+    3.2. MemSQL
+           3.2.1. Topologia do cluster
+           3.2.2. Criação do cluster
+
 
 <a id="intro-sec1"></a>
 # Introdução
@@ -82,31 +92,35 @@ Diante do uso dessa base de dados por cada solução NewSQL selecionada, este tu
 <a id="recursos-sec1d"></a>
 ## Recursos Utilizados
 
->@Suellen: um dos comentários da @Sahudy na apresentação foi "tentar falar o essencial na intro, deixar o tutorial enxuto". Pode ser que esta subsação diminua...
-
-Os recursos que serão utilizados para a elaboração deste tutorial são: Docker; CockroachDB; e MemSQL.
-
-O Docker é uma plataforma open source que fornece recursos para criar, executar, manejar e publicar containers [(MOLL, 2019)](#MOLL-2019). Containers são abstrações a nível de sistema operacional e se caracterizam por agrupar códigos, bibliotecas e dependências com o intuito de garantir a execução de um determinado aplicativo em um ambiente isolado do sistema host [(BRITO, 2020)](#BRITO-2020). A imagem de um container no Docker gera um pacote de software leve, autônomo e executável que inclui tudo o que é necessário para executar um aplicativo [(DOCKER, 2020)](#DOCKER-2020).
+Os recursos que serão utilizados para a elaboração deste tutorial são: Docker, CockroachDB e MemSQL. O Docker é uma plataforma open source que fornece recursos para criar, executar, manejar e publicar containers [(MOLL, 2019)](#MOLL-2019). Containers são abstrações a nível de sistema operacional e se caracterizam por agrupar códigos, bibliotecas e dependências com o intuito de garantir a execução de um determinado aplicativo em um ambiente isolado do sistema host [(BRITO, 2020)](#BRITO-2020). A imagem de um container no Docker gera um pacote de software leve, autônomo e executável que inclui tudo o que é necessário para executar um aplicativo [(DOCKER, 2020)](#DOCKER-2020).
 
 A finalidade de utilização do Docker neste tutorial encontra-se em abstrair especificidades relacionadas ao sistema host durante a instalação e utilização das ferramentas de banco de dados. Os clusters que servirão para as provas de conceito serão criados sob containers levando em consideração as recomendações dos desenvolvedores das ferramentas utilizadas. A versão utilizada neste tutorial será a Docker Community Edition (Docker CE, versão 19.03, gratuita).
 
->@Suellen: cabe aqui uma imagem para expor o "visual" da aplicação Docker.
-
 O CockroachDB é um dos bancos de dados selecionados para o tutorial. Ele é um banco de dados relacional que trabalha com linguagem SQL, suportada por uma API do PostgreSQL, capaz de fornecer escalabilidade e consistência em sistemas distribuídos. Ele também suporta transações ACID, além de possuir autogestão na replicação e fragmentação dos dados no cluster, evitando qualquer alteração manual nos dados [(COCKROACH LABS, 2020a)](#COCKROACH-2020A).
 
-O CockroachDB é caracterizado por ser um sistema que permite o desenvolvimento de aplicações com alta disponibilidade. Seus recursos permitem manejar situações relacionadas a queda de alguns nós da infraestrutura de forma transparente, sem que a aplicação perca acesso aos dados [(PAT RESEARCH, 2020)](#PAT-2020).
+O CockroachDB é caracterizado por ser um sistema que permite o desenvolvimento de aplicações com alta disponibilidade. Seus recursos permitem manejar situações relacionadas a queda de alguns nós da infraestrutura de forma transparente, sem que a aplicação perca acesso aos dados [(PAT RESEARCH, 2020)](#PAT-2020). A versão utilizada neste tutorial é o CockroachDB Core (versão 20.1.7, gratuita), exibida na Figura X.
 
-A escolha do CockroachDB deve-se a documentação e materiais de apoio (blog, vídeos) disponíveis no site oficial para utilização do banco. Além de ser um banco de dados dedicado a tratar a disponibilidade. A versão utilizada é o CockroachDB Core (versão 20.1.7, gratuita).
+<p align="center">
+  <img src="image-intro/tela-geral-cockroach.png" width="610">
+</p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: Terminal SQL e ambiente de gestão do CockroachDB | Fonte: Elaborado pelo(a) autor(a)</span></caption>
+</p>
 
->@Suellen: cabe aqui uma imagem para expor o "visual" da aplicação CockroachDB.
+O MemSQL é o segundo banco de dados selecionado para o tutorial. Ele é um banco de dados relacional distribuído que lida com transações ACID e análises em tempo real, trabalhando com escalabilidade horizontal. Fornece suporte à sintaxe SQL e é compatível com o MySQL, permitindo com que aplicativos que usam de um driver do MySQL possam se conectar ao MemSQL de maneira transparente [(MEMSQL, 2020a)](#MEMSQL-2020A). **Importante:** após a construção deste tutorial a empresa do MemSQL evoluiu para SingleStore. Por este motivo, alguns links de documentação/cadastro podem apresentar o novo nome, porém, os comandos e a versão utilizada neste tutorial permanecem como MemSQL.
 
-O MemSQL é o segundo banco de dados selecionado para o tutorial. Ele é um banco de dados relacional distribuído que lida com transações ACID e análises em tempo real, trabalhando com escalabilidade horizontal. Fornece suporte à sintaxe SQL e é compatível com o MySQL, permitindo com que aplicativos que usam de um driver do MySQL possam se conectar ao MemSQL de maneira transparente [(MEMSQL, 2020a)](#MEMSQL-2020A).
+O MemSQL também tem como característica chave fornecer alta disponibilidade em um sistema distribuído através do compartilhamento de cópias dos dados entre os nós do cluster. Desta forma, é possível perder contato com alguns nós sem deixar o sistema todo inoperante. Quanto ao funcionamento das transações, para assegurar a disponibilidade, estas são confirmadas no disco como registros de log e replicadas automaticamente, suportando a queda de um nó e usando dados de logs para recuperar as transações confirmadas [(MEMSQL, 2020a)](#MEMSQL-2020A). A versão utilizada neste tutorial é o MemSQL Software (versão 7.1, gratuita), representada na Figura Y.
 
-O MemSQL também tem como característica chave fornecer alta disponibilidade em um sistema distribuído através do compartilhamento de cópias dos dados entre os nós do cluster. Desta forma, é possível perder contato com alguns nós sem deixar o sistema todo inoperante. Quanto ao funcionamento das transações, para assegurar a disponibilidade, estas são confirmadas no disco como registros de log e replicadas automaticamente, suportando a queda de um nó e usando dados de logs para recuperar as transações confirmadas [(MEMSQL, 2020a)](#MEMSQL-2020A).
+<p align="center">
+  <img src="image-intro/tela-geral-memsql.png" width="610">
+</p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: Terminal SQL e ambiente de gestão do MemSQL | Fonte: Elaborado pelo(a) autor(a)</span></caption>
+</p>
 
-A escolha do MemSQL também é associada a documentação e materiais de apoio disponíveis no site oficial para utilização do banco. Além de ser um banco de dados que prioriza a disponibilidade. A versão utilizada é o MemSQL Software (versão 7.1, gratuita).
+Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação, além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL é ……..  
 
->@Suellen: cabe aqui uma imagem para expor o "visual" da aplicação MemSQL.
+
 
 <a id="benchmark-sec1e"></a>
 ## Benchmarks com CockroachDB e MemSQL
@@ -143,7 +157,7 @@ Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferent
 <a id="instalacoes-sec2"></a>
 # Instalação das Ferramentas
 
-Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção conterá informações como: partes de tutoriais oficiais da instalação já disponíveis na Internet; recomendações sobre os ambientes de instalação; prints de tela; e informações relacionadas a configuração do ambiente.
+Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção contém informações como: links para tutoriais oficiais da instalação; recomendações sobre os ambientes de instalação; prints de tela; e informações relacionadas à configuração do ambiente.
 
 <a id="docker-sec2a"></a>
 ## Docker
@@ -188,27 +202,30 @@ significa que está na opção de containers do Windows, e para mudar, basta cli
 </p>
 <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Interface gráfica Imagens | Fonte: do autor </span> </caption>
 </p>
+
 	
 - Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
 
-Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissões de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `sudo -v`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
+Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissão de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `sudo -v`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
 
 Após constatar que possui privilégios de administrador você deve atualizar o cache das listas de repositórios, para isto execute o comando `sudo apt-get update`. Pronto, privilégios checados, lista de repositórios atualizada, estamos prontos para a instalação!
 
-Para começar a instalação devemos primeiro garantir que as dependências do instalador do docker estão satisfeitas, estas depêndencias são:
+Para começar a instalação devemos primeiro garantir que as dependências do instalador do docker estão satisfeitas, estas dependências são:
 
 - `apt-transport-https`: para permitir que o gerenciador de pacotes transfira os dados através de https;
 - `ca-certificates`: habilitar o sistema a verificar certificados de segurança;
-- `curl`: para transfirir dados;
+- `curl`: para transferir dados;
 - `software-properties-common`: scripts para gerenciar o software.
 
 Para instalar todos eles ao mesmo tempo podemos executar apenas um comando: `sudo apt-get install  curl apt-transport-https ca-certificates software-properties-common`. Não se preocupe em analisar se estes softwares já estão presentes no seu sistema, o `APT-GET` é inteligente e não irá baixar pacotes que já estão instalados, e caso a versão instalada seja antiga ele irá atualizar ;).
 
-A instalação oficial do Docker não está presente nas listas básicas de aplicativos do Linux. Mas isto não é motivo para preocupação, com apenas duas linhas de código já seremos capazes de acessar o repositório oficial. O primeiro passo é adicionar a chave CPG oficial do docker para garantir a segurança enquanto baixamos os arquivos do repositório oficial, o comando é este: `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`.
+A instalação oficial do Docker não está presente nas listas básicas de aplicativos do Linux. Mas isto não é motivo para preocupação, com apenas duas linhas de código já seremos capazes de acessar o repositório oficial. 
+
+**Atenção:** Os comandos aqui mencionados foram configurados para funcionar em Linux Ubuntu e derivados. Os comandos foram testados com sucesso na versão 18.3 do Linux Mint, para outras versões do Linux (inclusive do Mint) podem ser necessárias alterações nas URLs. Isto se deve ao fato de que cada distribuição tem um instalador específico e o nome e a versão da distribuição fazem parte da URL para indicar o caminho do download. A lista das versões e distribuições suportadas pelo instalador do docker podem ser consultadas [aqui](https://download.docker.com/linux).
+
+O primeiro passo é adicionar a chave CPG oficial do docker para garantir a segurança enquanto baixamos os arquivos do repositório oficial, o comando é este: `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`.
 
 Tendo adicionado a chave agora vamos adicionar o repositório da última versão estável do Docker em nossas lista através do comando: `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`. Como acabamos de adicionar um novo repositório em nossas listas, devemos atualizar novamente o cache com o comando `sudo apt-get update`.
-
-*Obs.:* - Caso ocorra algum erro 404 ao procurar a release do Linux que está usando, significa que no momento a release não existe no repositório, neste caso altere o código, onde ele puxa a release do seu Linux, e insira manualmente uma release existente no  [repositório](https://download.docker.com/linux/ubuntu/dists/). Sugerimos a release **bionic**  `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"`
 
 Chegou a hora esperada: instalar o docker-ce. Para isto basta executar o comando: `sudo apt install docker-ce`. Após concluir o processo de instalação (que é todo automatizado) podemos confirmar se o docker está ligado através do comando: `sudo systemctl status docker`, caso tenha ocorrido tudo bem devemos observar uma mensagem deste tipo:
 
@@ -221,17 +238,17 @@ Neste ponto estamos habilitados a seguir com as instalações, pois nosso docker
 <a id="cockroachdb-sec2b"></a>
 ## CockroachDB
 
-Todas as versões do CockroachDB são distribuidas em formato binário, isto significa que não há um instalador. Para utilização do CockroachDB basta fazer o download dos arquivos para o sistema operacional utilizado, extrair em uma pasta e executar o sistema. Para este tutorial iremos utilizar a versão do sistema que funciona sobre container Docker, para isto utilizaremos a imagem distribuida oficialmente pelo fabricante através do Docker Hub.
+Todas as versões do CockroachDB são distribuídas em formato binário, isto significa que não há um instalador. Para utilização do CockroachDB basta fazer o download dos arquivos para o sistema operacional utilizado, extrair em uma pasta e executar o sistema. Para este tutorial iremos utilizar a versão do sistema que funciona sobre container Docker, para isto utilizaremos a imagem distribuída oficialmente pelo fabricante através do Docker Hub.
 
-Tendo o Docker já instalado, basta executar o comando `sudo docker pull cockroachdb/cockroach:v20.1.9`. Este comando irá verificar se esta imagem já existe em seu computador, caso não exista ele fará o download. Não é necessário mais nenhum passo para a instalação, a utilização desta imagem será abordada na seção de criação do cluster utilizando o [CockroachDB](#cockroachdb-sec3a), onde criaremos um container para cada nó da nossa arquitetura.
+Tendo o Docker já instalado, basta executar o comando `sudo docker pull cockroachdb/cockroach:v20.1.9`. Este comando irá verificar se esta imagem já existe em seu computador, caso não exista ele fará o download. Não é necessário mais nenhum passo para a instalação, a utilização desta imagem será abordada na seção de criação do cluster utilizando o [CockroachDB](#cockroachdb-sec3a), onde criaremos um container , utilizando a imagem que acabamos de baixar, para cada nó da nossa arquitetura.
 
 
 <a id="memsql-sec2c"></a>
 ## MemSQL
 
-O MemSQL é uma ferramenta paga. Para a ocasião deste tutorial iremos utilizar a versão gratuita que possui diversas limitações de utilização, porém, servirá para nosso propósito de prova de conceito. Antes de iniciar a instalação é preciso criar uma conta para obter uma liçenca (chave de acesso) para a versão gratuita. O cadastro deve ser feito por meio [deste link](https://www.singlestore.com/free/).
+O MemSQL é uma ferramenta paga, para a ocasião deste tutorial iremos utilizar uma licença gratuita que possui limitações de utilização, porém, servirá para nosso propósito de prova de conceito. Antes de iniciar a instalação é preciso criar uma conta para obter uma chave de acesso para a versão gratuita. O cadastro deve ser feito por meio [deste link](https://www.singlestore.com/free/).
 
-A versão grátis do MemSQL trata-se de apenas um container Docker onde existem três instâncias do banco de dados. A fabricante chama esta instalação de "cluster-in-a-box" pois toda a configuração do banco acontece de forma automática dentro do container e o usuário não pode interferir (caixa preta). Para instalação do MemSQL basta criar um arquivo de configuração com informações básicas para que o Docker faça todo o trabalho, este arquivo é o `docker-compose.yaml` e ele deve conter este conteudo:
+A versão grátis do MemSQL trata-se de apenas um container Docker onde podem ser executadas instâncias do banco de dados. A fabricante chama esta instalação de "cluster-in-a-box" pois toda a configuração do banco acontece de forma automática dentro do container e o usuário não precisa interferir (caixa preta) para que o básico funcione. Para instalação do MemSQL basta criar um arquivo de configuração com informações básicas para que o Docker faça todo o trabalho, este arquivo é o `docker-compose.yaml` e ele deve conter este conteúdo:
 
 ~~~docker-compose.yaml
 version: '2'
@@ -244,21 +261,24 @@ services:
       - 8080:8080
     environment:
       LICENSE_KEY: <sua chave de acesso deve ser colocada aqui>
+      ROOT_PASSWORD: <coloque uma senha aqui>
       START_AFTER_INIT: 'Y' 
 ~~~
 
-Para entender melhor os passos que serão executados de forma automática pelo Docker faremos uma breve explicação do conteudo deste arquivo:
+Para entender melhor os passos que serão executados de forma automática pelo Docker faremos uma breve explicação do conteúdo deste arquivo:
 
 - A tag `services` contém toda informação relacionada ao container que o Docker deve configurar, neste caso o Docker irá criar um container chamado `memsql` que utilizará a imagem `memsql/cluster-in-a-box` presente no Docker Hub;
-- A tag `ports` faz um mapeamento entre as portas do container e do computador host, sendo a primeira porta relativa ao container e a segunda ao host. Por exemplo, o comando `80:8888` indica que a porta 80 do container será mapeada para a porta 8888 do computador host. O arquivo de .yaml está fazendo um redirecionamento direto utilizando as mesmas portas para container e host, agora com o entendimento de como funciona você será capaz de manejar estas portas caso elas já estejam em uso no host, mantendo atenção para alterar apenas o 2º parâmetro;
+- A tag `ports` faz um mapeamento entre as portas do container e do computador host, sendo a primeira porta relativa ao host e a segunda ao container. Por exemplo, o comando `80:8888` indica que a porta 8888 do container será mapeada para a porta 80 do computador host. O arquivo .yaml está fazendo um redirecionamento direto utilizando as mesmas portas para container e host, agora com o entendimento de como funciona você será capaz de manejar estas portas caso elas já estejam em uso no host, mantendo atenção para alterar apenas o 1º parâmetro;
 - A tag `LICENSE_KEY` deve conter a chave de acesso que conseguimos ao se cadastrar no site oficial. Em um ambiente real de uso não é recomendado manter a chave de acesso salva no arquivo por questões de segurança, neste casos é recomendado utilizar as "variáveis de ambiente". Para mais informações sobre este tipo de utilização pode ser conferida na [documentação oficial](https://docs.singlestore.com/v7.1/guides/use-memsql/develop/getstarted/free/);
-- A tag `START_AFTER_INIT` é apenas uma garantia para que o container não se desligue durante a utilização, deixe ela ali ;).
+- A tag `ROOT_PASSWORD` contém a senha que será utilizada para acessar as funcionalidades do sistema, pode escolher uma senha simples pois estamos apenas testando as coisas ;) ;
+- A tag `START_AFTER_INIT` é apenas uma garantia para que o container não se desligue durante a utilização.
 
-Ao executar o `docker-compose.yaml` o Docker pode criar alguns arquivos ocultos no local onde o arquivo se encontra, por isto é recomendado salvar este arquivo em uma pasta específica para o MemSQL. Após criar a pasta e salvar o arquivo o processo de instalação está concluido!. 
+Ao executar o `docker-compose.yaml` o Docker pode criar alguns arquivos ocultos no local onde o arquivo se encontra, por isto é recomendado salvar este arquivo em uma pasta específica para o MemSQL. Após criar a pasta e salvar o arquivo, o processo de instalação está concluído. 
 
 **Atenção**: 
 - O download da imagem oficial do Docker Hub só vai acontecer na primeira inicialização do cluster que será descrita na seção de criação de cluster usando o [MemSQL](#memsql-sec3b);
-- O sistema exige ao menos 10GB livres no HD para poder iniciar, ele irá ocupar todo este espaço, mas é um requisito para criar o cluster.
+- O sistema exige ao menos 10GB livres no HD para poder iniciar, ele **não** irá ocupar todo este espaço, mas é um requisito para criar o cluster.
+
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
@@ -272,12 +292,30 @@ Ao executar o `docker-compose.yaml` o Docker pode criar alguns arquivos ocultos 
 <a id="topologia-cockroach-sec3"></a>
 ### Topologia do Cluster
 
+Para criação do cluster utilizaremos três containers do CockroachDB eles terão as seguintes responsabilidades:
+
+- O primeiro container, denominado *roach1*, será o *agregador*. Ele irá gerenciar a comunicação entre os outros dois containers que serão criados;
+- O segundo e o terceiro container serão os *Leaves*, cada um será criado em um container individual, sendo eles o *roach2* e *roach3* respectivamente.
+
+Ao final será formada a topologia abaixo:
+
+<p align="center">
+  	<img src="image-cluster/clusroach.PNG" width="550">
+  	</p>
+ 	 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Topologia de clusters CockroachDB | Fonte: do autor </span></caption>
+	</p>
+
+
 <a id="cockroachdb-sec3a"></a>
 ### Criação do Cluster
 
-Para criar o cluster com o CockroachBD será necessário criar três containers, cada um terá uma instancia do banco de dados e representará um computador diferente. A comunicação entre os containers acontecerá por meio de uma rede interna do Docker, e este será o primeiro passo para criar o cluster. Para criar a rede devemos executar o comando: `docker network create -d bridge roachnet`. Este comando irá criar, no ambiente do Docker, uma rede chamada **roachnet**. Isto significa que apenas os containers podem ver e usar essa rede, exatamente como uma rede local. O nome roachnet é arbitrário e pode ser alternado conforme seu gosto, basta recordá-lo pois iremos utilizar nos próximos comandos.
+Para criar o cluster com o CockroachBD será necessário criar três containers, cada um terá uma instância do banco de dados e representará um computador diferente. A comunicação entre os containers acontecerá por meio de uma rede interna do Docker, e este será o primeiro passo para criar o cluster. Para criar a rede devemos executar o comando: 
 
-Para organizar os arquivos do Docker devemos criar uma pasta chamada `cockroach-data`. dentro desta pasta devemos criar outras três, uma para cada container que iremos inicializar, sendo: `roach1`, `roach2` e `roach3`. **Dica:** crie esta pasta em um diretório com o caminho pouco complexo, pois nos próximos comandos nós iremos escrever este endereço.
+`docker network create -d bridge roachnet`.
+
+Este comando irá criar, no ambiente do Docker, uma rede chamada **roachnet**. Isto significa que apenas os containers podem ver e usar essa rede, exatamente como uma rede local. O nome roachnet é arbitrário e pode ser alterado conforme seu gosto, basta recordá-lo pois iremos utilizar nos próximos comandos.
+
+Para organizar os arquivos do Docker devemos criar uma pasta chamada “cockroach-data”. Dentro desta pasta devemos criar outras três, uma para cada container que iremos inicializar, sendo: “roach1”, “roach2” e “roach3”. **Dica:** crie esta pasta em um diretório com o caminho pouco complexo, pois nos próximos comandos nós iremos escrever este endereço.
 
 Para iniciar o primeiro container iremos executar no terminal o seguinte comando:
 
@@ -299,13 +337,13 @@ Explicação:
 - O flag `name` é a identificação do container que será criado, ele pode ser alterado, porém, existem outras referências para este nome, caso queira colocar outro nome tenha isto em mente e atualize todas as referências;
 - O `hostname` serve para a identificação durante a configuração da rede interna;
 - A flag `net` faz referência a rede na qual nosso container irá se conectar, no caso do exemplo vamos nos conectar na **roachnet** que foi criada nos passos anteriores, caso você tenha alterado o nome da rede no passo anterior **atenção aqui**;
-- As flags `p` indicam o redirecionamento de portas do container -> host, no geral não precisam ser alteradas. Lembrando que as portas relacionadas container (1º parametro) não devem ser alternadas;
-- A flag `-v` é um direcionamento entre uma pasta existente dentro do container e uma pasta no computador host, isto é necessário pois o container não tem um armazenamento permanente e todos os dados são apagados quando o container desliga. Os dados salvos nesta pasta ficarão salvos no computador host e serão usados pelo container;
-- O comando `cockroachdb/cockroach:v20.1.9 start` irá iniciar, dentro do container recem criado, a imagem que fizemos o download na seção de instalação;
+- As flags `p` indicam o redirecionamento de portas do host -> container, e no geral não precisam ser alteradas. Lembrando que as portas relacionadas ao container (2º parâmetro) não devem ser alternadas;
+- A flag `-v` é um direcionamento entre uma pasta existente dentro do container e uma pasta no computador host. Isto é necessário pois o container não tem um armazenamento permanente e todos os dados são apagados quando o container desliga. Os dados salvos nesta pasta ficarão salvos no computador host e serão usados pelo container;
+- O comando `cockroachdb/cockroach:v20.1.9 start` irá iniciar, dentro do container recém criado, a imagem que fizemos o download na seção de instalação;
 - A flag `insecure` faz parte da implementação voltada a teste do CockroachDB, ela **não deve ser alterada**;
-- Uma das tags mais imporantes é a `join`, ela ira indicar quais containers devem se conectar dentro da rede local do Docker, no caso do exemplo os containers de hostname roach1,roach2 e roach3 serão conectados.
+- Uma das tags mais importantes é a `join`, ela irá indicar quais containers devem se conectar dentro da rede local do Docker, no caso do exemplo os containers de hostname roach1,roach2 e roach3 serão conectados.
 
-Após executar este comando teremos o container principal ativo, porém, ainda faltam os nós que compoem a estrutura básica do cockroach. Após entender bem a estrutua do comando que inicia o container principal podemos notar que para iniciar outro container só precisamos mudar o: `name`, `hostname`, e a rota/pasta da flag `v`. Como a conexão da maquina host será realizada apenas com o container principal, os outros containers (nós) não precisam de configuração de portas, a rede local do Docker basta.
+Após executar este comando teremos o container principal ativo, porém, ainda faltam os nós que compõem a estrutura básica do cockroach. Após entender bem a estrutura do comando que inicia o container principal podemos notar que para iniciar outro container só precisamos mudar o: `name`, `hostname`, e a pasta da flag `v`. Como a conexão da máquina host será realizada apenas com o container principal, os outros containers (nós) não precisam de configuração de portas, a rede local do Docker basta.
 
 Então para subir o container **roach2**:
 
@@ -333,11 +371,41 @@ cockroachdb/cockroach:v20.1.7 start \
 --join=roach1,roach2,roach3
 ~~~
 
-Após executar estes comandos com sucesso teremos três containers ligados, cada um rodando uma instância do CockroachDB. Para inicializar o cluster basta executar o comando: `docker exec -it roach1 ./cockroach init --insecure`. Este comando irá iniciar o sistema do CockroachDB dentro do container **roach1** e toda a configuração restante acontecerá automaticamente. Neste ponto teremos um cluster de CockroachDB ativo, onde o container **roach1** é o principal e os outros são seus nós secundários :).
+Após executar estes comandos com sucesso teremos três containers ligados, cada um rodando uma instância do CockroachDB. Para inicializar o cluster basta executar o comando: 
 
-**Recordando**: Cada container é uma instalação unica do CockroachDB. O unico container que tem comunicação aberta com a maquina host é o principal. O dados utilizados pelo banco (incluindo os binários que salvam as informações armazenadas dentro do banco) serão salvas na pasta atrelada à tag `v`. A comunicação entre containers é feita via rede interna do Docker.
+`docker exec -it roach1 ./cockroach init --insecure`
 
-Os comandos aqui contidos para criação de containers são para Linux, caso necessite realizar a criação no Windows ou Mac acesse a [documentação](https://www.cockroachlabs.com/docs/v20.2/start-a-local-cluster-in-docker-windows) e escolha seu sistema operacional. 
+Este comando irá iniciar o sistema do CockroachDB dentro do container **roach1** e toda a configuração restante acontecerá automaticamente. Neste ponto teremos um cluster de CockroachDB ativo, onde o container **roach1** é o principal e os outros são seus nós secundários :).
+
+**Recordando**: Cada container é uma instalação única do CockroachDB. O único container que tem comunicação aberta com a máquina host é o “roach1”. Os dados utilizados pelo banco (incluindo os binários que salvam as informações armazenadas dentro do banco) serão salvos na pasta atrelada à tag `v`. A comunicação entre containers é feita via rede interna do Docker.
+
+Para criar a base de dados northwind vamos utilizar um terminal SQL do CockroachDB. Para acessar devemos abrir um terminal Linux e executar o seguinte comando:
+
+`docker exec -it roach1 ./cockroach sql --insecure`
+
+Após executar este comando nós teremos acesso ao terminal SQL dentro do container **roach1**.
+
+<p align="center">
+  <img src="image-cluster/console_barataDB.png" width="500">
+</p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: description </span></caption>
+</p>
+
+Basta copiar todo o conteúdo do arquivo de create disponível [aqui](codes-sql/CREATE_northwind.sql) para criarmos a base e todas as tabelas do BD Northwind. Cole todo o conteúdo no terminal SQL ativo, ao colar pode parecer que apenas os últimos comandos foram copiados, isto acontece por conta da quantidade de linhas copiadas e ele acaba não mostrando o começo mas pode executar normalmente que o banco será criado. Note que ao executar as instruções, o CockroachDB emite o tempo de execução de cada comando. Aguarde todos os comandos serem executados para prosseguir.
+
+<p align="center">
+  <img src="image-cluster/create_barataDB.png" width="500">
+</p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: description </span></caption>
+</p>
+
+Vamos fazer o mesmo com o arquivo de insert disponível [aqui](codes-sql/INSERT_northwind.sql), copiando todo o seu conteúdo e colando no terminal SQL ativo. Execute as instruções e aproveite para tomar um café…essa ação pode demorar aproximadamente 15 minutos. Aguarde todos os comandos serem executados para prosseguir.
+
+Ao término desses passos, nossa base de dados está criada e pronta para uso. ;) 
+
+Os comandos aqui contidos para criação de containers são para Linux, caso necessite realizar a criação no Windows ou Mac acesse a [documentação](https://www.cockroachlabs.com/docs/v20.2/start-a-local-cluster-in-docker-windows) e escolha seu sistema operacional.
 
 <a id="memsql-sec3"></a>
 ## MemSQL
@@ -345,12 +413,86 @@ Os comandos aqui contidos para criação de containers são para Linux, caso nec
 <a id="topologia-memsql-sec3"></a>
 ### Topologia do Cluster
 
+Para criação do cluster utilizaremos cinco instâncias do MemSQL, elas terão as seguintes responsabilidades:
+
+- A primeira instância será o *agregador* e será identificada pela porta 3306, sua função será gerenciar as conexões entre as outras quatro que serão criadas;
+- A segunda e a terceira instância serão *Leaves*, elas pertencerão ao Grupo 1 e serão identificadas pela porta 3307 e 3308 respectivamente;
+- A quarta e quinta instância serão *Leaves* réplicas do Grupo 1, elas pertencerão ao Grupo 2 e serão identificadas pelas portas 3309 e 3310 respectivamente.
+
+Ao final será formada a topologia abaixo:
+
+<p align="center">
+  	<img src="image-cluster/clusmem.PNG" width="550">
+  	</p>
+ 	 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Topologia de clusters MemSQL| Fonte: do autor </span></caption>
+	</p>
+
+
 <a id="memsql-sec3b"></a>
 ### Criação do Cluster
 
-A criação do cluster utilizando o MemSQL acontece de forma transparente para o usuário, para iniciar o processo é necessário abrir o terminal e navegar até a pasta onde o arquivo `docker-compose.yaml` foi salvo. Após acessar a pasta executar o comando: `docker-compose up`, ao executar este comando o docker irá vasculhar a pasta atual por um arquivo `docker-compose.yaml` e quando encontrar irá executá-lo. Neste ponto todos os comandos escritos no arquivo `docker-compose.yaml` serão executados. Caso seja a primeira execução é neste ponto que a imagem do sistema será baixada do Docker Hub.
+A criação do cluster básico utilizando o MemSQL acontece de forma transparente para o usuário. Para iniciar o processo é necessário abrir o terminal e navegar até a pasta onde o arquivo “docker-compose.yaml” foi salvo, após acessar a pasta executar o comando: `docker-compose up`. Ao executar este comando o docker irá vasculhar a pasta atual por um arquivo “docker-compose.yaml” e quando encontrar irá executá-lo. Neste ponto todos os comandos escritos no arquivo `docker-compose.yaml` serão executados. Caso seja a primeira execução é neste ponto que a imagem do sistema será baixada do Docker Hub.
 
-Se ao executar o documento  o sistema indicar que o *docker-compose up* não é um comando reconhecido, é necessário instalar o módulo de docker compose, acesse a  [documentação](https://docs.docker.com/compose/install/) siga as instruções referente ao seu sistema operacional.
+Se ao executar o comando  o sistema indicar que o `docker-compose up` não é um comando reconhecido, é necessário instalar o módulo de docker compose. Acesse a  [documentação](https://docs.docker.com/compose/install/) e siga as instruções referente ao seu sistema operacional.
+
+Após executar o docker-compose up com sucesso o cluster básico já estará em execução, porém, ainda precisamos executar alguns comandos pois a estrutura básica é formada de apenas um nó agregador e um nó secundário e isto não é suficiente para ativar a alta disponibilidade. O MemSQL distribui partições de dados por todos os nós existentes, e desta forma caso um nó fique offline o banco para de responder para garantir a integridade. Para ativar a alta disponibilidade é necessário criar dois grupos com a mesma quantidade de nós para que o algoritmo do banco possa distribuir e replicar as partições para o banco continuar disponível em caso de queda de alguns nós (caso um nó e sua réplica fiquem offline, inevitavelmente o banco ficará indisponível).
+
+Para o tutorial nós iremos criar dois grupos compostos por dois nós cada, a estrutura básica já criou um nó e ele faz parte do grupo 1, então o próximo passo será criar e registrar mais um nó. Este nó será automaticamente registrado no grupo 1, pois ainda não indicamos para o BD que vamos montar uma estrutura de alta-disponibilidade.
+
+**Atenção:** os nós são criados dentro do mesmo container, então sua identificação é feita com base na porta que ele estará disponível. A estrutura básica criou o nó agregador na porta 3306 e o nó secundário na porta 3307.
+
+Para criar um nó devemos executar no terminal o seguinte comando (o comando pedirá confirmação de execução):
+`docker exec -it **nome_do_container** memsqlctl create-node --password "" --port XXXX`
+
+Onde:
+
+- **nome_do_container** representa a identificação atribuida ao container pelo Docker, geralmente fica como memsql_memsql_1. Para confirmar basta executar um `docker ps` e observar a coluna `NAMES`;
+- **XXXX** deve ser substituído por uma porta disponível. É importante anotar a porta utilizada pois ela servirá de referência para nossos comandos de manipulação sobre os nós. Para criar o segundo nó do grupo 1 recomendamos utilizar a porta 3308.
+
+Após criar o nó 3308, nós devemos registrá-lo no agregador. Para registrar nós no agregador é necessário executar o comando (o comando pedirá confirmação de execução):
+`docker exec -it **nome_do_container** memsqlctl add-leaf --host '127.0.0.1' --port XXXX`
+
+Neste ponto nossa estrutura está composta por um agregador e dois nós secundários no grupo 1. Podemos visualizar esta estrutura através do comando SQL `SHOW LEAVES`, porém, para executar comandos SQL é necessário primeiro acessar a interface gráfica. Acesse http://localhost:8080 no navegador e selecione a opção “Localhost”. No campo usuário informe “root” e como senha o valor configurado em ROOT_PASSWORD que foi criado no arquivo “docker-compose.yaml”. Assim nós iremos acessar toda a área administrativa da aplicação via MemSQL Studio (modo gráfico).
+
+<p align="center">
+  <img src="image-cluster/interface_memsql.png" width="500">
+</p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: description </span></caption>
+</p>
+
+Para executar comandos SQL basta acessar o item `SQL Editor` no menu esquerdo. Na figura X podemos ver o resultado do comando `SHOW LEAVES` mostrando a estrutura atual do nosso cluster, composto de dois nós secundários no grupo 1.
+
+<p align="center">
+  <img src="image-cluster/cluster_umgrupo_memsql.png" width="500">
+</p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: description </span></caption>
+</p>
+
+Para incluir nós no grupo 2 precisamos informar ao algoritmo do banco que estamos montando uma estrutura de alta disponibilidade, e isto deve ser feito através do seguinte comando SQL:
+`SET @@GLOBAL.redundancy_level = 2;`
+
+Após executar este comando no SQL Editor todos os novos nós registrados serão automaticamente alocados no grupo 2. Agora basta repetir o processo de criar e registrar nós, porém, desta vez criando os nós 3309 e 3310. Após concluir com sucesso a criação dos nós teremos então uma estrutura de alta disponibilidade formada por um nó agregador e quatro nós secundários divididos em dois grupos, onde o grupo 2 é uma réplica do grupo 1.
+<p align="center">
+  <img src="image-cluster/cluster_doisgrupos_memsql.png" width="500">
+</p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: description </span></caption>
+</p>
+
+Para criar e popular a base de dados northwind que será utilizada no tutorial utilizaremos também o “SQL Editor”. Basta agora copiar todo o conteúdo disponível [aqui](codes-sql/CREATE_northwind.sql) para criarmos a base e todas as tabelas do northwind. Cole todo o conteúdo no SQL Editor, mantenha todo o código selecionado e execute-o. Note que ao executar as instruções, o MemSQL mostra uma aba como “saída” para cada tabela criada. Aguarde todos os comandos serem executados para prosseguir.
+
+<p align="center">
+  <img src="image-cluster/create_memsql.png" width="500">
+</p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura X: description </span></caption>
+</p>
+
+Vamos fazer o mesmo com [o arquivo dos inserts](codes-sql/INSERT_northwind.sql), copiando todo o seu conteúdo e colando no SQL Editor do MemSQL. Mantenha todo o código selecionado e execute-o. Aproveite para tomar um café….essa ação pode demorar aproximadamente 15 minutos. Aguarde todos os comandos serem executados para prosseguir.
+
+Ao término desses passos, nossa base de dados está criada e com todos os dados para uso ;) 
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
@@ -358,24 +500,20 @@ Se ao executar o documento  o sistema indicar que o *docker-compose up* não é 
 <a id="praticas-sec4"></a>
 # Trabalhando com a Disponibilidade: Práticas e Resultados
 
-Para realizar um teste de disponibilidade em cada uma das soluções NewSQL apresentadas, foram desenvolvidas instruções SQL (?????) que atendem a três tipos de comandos, sendo eles de escrita-escrita, leitura-escrita e leitura-leitura. Escrita-escrita é relacionado a comandos INSERT que efetuam a gravação de um novo registro em banco, leitura-escrita inclui instruções como UPDATE (para atualizar) e DELETE (para apagar) um registro existente em banco, e leitura-leitura é associado aos comandos SELECT para selecionar dados de uma ou mais tabelas. Para manter um padrão na quantidade de comandos, foram desenvolvidas 20 instruções para cada um dos tipos mencionados, gerando assim um total de 60 comandos.
+Para realizar uma prova de conceito em cada uma das soluções NewSQL apresentadas, foram desenvolvidas instruções SQL que atendem a três tipos de comandos, sendo eles de escrita-escrita, leitura-escrita e leitura-leitura. Escrita-escrita é relacionado a comandos INSERT que efetuam a gravação de um novo registro em banco, leitura-escrita inclui instruções como UPDATE (para atualizar) e DELETE (para apagar) um registro existente em banco, e leitura-leitura é associado aos comandos SELECT para selecionar dados de uma ou mais tabelas. Para manter um padrão na quantidade de comandos, foram desenvolvidas 20 instruções para cada um dos tipos mencionados, gerando assim um total de 60 comandos.
 
-A base de dados Northwind possui 13 tabelas no total (como mostrado na seção X), porém, vale ressaltar que os comandos apresentados para a prática destinam-se apenas às tabelas “customers” e “orders”. As instruções foram limitadas a estas duas tabelas justamente para ser possível avaliar resultados acerca da disponibilidade fornecida por diferentes soluções NewSQL que foram submetidas ao mesmo conteúdo de teste.
+A base de dados Northwind possui 14 tabelas no total (como mostrado na seção [Contextualização do Tutorial](#contexto-sec1c)), porém, vale ressaltar que os comandos apresentados para a prática destinam-se apenas às tabelas *“customers”* e *“orders”*. As instruções foram limitadas a estas duas tabelas justamente para ser possível avaliar resultados acerca da disponibilidade fornecida por diferentes soluções NewSQL que foram submetidas ao mesmo conteúdo de teste.
 
 <p align="center">
   <img src="images-praticas/tables2-estudo-caso.PNG" width="500">
 </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura X: description | Fonte: ref yugabyte </span></caption>
+  <caption><span style="color:#696969"> Figura X: Tabelas customers e orders da base Northwind | Fonte: Yugabyte (2020)</span></caption>
 </p>
 
 Os 60 comandos do experimento prático são divididos em dois conjuntos (Grupo A e Grupo B), com 30 instruções cada. Essa divisão também distribui igualmente a variedade de comandos por tipo em cada grupo. Ou seja, cada grupo possui 10 comandos de escrita-escrita, mais 10 instruções de leitura-escrita e outros 10 comandos de leitura-leitura, organizados de maneira intercalada. Cada grupo de comandos precisa ser executado na mesma ordem, respeitando a sequência em que são apresentados neste tutorial.
 
-Diante desta introdução, siga os procedimentos dados em cada estudo de caso a seguir. Após o passo a passo efetuado em cada estudo, este tutorial abordará sobre algumas métricas e resultados obtidos na aplicação dos comandos, respectivos à disponibilidade dos dados.
-
->@Suellen: um dos comentários da @Sahudy na planilha foi "slide 10. def dos conceitos em cada implementacao." Acredito que nesta seção, termos como JOIN, INSERT, UPDATE e outras coisas que aparecerem, precisam ter um explicação sucinta na seção Glossário.
-
->@Suellen: opções de formatação para os codes: retirar comantários; programar barra de rolagem vertical e tamanho fixo para a caixa de exibição do código; se necessário, aplicar quebra de linha nos comandos. Ou se ficar melhor, fornecer um link que dê aceso somente so SQL deste grupo de código.
+Diante desta introdução, siga os procedimentos dados em cada estudo de caso a seguir. Após o passo a passo efetuado em cada estudo, este tutorial abordará sobre alguns resultados obtidos na aplicação dos comandos, respectivos à disponibilidade dos dados.
 
 <a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
@@ -546,7 +684,7 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura X. Se o Cockr
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos - COLOCAR PRINT GRUPO B | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-**Observação:** Caso um nó crítico seja desativado, antes de executar o Grupo B de comandos, você terá uma saída semelhante a da Figura Y. Isso representa que o banco de dados não suportou operar com 2 nós e só conseguiu fornecer disponibilidade com, no mínimo, 3 nós em operação. 
+**Observação:** Caso um nó crítico seja desativado, ao executar o Grupo B de comandos você terá uma saída semelhante a da Figura Y. Isso representa que o banco de dados não conseguiu fornecer disponibilidade pois alguma informação essencial não está presente nos nós ativos, com isso o banco para de responder evitando falhas de integridade. 
 
 >@Suéllen: figura Y para apresentar saída COM ERRO, COM BD INDISPONÍVEL.
 
@@ -713,7 +851,7 @@ update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_d
 select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
 ~~~
 
-Observe as saídas emitidas pela aplicação, semelhantes a Figura X. Se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com um nó a menos funcionando no cluster, o banco manteve-se disponível. 
+Observe as saídas emitidas pela aplicação, semelhantes a Figura X. Se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com um nó a menos funcionando no cluster, **o banco manteve-se disponível.** 
 
 <p align="center">
   <img src="images-praticas/passo3-GB-memsql-NOVA.png" width="630">
@@ -722,7 +860,7 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura X. Se o MemSQ
   <caption><span style="color:#696969"> Figura X: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-**Observação:** Caso um nó crítico seja desativado, após executar o Grupo B de comandos você terá uma saída semelhante a da Figura Y, com um erro tipo  **ERROR 1777 ER_DISTRIBUTED_PARTITION_HAS_NO_INSTANCES**. <br> Isso representa que o banco de dados não suportou operar com 4 nós e só conseguiu fornecer disponibilidade com os 5 nós em operação. 
+**Observação:** Caso um nó crítico seja desativado, ao executar o Grupo B de comandos você terá uma saída semelhante a da Figura Y, com um erro tipo  **ERROR 1777 ER_DISTRIBUTED_PARTITION_HAS_NO_INSTANCES**. <br> Isso representa que o banco de dados não está disponível pois um nó que continha uma partição master foi desabilitado e não há nenhuma réplica deste nó online. Com isto o banco para de responder para evitar problemas de integridade.
 
 <p align="center">
   <img src="images-praticas/passo3-falha-GB-memsql.png" width="630">
@@ -731,7 +869,7 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura X. Se o MemSQ
   <caption><span style="color:#696969"> Figura Z: Falha na execução de comandos com 4 nós ativos no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-Em relação ao MemSQL essa falha pode ocorrer quando o nó inativo tiver um nível de redundância (*redundancy_level*) igual a 2, equivalente a configuração de *High Availability*. Uma avaliação deste resultado será feita na seção a seguir.
+Uma avaliação dos resultados será feita na seção a seguir.
 
 <a id="resultados-sec4c"></a>
 ## Resultados e comparações entre o CockroachDB e o MemSQL
@@ -754,7 +892,7 @@ Todavia, para as duas soluções NewSQL, a queda de um dos nós no teste não po
 Em relação aos nós secundários do CockroachDB, independente de qual nó tivesse a queda, o banco manteve-se disponível. Ele só ficou indisponível quando eram desativados os dois nós secundários e mantido somente o nó principal em funcionamento. Na Figura X há um exemplo em que foi feita a queda em todos os nós secundários e enviada uma consulta SELECT. O terminal do banco ficou “em espera” e só retornou a consulta ao reativar um dos nós secundários.
 
 <p align="center">
-  <img src="images-resultados/queda-total3-cockroachDB.png" width="630">
+  <img src="images-resultados/queda-total2-cockroachDB.png" width="630">
  </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura X: Situação em que o banco ficaria indisponível no CockroachDB | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
@@ -769,7 +907,7 @@ No ambiente organizado para a prova de conceito, os dois nós que pertencem ao g
 Mesmo com essa configuração, a disponibilidade do banco só será mantida se houver a queda de alguns nós secundários e não todos. Essas configurações que podem ser aplicadas nos nós refletem também no algoritmo de balanceamento utilizado por cada grupo de nós em relação a distribuição dos dados no cluster [(MEMSQL, 2020c)](#MEMSQL-2020C). O Quadro Y exibe diferentes combinações de nós (com status de online e offline) do cluster do MemSQL, considerando a mesma disposição elaborada para a prova de conceito, com o intuito de exemplifficar em quais casos a disponibilidade dos dados seria mantida.
 
 <p align="center">
-  <img src="images-resultados/quadro-disponibilidade-memsql.png" width="610">
+  <img src="images-resultados/quadro-disponibilidade-memsql.png" width="600">
  </p>
   <p align="center">
   <caption><span style="color:#696969"> Quadro Y: Cenários de disponibilidade do cluster no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
@@ -791,7 +929,9 @@ Sobre a preparação dos ambientes de cada aplicação, como a instalação de f
 
 Já em relação às provas de conceitos apresentadas neste tutorial, elas serviram para fornecer uma breve experiência sobre como cada solução NewSQL iria se comportar, frente a queda de um nó no cluster. Como discutido na seção de [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c), cada solução precisa de um ambiente mínimo diferente para fornecer alta disponibilidade dos dados e, por isso, o cluster de cada prova de conceito tinha quantidade de nós e configurações distintas. Todavia, os grupos de códigos e processos aplicados foram os mesmos nos dois estudos de caso.
 
+
 Os dois estudos de caso apresentaram um funcionamento positivo do banco, mantendo a disponibilidade dos dados mesmo com a queda de um nó. Porém, é preciso levar em conta o modelo de distribuição e a lógica de armazenamento em que cada banco de dados funciona, para compreender os diferentes cenários em que tanto o CockroachDB como o MemSQL são capazes de manter a disponibilidade dos dados. Outro fator para garantir a alta disponibilidade é a aquisição das versões pagas do CockroachDB e do MemSQL, tendo em vista que as versões gratuitas das aplicações limitam o uso de determinadas configurações, capazes de manter a alta disponibilidade dos dados.
+
 
 <a id="aprendizados-sec5a"></a>
 ## Sumarização do que foi aprendido
