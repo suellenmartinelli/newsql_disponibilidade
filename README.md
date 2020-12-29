@@ -150,7 +150,7 @@ significa que está na opção de containers do Windows, e para mudar, basta cli
 <p align="center">
 <img src="image-gerais/LinuxContainers_Wind.jpg" width="300">
 </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Switch to Linux Containers | Fonte: do autor </span> </caption>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Switch to Linux Containers | Fonte: do autor </span> </caption>
 </p>
 	
 - O Docker no Windows possui uma interface Gráfica, onde é possível realizar algumas configurações e ações nos container e imagens 
