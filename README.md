@@ -310,9 +310,9 @@ Ao final será formada a topologia abaixo:
 
 <p align="center">
   	<img src="image-cluster/clusroach.PNG" width="550">
-  	</p>
- 	 <p  align="center"><caption><span style="color:#696969"> Figura X: Topologia de clusters CockroachDB | Fonte: do autor </span></caption>
-	</p>
+</p>
+<p  align="center"><caption><span style="color:#696969"> Figura X: Topologia de clusters CockroachDB | Fonte: do autor </span></caption>
+</p>
 
 
 <a id="cockroachdb-sec3a"></a>
@@ -432,9 +432,9 @@ Ao final será formada a topologia abaixo:
 
 <p align="center">
   	<img src="image-cluster/clusmem.PNG" width="550">
-  	</p>
- 	 <p align="center"><caption><span style="color:#696969"> Figura X: Topologia de clusters MemSQL| Fonte: do autor </span></caption>
-	</p>
+</p>
+<p align="center"><caption><span style="color:#696969"> Figura X: Topologia de clusters MemSQL| Fonte: do autor </span></caption>
+</p>
 
 
 <a id="memsql-sec3b"></a>
