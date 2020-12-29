@@ -1,8 +1,9 @@
 <p align="center">
   <img src="image-gerais/logos2.PNG" width="530" height="130" alt="texto de exemplo">
 </p>
-
-A estrutura deste tutorial online está fixada em cinco tópicos gerais que tratam desde os conceitos teóricos relacionados até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
+<div align="justify">
+A estrutura deste tutorial online está fixada em sete tópicos gerais que tratam desde os aspectos teóricos até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
+</div>
 
 <a id="sumario"></a>
 # Sumário
@@ -33,26 +34,19 @@ A estrutura deste tutorial online está fixada em cinco tópicos gerais que trat
 7. [Referências Bibliográficas](#referencias-sec7)
 
 
-3. Criação do Cluster Utilizando o Docker
-    3.1. CockroachDB
-           3.1.1. Topologia do cluster 
-           3.1.2. Criação do cluster
-    3.2. MemSQL
-           3.2.1. Topologia do cluster
-           3.2.2. Criação do cluster
-
-
 <a id="intro-sec1"></a>
 # Introdução
 
-A Introdução contempla uma visão geral dos tópicos a serem abordados no tutorial. Também são apresentados algumas descrições e explicações acerca dos recursos a serem utilizados neste tutorial. Aqui serão apresentadas definições respectivas a: NewSQL, disponibilidade, terminologias relacionadas aos recursos selecionados e contexto dos estudos de caso.
+A Introdução contempla uma visão geral dos tópicos a serem abordados e algumas descrições/explicações acerca dos recursos a serem utilizados neste tutorial. Aqui serão apresentadas definições respectivas a: NewSQL, disponibilidade, terminologias relacionadas aos recursos selecionados e contexto dos estudos de caso.
 
 <a id="newsql-sec1a"></a>
 ## O que é NewSQL?
 
 Os bancos de dados relacionais tradicionais surgiram em um tempo onde a necessidade de armazenamento e gravações eram menores e o acesso não era concorrido [(STONEBRAKER et al. 2007)](#STONEBRAKER-2007). Com a web 3.0, onde milhões de dados são gerados, gravados e acessados com rapidez, foi criado o NoSQL. Oferecendo acesso rápido e escalonamento horizontal, o NoSQL focou em resolver problemas relacionados à manutenção e interação com dados volumosos. Para lidar com o novo contexto o NoSQL se apoia no teorema CAP *(**C**onsistency, **A**vailability e **P**artition tolerance)*, onde para se obter alta disponibilidade se faz necessário manejar os níveis de consistência.
 
-O NoSQL trouxe alterações em relação ao paradigma relacional em termos de uso e manutenção das bases de dados. O primeiro ponto a ser observado é que o NoSQL não utiliza a linguagem SQL para consultas e gravações, e para garantir disponibilidade os resultados podem não ser consistentes. Estas alterações geraram grandes dúvidas quanto a sua adesão por parte da comunidade que já estava habituada com os paradigmas tradicionais. Desta forma, iniciaram-se pesquisas para desenvolver um SGBD *(**S**istema de **G**erenciamento de **B**anco de **D**ados)* que utilizasse a mesma linguagem já conhecida e consolidada no mercado, que garantisse transações ACID *(**A**tomicity, **C**onsistency, **I**solation, **D**urability)*, que fossem escaláveis e altamente disponíveis. Como fruto destas pesquisas surgiram os SGBDs NewSQL. Segundo [Stonebraker e Cattell (2011)](#STONEBRAKER-2011), as cinco características de um SGBD NewSQL são: 
+O NoSQL trouxe alterações em relação ao paradigma relacional em termos de uso e manutenção das bases de dados. O primeiro ponto a ser observado é que o NoSQL não utiliza a linguagem SQL para consultas e gravações, e para garantir disponibilidade os resultados podem não ser consistentes. Estas alterações geraram grandes dúvidas quanto a sua adesão por parte da comunidade que já estava habituada com os paradigmas tradicionais. Desta forma, iniciaram-se pesquisas para desenvolver um SGBD *(**S**istema de **G**erenciamento de **B**anco de **D**ados)* que utilizasse a mesma linguagem já conhecida e consolidada no mercado, que garantisse transações ACID *(**A**tomicity, **C**onsistency, **I**solation, **D**urability)*, que fossem escaláveis e altamente disponíveis. Como fruto destas pesquisas surgiram os SGBDs NewSQL.
+
+Segundo [Stonebraker e Cattell (2011)](#STONEBRAKER-2011), as cinco características de um SGBD NewSQL são: 
  
 * Linguagem SQL como meio de interação entre o SGBD e a aplicação; 
 * Suporte para transações ACID; 
@@ -87,7 +81,14 @@ A base de dados Northwind inclui 14 tabelas e inclui dados sobre fornecedores, c
   <caption><span style="color:#696969"> Figura X: Diagrama Entidade Relacionamento da base Northwind | Fonte: Yugabyte (2020)</span></caption>
 </p>
 
-Diante do uso dessa base de dados por cada solução NewSQL selecionada, este tutorial irá apresentar um passo a passo que permite realizar uma prova de conceito acerca da disponiblidade dos dados em cada tecnologia NewSQL escolhida. Maiores detalhes sobre o conteúdo dessas provas de conceito são dados na seção [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4).
+Foi necessário compatibilizar a versão oficial do northwind para atender as necessidades de cada solução NewSQL selecionada e manter o banco com a mesma estrutura em ambas soluções. A nova estrutura pode ser observada [aqui](codes-sql/CREATE_northwind.sql), e os dados [aqui](codes-sql/INSERT_northwind.sql). As alterações realizadas foram:
+
+- Campos **bpchar** foram convertidos para **varchar**;
+- Campos **bytea** (que serviam para armazenar fotos) foram retirados;
+- As chaves estrangeiras foram retiradas pois [o MemSQL não fornece suporte](https://docs.singlestore.com/v7.1/guides/use-memsql/other/mysql-features-unsupported-in-memsql/mysql-features-unsupported-in-memsql/);
+- A massa de dados (INSERT) foi readequada para a nova estrutura.
+
+Este tutorial irá apresentar um passo a passo que permite realizar uma prova de conceito acerca da disponibilidade dos dados em cada tecnologia NewSQL escolhida. Maiores detalhes sobre o conteúdo dessas provas de conceito são dados na seção [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4).
 
 <a id="recursos-sec1d"></a>
 ## Recursos Utilizados
@@ -107,7 +108,9 @@ O CockroachDB é caracterizado por ser um sistema que permite o desenvolvimento 
   <caption><span style="color:#696969"> Figura X: Terminal SQL e ambiente de gestão do CockroachDB | Fonte: Elaborado pelo(a) autor(a)</span></caption>
 </p>
 
-O MemSQL é o segundo banco de dados selecionado para o tutorial. Ele é um banco de dados relacional distribuído que lida com transações ACID e análises em tempo real, trabalhando com escalabilidade horizontal. Fornece suporte à sintaxe SQL e é compatível com o MySQL, permitindo com que aplicativos que usam de um driver do MySQL possam se conectar ao MemSQL de maneira transparente [(MEMSQL, 2020a)](#MEMSQL-2020A). **Importante:** após a construção deste tutorial a empresa do MemSQL evoluiu para SingleStore. Por este motivo, alguns links de documentação/cadastro podem apresentar o novo nome, porém, os comandos e a versão utilizada neste tutorial permanecem como MemSQL.
+O MemSQL é o segundo banco de dados selecionado para o tutorial. Ele é um banco de dados relacional distribuído que lida com transações ACID e análises em tempo real, trabalhando com escalabilidade horizontal. Fornece suporte à sintaxe SQL e é compatível com o MySQL, permitindo com que aplicativos que usam de um driver do MySQL possam se conectar ao MemSQL de maneira transparente [(MEMSQL, 2020a)](#MEMSQL-2020A).
+
+**Importante:** após a construção deste tutorial a empresa do MemSQL evoluiu para SingleStore. Por este motivo, alguns links de documentação/cadastro podem apresentar o novo nome, porém, os comandos e a versão utilizada neste tutorial permanecem como MemSQL.
 
 O MemSQL também tem como característica chave fornecer alta disponibilidade em um sistema distribuído através do compartilhamento de cópias dos dados entre os nós do cluster. Desta forma, é possível perder contato com alguns nós sem deixar o sistema todo inoperante. Quanto ao funcionamento das transações, para assegurar a disponibilidade, estas são confirmadas no disco como registros de log e replicadas automaticamente, suportando a queda de um nó e usando dados de logs para recuperar as transações confirmadas [(MEMSQL, 2020a)](#MEMSQL-2020A). A versão utilizada neste tutorial é o MemSQL Software (versão 7.1, gratuita), representada na Figura Y.
 
@@ -115,12 +118,19 @@ O MemSQL também tem como característica chave fornecer alta disponibilidade em
   <img src="image-intro/tela-geral-memsql.png" width="610">
 </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura X: Terminal SQL e ambiente de gestão do MemSQL | Fonte: Elaborado pelo(a) autor(a)</span></caption>
+  <caption><span style="color:#696969"> Figura Y: Terminal SQL e ambiente de gestão do MemSQL | Fonte: Elaborado pelo(a) autor(a)</span></caption>
 </p>
 
-Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação, além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL é ……..  
+Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação, além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL é a popularidade delas, como mostra o gráfico da Figura Z. 
 
+<p align="center">
+  <img src="image-intro/????????.png" width="610">
+</p>
+  <p align="center">
+  <caption><span style="color:#696969"> Figura Z: Popularidade do CockroachDB e MemSQL | Fonte: Adaptado de DB-Engines (2020) </span></caption>
+</p>
 
+Segundo o DB-Engines Ranking, que classifica os SGBDs de acordo com sua popularidade, apresentam o CockroachDB e o MemSQL com um crescimento rápido a partir de um curto período de tempo observado (entre anoX e anoY). A popularidade é extraída diante de um *score* calculado a partir de métricas como número de menções aos sistemas em sites de busca e frequência de discussões técnicas em fóruns acerca de cada banco [(DB-ENGINES, 2020)](#DB-ENGINES-2020).
 
 <a id="benchmark-sec1e"></a>
 ## Benchmarks com CockroachDB e MemSQL
@@ -164,13 +174,15 @@ Neste tópico serão abordados os passos e códigos utilizados para instalar as 
 
 Para o tutorial de instalação do **Docker** será considerado um computador com o sistema operacional Linux Mint na versão 18.3. Informações sobre a instalação em outros sistemas operacionais podem ser consultados diretamente na documentação oficial por meio dos links:
 
-- Windows: [Tutorial de instalação no Windows](https://docs.docker.com/docker-for-windows/install/)
-	- *Observações importantes para Windows:* 
-	- O docker para ser instalado precisa do Hyper - v, que é a virtualização do Windows, o Windows Home não traz este recurso, para isso é necessário atualizar a versão e a build, atualizar o WSL,  e instalar uma distro do Linux de sua preferência. Instruções de como realizar a verificação e a instalação presentes na documentação oficial da Microsoft: https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-2---update-to-wsl-2
- 	- Para as demais versões do Windows, basta seguir a documentação oficial do Docker com as instalações.
-	- Após a instalação do docker verificar se está em um Container Linux, para o Windows Home os containers por padrão são Linux e não há como alterar, já nas demais versões a opção de outros containers vem habilitada. 
-- Para verificar se está em um container Linux, com o Docker ativo, procure pelo ícone do docker na barra de tarefas e clique com o botão direito sobre ele, se houver uma opção  “Switch to Windows containers…”, significa que você está no container Linux, se a opção for  “Switch to Linux containers…”
-significa que está na opção de containers do Windows, e para mudar, basta clicar nesta opção.
+- Windows: [Tutorial de instalação no Windows](https://docs.docker.com/docker-for-windows/install/);
+- Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/).
+
+**Observações importantes para Windows:** 
+
+- O docker para ser instalado precisa do “Hyper - v”, que é a virtualização do Windows;
+- O Windows Home não traz este recurso, para isso é necessário: atualizar a versão; a build; o WSL; e instalar uma distro do Linux de sua preferência. Instruções de como realizar o procedimento estão presentes na [documentação oficial da Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-2---update-to-wsl-2);
+- Após a instalação do docker verificar se está em um Container Linux, para o Windows Home os containers por padrão são Linux e não há como alterar, já nas demais versões a opção de outros containers vem habilitada; 
+- Para verificar se está em um container Linux, com o Docker ativo, procure pelo ícone do docker na barra de tarefas e clique com o botão direito sobre ele, se houver uma opção  “Switch to Windows containers…”, significa que você está no container Linux, se a opção for  “Switch to Linux containers…” significa que está na opção de containers do Windows, e para mudar, basta clicar nesta opção;
 
 <p align="center">
 <img src="image-gerais/LinuxContainers_Wind.jpg" width="300">
@@ -178,7 +190,7 @@ significa que está na opção de containers do Windows, e para mudar, basta cli
 <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Switch to Linux Containers | Fonte: do autor </span> </caption>
 </p>
 	
-- O Docker no Windows possui uma interface Gráfica, onde é possível realizar algumas configurações e ações nos container e imagens 
+- O Docker no Windows possui uma interface Gráfica onde é possível realizar algumas configurações e ações nos container e imagens, porém, as ações na interface gráfica são limitadas. Para utilizar os recursos do Docker utilize o Power Shell;
 
 <p align="center">
 <img src="image-gerais/WinCont.png" width="550">
@@ -192,9 +204,7 @@ significa que está na opção de containers do Windows, e para mudar, basta cli
 	
 <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Interface gráfica Imagens | Fonte: do autor </span> </caption>
 </p>
-
- - As ações na interface gráfica são limitadas, para utilizar os recursos do Docker utilize o Power Shell.
- - Todos os comandos do docker utilizados neste capítulo podem ser reproduzidos no Windows sem o uso do comando sudo( comando de super usuário no Linux), para isso utilize o Power Shell e o execute como administrador.
+ - Todos os comandos do docker utilizados neste capítulo podem ser reproduzidos no Windows sem o uso do comando sudo (comando de super usuário no Linux), para isso utilize o Power Shell e o execute como administrador.
 
 	
 <p align="center">
@@ -203,8 +213,7 @@ significa que está na opção de containers do Windows, e para mudar, basta cli
 <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<caption><span style="color:#696969"> Figura X: Interface gráfica Imagens | Fonte: do autor </span> </caption>
 </p>
 
-	
-- Mac: [Tutorial de instalação no Mac](https://docs.docker.com/docker-for-mac/install/)
+**Instalação no Linux:**
 
 Antes de começar a instalação no Linux, é importante garantir que seu usuário tem permissão de administrador. Para testar se seu usuário possui permissão de administrador execute no terminal o comando `sudo -v`, se o terminal solicitar sua senha significa que você possui permissão, caso contrário será exibida uma mensagem de erro.
 
@@ -961,6 +970,8 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 - COCKROACH LABS. [CockroachDB: Architecture Overview](https://www.cockroachlabs.com/docs/v20.1/architecture/). Cockroach Labs, 2020b.
 <a id="COSTA-2020"></a>
 - COSTA, Matheus Bigogno. [O que é Benchmark?](https://canaltech.com.br/hardware/O-que-e-Benchmark/). CanalTech, 2020.
+<a id="DB-ENGINES-2020"></a>
+- DB-ENGINES. [DB-Engines Ranking - Trend Popularity](https://db-engines.com/en/ranking_trend). 2020.
 <a id="DOCKER-2020"></a>
 - DOCKER. [What is a Container?: a standardized unit of software](https://www.docker.com/resources/what-container). Docker Inc. 2020.
 <a id="KAUR-2017"></a>
@@ -989,3 +1000,4 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 - WIKIPÉDIA. [Sistema de alta disponibilidade](https://pt.wikipedia.org/wiki/Sistema_de_alta_disponibilidade/). 2020.
 <a id="YUGABYTE-2020"></a>
 - YUGABYTE. [Northwind sample database](https://docs.yugabyte.com/latest/sample-data/northwind/). YugabytesDB, 2020.
+
