@@ -71,7 +71,7 @@ Como enredo deste tutorial, a base de dados Northwind será utilizada. Esta base
 A base de dados Northwind inclui 14 tabelas e inclui dados sobre fornecedores, clientes, funcionários, produtos, distribuidores e ordens de pedidos. Os relacionamentos entre essas e demais entidades são apresentados na Figura X.
 
 <p align="center">
-  <img src="image-intro/diagramaER.png" width="550">
+  <img src="image-intro/diagramaER.png" width="610">
 </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura X: Diagrama Entidade Relacionamento da base Northwind | Fonte: Yugabyte (2020)</span></caption>
