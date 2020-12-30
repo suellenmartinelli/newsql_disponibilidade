@@ -21,7 +21,7 @@ A estrutura deste tutorial online está fixada em sete tópicos gerais que trata
 - [Topologia do Cluster](#topologia-cockroach-sec3)
 		- [Criação do Cluster](#cockroachdb-sec3a)
 	2. [MemSQL](#memsql-sec3)
-		- [Topologia do Cluster](#topologia-memsql-sec3)
+- [Topologia do Cluster](#topologia-memsql-sec3)
 - [Criação do Cluster](#memsql-sec3b)
 4. [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4)
 	1. [Estudo de caso com o CockroachDB](#estudo-cockroachdb-sec4a)
