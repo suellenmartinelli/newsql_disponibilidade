@@ -909,7 +909,7 @@ O comportamento exibido na Figura 27 é justificado pela lógica de armazenament
   <img src="images-resultados/quadro-disponibilidade-cockroachdb.png" width="550">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Quadro 2: Cenários de disponibilidade do cluster no CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Quadro 2: Cenários de disponibilidade do cluster no CockroachDB | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
 Já no caso dos nós secundários existentes no cluster do MemSQL a disponibilidade dos dados depende em qual grupo de redundância cada nó opera. Um grupo de disponibilidade é um conjunto de nós que armazenam dados de maneira redundante para garantir alta disponibilidade. Cada grupo de disponibilidade contém uma cópia de cada partição do sistema, algumas como mestres e outras como réplicas. Atualmente, MemSQL suporta até dois grupos de disponibilidade [(MEMSQL, 2020b)](#MEMSQL-2020B), sendo eles o *Grupo-1* e o *Grupo-2*.
