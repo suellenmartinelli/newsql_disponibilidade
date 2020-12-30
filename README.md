@@ -386,7 +386,7 @@ Para criar a base de dados Northwind vamos utilizar um terminal SQL do Cockroach
 Após executar este comando nós teremos acesso ao terminal SQL dentro do container **roach1**, como mostra a Figura 10.
 
 <p align="center">
-  <img src="image-cluster/console_barataDB.png" width="590">
+  <img src="image-cluster/console_barataDB.png" width="620">
 </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura 10: Terminal de banco de dados do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
