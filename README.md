@@ -903,22 +903,29 @@ Em relação aos nós secundários do CockroachDB, independente de qual nó tive
   <caption><span style="color:#696969"> Figura 27: Situação em que o banco ficaria indisponível no CockroachDB | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-O comportamento exibido na Figura 27 é justificado pela lógica de armazenamento utilizada pelo CockroachDB, uma vez que os dados que pertencem a um mesmo registro armazenado em uma tabela são salvos em vários intervalos mapeados e replicados entre diferentes nós do cluster. Mesmo efetuando uma operação de leitura, como o SELECT, devido a arquitetura do CockroachDB o nó Master depende de consultar dados (por meio de chaves) em ranges localizados nos nós secundários [(COCKROACH LABS, 2020b)](#COCKROACH-2020B). 
+O comportamento exibido na Figura 27 é justificado pela lógica de armazenamento utilizada pelo CockroachDB, uma vez que os dados que pertencem a um mesmo registro armazenado em uma tabela são salvos em vários intervalos mapeados e replicados entre diferentes nós do cluster. Mesmo efetuando uma operação de leitura, como o SELECT, devido a arquitetura do CockroachDB o nó Master depende de consultar dados (por meio de chaves) em ranges localizados nos nós secundários [(COCKROACH LABS, 2020b)](#COCKROACH-2020B). Sendo assim, as combinações de nós possíveis no cluster do CockroachDB, considerando que o nó Master sempre estará online, é representada pelo Quadro 2.
+
+<p align="center">
+  <img src="images-resultados/quadro-disponibilidade-cockroachdb.png" width="550">
+ </p>
+  <p align="center">
+  <caption><span style="color:#696969"> Quadro 2: Cenários de disponibilidade do cluster no CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+</p>
 
 Já no caso dos nós secundários existentes no cluster do MemSQL a disponibilidade dos dados depende em qual grupo de redundância cada nó opera. Um grupo de disponibilidade é um conjunto de nós que armazenam dados de maneira redundante para garantir alta disponibilidade. Cada grupo de disponibilidade contém uma cópia de cada partição do sistema, algumas como mestres e outras como réplicas. Atualmente, MemSQL suporta até dois grupos de disponibilidade [(MEMSQL, 2020b)](#MEMSQL-2020B), sendo eles o *Grupo-1* e o *Grupo-2*.
 
 No ambiente organizado para a prova de conceito, os dois nós que pertencem ao Grupo-1 não possuem cópias extras de seus dados e, caso ocorra uma falha em um nó secundário, o cluster fica offline até tal nó voltar ao sistema [(MEMSQL, 2020c)](#MEMSQL-2020C). Ou seja, independente do número de nós que o cluster tivesse, se todos os nós fossem de Grupo-1, a queda de um dos nós tornaria o banco indisponível. Outros dois nós do cluster do MemSQL foram configurados com Grupo-2, que são capazes de lidar com falhas em nós secundários e gerar réplicas dos dados para manter o banco de dados online. 
 
-Mesmo com essa configuração, a disponibilidade do banco só será mantida se houver a queda de alguns nós secundários e não todos. Essas configurações que podem ser aplicadas nos nós refletem também no algoritmo de balanceamento utilizado por cada grupo de nós em relação a distribuição dos dados no cluster [(MEMSQL, 2020c)](#MEMSQL-2020C). O Quadro 2 exibe diferentes combinações de nós (com status de online e offline) do cluster do MemSQL, considerando a mesma disposição elaborada para a prova de conceito, com o intuito de exemplificar em quais casos a disponibilidade dos dados seria mantida.
+Mesmo com essa configuração, a disponibilidade do banco só será mantida se houver a queda de alguns nós secundários e não todos. Essas configurações que podem ser aplicadas nos nós refletem também no algoritmo de balanceamento utilizado por cada grupo de nós em relação a distribuição dos dados no cluster [(MEMSQL, 2020c)](#MEMSQL-2020C). O Quadro 3 exibe diferentes combinações de nós (com status de online e offline) do cluster do MemSQL, considerando a mesma disposição elaborada para a prova de conceito, com o intuito de exemplificar em quais casos a disponibilidade dos dados seria mantida.
 
 <p align="center">
   <img src="images-resultados/quadro-disponibilidade-memsql.png" width="610">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Quadro 2: Cenários de disponibilidade do cluster no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Quadro 3: Cenários de disponibilidade do cluster no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-Diante de uma análise das combinações apresentadas no Quadro 2, apenas duas combinações podem ser generalizadas ao considerar o cluster na situação de disponível: quando fica offline somente um nó do grupo 1; ou quando há queda de apenas um nó do grupo 2. Como o MemSQL trabalha com a fragmentação dos dados usando índices e cada nó é relacionado a um nó específico para a troca de dados (em sua configuração padrão), a queda de um nó em particular pode trazer mais danos ao funcionamento do cluster. Por exemplo, o nó configurado na 3310, ao ser o único nó do grupo 2 a sofrer uma queda, junto de qualquer outro nó do grupo 1 que também esteja offline, torna o cluster indisponível (cenários de 11 à 14). O cluster apresenta menos chance de se tornar indisponível quando, nesta mesma lógica, o nó do grupo 2 desativado é o de porta 3309 (cenários de 4 à 7).
+Diante de uma análise das combinações apresentadas no Quadro 3, apenas duas combinações podem ser generalizadas ao considerar o cluster na situação de disponível: quando fica offline somente um nó do grupo 1; ou quando há queda de apenas um nó do grupo 2. Como o MemSQL trabalha com a fragmentação dos dados usando índices e cada nó é relacionado a um nó específico para a troca de dados (em sua configuração padrão), a queda de um nó em particular pode trazer mais danos ao funcionamento do cluster. Por exemplo, o nó configurado na 3310, ao ser o único nó do grupo 2 a sofrer uma queda, junto de qualquer outro nó do grupo 1 que também esteja offline, torna o cluster indisponível (cenários de 11 à 14). O cluster apresenta menos chance de se tornar indisponível quando, nesta mesma lógica, o nó do grupo 2 desativado é o de porta 3309 (cenários de 4 à 7).
 
 De maneira geral, as soluções realmente conseguem manter a disponibilidade dos dados caso ocorra queda de um nó. Porém, para elaborar um banco de dados persistente a cenários mais “drásticos” é necessário utilizar da versão paga do software, disponibilizada por cada solução NewSQL, com a finalidade de aplicar outras estruturas e configurações capazes de deixar tanto o CockroachDB como o MemSQL ainda mais robustos em relação ao fator de disponibilidade.
 
@@ -970,7 +977,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **CAP** - Acrônimo de Consistency, Availability e Partition tolerance, em português: consistência, disponibilidade e tolerância à partição. É um teorema do paradigma de NoSQL, que se apóia na afirmação de que, para se atender ao menos dois destes parâmetros citados, deve-se desistir de atender a um dos três parâmetros. 
 
-**Cluster** - é a instância de replicação do banco de dados, podendo ser um alocado em um ou mais servidores, ou containers.
+**Cluster** - é um conjunto de  instâncias de replicação do banco de dados, podendo ser um conjunto de computadores, servidores, containers ou nós dependendo da estrutura utilizada.
 
 **Container** – uma metodologia usada para empacotar aplicações e todas suas dependências, para que possam ser instaladas e utilizadas de forma isoladas em um repositório.
 
