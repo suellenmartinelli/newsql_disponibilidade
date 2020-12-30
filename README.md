@@ -965,15 +965,16 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 **CAP** - Acrônimo de Consistency, Availability e Partition tolerance, em português: consistência, disponibilidade e tolerância a partição. É um teorema do paradigma de NoSQL, que se apoia na afirmação de que, para se atender ao menos dois destes parâmetros citados, deve-se desistir de atender a um dos três parâmetros. 
 
 **Cluster** - é a instancia de replicação do banco de dados, podendo ser um alocado em um ou mais servidores, ou containers.
+
 **Container** – uma metodologia usada para empacotar aplicações e todas suas dependências, para que possam ser instaladas e utilizadas de forma isoladas em um repositório.
 
- **CPU** - Acrônimo de Central Process Unit, em português: Unidade Central de Processamento, onde iremos verificar os dados estatísticos referentes ao processamento das atividades no banco de dados.
+**CPU** - Acrônimo de Central Process Unit, em português: Unidade Central de Processamento, onde iremos verificar os dados estatísticos referentes ao processamento das atividades no banco de dados.
 
 **Create Database** - Comando SQL utilizado para criar um banco de dados.
 
 **Create table** - Comando SQL utilizado para criar uma tabela.
 
- **Curl** - Client URL, em português URL do cliente, que é uma ferramenta utilizada para obter e enviar dados em vários protocolos. 
+**Curl** - Client URL, em português URL do cliente, que é uma ferramenta utilizada para obter e enviar dados em vários protocolos. 
 
 **Delete** - Comado utilizado para apagar um registro existente. 
 
@@ -987,14 +988,14 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Docker Image** – É um espelho de um sistema pré-definido, contendo todos os metadados para executar um container a partir deste espelho.
 
- **Docker network** – Comando usado para criar e gerenciar uma estrutura de redes dentro do Docker.
+**Docker network** – Comando usado para criar e gerenciar uma estrutura de redes dentro do Docker.
 **Docker pull** – Comando que verifica se há uma imagem no Docker local, caso contrário baixa do repositório indicado ou no Docker hub.
 
 **Escalabilidade** - Em banco de dados é o aumento do equipamento físicos, ou aumento da capacidade do equipamento onde o banco de dados está instalado.
 
 **Insert into** - Comando SQL utilizado para inserir dados em uma tabela.
 
- **Latência das transações**- É o tempo de reposta entre início do comando e o término da execução da ação por parte do sistema. 
+**Latência das transações**- É o tempo de reposta entre início do comando e o término da execução da ação por parte do sistema. 
 
 **Leaf** - É um nó que armazena um subconjunto de dados de um cluster. 
 
