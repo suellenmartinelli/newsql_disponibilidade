@@ -948,11 +948,9 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 <a id="glossario-sec6"></a>
 # Glossário
 
-https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/#:~:text=Um%20registro%20pode%20ser%20p%C3%BAblico,para%20cria%C3%A7%C3%A3o%20de%20novas%20imagens.
-
 **ACID** – Acrônimo de Accessible, Consistent, Indivisible and Disponibile, que significa em português:  Acessível, consistente, indivisível e disponível.
 
-**Agregrator - agregrador** - Um cluster, nó, container ou nó que será responsável pelo gerenciamento da comunicação de todos clusters, containers ou nós criados relacionados ao agregrador. 
+**Agregrator ou agregrador** - Um cluster, nó, container ou nó que será responsável pelo gerenciamento da comunicação de todos clusters, containers ou nós criados relacionados ao agregrador. 
 
 **API** - Acrônimo de Application Programming Interface, traduzindo para o português: Interface de Programação de Aplicativos, que é um conjunto de rotinas e protocolos usados em programação para a integração de software de aplicações.
 
