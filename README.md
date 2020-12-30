@@ -950,7 +950,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **ACID** – Acrônimo de Accessible, Consistent, Indivisible and Disponibile, que significa em português:  Acessível, consistente, indivisível e disponível.
 
-**Agregrator ou agregrador** - Um cluster, nó, container ou nó que será responsável pelo gerenciamento da comunicação de todos clusters, containers ou nós criados relacionados ao agregrador. 
+**Agregrator ou agregador** - Um cluster, nó, container ou nó que será responsável pelo gerenciamento da comunicação de todos clusters, containers ou nós criados relacionados ao agregador. 
 
 **API** - Acrônimo de Application Programming Interface, traduzindo para o português: Interface de Programação de Aplicativos, que é um conjunto de rotinas e protocolos usados em programação para a integração de software de aplicações.
 
