@@ -228,7 +228,7 @@ Tendo adicionado a chave agora vamos adicionar o repositório da última versão
 Chegou a hora esperada: instalar o docker-ce. Para isto basta executar o comando: `sudo apt install docker-ce`. Após concluir o processo de instalação (que é todo automatizado) podemos confirmar se o docker está ligado através do comando: `sudo systemctl status docker`, caso tenha ocorrido tudo bem devemos observar uma mensagem igual a da Figura 8.
 
 <p align="center">
-<img src="image-instalacoes/docker-status.png" width="560" height="90">
+<img src="image-instalacoes/docker-status.png" width="580" height="100">
 </p>
 <p align="center"><caption><span style="color:#696969"> Figura 8: Mensagem de ativação do Docker no Linux | Fonte: Elaborado pelo(a) autor(a) </span> </caption>
 </p>
@@ -779,7 +779,7 @@ Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução 
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários (*Leaf*) do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver todos os nós ativos e, com o *Console* ainda aberto, execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como nas marcações em verde da Figura 24.
 
 <p align="center">
-  <img src="images-praticas/passo2-desativa-no2-memsql-NOVA.png" width="620">
+  <img src="images-praticas/passo2-desativa-no2-memsql-NOVA.png" width="600">
  </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura 24: Desativando um nó no cluster do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
