@@ -386,7 +386,7 @@ Para criar a base de dados Northwind vamos utilizar um terminal SQL do Cockroach
 Após executar este comando nós teremos acesso ao terminal SQL dentro do container **roach1**, como mostra a Figura 10.
 
 <p align="center">
-  <img src="image-cluster/console_barataDB.png" width="570">
+  <img src="image-cluster/console_barataDB.png" width="590">
 </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura 10: Terminal de banco de dados do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
@@ -422,7 +422,7 @@ Para criação do cluster utilizaremos cinco instâncias do MemSQL, elas terão 
 Ao final será formada a topologia a seguir, como mostra o diagrama da Figura 12.
 
 <p align="center">
-  	<img src="image-cluster/clusmem.PNG" width="550">
+  	<img src="image-cluster/clusmem.PNG" width="540">
 </p>
 <p align="center"><caption><span style="color:#696969"> Figura 12: Topologia do cluster no MemSQL| Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
@@ -604,7 +604,7 @@ Observe saídas respectivas ao tempo de execução das instruções, uso de hard
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno, como na Figura 20.
 
 <p align="center">
-  <img src="images-praticas/passo2-docker-stop.png" width="540">
+  <img src="images-praticas/passo2-docker-stop.png" width="560">
  </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura 20: Desativando um nó no cluster do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
@@ -853,7 +853,7 @@ select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month f
 Observe as saídas emitidas pela aplicação, semelhantes a Figura 25. Se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com um nó a menos funcionando no cluster, **o banco manteve-se disponível.** 
 
 <p align="center">
-  <img src="images-praticas/passo3-GB-memsql-NOVA.png" width="600">
+  <img src="images-praticas/passo3-GB-memsql-NOVA.png" width="580">
   </p>
   <p align="center">
   <caption><span style="color:#696969"> Figura 25: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
