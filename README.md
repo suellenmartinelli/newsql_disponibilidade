@@ -407,6 +407,8 @@ Ao término desses passos, nossa base de dados está criada e pronta para uso. ;
 
 Os comandos aqui contidos para criação de containers são para Linux, caso necessite realizar a criação no Windows ou Mac acesse a [documentação](https://www.cockroachlabs.com/docs/v20.2/start-a-local-cluster-in-docker-windows) e escolha seu sistema operacional.
 
+**Atenção:** Antes de prosseguir para a seção seguinte, **não se esqueça de desativar o cluster do CockroachDB** para fazermos a instalação do MemSQL. Para isso, abra um terminal Linux e execute o comando `docker stop roach1 roach2 roach3`. Aguarde o nome dos containers serem retornados como saída.
+
 <a id="memsql-sec3"></a>
 ## MemSQL
 
@@ -431,7 +433,7 @@ Ao final será formada a topologia a seguir, como mostra o diagrama da Figura 12
 <a id="memsql-sec3b"></a>
 ### Criação do Cluster
 
-A criação do cluster básico utilizando o MemSQL acontece de forma transparente para o usuário. Para iniciar o processo é necessário abrir o terminal e navegar até a pasta onde o arquivo* “docker-compose.yaml”* foi salvo, após acessar a pasta executar o comando: `docker-compose up`. Ao executar este comando o Docker irá vasculhar a pasta atual por um arquivo *“docker-compose.yaml”* e quando encontrar irá executá-lo. Neste ponto todos os comandos escritos no arquivo `docker-compose.yaml` serão executados. Caso seja a primeira execução é neste ponto que a imagem do sistema será baixada do Docker Hub.
+A criação do cluster básico utilizando o MemSQL acontece de forma transparente para o usuário. Para iniciar o processo é necessário abrir o terminal e navegar até a pasta onde o arquivo *“docker-compose.yaml”* foi salvo, após acessar a pasta executar o comando: `docker-compose up`. Ao executar este comando o Docker irá vasculhar a pasta atual por um arquivo *“docker-compose.yaml”* e quando encontrar irá executá-lo. Neste ponto todos os comandos escritos no arquivo `docker-compose.yaml` serão executados. Caso seja a primeira execução é neste ponto que a imagem do sistema será baixada do Docker Hub.
 
 Se ao executar o comando  o sistema indicar que o `docker-compose up` não é um comando reconhecido, é necessário instalar o módulo de *docker compose*. Acesse a  [documentação](https://docs.docker.com/compose/install/) e siga as instruções referente ao seu sistema operacional.
 
@@ -473,7 +475,7 @@ Para executar comandos SQL basta acessar o item *“SQL Editor”* no menu esque
 Para incluir nós no grupo 2 precisamos informar ao algoritmo do banco que estamos montando uma estrutura de alta disponibilidade, e isto deve ser feito através do seguinte comando SQL:
 `SET @@GLOBAL.redundancy_level = 2;`
 
-Após executar este comando no *”SQL Editor”* todos os novos nós registrados serão automaticamente alocados no grupo 2. Agora basta repetir o processo de criar e registrar nós, porém, criando os nós nas portas 3309 e 3310, respectivamente. Após concluir a criação dos nós teremos então uma estrutura de alta disponibilidade formada por um nó agregador e quatro nós secundários divididos em dois grupos, onde o grupo 2 é uma réplica do grupo 1. Isso pode ser consultado ao replicar o comando `SHOW LEAVES;`, como no exemplo da Figura 15, .
+Após executar este comando no *”SQL Editor”* todos os novos nós registrados serão automaticamente alocados no grupo 2. Agora basta repetir o processo de criar e registrar nós, porém, criando os nós nas portas 3309 e 3310, respectivamente. Após concluir a criação dos nós teremos então uma estrutura de alta disponibilidade formada por um nó agregador e quatro nós secundários divididos em dois grupos, onde o grupo 2 é uma réplica do grupo 1. Isso pode ser consultado ao replicar o comando `SHOW LEAVES;`, como no exemplo da Figura 15.
 
 <p align="center">
   <img src="image-cluster/cluster_doisgrupos_memsql.png" width="570">
@@ -494,6 +496,8 @@ Para criar e popular a base de dados Northwind utilizaremos novamente o *“SQL 
 Vamos fazer o mesmo com [o arquivo dos inserts](codes-sql/INSERT_northwind.sql), copiando todo o seu conteúdo e colando no *“SQL Editor”* do MemSQL. Mantenha todo o código selecionado e execute-o. Aproveite para tomar mais um café…. essa ação pode demorar aproximadamente 15 minutos. Aguarde todos os comandos serem executados para prosseguir.
 
 Ao término desses passos, nossa base de dados está criada e com todos os dados prontos para uso ;) 
+
+**Atenção:** Antes de prosseguir para a seção seguinte, **não se esqueça de desativar o cluster do MemSQL e ativar o cluster do CockroachDB**. Para isso, abra um terminal Linux, execute o comando `docker stop memsql_memsql_1` e aguarde o nome do container ser retornado como saída. Em seguida, execute `docker start roach1 roach2 roach3` e aguarde o nome dos containers serem retornados como saída.
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
@@ -689,7 +693,7 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura 21. Se o Cock
 
 Em breve, uma avaliação deste resultado será feita na seção [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c).
 
-**Atenção:** Antes de prosseguir para a seção seguinte, **não se esqueça de desativar o cluster do CockroachDB e ativar o do MemSQL**. Para isso, abra um terminal Linux e execute o comando `docker stop roach1 roach2 roch3` e aguarde o nome de todos os hosts aparecerem na saída do terminal. Em seguida, execute `docker start memsql_memsql_1` e aguarde o nome do host ser exibido.
+**Atenção:** Antes de prosseguir para a seção seguinte, **não se esqueça de desativar o cluster do CockroachDB e ativar o do MemSQL**. Para isso, abra um terminal Linux, execute o comando `docker stop roach1 roach2 roch3` e aguarde o nome de todos os containers aparecerem na saída do terminal. Em seguida, execute `docker start memsql_memsql_1` e aguarde o nome do container ser exibido.
 
 <a id="estudo-memsql-sec4b"></a>
 ## Estudo de caso com o MemSQL
@@ -901,9 +905,9 @@ Em relação aos nós secundários do CockroachDB, independente de qual nó tive
 
 O comportamento exibido na Figura 27 é justificado pela lógica de armazenamento utilizada pelo CockroachDB, uma vez que os dados que pertencem a um mesmo registro armazenado em uma tabela são salvos em vários intervalos mapeados e replicados entre diferentes nós do cluster. Mesmo efetuando uma operação de leitura, como o SELECT, devido a arquitetura do CockroachDB o nó Master depende de consultar dados (por meio de chaves) em ranges localizados nos nós secundários [(COCKROACH LABS, 2020b)](#COCKROACH-2020B). 
 
-Já no caso dos nós secundários existentes no cluster do MemSQL a disponibilidade dos dados depende em qual grupo de redundância cada nó opera. Um grupo de disponibilidade é um conjunto de nós que armazenam dados de maneira redundante para garantir alta disponibilidade. Cada grupo de disponibilidade contém uma cópia de cada partição do sistema - algumas como mestres e outras como réplicas. Atualmente, MemSQL suporta até dois grupos de disponibilidade [(MEMSQL, 2020b)](#MEMSQL-2020B), sendo eles o *redundancy-1* (redundância-1) e o *redundancy-* (redundância-2).
+Já no caso dos nós secundários existentes no cluster do MemSQL a disponibilidade dos dados depende em qual grupo de redundância cada nó opera. Um grupo de disponibilidade é um conjunto de nós que armazenam dados de maneira redundante para garantir alta disponibilidade. Cada grupo de disponibilidade contém uma cópia de cada partição do sistema - algumas como mestres e outras como réplicas. Atualmente, MemSQL suporta até dois grupos de disponibilidade [(MEMSQL, 2020b)](#MEMSQL-2020B), sendo eles o *Grupo-1* e o *Grupo-2-*.
 
-No ambiente organizado para a prova de conceito, os dois nós que pertencem ao grupo de redundância-1 não possuem cópias extras de seus dados e, caso ocorra uma falha em um nó secundário, o cluster fica offline até tal nó voltar ao sistema [(MEMSQL, 2020c)](#MEMSQL-2020C). Ou seja, independente do número de nós que o cluster tivesse, se todos os nós fossem de redundância-1, a queda de um dos nós tornaria o banco indisponível. Outros dois nós do cluster do MemSQL foram configurados com redundância-2, que são capazes de lidar com falhas em nós secundários e gerar réplicas dos dados para manter o banco de dados online. 
+No ambiente organizado para a prova de conceito, os dois nós que pertencem ao Grupo-1 não possuem cópias extras de seus dados e, caso ocorra uma falha em um nó secundário, o cluster fica offline até tal nó voltar ao sistema [(MEMSQL, 2020c)](#MEMSQL-2020C). Ou seja, independente do número de nós que o cluster tivesse, se todos os nós fossem de Grupo-1, a queda de um dos nós tornaria o banco indisponível. Outros dois nós do cluster do MemSQL foram configurados com Grupo-2, que são capazes de lidar com falhas em nós secundários e gerar réplicas dos dados para manter o banco de dados online. 
 
 Mesmo com essa configuração, a disponibilidade do banco só será mantida se houver a queda de alguns nós secundários e não todos. Essas configurações que podem ser aplicadas nos nós refletem também no algoritmo de balanceamento utilizado por cada grupo de nós em relação a distribuição dos dados no cluster [(MEMSQL, 2020c)](#MEMSQL-2020C). O Quadro 2 exibe diferentes combinações de nós (com status de online e offline) do cluster do MemSQL, considerando a mesma disposição elaborada para a prova de conceito, com o intuito de exemplificar em quais casos a disponibilidade dos dados seria mantida.
 
@@ -961,6 +965,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 **Big Data** - Conceito de armazenamento, análise e manipulação de grandes volumes de dados.
 
  **CA** - Acrônimo de Certificate Authority, em português: autoridade de certificação, que é um módulo responsável por emitir certificados digitais a fim de averiguar identidades na internet.  Neste tutorial ele é invocado sucedido do comando `certificates` para habilitar o sistema a realizar esta averiguação.
+**Caixa preta** -  É um modo que o sistema será executado, onde não é necessário ter acesso ao código fonte ou interagir com alguma configuração, porém a execução é transparente e automática.
 
 **CAP** - Acrônimo de Consistency, Availability e Partition tolerance, em português: consistência, disponibilidade e tolerância à partição. É um teorema do paradigma de NoSQL, que se apóia na afirmação de que, para se atender ao menos dois destes parâmetros citados, deve-se desistir de atender a um dos três parâmetros. 
 
@@ -1037,7 +1042,6 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 **Windows Power Shell** - Terminal de linha de comando do Windows.
 
 **WSL** – Acrônimo de Windows Subsystem  for Linux, em português: Subsistema do Windows para Linux.
-
 
 | [Voltar ao Sumário](#sumario)
 
