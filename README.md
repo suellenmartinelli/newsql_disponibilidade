@@ -948,7 +948,52 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 <a id="glossario-sec6"></a>
 # Glossário
 
-| :-------:
+*ACID* – Acrônimo de Accessible, Consistent, Indivisible and Disponibile, que significa em português:  Acessível, consistente, indivisível e disponível.
+*Agregrator - agregrador* - Um cluster, nó, container ou nó que será responsável pelo gerenciamento da comunicação de todos clusters, containers ou nós criados relacionados ao agregrador. 
+*API *- Acrônimo de Application Programming Interface, traduzindo para o português: Interface de Programação de Aplicativos, que é um conjunto de rotinas e protocolos usados em programação para a integração de software de aplicações.
+ *APT * - Advanced Packaging Tool que significa em português: Ferramenta de Empacotamento Avançada, é um conjunto de ferramentas do GNU/Linux Debian e suas respectivas distribuições, para administrar os pacotes, utilizando o comando `apt– comando` para a instalação, atualização e remoção de pacotes do sistema.
+*BD* - Acrônimo de Banco de Dados.
+*Big Data* - Conceito de armazenamento, análise e manipulação de grandes volumes de dados.
+ *CA* - Acrônimo de Certificate Authority, em português: autoridade de certificação, que é um módulo responsável por emitir certificados digitais a fim de averiguar identidades na internet.  Neste tutorial ele é invocado procedido do comando `certificates` para habilitar o sistema a realizar esta averiguação.
+*CAP* - Acrônimo de Consistency, Availability e Partition tolerance, em português: consistência, disponibilidade e tolerância a partição. É um teorema do paradigma de NoSQL, que se apoia na afirmação de que, para se atender ao menos dois destes parâmetros citados, deve-se desistir de atender a um dos três parâmetros. 
+*Cluster* - é a instancia de replicação do banco de dados, podendo ser um alocado em um ou mais servidores, ou containers.
+*Container* – uma metodologia usada para empacotar aplicações e todas suas dependências, para que possam ser instaladas e utilizadas de forma isoladas em um repositório.
+*CPU* - Acrônimo de Central Process Unit, em português: Unidade Central de Processamento, onde iremos verificar os dados estatísticos referentes ao processamento das atividades no banco de dados.
+*Create Database* - Comando SQL utilizado para criar um banco de dados.
+*Create table* - Comando SQL utilizado para criar uma tabela.
+*Curl*   - Client URL, em português URL do cliente, que é uma ferramenta utilizada para obter e enviar dados em vários protocolos. 
+*Delete* - Comado utilizado para apagar um registro existente. 
+*Docker Client* – É um comando que recebe as instruções do usuário e repassa estes comandos ao Docker daemon, uma camada que irá executar propriamente os comandos.
+*Docker Compose* – Usado para definir aplicações usando diversos containers, ou diversas configurações simultâneas para criação de containers.
+*Docker Container* – Um container que contém uma aplicação isolada e independente, ao utilizar este comando, o container pode ser criado, configurado, executado e parado de acordo com as instruções subsequentes a ele.
+*Docker Hub* - É o repositório online usado para hospedar e baixar diversas imagens
+*Docker Image* – É um espelho de um sistema pré-definido, contendo todos os metadados para executar um container a partir deste espelho.
+*Docker network* – Comando usado para criar e gerenciar uma estrutura de redes dentro do Docker
+*Docker pull* – Comando que verifica se há uma imagem no Docker local, caso contrário baixa do repositório indicado ou no Docker hub.
+*Escalabilidade* - Em banco de dados é o aumento do equipamento físicos, ou aumento da capacidade do equipamento onde o banco de dados está instalado.
+*Insert into* - Comando SQL utilizado para inserir dados em uma tabela.
+*Latência das transações*- É o tempo de reposta entre início do comando e o término da execução da ação por parte do sistema. 
+*Leaf* - É um nó que armazena um subconjunto de dados de um cluster. 
+*Log* - É um registro de atividades do sistema.
+*Master* - Na topologia Coordenador – subordinado o termo Master indica o nó coordenador.
+*Node, nodes* - Em português: nó, é um servidor que possui uma instalação de uma instância única de um sistema de banco de dados.
+*Northwind* - É um banco de dados fictício criado pela Microsoft para ser utilizado e estudos.
+*NoSQL*- Paradigma de banco de dados que não utiliza necessariamente a linguagem SQL para construção de banco e consulta.
+*OLTP*- Acrônimo de Online Transaction Processing, em português: Processamento De Transações Online, que são sistemas que registram todas as transações contidas em uma operação de uma organização.
+*Redundância dos dados* - É a duplicação e divisão dos dados em locais diferentes, visando garantir serviço ininterrupto e evitar a perda de dados.
+*Select* - Comando SQL usado para recuperar os dados de um objeto do banco de dados, como uma tabela, uma linha, ou uma coluna.
+*SGBDR* - Acrônimo de Sistema Gerenciador de Banco de Dados Relacional.
+*Sharding* -   É o termo utilizado para a fragmentação dos dados em diversos nós.
+*show leaves*- Comando SQL utilizado no MemSQL, para recuperar e exibir as leaves exixtentes.
+*Software-properties-common*: Script que permite que você gerencie facilmente sua distribuição e fontes de software independentes de fornecedores de software.
+*SQL*- Structured Query Language, ou Linguagem de Consulta Estruturada, é a linguagem utilizada para criar banco de dados relacionais e recuperar os dados.
+*Sudo* - comando de Super usuário do Linux, que concede permissões para utilizar outros comandos como administrador
+*Topologia* - É o nome dado a definição da estrutura de divisão de nós do banco de dados.
+*Throughput* - Taxa de transferência que é a quantidade de dados que trafegam em um determinado espaço de tempo.
+*USE* - Comando SQL utilizado para indicar o banco de dados que será utilizado.
+*Windows Power Shell*- Terminal de linha de comando do Windows.
+*WSL* – Acrônimo de  Windows Subsystem  for Linux, em português: Subsistema do Windows para Linux.
+
 | [Voltar ao Sumário](#sumario)
 
 <a id="referencias-sec7"></a>
