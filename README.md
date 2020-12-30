@@ -989,6 +989,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 **Docker Image** – É um espelho de um sistema pré-definido, contendo todos os metadados para executar um container a partir deste espelho.
 
 **Docker network** – Comando usado para criar e gerenciar uma estrutura de redes dentro do Docker.
+
 **Docker pull** – Comando que verifica se há uma imagem no Docker local, caso contrário baixa do repositório indicado ou no Docker hub.
 
 **Escalabilidade** - Em banco de dados é o aumento do equipamento físicos, ou aumento da capacidade do equipamento onde o banco de dados está instalado.
