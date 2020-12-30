@@ -905,7 +905,7 @@ Em relação aos nós secundários do CockroachDB, independente de qual nó tive
 
 O comportamento exibido na Figura 27 é justificado pela lógica de armazenamento utilizada pelo CockroachDB, uma vez que os dados que pertencem a um mesmo registro armazenado em uma tabela são salvos em vários intervalos mapeados e replicados entre diferentes nós do cluster. Mesmo efetuando uma operação de leitura, como o SELECT, devido a arquitetura do CockroachDB o nó Master depende de consultar dados (por meio de chaves) em ranges localizados nos nós secundários [(COCKROACH LABS, 2020b)](#COCKROACH-2020B). 
 
-Já no caso dos nós secundários existentes no cluster do MemSQL a disponibilidade dos dados depende em qual grupo de redundância cada nó opera. Um grupo de disponibilidade é um conjunto de nós que armazenam dados de maneira redundante para garantir alta disponibilidade. Cada grupo de disponibilidade contém uma cópia de cada partição do sistema - algumas como mestres e outras como réplicas. Atualmente, MemSQL suporta até dois grupos de disponibilidade [(MEMSQL, 2020b)](#MEMSQL-2020B), sendo eles o *Grupo-1* e o *Grupo-2-*.
+Já no caso dos nós secundários existentes no cluster do MemSQL a disponibilidade dos dados depende em qual grupo de redundância cada nó opera. Um grupo de disponibilidade é um conjunto de nós que armazenam dados de maneira redundante para garantir alta disponibilidade. Cada grupo de disponibilidade contém uma cópia de cada partição do sistema - algumas como mestres e outras como réplicas. Atualmente, MemSQL suporta até dois grupos de disponibilidade [(MEMSQL, 2020b)](#MEMSQL-2020B), sendo eles o *Grupo-1* e o *Grupo-2*.
 
 No ambiente organizado para a prova de conceito, os dois nós que pertencem ao Grupo-1 não possuem cópias extras de seus dados e, caso ocorra uma falha em um nó secundário, o cluster fica offline até tal nó voltar ao sistema [(MEMSQL, 2020c)](#MEMSQL-2020C). Ou seja, independente do número de nós que o cluster tivesse, se todos os nós fossem de Grupo-1, a queda de um dos nós tornaria o banco indisponível. Outros dois nós do cluster do MemSQL foram configurados com Grupo-2, que são capazes de lidar com falhas em nós secundários e gerar réplicas dos dados para manter o banco de dados online. 
 
@@ -965,6 +965,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 **Big Data** - Conceito de armazenamento, análise e manipulação de grandes volumes de dados.
 
  **CA** - Acrônimo de Certificate Authority, em português: autoridade de certificação, que é um módulo responsável por emitir certificados digitais a fim de averiguar identidades na internet.  Neste tutorial ele é invocado sucedido do comando `certificates` para habilitar o sistema a realizar esta averiguação.
+
 **Caixa preta** -  É um modo que o sistema será executado, onde não é necessário ter acesso ao código fonte ou interagir com alguma configuração, porém a execução é transparente e automática.
 
 **CAP** - Acrônimo de Consistency, Availability e Partition tolerance, em português: consistência, disponibilidade e tolerância à partição. É um teorema do paradigma de NoSQL, que se apóia na afirmação de que, para se atender ao menos dois destes parâmetros citados, deve-se desistir de atender a um dos três parâmetros. 
@@ -1025,7 +1026,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Sharding** -   É o termo utilizado para a fragmentação dos dados em diversos nós.
 
-**show leaves** - Comando SQL utilizado no MemSQL, para recuperar e exibir as leaves existentes.
+**SHOW LEAVES** - Comando SQL utilizado no MemSQL, para recuperar e exibir as leaves existentes.
 
 **Software-properties-common** - Script que permite que você gerencie facilmente sua distribuição e fontes de software independentes de fornecedores de software.
 
