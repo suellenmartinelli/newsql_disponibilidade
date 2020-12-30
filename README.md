@@ -954,7 +954,7 @@ https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/#:
 
 **Agregrator - agregrador** - Um cluster, nó, container ou nó que será responsável pelo gerenciamento da comunicação de todos clusters, containers ou nós criados relacionados ao agregrador. 
 
-**API **- Acrônimo de Application Programming Interface, traduzindo para o português: Interface de Programação de Aplicativos, que é um conjunto de rotinas e protocolos usados em programação para a integração de software de aplicações.
+**API ** - Acrônimo de Application Programming Interface, traduzindo para o português: Interface de Programação de Aplicativos, que é um conjunto de rotinas e protocolos usados em programação para a integração de software de aplicações.
 
  **APT ** - Advanced Packaging Tool que significa em português: Ferramenta de Empacotamento Avançada, é um conjunto de ferramentas do GNU/Linux Debian e suas respectivas distribuições, para administrar os pacotes, utilizando o comando `apt– comando` para a instalação, atualização e remoção de pacotes do sistema.
 
@@ -975,7 +975,7 @@ https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/#:
 
 **Create table** - Comando SQL utilizado para criar uma tabela.
 
- **Curl**   - Client URL, em português URL do cliente, que é uma ferramenta utilizada para obter e enviar dados em vários protocolos. 
+ **Curl** - Client URL, em português URL do cliente, que é uma ferramenta utilizada para obter e enviar dados em vários protocolos. 
 
 **Delete** - Comado utilizado para apagar um registro existente. 
 
@@ -1008,9 +1008,9 @@ https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/#:
 
 **Northwind** - É um banco de dados fictício criado pela Microsoft para ser utilizado e estudos.
 
-**NoSQL**- Paradigma de banco de dados que não utiliza necessariamente a linguagem SQL para construção de banco e consulta.
+**NoSQL** - Paradigma de banco de dados que não utiliza necessariamente a linguagem SQL para construção de banco e consulta.
 
-**OLTP**- Acrônimo de Online Transaction Processing, em português, Processamento De Transações Online, que são sistemas que registram todas as transações contidas em uma operação de uma organização.
+**OLTP** - Acrônimo de Online Transaction Processing, em português, Processamento De Transações Online, que são sistemas que registram todas as transações contidas em uma operação de uma organização.
 
 **Redundância dos dados** - É a duplicação e divisão dos dados em locais diferentes, visando garantir serviço ininterrupto e evitar a perda de dados.
 
@@ -1020,11 +1020,11 @@ https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/#:
 
 **Sharding** -   É o termo utilizado para a fragmentação dos dados em diversos nós.
 
-**show leaves**- Comando SQL utilizado no MemSQL, para recuperar e exibir as leaves existentes.
+**show leaves** - Comando SQL utilizado no MemSQL, para recuperar e exibir as leaves existentes.
 
-**Software-properties-common**: Script que permite que você gerencie facilmente sua distribuição e fontes de software independentes de fornecedores de software.
+**Software-properties-common** - Script que permite que você gerencie facilmente sua distribuição e fontes de software independentes de fornecedores de software.
 
-**SQL**- Structured Query Language, ou Linguagem de Consulta Estruturada, é a linguagem utilizada para criar banco de dados relacionais e recuperar os dados.
+**SQL** - Structured Query Language, ou Linguagem de Consulta Estruturada, é a linguagem utilizada para criar banco de dados relacionais e recuperar os dados.
 
 **Sudo** - comando de Super usuário do Linux, que concede permissões para utilizar outros comandos como administrador.
 
@@ -1034,7 +1034,7 @@ https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/#:
 
 **USE** - Comando SQL utilizado para indicar o banco de dados que será utilizado.
 
-**Windows Power Shell**- Terminal de linha de comando do Windows.
+**Windows Power Shell** - Terminal de linha de comando do Windows.
 
 **WSL** – Acrônimo de Windows Subsystem  for Linux, em português: Subsistema do Windows para Linux.
 
