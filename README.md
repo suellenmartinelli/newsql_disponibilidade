@@ -960,11 +960,11 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Big Data** - Conceito de armazenamento, análise e manipulação de grandes volumes de dados.
 
- **CA** - Acrônimo de Certificate Authority, em português: autoridade de certificação, que é um módulo responsável por emitir certificados digitais a fim de averiguar identidades na internet.  Neste tutorial ele é invocado procedido do comando `certificates` para habilitar o sistema a realizar esta averiguação.
+ **CA** - Acrônimo de Certificate Authority, em português: autoridade de certificação, que é um módulo responsável por emitir certificados digitais a fim de averiguar identidades na internet.  Neste tutorial ele é invocado sucedido do comando `certificates` para habilitar o sistema a realizar esta averiguação.
 
-**CAP** - Acrônimo de Consistency, Availability e Partition tolerance, em português: consistência, disponibilidade e tolerância a partição. É um teorema do paradigma de NoSQL, que se apoia na afirmação de que, para se atender ao menos dois destes parâmetros citados, deve-se desistir de atender a um dos três parâmetros. 
+**CAP** - Acrônimo de Consistency, Availability e Partition tolerance, em português: consistência, disponibilidade e tolerância à partição. É um teorema do paradigma de NoSQL, que se apóia na afirmação de que, para se atender ao menos dois destes parâmetros citados, deve-se desistir de atender a um dos três parâmetros. 
 
-**Cluster** - é a instancia de replicação do banco de dados, podendo ser um alocado em um ou mais servidores, ou containers.
+**Cluster** - é a instância de replicação do banco de dados, podendo ser um alocado em um ou mais servidores, ou containers.
 
 **Container** – uma metodologia usada para empacotar aplicações e todas suas dependências, para que possam ser instaladas e utilizadas de forma isoladas em um repositório.
 
@@ -976,7 +976,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Curl** - Client URL, em português URL do cliente, que é uma ferramenta utilizada para obter e enviar dados em vários protocolos. 
 
-**Delete** - Comado utilizado para apagar um registro existente. 
+**Delete** - Comando utilizado para apagar um registro existente. 
 
 **Docker Client** – É um comando que recebe as instruções do usuário e repassa estes comandos ao Docker daemon, uma camada que irá executar propriamente os comandos.
 
@@ -996,7 +996,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Insert into** - Comando SQL utilizado para inserir dados em uma tabela.
 
-**Latência das transações**- É o tempo de reposta entre início do comando e o término da execução da ação por parte do sistema. 
+**Latência das transações**- É o tempo de resposta entre início do comando e o término da execução da ação por parte do sistema. 
 
 **Leaf** - É um nó que armazena um subconjunto de dados de um cluster. 
 
@@ -1006,7 +1006,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Node, nodes** - Em português Nó, é um servidor que possui uma instalação de uma instância única de um sistema de banco de dados.
 
-**Northwind** - É um banco de dados fictício criado pela Microsoft para ser utilizado e estudos.
+**Northwind** - É um banco de dados fictício criado pela Microsoft para ser utilizado em estudos.
 
 **NoSQL** - Paradigma de banco de dados que não utiliza necessariamente a linguagem SQL para construção de banco e consulta.
 
@@ -1028,7 +1028,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Sudo** - comando de Super usuário do Linux, que concede permissões para utilizar outros comandos como administrador.
 
-**Topologia** - É o nome dado a definição da estrutura de T.I., no nosso é a estrutura de divisão de nós do banco de dados.
+**Topologia** - É o nome dado à definição da estrutura de T.I., no nosso é a estrutura de divisão de nós do banco de dados.
 
 **Throughput** - Taxa de transferência que é a quantidade de dados que trafegam em um determinado espaço de tempo.
 
