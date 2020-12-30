@@ -954,9 +954,9 @@ https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/#:
 
 **Agregrator - agregrador** - Um cluster, nó, container ou nó que será responsável pelo gerenciamento da comunicação de todos clusters, containers ou nós criados relacionados ao agregrador. 
 
-**API ** - Acrônimo de Application Programming Interface, traduzindo para o português: Interface de Programação de Aplicativos, que é um conjunto de rotinas e protocolos usados em programação para a integração de software de aplicações.
+**API** - Acrônimo de Application Programming Interface, traduzindo para o português: Interface de Programação de Aplicativos, que é um conjunto de rotinas e protocolos usados em programação para a integração de software de aplicações.
 
- **APT ** - Advanced Packaging Tool que significa em português: Ferramenta de Empacotamento Avançada, é um conjunto de ferramentas do GNU/Linux Debian e suas respectivas distribuições, para administrar os pacotes, utilizando o comando `apt– comando` para a instalação, atualização e remoção de pacotes do sistema.
+ **APT** - Advanced Packaging Tool que significa em português: Ferramenta de Empacotamento Avançada, é um conjunto de ferramentas do GNU/Linux Debian e suas respectivas distribuições, para administrar os pacotes, utilizando o comando `apt– comando` para a instalação, atualização e remoção de pacotes do sistema.
 
 **BD** - Acrônimo de Banco de Dados.
 
