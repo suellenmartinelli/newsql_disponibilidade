@@ -689,6 +689,8 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura 21. Se o Cock
 
 Em breve, uma avaliação deste resultado será feita na seção [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c).
 
+**Atenção:** Antes de prosseguir para a seção seguinte, **não se esqueça de desativar o cluster do CockroachDB e ativar o do MemSQL**. Para isso, abra um terminal Linux e execute o comando `docker stop roach1 roach2 roch3` e aguarde o nome de todos os hosts aparecerem na saída do terminal. Em seguida, execute `docker start memsql_memsql_1` e aguarde o nome do host ser exibido.
+
 <a id="estudo-memsql-sec4b"></a>
 ## Estudo de caso com o MemSQL
 
