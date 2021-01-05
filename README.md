@@ -865,7 +865,7 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura 25. Se o MemS
   <caption><span style="color:#696969"> Figura 25: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-**Observação:** Caso um nó crítico seja desativado, ao executar o Grupo B de comandos você terá uma saída semelhante a da Figura 26, com um erro tipo  **ERROR 1777 ER_DISTRIBUTED_PARTITION_HAS_NO_INSTANCES**. <br> Isso representa que o banco de dados não está disponível pois um nó que continha uma partição master foi desabilitado e não há nenhuma réplica deste nó online. Com isto o banco para de responder para evitar problemas de integridade.
+**Atenção:** Caso um nó crítico seja desativado, ao executar o Grupo B de comandos você terá uma saída semelhante a da Figura 26, com um erro tipo  **ERROR 1777 ER_DISTRIBUTED_PARTITION_HAS_NO_INSTANCES**. <br> Isso representa que o banco de dados não está disponível pois um nó que continha uma partição master foi desabilitado e não há nenhuma réplica deste nó online. Com isto o banco para de responder para evitar problemas de integridade.
 
 <p align="center">
   <img src="images-praticas/passo3-falha-GB-memsql.png" width="620">
@@ -874,7 +874,7 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura 25. Se o MemS
   <caption><span style="color:#696969"> Figura 26: Falha na execução de comandos com 4 nós ativos no MemSQL | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-**Observação:** Caso queira retomar o funcionamento do nó que sofreu a queda, basta retornar ao *SQL Editor* do MemSQL Studio e executar o comando `ATTACH LEAF '127.0.0.1':3307;`. Aguarde o sistema confirmar a operação.
+**Observação:** Caso queira **retomar o funcionamento do nó** que sofreu a queda, basta retornar ao *SQL Editor* do MemSQL Studio e executar o comando `ATTACH LEAF '127.0.0.1':3307;`. Aguarde o sistema confirmar a operação. O mesmo pode ser feito com outros nós, apenas modificando a porta da *Leaf* que deseja reativar no cluster.
 
 Uma avaliação dos resultados será feita na seção a seguir.
 
