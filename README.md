@@ -968,6 +968,8 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 **API** - Acrônimo de Application Programming Interface, traduzindo para o português: Interface de Programação de Aplicativos, que é um conjunto de rotinas e protocolos usados em programação para a integração de software de aplicações.
 
  **APT** - Advanced Packaging Tool que significa em português: Ferramenta de Empacotamento Avançada, é um conjunto de ferramentas do GNU/Linux Debian e suas respectivas distribuições, para administrar os pacotes, utilizando o comando `apt– comando` para a instalação, atualização e remoção de pacotes do sistema.
+ 
+**ATTACH LEAF** - Comando que fará a transição do leaf no MemSQL do estado detached - desconectado, para o estado online
 
 **BD** - Acrônimo de Banco de Dados.
 
@@ -991,7 +993,9 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Curl** - Client URL, em português URL do cliente, que é uma ferramenta utilizada para obter e enviar dados em vários protocolos. 
 
-**Delete** - Comando utilizado para apagar um registro existente. 
+**Delete** - Comando utilizado para apagar um registro existente.
+
+**DETACH LEAF** - Comando que fará a transição do leaf no MemSQL do estado online para o estado detached - desconectado.
 
 **Docker Client** – É um comando que recebe as instruções do usuário e repassa estes comandos ao Docker daemon, uma camada que irá executar propriamente os comandos.
 
