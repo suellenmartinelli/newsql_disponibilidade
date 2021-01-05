@@ -874,6 +874,8 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura 25. Se o MemS
   <caption><span style="color:#696969"> Figura 26: Falha na execução de comandos com 4 nós ativos no MemSQL | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
+**Observação:** Caso queira retomar o funcionamento do nó que sofreu a queda, basta retornar ao *SQL Editor* do MemSQL Studio e executar o comando `ATTACH LEAF '127.0.0.1':3307;`. Aguarde o sistema confirmar a operação.
+
 Uma avaliação dos resultados será feita na seção a seguir.
 
 <a id="resultados-sec4c"></a>
