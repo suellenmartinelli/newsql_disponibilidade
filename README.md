@@ -120,7 +120,7 @@ O MemSQL também tem como característica chave fornecer alta disponibilidade em
   <caption><span style="color:#696969"> Figura 3: Terminal SQL e ambiente de gestão do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
 </p>
 
-Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação, além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL foi o crescimento rápido da popularidade delas, segundo consulta ao [DB-Engines Ranking](https://db-engines.com/en/ranking_trend).
+Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação ([CockroachDB Labs](https://www.cockroachlabs.com/docs/stable/cockroach-commands.html) e [MemSQL Docs](https://docs.singlestore.com/v7.3/introduction/documentation-overview/)), além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL foi o crescimento rápido da popularidade delas, segundo consulta ao [DB-Engines Ranking](https://db-engines.com/en/ranking_trend).
 
 <a id="benchmark-sec1e"></a>
 ## Benchmarks com CockroachDB e MemSQL
