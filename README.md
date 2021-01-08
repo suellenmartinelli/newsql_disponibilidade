@@ -513,7 +513,7 @@ A base de dados Northwind possui 14 tabelas no total (como mostrado na seção [
   <img src="images-praticas/tables2-estudo-caso.PNG" width="500">
 </p>
   <p align="center" style= "font-family: 'Courier New' " >
-  <caption><span style="color:#696969"> Figura 17: Tabelas customers e orders da base Northwind <br> Fonte: Yugabyte (2020) </span></caption>
+  <caption><span style="color:#696969"> Figura 17: Tabelas <i>icustomers</i> e <i>orders</i> da base Northwind <br> Fonte: Yugabyte (2020) </span></caption>
 </p>
 
 Os 60 comandos da prova de conceito prática são divididos em dois conjuntos (Grupo A e Grupo B), com 30 instruções cada. Essa divisão também distribui igualmente a variedade de comandos por tipo em cada grupo. Ou seja, cada grupo possui 10 comandos de escrita-escrita, mais 10 instruções de leitura-escrita e outros 10 comandos de leitura-leitura, organizados de maneira intercalada. Cada grupo de comandos precisa ser executado na mesma ordem, respeitando a sequência em que são apresentados neste tutorial.
