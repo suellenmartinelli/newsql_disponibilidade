@@ -76,7 +76,7 @@ A base de dados Northwind inclui 14 tabelas e inclui dados sobre fornecedores, c
 <p align="center">
   <img src="image-intro/diagramaER.png" width="610">
 </p>
-  <p align="center" style = "font-family:' Courier New, Mosospace'" >
+  <p align="center" style = "font-family: 'Courier New'">
   <caption><span style="color:#696969"> Figura 1: Diagrama Entidade Relacionamento da base Northwind  <br> Fonte: Yugabyte (2020) </span></caption>
 </p>
 
