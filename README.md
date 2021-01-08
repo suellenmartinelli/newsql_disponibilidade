@@ -457,7 +457,7 @@ Após criar o nó 3308, nós devemos registrá-lo no agregador. Para registrar n
 Neste ponto nossa estrutura está composta por um agregador e dois nós secundários no grupo 1. Podemos visualizar esta estrutura através do comando SQL `SHOW LEAVES`, porém, para executar comandos SQL é necessário primeiro acessar a interface gráfica. Acesse [http://localhost:8080](http://localhost:8080) no navegador e selecione a opção *“Localhost”*. No campo usuário informe *“root”* e como senha o valor configurado em ROOT_PASSWORD que foi criado no arquivo *“docker-compose.yaml”*. Assim, nós iremos acessar toda a área administrativa da aplicação via MemSQL Studio (modo gráfico), como apresenta a Figura 13.
 
 <p align="center">
-  <img src="image-cluster/interface_memsql.png" width="620">
+  <img src="image-cluster/interface_memsql.png" width="600">
 </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#696969"> Figura 13: Ambiente gráfico do MemSQL (MemSQL Studio) <br> Fonte: Elaborado pelos autores </span></caption>
