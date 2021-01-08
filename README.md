@@ -103,8 +103,8 @@ O CockroachDB é caracterizado por ser um sistema que permite o desenvolvimento 
 <p align="center">
   <img src="image-intro/tela-geral-cockroach.png" width="610">
 </p>
-  <p align="center">
-  <caption><span style="color:#696969 ; ; font-family: 'Courier New'"> Figura 2: Terminal SQL e ambiente de gestão do CockroachDB | Fonte: Elaborado pelos autores </span></caption>
+ <p align="center" style= "font-family: 'Courier New'">
+  <caption><span style="color:#696969"> Figura 2: Terminal SQL e ambiente de gestão do CockroachDB | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 O MemSQL é o segundo banco de dados selecionado para o tutorial. Ele é um banco de dados relacional distribuído que lida com transações ACID e análises em tempo real, trabalhando com escalabilidade horizontal. Fornece suporte à sintaxe SQL e é compatível com o MySQL, permitindo com que aplicativos que usam de um driver do MySQL possam se conectar ao MemSQL de maneira transparente [(MEMSQL, 2020a)](#MEMSQL-2020A).
