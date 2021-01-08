@@ -145,7 +145,7 @@ O segundo estudo apresentado, desenvolvido por [Kaur e Sachdeva (2017)](#KAUR-20
 <p align="center" >
   <img src="image-intro/quadro2-intro.png" width="500">
   </p>
-  <p align="center" style= "font-family: 'Courier New' "  >
+  <p align="center" style= "font-family:'Courier New' "  >
   <caption><span style="color:#696969"> Tabela 2: Valores obtidos no benchmark <br> Fonte: Adaptado de Kaur e Sachdeva (2017) </span></caption>
 </p>
 
