@@ -103,7 +103,7 @@ O CockroachDB é caracterizado por ser um sistema que permite o desenvolvimento 
 <p align="center">
   <img src="image-intro/tela-geral-cockroach.png" width="610">
 </p>
-  <p align="center  ; font-family: 'Courier New, Monospace'">
+  <p align="center">
   <caption><span style="color:#696969"> Figura 2: Terminal SQL e ambiente de gestão do CockroachDB | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
