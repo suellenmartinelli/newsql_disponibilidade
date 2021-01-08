@@ -459,7 +459,7 @@ Neste ponto nossa estrutura está composta por um agregador e dois nós secundá
 <p align="center">
   <img src="image-cluster/interface_memsql.png" width="620">
 </p>
-  <p align="center" style= "font-family: 'Courier New' " >
+  <p align="center" style= "font-family: 'Courier New'" >
   <caption><span style="color:#696969"> Figura 13: Ambiente gráfico do MemSQL (MemSQL Studio) <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
