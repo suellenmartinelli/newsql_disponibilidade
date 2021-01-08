@@ -149,7 +149,7 @@ O segundo estudo apresentado, desenvolvido por [Kaur e Sachdeva (2017)](#KAUR-20
   <caption><span style="color:#696969"> Tabela 2: Valores obtidos no benchmark <br> Fonte: Adaptado de Kaur e Sachdeva (2017) </span></caption>
 </p>
 
-Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferentes parâmetros de latência. Inclusive, entre os demais bancos de dados (Volt DB e NuoDB) comparados no estudo de [Kaur e Sachdeva (2017)](#KAUR-2017), o CockroachDB foi o que apresentou as latências mais altas. O tempo de execução médio das consultas, mesmo sendo um pouco mais rápido que o MemSQL, não tira a vantagem do MemSQL, pensando no desempenho geral de cada aplicação.
+Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferentes parâmetros de latência. Inclusive, entre os demais bancos de dados (Volt DB e NuoDB) comparados no estudo de [Kaur e Sachdeva (2017)](#KAUR-2017), o  CockroachDB foi o que apresentou as latências mais altas. O tempo de execução médio das consultas, mesmo sendo um pouco mais rápido que o MemSQL, não tira a vantagem do MemSQL, pensando no desempenho geral de cada aplicação.
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
