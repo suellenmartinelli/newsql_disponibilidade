@@ -30,7 +30,7 @@ A estrutura deste tutorial online está fixada em sete tópicos gerais que trata
 5. [Conclusão](#conclusao-sec5)
 	1. [Sumarização do que foi aprendido](#aprendizados-sec5a)
 6. [Glossário](#glossario-sec6)
-7. [Referências Bibliográficas](#referencias-sec7)
+[Referências Bibliográficas](#referencias-sec7)
 
 
 <a id="intro-sec1"></a>
@@ -104,7 +104,7 @@ O CockroachDB é caracterizado por ser um sistema que permite o desenvolvimento 
   <img src="image-intro/tela-geral-cockroach.png" width="610">
 </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 2: Terminal SQL e ambiente de gestão do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 2: Terminal SQL e ambiente de gestão do CockroachDB | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 O MemSQL é o segundo banco de dados selecionado para o tutorial. Ele é um banco de dados relacional distribuído que lida com transações ACID e análises em tempo real, trabalhando com escalabilidade horizontal. Fornece suporte à sintaxe SQL e é compatível com o MySQL, permitindo com que aplicativos que usam de um driver do MySQL possam se conectar ao MemSQL de maneira transparente [(MEMSQL, 2020a)](#MEMSQL-2020A).
@@ -117,7 +117,7 @@ O MemSQL também tem como característica chave fornecer alta disponibilidade em
   <img src="image-intro/tela-geral-memsql.png" width="610">
 </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 3: Terminal SQL e ambiente de gestão do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 3: Terminal SQL e ambiente de gestão do MemSQL | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no site oficial de cada aplicação ([CockroachDB Labs](https://www.cockroachlabs.com/docs/stable/cockroach-commands.html) e [MemSQL Docs](https://docs.singlestore.com/v7.3/introduction/documentation-overview/)), além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha dessas soluções NewSQL foi o crescimento rápido da popularidade delas, segundo consulta ao [DB-Engines Ranking](https://db-engines.com/en/ranking_trend).
@@ -177,7 +177,7 @@ Para o tutorial de instalação do **Docker** será considerado um computador co
 <p align="center">
 <img src="image-gerais/LinuxContainers_Wind.jpg" width="300">
 </p>
-<p align="center"> <caption><span style="color:#696969"> Figura 4: Switch to Linux Containers | Fonte: Elaborado pelo(a) autor(a) </span> </caption>
+<p align="center"> <caption><span style="color:#696969"> Figura 4: Switch to Linux Containers | Fonte: Elaborado pelos autores </span> </caption>
 </p>
 	
 - O Docker no Windows possui uma interface gráfica onde é possível realizar algumas configurações e ações nos container (Figura 5) e imagens (Figura 6), porém, as ações na interface gráfica são limitadas. Para utilizar os recursos do Docker utilize o Power Shell;
@@ -185,13 +185,13 @@ Para o tutorial de instalação do **Docker** será considerado um computador co
 <p align="center">
 <img src="image-gerais/WinCont.png" width="550">
 </p>
-<p align="center"><caption><span style="color:#696969"> Figura 5: Interface gráfica do Docker com Containers | Fonte: Elaborado pelo(a) autor(a) </span> </caption>
+<p align="center"><caption><span style="color:#696969"> Figura 5: Interface gráfica do Docker com Containers | Fonte: Elaborado pelos autores </span> </caption>
 </p>
 	
 <p align="center">
 <img src="image-gerais/winimage.png" width="550">
 </p>	
-<p align="center"><caption><span style="color:#696969"> Figura 6: Interface gráfica do Docker com Imagens | Fonte: Elaborado pelo(a) autor(a) </span> </caption>
+<p align="center"><caption><span style="color:#696969"> Figura 6: Interface gráfica do Docker com Imagens | Fonte: Elaborado pelos autores </span> </caption>
 </p>
 
  - Todos os comandos do docker utilizados neste capítulo podem ser reproduzidos no Windows sem o uso do comando sudo (comando de super usuário no Linux), para isso utilize o Power Shell e o execute como administrador, como o exemplo da Figura 7.
@@ -199,7 +199,7 @@ Para o tutorial de instalação do **Docker** será considerado um computador co
 <p align="center">
 <img src="image-gerais/winshell.png" width="550">
 </p>
-<p align="center"><caption><span style="color:#696969"> Figura 7: Acesso do PowerShell como administrador | Fonte: Elaborado pelo(a) autor(a) </span> </caption>
+<p align="center"><caption><span style="color:#696969"> Figura 7: Acesso do PowerShell como administrador | Fonte: Elaborado pelos autores </span> </caption>
 </p>
 
 **Instalação no Linux:**
@@ -230,7 +230,7 @@ Chegou a hora esperada: instalar o docker-ce. Para isto basta executar o comando
 <p align="center">
 <img src="image-instalacoes/docker-status.png" width="580" height="100">
 </p>
-<p align="center"><caption><span style="color:#696969"> Figura 8: Mensagem de ativação do Docker no Linux | Fonte: Elaborado pelo(a) autor(a) </span> </caption>
+<p align="center"><caption><span style="color:#696969"> Figura 8: Mensagem de ativação do Docker no Linux | Fonte: Elaborado pelos autores </span> </caption>
 </p>
 
 Neste ponto estamos habilitados a seguir com as instalações, pois nosso Docker está instalado e operante :D.
@@ -302,7 +302,7 @@ Ao final será formada a topologia abaixo, como mostra o diagrama da Figura 9.
 <p align="center">
   	<img src="image-cluster/clusroach.PNG" width="550">
 </p>
-<p  align="center"><caption><span style="color:#696969"> Figura 9: Topologia do cluster no CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+<p  align="center"><caption><span style="color:#696969"> Figura 9: Topologia do cluster no CockroachDB | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 
@@ -389,7 +389,7 @@ Após executar este comando nós teremos acesso ao terminal SQL dentro do contai
   <img src="image-cluster/console_barataDB.png" width="620">
 </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 10: Terminal de banco de dados do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 10: Terminal de banco de dados do CockroachDB | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Basta copiar todo o conteúdo do arquivo de create disponível [aqui](codes-sql/CREATE_northwind.sql) para criarmos a base e todas as tabelas do BD Northwind. Cole todo o conteúdo no terminal SQL ativo, ao colar pode parecer que apenas os últimos comandos foram copiados, isto acontece por conta da quantidade de linhas copiadas e ele acaba não mostrando o começo, mas pode executar normalmente que o banco será criado. Note que ao executar as instruções, o CockroachDB emite o tempo de execução de cada comando, como no exemplo da Figura 11. Aguarde todos os comandos serem executados para prosseguir.
@@ -398,7 +398,7 @@ Basta copiar todo o conteúdo do arquivo de create disponível [aqui](codes-sql/
   <img src="image-cluster/create_barataDB.png" width="460">
 </p>
 <p align="center">
-  <caption><span style="color:#696969"> Figura 11: Saídas via terminal do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 11: Saídas via terminal do CockroachDB | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Vamos fazer o mesmo com o arquivo de insert disponível [aqui](codes-sql/INSERT_northwind.sql), copiando todo o seu conteúdo e colando no terminal SQL ativo. Execute as instruções e aproveite para tomar um café…essa ação pode demorar aproximadamente 15 minutos. Aguarde todos os comandos serem executados para prosseguir.
@@ -426,7 +426,7 @@ Ao final será formada a topologia a seguir, como mostra o diagrama da Figura 12
 <p align="center">
   	<img src="image-cluster/clusmem.PNG" width="540">
 </p>
-<p align="center"><caption><span style="color:#696969"> Figura 12: Topologia do cluster no MemSQL| Fonte: Elaborado pelo(a) autor(a) </span></caption>
+<p align="center"><caption><span style="color:#696969"> Figura 12: Topologia do cluster no MemSQL| Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 
@@ -460,7 +460,7 @@ Neste ponto nossa estrutura está composta por um agregador e dois nós secundá
   <img src="image-cluster/interface_memsql.png" width="580">
 </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 13: Ambiente gráfico do MemSQL (MemSQL Studio) | Fonte: Elaborado pelo(a) autor(a)  </span></caption>
+  <caption><span style="color:#696969"> Figura 13: Ambiente gráfico do MemSQL (MemSQL Studio) | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Para executar comandos SQL basta acessar o item *“SQL Editor”* no menu esquerdo. Na Figura 14 podemos ver o resultado do comando `SHOW LEAVES;` mostrando a estrutura atual do nosso cluster, composto de dois nós secundários no grupo 1.
@@ -469,7 +469,7 @@ Para executar comandos SQL basta acessar o item *“SQL Editor”* no menu esque
   <img src="image-cluster/cluster_umgrupo_memsql.png" width="570">
 </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 14: Nós no Grupo 1 do cluster do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 14: Nós no Grupo 1 do cluster do MemSQL | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Para incluir nós no grupo 2 precisamos informar ao algoritmo do banco que estamos montando uma estrutura de alta disponibilidade, e isto deve ser feito através do seguinte comando SQL:
@@ -481,7 +481,7 @@ Após executar este comando no *”SQL Editor”* todos os novos nós registrado
   <img src="image-cluster/cluster_doisgrupos_memsql.png" width="570">
 </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 15: Nós do Grupo 1 e Grupo 2 do cluster do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 15: Nós do Grupo 1 e Grupo 2 do cluster do MemSQL | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Para criar e popular a base de dados Northwind utilizaremos novamente o *“SQL Editor”*. Basta agora copiar todo o conteúdo disponível [aqui](codes-sql/CREATE_northwind.sql) para criarmos a base e todas as tabelas do Northwind. Cole todo o conteúdo no *“SQL Editor”*, mantenha todo o código selecionado e execute-o (Figura 16). Note que ao executar as instruções, o MemSQL mostra uma aba como “saída” para cada tabela criada. Aguarde todos os comandos serem executados para prosseguir.
@@ -490,7 +490,7 @@ Para criar e popular a base de dados Northwind utilizaremos novamente o *“SQL 
   <img src="image-cluster/create_memsql.png" width="580">
 </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 16: SQL Editor do MemSQL Studio com comandos de INSERT | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 16: SQL Editor do MemSQL Studio com comandos de INSERT | <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Vamos fazer o mesmo com [o arquivo dos inserts](codes-sql/INSERT_northwind.sql), copiando todo o seu conteúdo e colando no *“SQL Editor”* do MemSQL. Mantenha todo o código selecionado e execute-o. Aproveite para tomar mais um café…. essa ação pode demorar aproximadamente 15 minutos. Aguarde todos os comandos serem executados para prosseguir.
@@ -593,7 +593,7 @@ Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execu�
   <img src="images-praticas/passo1-GA-saidas-terminal.png" width="300">
   </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 18: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 18: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Observe saídas respectivas ao tempo de execução das instruções, uso de hardware e outras métricas ao acessar [http://localhost:8080](http://localhost:8080) no seu navegador. Ele dará acesso ao *Cockroach Labs*, ambiente gráfico do CockroachDB, como no exemplo da Figura 19. Para alterar a visualização dos tipos de gráficos, basta acessar as áreas destacadas em verde na imagem.
@@ -602,7 +602,7 @@ Observe saídas respectivas ao tempo de execução das instruções, uso de hard
   <img src="images-praticas/passo1-GA-CKLabs.png" width="570">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 19: Exemplos de gráficos obtidos via Cockroach Labs | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 19: Exemplos de gráficos obtidos via Cockroach Labs | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso cluster** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do container ser mostrado na tela como retorno, como na Figura 20.
@@ -611,7 +611,7 @@ Observe saídas respectivas ao tempo de execução das instruções, uso de hard
   <img src="images-praticas/passo2-docker-stop.png" width="600">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 20: Desativando um nó no cluster do CockroachDB | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 20: Desativando um nó no cluster do CockroachDB | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Para confirmar se nosso banco no CockroachDB está operando apenas com dois nós, execute a instrução `docker ps -a` para listar os containers no Docker. Se apenas o *roach2* aparecer com o status como *Exited* e os demais containers do CockroachDB como *Up*, quer dizer que tudo está ok.
@@ -686,7 +686,7 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura 21. Se o Cock
   <img src="images-praticas/saidas-GB-cockroachdb.png" width="570">
   </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 21: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 21: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 **Observação:** Caso um nó crítico seja desativado, ao executar o Grupo B de comandos o seu terminal ficará em espera e irá aguardar até o cluster se recuperar. Isso representa que o banco de dados não conseguiu fornecer disponibilidade pois alguma informação essencial não está presente nos nós ativos e, assim, o banco para de responder para evitar falhas de integridade. 
@@ -704,7 +704,7 @@ Em breve, uma avaliação deste resultado será feita na seção [Resultados e c
   <img src="images-praticas/passo1-localizacao-memsql.png" width="610">
   </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 22: Localização do SQL Editor no MemSQL Studio | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 22: Localização do SQL Editor no MemSQL Studio | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Na área do *SQL Editor*, **execute os comandos (Grupo A) apresentados, de uma só vez**.  Para isso, deixe todos os comandos selecionados antes de clicar em *Run CTRL* (você também pode [acessar os comandos do Grupo A aqui](codes-sql/GRUPOA_comandos.sql)):
@@ -777,7 +777,7 @@ Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução 
   <img src="images-praticas/passo1-GA-codes.png" width="610">
   </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 23: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 23: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários (*Leaf*) do nosso cluster** no MemSQL. Para isso, no *SQL Editor* clique no botão *Console* na área inferior da tela do MemSQL Studio. Acesse a opção *Nodes* no menu lateral para ver todos os nós ativos e, com o *Console* ainda aberto, execute o comando `DETACH LEAF '127.0.0.1':3307;`. Aguarde ele confirmar a operação, como nas marcações em verde da Figura 24.
@@ -786,7 +786,7 @@ Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução 
   <img src="images-praticas/passo2-desativa-no2-memsql-NOVA.png" width="600">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 24: Desativando um nó no cluster do MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 24: Desativando um nó no cluster do MemSQL | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Para confirmar se nosso banco no MemSQL está operando apenas com dois nós, consulte a lista de nós presente na tela. Se um dos nós do tipo *Leaf* mostrar o *CPU Usage* como *Unknown*, quer dizer que um nó foi desativado e tudo está ok.
@@ -862,7 +862,7 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura 25. Se o MemS
   <img src="images-praticas/passo3-GB-memsql-NOVA.png" width="580">
   </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 25: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 25: Exemplos de saídas após executar os comandos | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 **Atenção:** Caso um nó crítico seja desativado, ao executar o Grupo B de comandos você terá uma saída semelhante a da Figura 26, com um erro tipo  **ERROR 1777 ER_DISTRIBUTED_PARTITION_HAS_NO_INSTANCES**. <br> Isso representa que o banco de dados não está disponível pois um nó que continha uma partição master foi desabilitado e não há nenhuma réplica deste nó online. Com isto o banco para de responder para evitar problemas de integridade.
@@ -871,10 +871,11 @@ Observe as saídas emitidas pela aplicação, semelhantes a Figura 25. Se o MemS
   <img src="images-praticas/passo3-falha-GB-memsql.png" width="620">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 26: Falha na execução de comandos com 4 nós ativos no MemSQL | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 26: Falha na execução de comandos com 4 nós ativos no MemSQL | <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 **Observação:** Caso queira **retomar o funcionamento do nó** que sofreu a queda, basta retornar ao *SQL Editor* do MemSQL Studio e executar o comando `ATTACH LEAF '127.0.0.1':3307;`. Aguarde o sistema confirmar a operação. O mesmo pode ser feito com outros nós, apenas modificando a porta da *Leaf* que deseja reativar no cluster.
+
 
 Uma avaliação dos resultados será feita na seção a seguir.
 
@@ -889,7 +890,7 @@ Porém, foram notadas algumas caraterísticas que diferenciam cada solução New
   <img src="images-resultados/quadro-comparativo.png" width="550">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Quadro 1: Características dos Bancos de Dados CockroachDB e MemSQL | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Quadro 1: Características dos Bancos de Dados CockroachDB e MemSQL | <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 A justificativa para a elaboração desse layout na organização dos clusters deve-se à composição de uma estrutura mínima que atendesse ao fator de alta disponibilidade em cada solução NewSQL. Portanto, o conteúdo prático das provas de conceito foram iguais nos dois estudos de caso, com o intuito de verificar se a disponibilidade dos dados era mantida mesmo diante da queda de um nó, mas cada solução necessitava de uma composição diferente em seu cluster.
@@ -902,7 +903,7 @@ Em relação aos nós secundários do CockroachDB, independente de qual nó tive
   <img src="images-resultados/queda-total3-cockroachDB.png" width="620">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Figura 27: Situação em que o banco ficaria indisponível no CockroachDB | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Figura 27: Situação em que o banco ficaria indisponível no CockroachDB | <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 O comportamento exibido na Figura 27 é justificado pela lógica de armazenamento utilizada pelo CockroachDB, uma vez que os dados que pertencem a um mesmo registro armazenado em uma tabela são salvos em vários intervalos mapeados e replicados entre diferentes nós do cluster. Mesmo efetuando uma operação de leitura, como o SELECT, devido a arquitetura do CockroachDB o nó Master depende de consultar dados (por meio de chaves) em ranges localizados nos nós secundários [(COCKROACH LABS, 2020b)](#COCKROACH-2020B). Sendo assim, as combinações de nós possíveis no cluster do CockroachDB, considerando que o nó Master sempre estará online, é representada pelo Quadro 2.
@@ -911,7 +912,7 @@ O comportamento exibido na Figura 27 é justificado pela lógica de armazenament
   <img src="images-resultados/quadro-disponibilidade-cockroachdb.png" width="550">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Quadro 2: Cenários de disponibilidade do cluster no CockroachDB | <br> Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Quadro 2: Cenários de disponibilidade do cluster no CockroachDB | <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Já no caso dos nós secundários existentes no cluster do MemSQL a disponibilidade dos dados depende em qual grupo de redundância cada nó opera. Um grupo de disponibilidade é um conjunto de nós que armazenam dados de maneira redundante para garantir alta disponibilidade. Cada grupo de disponibilidade contém uma cópia de cada partição do sistema, algumas como mestres e outras como réplicas. Atualmente, MemSQL suporta até dois grupos de disponibilidade [(MEMSQL, 2020b)](#MEMSQL-2020B), sendo eles o *Grupo-1* e o *Grupo-2*.
@@ -924,7 +925,7 @@ Mesmo com essa configuração, a disponibilidade do banco só será mantida se h
   <img src="images-resultados/quadro-disponibilidade-memsql.png" width="610">
  </p>
   <p align="center">
-  <caption><span style="color:#696969"> Quadro 3: Cenários de disponibilidade do cluster no MemSQL | Fonte: Elaborado pelo(a) autor(a) </span></caption>
+  <caption><span style="color:#696969"> Quadro 3: Cenários de disponibilidade do cluster no MemSQL | Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 Diante de uma análise das combinações apresentadas no Quadro 3, apenas duas combinações podem ser generalizadas ao considerar o cluster na situação de disponível: quando fica offline somente um nó do grupo 1; ou quando há queda de apenas um nó do grupo 2. Como o MemSQL trabalha com a fragmentação dos dados usando índices e cada nó é relacionado a um nó específico para a troca de dados (em sua configuração padrão), a queda de um nó em particular pode trazer mais danos ao funcionamento do cluster. Por exemplo, o nó configurado na 3310, ao ser o único nó do grupo 2 a sofrer uma queda, junto de qualquer outro nó do grupo 1 que também esteja offline, torna o cluster indisponível (cenários de 11 à 14). O cluster apresenta menos chance de se tornar indisponível quando, nesta mesma lógica, o nó do grupo 2 desativado é o de porta 3309 (cenários de 4 à 7).
@@ -967,9 +968,9 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **API** - Acrônimo de Application Programming Interface, traduzindo para o português: Interface de Programação de Aplicativos, que é um conjunto de rotinas e protocolos usados em programação para a integração de software de aplicações.
 
- **APT** - Advanced Packaging Tool que significa em português: Ferramenta de Empacotamento Avançada, é um conjunto de ferramentas do GNU/Linux Debian e suas respectivas distribuições, para administrar os pacotes, utilizando o comando `apt– comando` para a instalação, atualização e remoção de pacotes do sistema.
- 
-**ATTACH LEAF** - Comando que fará a transição do leaf no MemSQL do estado detached - desconectado, para o estado online
+**APT** - Advanced Packaging Tool que significa em português: Ferramenta de Empacotamento Avançada, é um conjunto de ferramentas do GNU/Linux Debian e suas respectivas distribuições, para administrar os pacotes, utilizando o comando `apt– comando` para a instalação, atualização e remoção de pacotes do sistema.
+
+ **ATTACH LEAF** - Comando que fará a transição do leaf no MemSQL do estado detached - desconectado, para o estado online
 
 **BD** - Acrônimo de Banco de Dados.
 
@@ -993,9 +994,9 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Curl** - Client URL, em português URL do cliente, que é uma ferramenta utilizada para obter e enviar dados em vários protocolos. 
 
-**Delete** - Comando utilizado para apagar um registro existente.
-
 **DETACH LEAF** - Comando que fará a transição do leaf no MemSQL do estado online para o estado detached - desconectado.
+
+**Delete** - Comando utilizado para apagar um registro existente. 
 
 **Docker Client** – É um comando que recebe as instruções do usuário e repassa estes comandos ao Docker daemon, uma camada que irá executar propriamente os comandos.
 
@@ -1063,38 +1064,38 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 # Referências Bibliográficas
 
 <a id="BRITO-2020"></a>
-- BRITO, Michelli. [Containers e Docker](https://www.youtube.com/watch?v=TR8zX1D6abU). Canal Michelli Brito, 2020.
+BRITO, Michelli. [Containers e Docker](https://www.youtube.com/watch?v=TR8zX1D6abU). Canal Michelli Brito, 2020.
 <a id="COCKROACH-2020A"></a>
-- COCKROACH LABS. [CockroachDB: Distributed SQL](https://www.cockroachlabs.com/product/). Cockroach Labs, 2020a.
+COCKROACH LABS. [CockroachDB: Distributed SQL](https://www.cockroachlabs.com/product/). Cockroach Labs, 2020a.
 <a id="COCKROACH-2020B"></a>
-- COCKROACH LABS. [CockroachDB: Architecture Overview](https://www.cockroachlabs.com/docs/v20.1/architecture/). Cockroach Labs, 2020b.
+COCKROACH LABS. [CockroachDB: Architecture Overview](https://www.cockroachlabs.com/docs/v20.1/architecture/). Cockroach Labs, 2020b.
 <a id="COSTA-2020"></a>
-- COSTA, Matheus Bigogno. [O que é Benchmark?](https://canaltech.com.br/hardware/O-que-e-Benchmark/). CanalTech, 2020.
+COSTA, Matheus Bigogno. [O que é Benchmark?](https://canaltech.com.br/hardware/O-que-e-Benchmark/). CanalTech, 2020.
 <a id="DOCKER-2020"></a>
-- DOCKER. [What is a Container?: a standardized unit of software](https://www.docker.com/resources/what-container). Docker Inc. 2020.
+DOCKER. [What is a Container?: a standardized unit of software](https://www.docker.com/resources/what-container). Docker Inc. 2020.
 <a id="KAUR-2017"></a>
-- KAUR, Karambir; SACHDEVA, Monika [Performance evaluation of NewSQL databases](https://ieeexplore.ieee.org/document/8068585). 2017 International Conference on Inventive Systems and Control (ICISC), 2017, Coimbatore, India. p. 1 - 5. DOI 10.1109/ICISC.2017.8068585.
+KAUR, Karambir; SACHDEVA, Monika [Performance evaluation of NewSQL databases](https://ieeexplore.ieee.org/document/8068585). 2017 International Conference on Inventive Systems and Control (ICISC), 2017, Coimbatore, India. p. 1 - 5. DOI 10.1109/ICISC.2017.8068585.
 <a id="KNOB-2019"></a>
-- KNOB, Ronan R. et al. [Uma Análise de Soluções NewSQL](https://sol.sbc.org.br/index.php/erbd/article/view/8475). In: XV Escola Regional de Banco de Dados (ERBD), 2019, Chapecó. Porto Alegre: Sociedade Brasileira de Computação, p. 21 - 30. ISSN 2595-413X.
+KNOB, Ronan R. et al. [Uma Análise de Soluções NewSQL](https://sol.sbc.org.br/index.php/erbd/article/view/8475). In: XV Escola Regional de Banco de Dados (ERBD), 2019, Chapecó. Porto Alegre: Sociedade Brasileira de Computação, p. 21 - 30. ISSN 2595-413X.
 <a id="MEMSQL-2020A"></a>
-- MEMSQL. [How MemSQL Works](https://docs.memsql.com/v7.1/introduction/how-memsql-works/). MemSQL Docs, 2020a. 
+MEMSQL. [How MemSQL Works](https://docs.memsql.com/v7.1/introduction/how-memsql-works/). MemSQL Docs, 2020a. 
 <a id="MEMSQL-2020B"></a>
-- MEMSQL. [High Availability](https://docs.singlestore.com/v7.3/key-concepts-and-features/distributed-architecture/high-availability/). MemSQL Docs, 2020b. 
+MEMSQL. [High Availability](https://docs.singlestore.com/v7.3/key-concepts-and-features/distributed-architecture/high-availability/). MemSQL Docs, 2020b. 
 <a id="MEMSQL-2020C"></a>
-- MEMSQL. [Managing High Availability (MemSQL Ops)](https://docs.singlestore.com/v7.1/tools/memsql-ops/managing-high-availability/). MemSQL Docs, 2020c. 
+MEMSQL. [Managing High Availability (MemSQL Ops)](https://docs.singlestore.com/v7.1/tools/memsql-ops/managing-high-availability/). MemSQL Docs, 2020c. 
 <a id="MOLL-2019"></a>
-- MOLL, Vinicius. [Como construir uma aplicação com Docker?](https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/) GeekHunter, 2019.
+MOLL, Vinicius. [Como construir uma aplicação com Docker?](https://blog.geekhunter.com.br/docker-na-pratica-como-construir-uma-aplicacao/) GeekHunter, 2019.
 <a id="MONGODB-2020"></a>
-- MONGODB. [MongoDB Documentation: Replication](https://docs.mongodb.com/manual/replication/). 2020.
+MONGODB. [MongoDB Documentation: Replication](https://docs.mongodb.com/manual/replication/). 2020.
 <a id="PAT-2020"></a>
-- PAT RESEARCH. [CockroachDB](https://www.predictiveanalyticstoday.com/cockroachdb/). Pat Research - Predictive Analytics Today, 2020.
+PAT RESEARCH. [CockroachDB](https://www.predictiveanalyticstoday.com/cockroachdb/). Pat Research - Predictive Analytics Today, 2020.
 <a id="REZENDE-2013"></a>
-- REZENDE, Ricardo. [Alta disponibilidade no banco de dados Oracle](https://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle/28971). DevMedia, 2013.
+REZENDE, Ricardo. [Alta disponibilidade no banco de dados Oracle](https://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle/28971). DevMedia, 2013.
 <a id="STONEBRAKER-2011"></a>
-- STONEBRAKER, Michael, CATTELL, [Rick. 10 Rules for Scalable Performance in ‘Simple Operation’ Datastores](https://doi.org/10.1145/1953122.1953144). Communications Of The Acm, v. 54, n. 6, p. 72-80, jun. 2011.
+STONEBRAKER, Michael, CATTELL, [Rick. 10 Rules for Scalable Performance in ‘Simple Operation’ Datastores](https://doi.org/10.1145/1953122.1953144). Communications Of The Acm, v. 54, n. 6, p. 72-80, jun. 2011.
 <a id="STONEBRAKER-2007"></a>
-- STONEBRAKER, Michael et al. [The End of an Architectural Era (It’s Time for a Complete Rewrite)](http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf). VLDB '07: Proceedings Of The 33Rd International Conference On Very Large Data Bases, p. 1150-1160, jul. 2007.
+STONEBRAKER, Michael et al. [The End of an Architectural Era (It’s Time for a Complete Rewrite)](http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf). VLDB '07: Proceedings Of The 33Rd International Conference On Very Large Data Bases, p. 1150-1160, jul. 2007.
 <a id="WIKI-2020"></a>
-- WIKIPEDIA. [Sistema de alta disponibilidade](https://pt.wikipedia.org/wiki/Sistema_de_alta_disponibilidade/). 2020.
+WIKIPEDIA. [Sistema de alta disponibilidade](https://pt.wikipedia.org/wiki/Sistema_de_alta_disponibilidade/). 2020.
 <a id="YUGABYTE-2020"></a>
-- YUGABYTE. [Northwind sample database](https://docs.yugabyte.com/latest/sample-data/northwind/). YugabytesDB, 2020.
+YUGABYTE. [Northwind sample database](https://docs.yugabyte.com/latest/sample-data/northwind/). YugabytesDB, 2020.
