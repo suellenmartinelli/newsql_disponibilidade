@@ -29,7 +29,7 @@ A estrutura deste tutorial online está fixada em sete tópicos gerais que trata
 	3. [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c)
 5. [Conclusão](#conclusao-sec5)
 	1. [Sumarização do que foi aprendido](#aprendizados-sec5a)
-6. [Glossário](#glossario-sec6)
+6. [Glossário](#glossario-sec6)<br>
 [Referências Bibliográficas](#referencias-sec7)
 
 
