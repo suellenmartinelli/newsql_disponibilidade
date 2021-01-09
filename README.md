@@ -19,7 +19,7 @@ A estrutura deste tutorial online está fixada em sete tópicos gerais que trata
 3. [Criação do Cluster Utilizando o Docker](#criar-cluster-sec3)
 	1. [CockroachDB](#cockroach-sec3)
 - [Topologia do Cluster](#topologia-cockroach-sec3)
-		- [Criação do Cluster](#cockroachdb-sec3a)
+- [Criação do Cluster](#cockroachdb-sec3a)
 	2. [MemSQL](#memsql-sec3)
 - [Topologia do Cluster](#topologia-memsql-sec3)
 - [Criação do Cluster](#memsql-sec3b)
@@ -34,7 +34,7 @@ A estrutura deste tutorial online está fixada em sete tópicos gerais que trata
 
 
 <a id="intro-sec1"></a>
-# Introdução
+# 1.Introdução
 
 A Introdução contempla uma visão geral dos tópicos a serem abordados e algumas descrições/explicações acerca dos recursos a serem utilizados neste tutorial. Aqui serão apresentadas definições respectivas a: NewSQL, disponibilidade, terminologias relacionadas aos recursos selecionados e contexto dos estudos de caso.
 
@@ -155,7 +155,7 @@ Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferent
 | [Voltar ao Sumário](#sumario)
 
 <a id="instalacoes-sec2"></a>
-# Instalação das Ferramentas
+# 2.Instalação das Ferramentas
 
 Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção contém informações como: links para tutoriais oficiais da instalação; recomendações sobre os ambientes de instalação; prints de tela; e informações relacionadas à configuração do ambiente.
 
@@ -284,7 +284,7 @@ Ao executar o `docker-compose.yaml` o Docker pode criar alguns arquivos ocultos 
 | [Voltar ao Sumário](#sumario)
 
 <a id="criar-cluster-sec3"></a>
-# Criação do Cluster Utilizando o Docker
+# 3.Criação do Cluster Utilizando o Docker
 
 <a id="cockroach-sec3"></a>
 ## CockroachDB
@@ -503,7 +503,7 @@ Ao término desses passos, nossa base de dados está criada e com todos os dados
 | [Voltar ao Sumário](#sumario)
 
 <a id="praticas-sec4"></a>
-# Trabalhando com a Disponibilidade: Práticas e Resultados
+# 4.Trabalhando com a Disponibilidade: Práticas e Resultados
 
 Para realizar uma prova de conceito em cada uma das soluções NewSQL apresentadas, foram desenvolvidas instruções SQL que atendem a três tipos de comandos, sendo eles de escrita-escrita, leitura-escrita e leitura-leitura. Escrita-escrita é relacionado a comandos INSERT que efetuam a gravação de um novo registro em banco, leitura-escrita inclui instruções como UPDATE (para atualizar) e DELETE (para apagar) um registro existente em banco, e leitura-leitura é associado aos comandos SELECT para selecionar dados de uma ou mais tabelas. Para manter um padrão na quantidade de comandos, foram desenvolvidas 20 instruções para cada um dos tipos mencionados, gerando assim um total de 60 comandos.
 
@@ -687,7 +687,7 @@ De maneira geral, as soluções realmente conseguem manter a disponibilidade dos
 | [Voltar ao Sumário](#sumario)
 
 <a id="conclusao-sec5"></a>
-# Conclusão
+# 5.Conclusão
 
 A finalidade deste tutorial foi apresentar uma visão prática do aspecto de disponibilidade aplicado em duas soluções NewSQL diferentes por meio de uma prova de conceito. A disponibilidade foi abordada a partir do uso da mesma base de dados (a Northwind) nas aplicações CockroachDB e MemSQL, sendo replicado os mesmos grupos de comandos SQL em cada uma das provas de conceito.
 
@@ -711,7 +711,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 - Compreensão sobre as diferentes arquiteturas de cada solução NewSQL usada neste tutorial e como elas influenciam na disponibilidade de cada banco de dados.
 
 <a id="glossario-sec6"></a>
-# Glossário
+# 6.Glossário
 
 **ACID** – Acrônimo de Accessible, Consistent, Indivisible and Disponibile, que significa em português:  Acessível, consistente, indivisível e disponível.
 
