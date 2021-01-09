@@ -145,11 +145,11 @@ O segundo estudo apresentado, desenvolvido por [Kaur e Sachdeva (2017)](#KAUR-20
 <p align="center" >
   <img src="image-intro/quadro2-intro.png" width="500">
   </p>
-  <p align="center" style= "font-family:'Courier New' "  >
+  <p align="center" style= "font-family: 'Courier New' "  >
   <caption><span style="color:#696969"> Tabela 2: Valores obtidos no benchmark <br> Fonte: Adaptado de Kaur e Sachdeva (2017) </span></caption>
 </p>
 
-Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferentes parâmetros de latência. Inclusive, entre os demais bancos de dados (Volt DB e NuoDB) comparados no estudo de [Kaur e Sachdeva (2017)](#KAUR-2017), o  CockroachDB foi o que apresentou as latências mais altas. O tempo de execução médio das consultas, mesmo sendo um pouco mais rápido que o MemSQL, não tira a vantagem do MemSQL, pensando no desempenho geral de cada aplicação.
+Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferentes parâmetros de latência. Inclusive, entre os demais bancos de dados (Volt DB e NuoDB) comparados no estudo de [Kaur e Sachdeva (2017)](#KAUR-2017), o CockroachDB foi o que apresentou as latências mais altas. O tempo de execução médio das consultas, mesmo sendo um pouco mais rápido que o MemSQL, não tira a vantagem do MemSQL, pensando no desempenho geral de cada aplicação.
 
 | :-------:
 | [Voltar ao Sumário](#sumario)
@@ -457,9 +457,9 @@ Após criar o nó 3308, nós devemos registrá-lo no agregador. Para registrar n
 Neste ponto nossa estrutura está composta por um agregador e dois nós secundários no grupo 1. Podemos visualizar esta estrutura através do comando SQL `SHOW LEAVES`, porém, para executar comandos SQL é necessário primeiro acessar a interface gráfica. Acesse [http://localhost:8080](http://localhost:8080) no navegador e selecione a opção *“Localhost”*. No campo usuário informe *“root”* e como senha o valor configurado em ROOT_PASSWORD que foi criado no arquivo *“docker-compose.yaml”*. Assim, nós iremos acessar toda a área administrativa da aplicação via MemSQL Studio (modo gráfico), como apresenta a Figura 13.
 
 <p align="center">
-  <img src="image-cluster/interface_memsql.png" width="640">
+  <img src="image-cluster/interface_memsql.png" width="620">
 </p>
-  <p align="center" style= "font-family: 'Courier New'" >
+  <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#696969"> Figura 13: Ambiente gráfico do MemSQL (MemSQL Studio) <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
@@ -513,7 +513,7 @@ A base de dados Northwind possui 14 tabelas no total (como mostrado na seção [
   <img src="images-praticas/tables2-estudo-caso.PNG" width="500">
 </p>
   <p align="center" style= "font-family: 'Courier New' " >
-  <caption><span style="color:#696969"> Figura 17: Tabelas <i>icustomers</i> e <i>orders</i> da base Northwind <br> Fonte: Yugabyte (2020) </span></caption>
+  <caption><span style="color:#696969"> Figura 17: Tabelas customers e orders da base Northwind <br> Fonte: Yugabyte (2020) </span></caption>
 </p>
 
 Os 60 comandos da prova de conceito prática são divididos em dois conjuntos (Grupo A e Grupo B), com 30 instruções cada. Essa divisão também distribui igualmente a variedade de comandos por tipo em cada grupo. Ou seja, cada grupo possui 10 comandos de escrita-escrita, mais 10 instruções de leitura-escrita e outros 10 comandos de leitura-leitura, organizados de maneira intercalada. Cada grupo de comandos precisa ser executado na mesma ordem, respeitando a sequência em que são apresentados neste tutorial.
@@ -523,69 +523,7 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 <a id="estudo-cockroachdb-sec4a"></a>
 ## Estudo de caso com o CockroachDB
 
-- **Passo 1:** Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de dados Northwind pronto para uso, retorne para o terminal SQL. <br> Caso você tenha fechado esta tela, execute novamente a instrução `docker exec -it roach1 ./cockroach sql --insecure` em um terminal Linux e, na sequência, aplique um `USE northwind;`<br> Dentro do terminal SQL e do BD Northwind, **execute os comandos (Grupo A) apresentados, de uma só vez** (você também pode [acessar os comandos do Grupo A aqui](codes-sql/GRUPOA_comandos.sql)):
-
-~~~SQL
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('NTLSU', 'Nestlé S.A.', 'Paul Bulcke', 'Accounting Manager', '5505 Blue Lagoon Drive', 'Vevey', 'Vaud', '78988-555', 'Suíça');
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11078, 'NTLSU', 5, '2020-10-10', '2020-10-26', 2, 30.45, 'Nestlé S.A.', '5505 Blue Lagoon Drive', 'Vevey', 'Vaud', '78988-555', 'Suíça');
-
-select count(ship_name) as pedidos_por_pais, ship_country from orders group by ship_country order by pedidos_por_pais desc;
-
-UPDATE customers SET city = 'São Paulo' WHERE city = 'Sao Paulo';
-
-UPDATE orders SET ship_city = 'São Paulo' WHERE ship_city = 'Sao Paulo';
-
-select count(orders.ship_region) as pedidos_por_estado, customers.region from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'Brazil' group by customers.region order by pedidos_por_estado desc;
-
-UPDATE orders SET ship_country = 'Switzerland' WHERE customer_id = 'NTLSU';
-
-UPDATE customers SET country = 'Switzerland' WHERE customer_id = 'NTLSU';
-
-select avg(freight) as media_frete, count(order_id) as quant_pedidos, ship_city from orders where ship_country like 'USA' group by ship_city order by media_frete;
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, postal_code, country) VALUES ('MCDUS', 'McDonalds Corporation', 'Ray Kroc', 'Owner/Marketing Assistant', '110 N Carpenter St, Chicago, IL 60607', 'Chicago', '7785-000', 'USA');
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('HEXSO', 'Hipermercado Extra', 'Tatiana Moreira', 'Marketing Assistant', 'R. Maria Cinto de Biagi, 164 - Jardim Santa Rosália', 'Sorocaba', 'SP', '18095-410', 'Brazil', '(15)3212-6750');
-
-UPDATE orders SET freight = freight + (freight * 0.15) WHERE ship_country like 'USA';
-
-select count(orders.ship_city) as pedidos_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'Germany' or orders.ship_country like 'Italy' group by customers.city order by pedidos_por_cidade desc limit 5;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11079, 'CACTU', 9, '2020-08-01', '2020-08-15', 1, 89.23, 'Cactus Comidas para llevar', 'Cerrito 333', 'Buenos Aires', '1010', 'Argentina');
-
-select count(employee_id) as pedidos_por_empregado, employee_id from orders where ship_country like 'UK' or ship_country like 'France' or ship_country like 'Italy' group by employee_id;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11080, 'CENTC', 4, '2020-06-03', '2020-07-12', 5, 45.13, 'Centro comercial Moctezuma', 'Sierras de Granada 9993', 'México D.F.', '05022', 'Mexico');
-
-UPDATE customers SET country = 'Espanha' WHERE city = 'Madrid';
-
-UPDATE orders SET ship_country = 'Espanha' WHERE ship_city = 'Madrid';
-
-select max(orders.freight) as maior_frete_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'USA' group by customers.city order by maior_frete_por_cidade desc;
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, postal_code, country) VALUES ('STBCO', 'Starbucks Corporation', 'Kevin Johnson', 'Owner/Marketing Assistant', 'Ave. S, Seattle, WA 98134', 'Washington', '56999-320', 'USA');
-
-select * from customers where contact_title like 'Owner' and fax is null;
-
-UPDATE customers SET city = 'Seattle', region = 'WA' WHERE customer_id = 'STBCO';
-
-select avg(orders.freight) as media_frete_por_regiao, customers.region from customers inner join orders on customers.customer_id = orders.customer_id where customers.region is not null group by customers.region order by media_frete_por_regiao;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11081, 'STBCO', 6, '2020-09-16', '2020-09-30', 3, 87.22, 'Starbucks Corporation', 'Ave. S, Seattle, WA 98134', 'Seattle', 'WA', '56999-320', 'USA');
-
-select distinct ship_city from orders where ship_country not like 'Italy' and ship_country not like 'Ireland';
-
-UPDATE orders SET shipped_date = '1998-12-20' WHERE EXTRACT(Year from required_date) = 1998;
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('LAMBR', 'Lojas Americanas S.A.', 'Max Landesmann', 'Owner', 'Av. dos Oitis, nº 1.460, Distrito Industrial', 'Rio de Janeiro', 'RJ', '89000-565', 'Brazil', '(21)7841-0056');
-
-update orders set shipped_date = '1998-10-01' WHERE EXTRACT(Year from required_date) = 1998 AND ship_country like 'USA' AND ship_region like 'OR' OR ship_region like 'ID';
-
-select customers.contact_name, customers.phone, orders.ship_name, orders.order_id, EXTRACT(Year from orders.shipped_date) as ano_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE orders.ship_region like 'WA' AND EXTRACT(Year from orders.shipped_date) between 1996 and 1997;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11082, 'LAMBR', 2, '2020-03-15', '2020-04-05', 1, 90.74, 'Lojas Americanas S.A.', 'Av. dos Oitis, nº 1.460, Distrito Industrial', 'Rio de Janeiro', 'RJ', '89000-565', 'Brazil');
-~~~~
+- **Passo 1:** Com o CockroachDB ativo com 3 nós em seu cluster e com o banco de dados Northwind pronto para uso, retorne para o terminal SQL. <br> Caso você tenha fechado esta tela, execute novamente a instrução `docker exec -it roach1 ./cockroach sql --insecure` em um terminal Linux e, na sequência, aplique um `USE northwind;`<br> Dentro do terminal SQL e do BD Northwind **execute os comandos do Grupo A de uma só vez, [os comandos do Grupo A podem ser encontrados aqui](codes-sql/GRUPOA_comandos.sql)**
 
 Observe as saídas emitidas pela aplicação. Se o CockroachDB permitir a execução dos comandos e tudo correr como esperado, o CockroachDB vai emitir o tempo de execução de cada comando. O retorno apresentado após a última instrução será semelhante ao mostrado na Figura 18.
 
@@ -616,69 +554,7 @@ Observe saídas respectivas ao tempo de execução das instruções, uso de hard
 
 Para confirmar se nosso banco no CockroachDB está operando apenas com dois nós, execute a instrução `docker ps -a` para listar os containers no Docker. Se apenas o *roach2* aparecer com o status como *Exited* e os demais containers do CockroachDB como *Up*, quer dizer que tudo está ok.
 
-- **Passo 3:** Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao terminal SQL e **rode as instruções a seguir, de uma só vez** (você também pode [acessar os comandos do Grupo B aqui](codes-sql/GRUPOB_comandos.sql)):
-
-~~~SQL
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11083, 'QUEEN', 2, '2020-06-14', '2020-06-30', 5, 100.28, 'Queen Cozinha', 'Alameda dos Canàrios, 891', 'São Paulo', 'SP', '05487-020', 'Brazil');
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11084, 'QUICK', 6, '2020-05-02', '2020-06-05', 2, 210.88, 'QUICK-Stop', 'Taucherstraße 10', 'Cunewalde', '01307', 'Germany');
-
-select EXTRACT(Month from order_date) mes_pedido, customer_id from orders where EXTRACT(Year from order_date) = 1998 AND ship_country like 'UK' order by mes_pedido;
-
-UPDATE orders SET freight = freight + (freight * 0.25) WHERE ship_country like 'Brazil' OR ship_country like 'Argentina' OR ship_country like 'Venezuela';
-
-select min(orders.freight) as menor_frete_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'UK' or orders.ship_country like 'Ireland' group by customers.city order by menor_frete_por_cidade;
-
-update orders set shipped_date = '2020-12-20' WHERE EXTRACT(Year from required_date) = 2020 AND shipped_date is null;
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('BKGUS', 'Burger King Corporation', 'Keith J. Kramer', 'Owner', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
-
-select contact_name, contact_title, company_name, address from customers where contact_title like 'Owner%' and phone is null order by contact_name;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11085, 'BKGUS', 8, '2020-09-06', '2020-11-01', 1, 65.97, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
-
-UPDATE orders SET freight = freight - (freight * 0.50) WHERE ship_region like 'SP' OR ship_region like 'RJ';
-
-select count(orders.ship_city) as pedidos_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'Canada' group by customers.city order by pedidos_por_cidade desc;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11086, 'EASTC', 9, '2020-11-12', '2020-11-30', 3, 102.97, 'Eastern Connection', '35 King George', 'London', 'WX3 6FW', 'UK');
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('MLIBR', 'Mercado Livre', 'Fernanda Macedo', 'Order Administrator', 'Av. das Nações Unidas, 439 - Pres. Altino', 'São Paulo', 'SP', '06233-200', 'Brazil', '(11)1545-9898');
-
-update orders set shipped_date = '2020-12-25' WHERE shipped_date is null;
-
-select count(EXTRACT(Year from required_date)) as pedidos_em_1996, ship_country from orders where EXTRACT(Year from required_date) = 1996 group by ship_country;
-
-UPDATE customers SET country = 'Spain' WHERE city in ('Madrid', 'Barcelona', 'Sevilla');
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('SINMO', 'Sinhá Moça', 'Karla Silveira', 'Sales Manager', 'Rua Floriano Peixoto, 526', 'Capão Bonito', 'SP', '18300-250', 'Brazil', '(15)3542-5787');
-
-select customers.contact_name, customers.phone, orders.ship_name, orders.order_id, EXTRACT(Year from orders.shipped_date) as ano_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE orders.ship_city in ('Seattle', 'Boise', 'Elgin') AND EXTRACT(Year from orders.shipped_date) between 1996 and 1998 order by customers.contact_name;
-
-UPDATE orders SET ship_country = 'Spain' WHERE ship_city in ('Madrid', 'Barcelona', 'Sevilla');
-
-update customers set company_name = 'Carlinhos BBQ Lanches', contact_title = 'Owner' where customer_id = 'SINMO';
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11087, 'SINMO', 5, '2020-10-06', '2020-11-01', 1, 19.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
-
-select max(freight), ship_region from orders where ship_country = 'Brazil' group by ship_region;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11088, 'BKGUS', 1, '2020-03-06', '2020-04-05', 4, 45.30, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', '78988-555', 'USA');
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11089, 'SINMO', 9, '2020-04-03', '2020-06-09', 3, 80.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
-
-update orders set ship_region = 'SP' where ship_city = 'Capão Bonito' and ship_region is null;
-
-select avg(orders.freight) as frete_medio_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country in ('Brazil', 'Mexico') group by customers.city order by frete_medio_por_cidade;
-
-select distinct ship_city, ship_region, ship_country from orders where ship_region is not null AND ship_country in ('UK', 'USA', 'Canada');
-
-update orders set ship_region = 'Flórida'  where ship_city = 'Miami' and ship_region is null;
-
-update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_date) = 2020 AND ship_via between 1 and 4;
-
-select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
-~~~
+- **Passo 3:** Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao terminal SQL e **[rode as instruções do Grupo B, de uma só vez.](codes-sql/GRUPOB_comandos.sql)**
 
 Observe as saídas emitidas pela aplicação, semelhantes a Figura 21. Se o CockroachDB fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com 2 nós em atividade o banco manteve-se disponível. Caso queira observar outras métricas (gráficos) via Cockroach Labs, retorne ao [http://localhost:8080](http://localhost:8080).
 
@@ -707,69 +583,7 @@ Em breve, uma avaliação deste resultado será feita na seção [Resultados e c
   <caption><span style="color:#696969"> Figura 22: Localização do SQL Editor no MemSQL Studio <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
-Na área do *SQL Editor*, **execute os comandos (Grupo A) apresentados, de uma só vez**.  Para isso, deixe todos os comandos selecionados antes de clicar em *Run CTRL* (você também pode [acessar os comandos do Grupo A aqui](codes-sql/GRUPOA_comandos.sql)):
-
-~~~SQL
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('NTLSU', 'Nestlé S.A.', 'Paul Bulcke', 'Accounting Manager', '5505 Blue Lagoon Drive', 'Vevey', 'Vaud', '78988-555', 'Suíça');
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11078, 'NTLSU', 5, '2020-10-10', '2020-10-26', 2, 30.45, 'Nestlé S.A.', '5505 Blue Lagoon Drive', 'Vevey', 'Vaud', '78988-555', 'Suíça');
-
-select count(ship_name) as pedidos_por_pais, ship_country from orders group by ship_country order by pedidos_por_pais desc;
-
-UPDATE customers SET city = 'São Paulo' WHERE city = 'Sao Paulo';
-
-UPDATE orders SET ship_city = 'São Paulo' WHERE ship_city = 'Sao Paulo';
-
-select count(orders.ship_region) as pedidos_por_estado, customers.region from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'Brazil' group by customers.region order by pedidos_por_estado desc;
-
-UPDATE orders SET ship_country = 'Switzerland' WHERE customer_id = 'NTLSU';
-
-UPDATE customers SET country = 'Switzerland' WHERE customer_id = 'NTLSU';
-
-select avg(freight) as media_frete, count(order_id) as quant_pedidos, ship_city from orders where ship_country like 'USA' group by ship_city order by media_frete;
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, postal_code, country) VALUES ('MCDUS', 'McDonalds Corporation', 'Ray Kroc', 'Owner/Marketing Assistant', '110 N Carpenter St, Chicago, IL 60607', 'Chicago', '7785-000', 'USA');
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('HEXSO', 'Hipermercado Extra', 'Tatiana Moreira', 'Marketing Assistant', 'R. Maria Cinto de Biagi, 164 - Jardim Santa Rosália', 'Sorocaba', 'SP', '18095-410', 'Brazil', '(15)3212-6750');
-
-UPDATE orders SET freight = freight + (freight * 0.15) WHERE ship_country like 'USA';
-
-select count(orders.ship_city) as pedidos_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'Germany' or orders.ship_country like 'Italy' group by customers.city order by pedidos_por_cidade desc limit 5;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11079, 'CACTU', 9, '2020-08-01', '2020-08-15', 1, 89.23, 'Cactus Comidas para llevar', 'Cerrito 333', 'Buenos Aires', '1010', 'Argentina');
-
-select count(employee_id) as pedidos_por_empregado, employee_id from orders where ship_country like 'UK' or ship_country like 'France' or ship_country like 'Italy' group by employee_id;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11080, 'CENTC', 4, '2020-06-03', '2020-07-12', 5, 45.13, 'Centro comercial Moctezuma', 'Sierras de Granada 9993', 'México D.F.', '05022', 'Mexico');
-
-UPDATE customers SET country = 'Espanha' WHERE city = 'Madrid';
-
-UPDATE orders SET ship_country = 'Espanha' WHERE ship_city = 'Madrid';
-
-select max(orders.freight) as maior_frete_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'USA' group by customers.city order by maior_frete_por_cidade desc;
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, postal_code, country) VALUES ('STBCO', 'Starbucks Corporation', 'Kevin Johnson', 'Owner/Marketing Assistant', 'Ave. S, Seattle, WA 98134', 'Washington', '56999-320', 'USA');
-
-select * from customers where contact_title like 'Owner' and fax is null;
-
-UPDATE customers SET city = 'Seattle', region = 'WA' WHERE customer_id = 'STBCO';
-
-select avg(orders.freight) as media_frete_por_regiao, customers.region from customers inner join orders on customers.customer_id = orders.customer_id where customers.region is not null group by customers.region order by media_frete_por_regiao;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11081, 'STBCO', 6, '2020-09-16', '2020-09-30', 3, 87.22, 'Starbucks Corporation', 'Ave. S, Seattle, WA 98134', 'Seattle', 'WA', '56999-320', 'USA');
-
-select distinct ship_city from orders where ship_country not like 'Italy' and ship_country not like 'Ireland';
-
-UPDATE orders SET shipped_date = '1998-12-20' WHERE EXTRACT(Year from required_date) = 1998;
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('LAMBR', 'Lojas Americanas S.A.', 'Max Landesmann', 'Owner', 'Av. dos Oitis, nº 1.460, Distrito Industrial', 'Rio de Janeiro', 'RJ', '89000-565', 'Brazil', '(21)7841-0056');
-
-update orders set shipped_date = '1998-10-01' WHERE EXTRACT(Year from required_date) = 1998 AND ship_country like 'USA' AND ship_region like 'OR' OR ship_region like 'ID';
-
-select customers.contact_name, customers.phone, orders.ship_name, orders.order_id, EXTRACT(Year from orders.shipped_date) as ano_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE orders.ship_region like 'WA' AND EXTRACT(Year from orders.shipped_date) between 1996 and 1997;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11082, 'LAMBR', 2, '2020-03-15', '2020-04-05', 1, 90.74, 'Lojas Americanas S.A.', 'Av. dos Oitis, nº 1.460, Distrito Industrial', 'Rio de Janeiro', 'RJ', '89000-565', 'Brazil');
-~~~~
+Na área do *SQL Editor*, **execute os comandos (Grupo A) apresentados, de uma só vez**.  Para isso, deixe todos os comandos selecionados antes de clicar em *Run CTRL* ([você pode acessar os comandos do Grupo A aqui](codes-sql/GRUPOA_comandos.sql)).
 
 Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução dos comandos e tudo correr como esperado, o MemSQL vai emitir o tempo de execução de cada comando, via *Log*, opção localizada no inferior da tela. O retorno apresentado após a última instrução será semelhante ao mostrado na Figura 23.
 
@@ -791,70 +605,7 @@ Observe as saídas emitidas pela aplicação. Se o MemSQL permitir a execução 
 
 Para confirmar se nosso banco no MemSQL está operando apenas com dois nós, consulte a lista de nós presente na tela. Se um dos nós do tipo *Leaf* mostrar o *CPU Usage* como *Unknown*, quer dizer que um nó foi desativado e tudo está ok.
 
-- **Passo 3:** Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao *SQL Editor* do MemSQL Studio e **rode as instruções a seguir, de uma só vez**. Para isso, deixe todos os comandos selecionados antes de clicar em *Run CTRL* (você também pode [acessar os comandos do Grupo B aqui](codes-sql/GRUPOB_comandos.sql)):
-
-
-~~~SQL
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11083, 'QUEEN', 2, '2020-06-14', '2020-06-30', 5, 100.28, 'Queen Cozinha', 'Alameda dos Canàrios, 891', 'São Paulo', 'SP', '05487-020', 'Brazil');
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11084, 'QUICK', 6, '2020-05-02', '2020-06-05', 2, 210.88, 'QUICK-Stop', 'Taucherstraße 10', 'Cunewalde', '01307', 'Germany');
-
-select EXTRACT(Month from order_date) mes_pedido, customer_id from orders where EXTRACT(Year from order_date) = 1998 AND ship_country like 'UK' order by mes_pedido;
-
-UPDATE orders SET freight = freight + (freight * 0.25) WHERE ship_country like 'Brazil' OR ship_country like 'Argentina' OR ship_country like 'Venezuela';
-
-select min(orders.freight) as menor_frete_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'UK' or orders.ship_country like 'Ireland' group by customers.city order by menor_frete_por_cidade;
-
-update orders set shipped_date = '2020-12-20' WHERE EXTRACT(Year from required_date) = 2020 AND shipped_date is null;
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country) VALUES ('BKGUS', 'Burger King Corporation', 'Keith J. Kramer', 'Owner', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
-
-select contact_name, contact_title, company_name, address from customers where contact_title like 'Owner%' and phone is null order by contact_name;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_region, ship_postal_code, ship_country) VALUES (11085, 'BKGUS', 8, '2020-09-06', '2020-11-01', 1, 65.97, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', 'Flórida', '78988-555', 'USA');
-
-UPDATE orders SET freight = freight - (freight * 0.50) WHERE ship_region like 'SP' OR ship_region like 'RJ';
-
-select count(orders.ship_city) as pedidos_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country like 'Canada' group by customers.city order by pedidos_por_cidade desc;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11086, 'EASTC', 9, '2020-11-12', '2020-11-30', 3, 102.97, 'Eastern Connection', '35 King George', 'London', 'WX3 6FW', 'UK');
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('MLIBR', 'Mercado Livre', 'Fernanda Macedo', 'Order Administrator', 'Av. das Nações Unidas, 439 - Pres. Altino', 'São Paulo', 'SP', '06233-200', 'Brazil', '(11)1545-9898');
-
-update orders set shipped_date = '2020-12-25' WHERE shipped_date is null;
-
-select count(EXTRACT(Year from required_date)) as pedidos_em_1996, ship_country from orders where EXTRACT(Year from required_date) = 1996 group by ship_country;
-
-UPDATE customers SET country = 'Spain' WHERE city in ('Madrid', 'Barcelona', 'Sevilla');
-
-INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone) VALUES ('SINMO', 'Sinhá Moça', 'Karla Silveira', 'Sales Manager', 'Rua Floriano Peixoto, 526', 'Capão Bonito', 'SP', '18300-250', 'Brazil', '(15)3542-5787');
-
-select customers.contact_name, customers.phone, orders.ship_name, orders.order_id, EXTRACT(Year from orders.shipped_date) as ano_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE orders.ship_city in ('Seattle', 'Boise', 'Elgin') AND EXTRACT(Year from orders.shipped_date) between 1996 and 1998 order by customers.contact_name;
-
-UPDATE orders SET ship_country = 'Spain' WHERE ship_city in ('Madrid', 'Barcelona', 'Sevilla');
-
-update customers set company_name = 'Carlinhos BBQ Lanches', contact_title = 'Owner' where customer_id = 'SINMO';
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11087, 'SINMO', 5, '2020-10-06', '2020-11-01', 1, 19.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
-
-select max(freight), ship_region from orders where ship_country = 'Brazil' group by ship_region;
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11088, 'BKGUS', 1, '2020-03-06', '2020-04-05', 4, 45.30, 'Burger King Corporation', '5505 Blue Lagoon Drive, Condado de Miami-Dade', 'Miami', '78988-555', 'USA');
-
-INSERT INTO orders (order_id, customer_id, employee_id, order_date, required_date, ship_via, freight, ship_name, ship_address, ship_city, ship_postal_code, ship_country) VALUES (11089, 'SINMO', 9, '2020-04-03', '2020-06-09', 3, 80.90, 'Carlinhos BBQ Lanches', 'Rua Floriano Peixoto, 526', 'Capão Bonito', '18300-250', 'Brazil');
-
-update orders set ship_region = 'SP' where ship_city = 'Capão Bonito' and ship_region is null;
-
-select avg(orders.freight) as frete_medio_por_cidade, customers.city from customers inner join orders on customers.customer_id = orders.customer_id where orders.ship_country in ('Brazil', 'Mexico') group by customers.city order by frete_medio_por_cidade;
-
-select distinct ship_city, ship_region, ship_country from orders where ship_region is not null AND ship_country in ('UK', 'USA', 'Canada');
-
-update orders set ship_region = 'Flórida'  where ship_city = 'Miami' and ship_region is null;
-
-update orders set shipped_date = '2020-12-02' WHERE EXTRACT(Year from required_date) = 2020 AND ship_via between 1 and 4;
-
-select customers.contact_name, customers.phone, orders.order_id, EXTRACT(Month from orders.required_date) as mes_pedido from customers inner join orders on customers.customer_id = orders.customer_id WHERE EXTRACT(Year from orders.required_date) = 1996 AND EXTRACT(Month from orders.required_date) between 10 and 12 AND orders.ship_country like 'USA';
-~~~
+- **Passo 3:** Com esta nova configuração do cluster, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao *SQL Editor* do MemSQL Studio e **rode as instruções do Grupo B de uma só vez**. Para isso, deixe todos os comandos selecionados antes de clicar em *Run CTRL* ([você pode acessar os comandos do Grupo B aqui](codes-sql/GRUPOB_comandos.sql)).
 
 Observe as saídas emitidas pela aplicação, semelhantes a Figura 25. Se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com um nó a menos funcionando no cluster, **o banco manteve-se disponível.** 
 
@@ -982,9 +733,9 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **CAP** - Acrônimo de Consistency, Availability e Partition tolerance, em português: consistência, disponibilidade e tolerância à partição. É um teorema do paradigma de NoSQL, que se apóia na afirmação de que, para se atender ao menos dois destes parâmetros citados, deve-se desistir de atender a um dos três parâmetros. 
 
-**Cluster** - é um conjunto de  instâncias de replicação do banco de dados, podendo ser um conjunto de computadores, servidores, containers ou nós dependendo da estrutura utilizada.
+**Cluster** - É um conjunto de  instâncias de replicação do banco de dados, podendo ser um conjunto de computadores, servidores, containers ou nós dependendo da estrutura utilizada.
 
-**Container** – uma metodologia usada para empacotar aplicações e todas suas dependências, para que possam ser instaladas e utilizadas de forma isoladas em um repositório.
+**Container** – Uma metodologia usada para empacotar aplicações e todas suas dependências, para que possam ser instaladas e utilizadas de forma isoladas em um repositório.
 
 **CPU** - Acrônimo de Central Process Unit, em português: Unidade Central de Processamento, onde iremos verificar os dados estatísticos referentes ao processamento das atividades no banco de dados.
 
@@ -1099,6 +850,3 @@ STONEBRAKER, Michael et al. [The End of an Architectural Era (It’s Time for a 
 WIKIPEDIA. [Sistema de alta disponibilidade](https://pt.wikipedia.org/wiki/Sistema_de_alta_disponibilidade/). 2020.<br>
 <a id="YUGABYTE-2020"></a>
 YUGABYTE. [Northwind sample database](https://docs.yugabyte.com/latest/sample-data/northwind/). YugabytesDB, 2020.
-
-
-
