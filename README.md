@@ -670,7 +670,7 @@ Já no caso dos nós secundários existentes no cluster do MemSQL a disponibilid
 
 No ambiente organizado para a prova de conceito, os dois nós que pertencem ao Grupo-1 não possuem cópias extras de seus dados e, caso ocorra uma falha em um nó secundário, o cluster fica offline até tal nó voltar ao sistema [(MEMSQL, 2020c)](#MEMSQL-2020C). Ou seja, independente do número de nós que o cluster tivesse, se todos os nós fossem de Grupo-1, a queda de um dos nós tornaria o banco indisponível. Outros dois nós do cluster do MemSQL foram configurados com Grupo-2, que são capazes de lidar com falhas em nós secundários e gerar réplicas dos dados para manter o banco de dados online. 
 
-Mesmo com essa configuração, a disponibilidade do banco só será mantida se houver a queda de alguns nós secundários e não todos. Essas configurações que podem ser aplicadas nos nós refletem também no algoritmo de balanceamento utilizado por cada grupo de nós em relação a distribuição dos dados no cluster [(MEMSQL, 2020c)](#MEMSQL-2020C). O Quadro 3 exibe diferentes combinações de nós (com status de online e offline) do cluster do MemSQL, considerando a mesma disposição elaborada para a prova de conceito, com o intuito de exemplificar em quais casos a disponibilidade dos dados seria mantida.
+Mesmo com essa configuração, a disponibilidade do banco só será mantida se houver a queda de alguns nós secundários e não todos. Essas configurações que podem ser aplicadas nos nós refletem também no algoritmo de balanceamento utilizado por cada grupo de nós em relação à distribuição dos dados no cluster [(MEMSQL, 2020c)](#MEMSQL-2020C). O Quadro 3 exibe diferentes combinações de nós (com status de online e offline) do cluster do MemSQL, considerando a mesma disposição elaborada para a prova de conceito, com o intuito de exemplificar em quais casos a disponibilidade dos dados seria mantida.
 
 <p align="center">
   <img src="images-resultados/quadro-disponibilidade-memsql.png" width="610">
@@ -799,7 +799,7 @@ Entre os aprendizados que puderam ser absorvidos pelo grupo que desenvolveu o tu
 
 **Sudo** - comando de Super usuário do Linux, que concede permissões para utilizar outros comandos como administrador.
 
-**Topologia** - É o nome dado à definição da estrutura de T.I., no nosso é a estrutura de divisão de nós do banco de dados.
+**Topologia** - É o nome dado a definição da estrutura de T.I., no nosso é a estrutura de divisão de nós do banco de dados.
 
 **Throughput** - Taxa de transferência que é a quantidade de dados que trafegam em um determinado espaço de tempo.
 
