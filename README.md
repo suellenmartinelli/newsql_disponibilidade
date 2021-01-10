@@ -7,7 +7,7 @@ A estrutura deste tutorial online está fixada em sete tópicos gerais que trata
 <a id="sumario"></a>
 # Sumário
 1. [Introdução](#intro-sec1)
-	1. [O que é NewSQL?](#newsql-sec1a)
+	1. [O que é *NewSQL?*](#newsql-sec1a)
 	2. [O que é Disponibilidade?](#disponibilidade-sec1b)
 	3. [Contextualização do Tutorial](#contexto-sec1c)
 	4. [Recursos Utilizados](#recursos-sec1d)
