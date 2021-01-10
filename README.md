@@ -82,8 +82,8 @@ A base de dados Northwind inclui 14 tabelas e inclui dados sobre fornecedores, c
 
 Foi necessário compatibilizar a versão oficial do Northwind para atender as necessidades de cada solução NewSQL selecionada e manter o banco com a mesma estrutura em ambas soluções. A nova estrutura pode ser observada [aqui](codes-sql/CREATE_northwind.sql), e os dados [aqui](codes-sql/INSERT_northwind.sql). As alterações realizadas foram:
 
-- Campos **bpchar** foram convertidos para **varchar**;
-- Campos **bytea** (que serviam para armazenar fotos) foram retirados;
+- Campos ***bpchar*** foram convertidos para ***varchar***;
+- Campos ***bytea*** (que serviam para armazenar fotos) foram retirados;
 - As chaves estrangeiras foram retiradas pois [o MemSQL não fornece suporte](https://docs.singlestore.com/v7.1/guides/use-memsql/other/mysql-features-unsupported-in-memsql/mysql-features-unsupported-in-memsql/);
 - A massa de dados (INSERT) foi readequada para a nova estrutura.
 
