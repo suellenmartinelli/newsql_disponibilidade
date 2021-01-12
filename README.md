@@ -476,7 +476,7 @@ Neste ponto nossa estrutura está composta por um agregador e dois nós secundá
 Para executar comandos *SQL* basta acessar o item *“SQL Editor”* no menu esquerdo. Na Figura 14 podemos ver o resultado do comando `SHOW LEAVES;` mostrando a estrutura atual do nosso *cluster*, composto de dois nós secundários no grupo 1.
 
 <p align="center">
-  <img src="image-cluster/cluster_umgrupo_memsql2.png" width="570">
+  <img src="image-cluster/cluster_umgrupo_memsql2.png" width="590">
 </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 14: Nós no grupo 1 do <em>cluster</em> do MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
