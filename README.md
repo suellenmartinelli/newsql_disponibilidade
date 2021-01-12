@@ -6,12 +6,12 @@ A estrutura deste tutorial online está fixada em seis tópicos gerais que trata
 
 <a id="sumario"></a>
 # Sumário
-1. [Introdução](#intro-sec1)
-	1.1. [O que é *NewSQL*?](#newsql-sec1a)
-	1.2. [O que é Disponibilidade?](#disponibilidade-sec1b)
-	1.3. [Contextualização do Tutorial](#contexto-sec1c)
-	1.4. [Recursos Utilizados](#recursos-sec1d)
-	1.5. [*Benchmarks* com CockroachDB e MemSQL](#benchmark-sec1e)
+1. [Introdução](#intro-sec1)<br>
+	1.1. [O que é *NewSQL*?](#newsql-sec1a)<br>
+	1.2. [O que é Disponibilidade?](#disponibilidade-sec1b)<br>
+	1.3. [Contextualização do Tutorial](#contexto-sec1c)<br>
+	1.4. [Recursos Utilizados](#recursos-sec1d)<br>
+	1.5. [*Benchmarks* com CockroachDB e MemSQL](#benchmark-sec1e)<br>
 2. [Instalação das Ferramentas](#instalacoes-sec2)
 	1. [Docker](#docker-sec2a)
 	2. [CockroachDB](#cockroachdb-sec2b)
