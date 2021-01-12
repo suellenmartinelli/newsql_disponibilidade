@@ -402,7 +402,7 @@ Após executar este comando nós teremos acesso ao terminal *SQL* dentro do *con
   <caption><span style="color:#4F4F4F"> Figura 10: Terminal do CockroachDB <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
-Basta copiar todo o conteúdo do arquivo de *create* disponível [aqui](codes-sql/CREATE_northwind.sql) para criarmos a base e todas as tabelas do BD *Northwind*. Cole todo o conteúdo no terminal *SQL* ativo, ao colar pode parecer que apenas os últimos comandos foram copiados, isto acontece por conta da quantidade de linhas copiadas e ele acaba não mostrando o começo, mas pode executar normalmente que o banco será criado. Note que ao executar as instruções, o CockroachDB emite o tempo de execução de cada comando, como no exemplo da Figura 11. Aguarde todos os comandos serem executados para prosseguir.
+Basta copiar todo o conteúdo do arquivo de *create* [**disponível aqui**](codes-sql/CREATE_northwind.sql) para criarmos a base e todas as tabelas do BD *Northwind*. Cole todo o conteúdo no terminal *SQL* ativo, ao colar pode parecer que apenas os últimos comandos foram copiados, isto acontece por conta da quantidade de linhas copiadas e ele acaba não mostrando o começo, mas pode executar normalmente que o banco será criado. Note que ao executar as instruções, o CockroachDB emite o tempo de execução de cada comando, como no exemplo da Figura 11. Aguarde todos os comandos serem executados para prosseguir.
 
 <p align="center">
   <img src="image-cluster/create_barataDB.png" width="460">
