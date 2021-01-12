@@ -12,23 +12,23 @@ A estrutura deste tutorial online está fixada em seis tópicos gerais que trata
 	1.3. [Contextualização do Tutorial](#contexto-sec1c)<br>
 	1.4. [Recursos Utilizados](#recursos-sec1d)<br>
 	1.5. [*Benchmarks* com CockroachDB e MemSQL](#benchmark-sec1e)<br>
-2. [Instalação das Ferramentas](#instalacoes-sec2)
-	1. [Docker](#docker-sec2a)
-	2. [CockroachDB](#cockroachdb-sec2b)
-	3. [MemSQL](#memsql-sec2c)
-3. [Criação do *Cluster* Utilizando o Docker](#criar-cluster-sec3)
-	1. [CockroachDB](#cockroach-sec3)
-- [Topologia do *Cluster*](#topologia-cockroach-sec3)
-- [Criação do *Cluster*](#cockroachdb-sec3a)
-	2. [MemSQL](#memsql-sec3)
-- [Topologia do *Cluster*](#topologia-memsql-sec3)
-- [Criação do *Cluster*](#memsql-sec3b)
-4. [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4)
-	1. [Estudo de caso com o CockroachDB](#estudo-cockroachdb-sec4a)
-	2. [Estudo de caso com o MemSQL](#estudo-memsql-sec4b)
-	3. [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c)
-5. [Conclusão](#conclusao-sec5)
-	1. [Sumarização do que foi aprendido](#aprendizados-sec5a)
+2. [Instalação das Ferramentas](#instalacoes-sec2)<br>
+	2.1. [Docker](#docker-sec2a)<br>
+	2.2. [CockroachDB](#cockroachdb-sec2b)<br>
+	2.3 [MemSQL](#memsql-sec2c)<br>
+3. [Criação do *Cluster* Utilizando o Docker](#criar-cluster-sec3)<br>
+	3.1. [CockroachDB](#cockroach-sec3)<br>
+3.1.1. [Topologia do *Cluster*](#topologia-cockroach-sec3)<br>
+3.1.2. [Criação do *Cluster*](#cockroachdb-sec3a)<br>
+	3.2. [MemSQL](#memsql-sec3)<br>
+3.2.1. [Topologia do *Cluster*](#topologia-memsql-sec3)<br>
+3.2.2 [Criação do *Cluster*](#memsql-sec3b)<br>
+4. [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4)<br>
+	4.1. [Estudo de caso com o CockroachDB](#estudo-cockroachdb-sec4a)<br>
+	4.2. [Estudo de caso com o MemSQL](#estudo-memsql-sec4b)<br>
+	4.3. [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c)<br>
+5. [Conclusão](#conclusao-sec5)<br>
+	5.1. [Sumarização do que foi aprendido](#aprendizados-sec5a)<br>
 6. [Glossário](#glossario-sec6)<br>
 [Referências Bibliográficas](#referencias-sec7)
 
