@@ -192,7 +192,7 @@ Para o tutorial de instalação do **Docker** será considerado um computador co
 - O Docker no Windows possui uma interface gráfica onde é possível realizar algumas configurações e ações nos *containers* (Figura 5) e imagens (Figura 6), porém, as ações na *interface* gráfica são limitadas. Para utilizar os recursos do Docker utilize o Power Shell;
 
 <p align="center">
-<img src="image-gerais/WinCont.png" width="550">
+<img src="image-gerais/WinCont2.png" width="550">
 </p>
 <p align="center" style= "font-family: 'Courier New' " ><caption><span style="color:#4F4F4F"> Figura 5: <em>Interface</em> gráfica do Docker com <em>Containers</em> <br> Fonte: Elaborado pelos autores </span> </caption>
 </p>
