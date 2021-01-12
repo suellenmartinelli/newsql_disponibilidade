@@ -598,7 +598,7 @@ Na área do *SQL Editor*, **execute de uma só vez os [comandos do Grupo A dispo
 Observe as saídas emitidas pelo sistema. Se o MemSQL permitir a execução dos comandos e tudo correr como esperado, o MemSQL vai emitir o tempo de execução de cada comando, via *Log*, opção localizada na área inferior da tela. O retorno apresentado após a última instrução será semelhante ao mostrado na Figura 23.
 
 <p align="center">
-  <img src="images-praticas/passo1-GA-codes.png" width="610">
+  <img src="images-praticas/passo1-GA-codes2.png" width="600">
   </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 23: Exemplos de saídas após executar os comandos <br> Fonte: Elaborado pelos autores </span></caption>
