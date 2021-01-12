@@ -632,7 +632,7 @@ Observe as saídas emitidas pelo sistema, semelhantes a Figura 25. Se o MemSQL f
   <img src="images-praticas/passo3-falha-GB-memsql.png" width="620">
  </p>
   <p align="center" style= "font-family: 'Courier New' " >
-  <caption><span style="color:#4F4F4F"> Figura 26: Falha na execução de comandos com 4 nós ativos no MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
+  <caption><span style="color:#4F4F4F"> Figura 26: Falha na execução com 4 nós ativos no MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 **Observação:** Caso queira **retomar o funcionamento do nó** que sofreu a queda, basta retornar ao *SQL Editor* do MemSQL Studio e executar o comando `ATTACH LEAF '127.0.0.1':3307;`. Aguarde o sistema confirmar a operação. O mesmo pode ser feito com outros nós, apenas modificando a porta da *Leaf* que deseja reativar no *cluster*.
