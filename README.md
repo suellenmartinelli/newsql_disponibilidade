@@ -538,7 +538,7 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 Observe as saídas emitidas pelo sistema. Se o CockroachDB permitir a execução dos comandos e tudo correr como esperado, o CockroachDB vai emitir o tempo de execução de cada comando. O retorno apresentado após a última instrução será semelhante ao mostrado na Figura 18.
 
 <p align="center">
-  <img src="images-praticas/passo1-GA-saidas-terminal.png" width="300">
+  <img src="images-praticas/passo1-GA-saidas-terminal.png" width="320">
   </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 18: Exemplos de saídas após executar os comandos <br> Fonte: Elaborado pelos autores </span></caption>
