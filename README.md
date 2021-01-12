@@ -664,7 +664,7 @@ Em relação aos nós secundários do CockroachDB, independente de qual nó tive
   <img src="images-resultados/queda-total3-cockroachDB2.png" width="600">
  </p>
   <p align="center" style= "font-family: 'Courier New' " >
-  <caption><span style="color:#4F4F4F"> Figura 27: Situação em que o sistema ficaria indisponível no CockroachDB <br> Fonte: Elaborado pelos autores </span></caption>
+  <caption><span style="color:#4F4F4F"> Figura 27: Situação em que o sistema fica indisponível no CockroachDB <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
 O comportamento exibido na Figura 27 é justificado pela lógica de armazenamento utilizada pelo CockroachDB, uma vez que os dados que pertencem a um mesmo registro armazenado em uma tabela são salvos em vários intervalos mapeados e replicados entre diferentes nós do *cluster*. Mesmo efetuando uma operação de leitura, como o *SELECT*, devido a arquitetura do CockroachDB o nó *Master* depende de consultar dados (por meio de chaves) em *ranges* localizados nos nós secundários [(COCKROACH LABS, 2020b)](#COCKROACH-2020B). Sendo assim, as combinações de nós possíveis no *cluster* do CockroachDB, considerando que o nó *Master* sempre estará *online*, é representada pelo Quadro 2.
