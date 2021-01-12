@@ -587,7 +587,7 @@ Em breve, uma avaliação deste resultado será feita na [Seção 4.3](#resultad
 - **Passo 1:** Com o **MemSQL ativo com 5 nós em seu *cluster* e com o banco de dados *Northwind*** pronto para uso, retorne ao MemSQL Studio aberto em seu navegador via [http://localhost:8080](http://localhost:8080). <br> Dentro do MemSQL Studio acesse a opção *SQL Editor* no menu lateral e na área em branco aplique o comando `USE northwind;` para ser executado, clicando em *Run CTRL*, como mostra os destaques em verde na Figura 22.
 
 <p align="center">
-  <img src="images-praticas/passo1-localizacao-memsql.png" width="610">
+  <img src="images-praticas/passo1-localizacao-memsql2.png" width="600">
   </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 22: Localização do <em>SQL Editor</em> no MemSQL Studio <br> Fonte: Elaborado pelos autores </span></caption>
