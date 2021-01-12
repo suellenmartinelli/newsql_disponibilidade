@@ -661,7 +661,7 @@ Todavia, para os dois SGBDs *NewSQL*, a queda de um dos nós no teste não poder
 Em relação aos nós secundários do CockroachDB, independente de qual nó tivesse a queda, o sistema manteve-se disponível. Ele só ficou indisponível quando eram desativados os dois nós secundários e mantido somente o nó principal em funcionamento. Na Figura 27 há um exemplo em que foi feita a queda em todos os nós secundários e enviada uma consulta *SELECT*. O terminal ficou *“em espera”* e só retornou a consulta ao reativar um dos nós secundários.
 
 <p align="center">
-  <img src="images-resultados/queda-total3-cockroachDB.png" width="620">
+  <img src="images-resultados/queda-total3-cockroachDB2.png" width="600">
  </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 27: Situação em que o sistema ficaria indisponível no CockroachDB <br> Fonte: Elaborado pelos autores </span></caption>
