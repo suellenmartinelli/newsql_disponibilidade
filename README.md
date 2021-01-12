@@ -87,7 +87,7 @@ Foi necessário compatibilizar a versão oficial do *Northwind* para atender as 
 - As chaves estrangeiras foram retiradas pois [o MemSQL não fornece suporte](https://docs.singlestore.com/v7.1/guides/use-memsql/other/mysql-features-unsupported-in-memsql/mysql-features-unsupported-in-memsql/);
 - A massa de dados (*INSERT*) foi readequada para a nova estrutura.
 
-Este tutorial irá apresentar um passo a passo que permite realizar uma prova de conceito acerca da disponibilidade dos dados em cada sistema *NewSQL* escolhido. Maiores detalhes sobre o conteúdo dessas provas de conceito são dados na seção [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4).
+Este tutorial irá apresentar um passo a passo que permite realizar uma prova de conceito acerca da disponibilidade dos dados em cada sistema *NewSQL* escolhido. Maiores detalhes sobre o conteúdo dessas provas de conceito são dados na [Seção 4](#praticas-sec4).
 
 <a id="recursos-sec1d"></a>
 ## 1.4 Recursos Utilizados
@@ -120,7 +120,7 @@ O MemSQL também tem como característica chave fornecer alta disponibilidade em
   <caption><span style="color:#4F4F4F"> Figura 3: Terminal <em>SQL</em> e ambiente de gestão do MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
-Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no *site* oficial de cada sistema ([CockroachDB Labs](https://www.cockroachlabs.com/docs/stable/cockroach-commands.html) e [MemSQL Docs](https://docs.singlestore.com/v7.3/introduction/documentation-overview/)), além de serem soluções que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha desses sistemas NewSQL foi o crescimento rápido da popularidade delas, segundo consulta ao [DB-Engines Ranking](https://db-engines.com/en/ranking_trend).
+Tanto a escolha do CockroachDB como do MemSQL devem-se à documentação e materiais de apoio disponíveis no *site* oficial de cada sistema ([CockroachDB Labs](https://www.cockroachlabs.com/docs/stable/cockroach-commands.html) e [MemSQL Docs](https://docs.singlestore.com/v7.3/introduction/documentation-overview/)), além de serem sistemas que priorizam a disponibilidade dos dados. Outro fator que influenciou na escolha desses sistemas NewSQL foi o crescimento rápido da popularidade delas, segundo consulta ao [DB-Engines Ranking](https://db-engines.com/en/ranking_trend).
 
 <a id="benchmark-sec1e"></a>
 ## 1.5 *Benchmarks* com CockroachDB e MemSQL
@@ -158,6 +158,14 @@ Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferent
 # 2 Instalação das Ferramentas
 
 Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção contém informações como: *links* para tutoriais oficiais da instalação; recomendações sobre os ambientes de instalação; *prints* de tela; e informações relacionadas à configuração do ambiente.
+
+Antes de prosseguir, informamos que os requisitos de *software* e *hardware* considerados para as instalações das ferramentas deste tutorial foram:
+sistema operacional Linux Mint 18.3
+processador Intel i5 1.6GHz
+memória RAM de 8GB 
+armazenamento interno SSD de 240GB
+
+Esses requisitos foram viáveis de acordo com as provas de conceito [(Seção 4)](#praticas-sec4) desenvolvidas neste tutorial e, em caso de uso dos sistemas *NewSQL* em um ambiente real, é necessário consultar as documentações oficiais do [CockroachDB](https://www.cockroachlabs.com/docs/v20.2/install-cockroachdb-linux.html) e do [MemSQL](https://docs.singlestore.com/v7.3/reference/configuration-reference/cluster-configuration-reference/system-requirements/).
 
 <a id="docker-sec2a"></a>
 ## 2.1 Docker
@@ -240,7 +248,7 @@ Neste ponto estamos habilitados a seguir com as instalações, pois nosso Docker
 
 Todas as versões do CockroachDB são distribuídas em formato binário, isto significa que não há um instalador. Para utilização do CockroachDB basta fazer o *download* dos arquivos para o sistema operacional utilizado, extrair em uma pasta e executar o sistema. Para este tutorial iremos utilizar a versão do sistema que funciona sobre *container* Docker, para isto utilizaremos a imagem distribuída oficialmente pelo fabricante através do Docker Hub.
 
-Tendo o Docker já instalado, basta executar o comando `sudo docker pull cockroachdb/cockroach:v20.1.9`. Este comando irá verificar se esta imagem já existe em seu computador, caso não exista ele fará o *download*. Não é necessário mais nenhum passo para a instalação, a utilização desta imagem será abordada na seção de criação do *cluster* utilizando o [CockroachDB](#cockroachdb-sec3a), onde criaremos um *container*, utilizando a imagem que acabamos de baixar, para cada nó da nossa arquitetura.
+Tendo o Docker já instalado, basta executar o comando `sudo docker pull cockroachdb/cockroach:v20.1.9`. Este comando irá verificar se esta imagem já existe em seu computador, caso não exista ele fará o *download*. Não é necessário mais nenhum passo para a instalação, a utilização desta imagem será abordada na criação do *cluster* utilizando o CockroachDB [(Seção 3.1.2)](#cockroachdb-sec3a), onde criaremos um *container* utilizando a imagem que acabamos de baixar, para cada nó da nossa arquitetura.
 
 
 <a id="memsql-sec2c"></a>
@@ -277,7 +285,7 @@ Para entender melhor os passos que serão executados de forma automática pelo D
 Ao executar o `docker-compose.yaml` o Docker pode criar alguns arquivos ocultos no local onde o arquivo se encontra, por isso é recomendado salvar este arquivo em uma pasta específica para o MemSQL. Após criar a pasta e salvar o arquivo, o processo de instalação está concluído. 
 
 **Atenção**: 
-- O *download* da imagem oficial do Docker Hub só vai acontecer na primeira inicialização do *cluster* que será descrita na seção de criação de *cluster* usando o [MemSQL](#memsql-sec3b);
+- O *download* da imagem oficial do Docker Hub só vai acontecer na primeira inicialização do *cluster* que será descrita na [Seção 3.2.2](#memsql-sec3b) ao criar o *cluster* do MemSQL;
 - O sistema exige ao menos 10GB livres no HD para poder iniciar, ele **não** irá ocupar todo este espaço, mas é um requisito para criar o *cluster*.
 
 
@@ -340,7 +348,7 @@ cockroachdb/cockroach:v20.1.7 start \
 - A *flag* `net` faz referência a rede na qual nosso *container* irá se conectar, no caso do exemplo, vamos nos conectar na ***roachnet*** que foi criada nos passos anteriores. Caso você tenha alterado o nome da rede no passo anterior **atenção aqui**;
 - As *flags* `p` indicam o redirecionamento de portas do *host:container* que, no geral, não precisam ser alteradas. Lembrando que as portas relacionadas ao *container* (2º parâmetro) não devem ser alternadas;
 - A *flag* `-v` é um direcionamento entre uma pasta existente dentro do *container* e uma pasta no computador *host*. Isto é necessário pois o *container* não tem um armazenamento permanente e todos os dados são apagados quando o *container* desliga. Os dados salvos nesta pasta ficarão salvos no computador *host* e serão usados pelo *container*;
-- O comando `cockroachdb/cockroach:v20.1.9 start` irá iniciar, dentro do *container* recém criado, a imagem que fizemos o *download* na seção de instalação;
+- O comando `cockroachdb/cockroach:v20.1.9 start` irá iniciar, dentro do *container* recém criado, a imagem que fizemos o *download* na [Seção 2.2](#cockroachdb-sec2b);
 - A *flag* `insecure` faz parte da implementação voltada ao teste do CockroachDB, ela **não deve ser alterada**;
 - Uma das *tags* mais importantes é a `join`, ela irá indicar quais *containers* devem se conectar dentro da rede local do Docker, no caso do exemplo os *containers* de *hostname* *roach1*, *roach2* e *roach3* serão conectados.
 
@@ -508,7 +516,7 @@ Ao término desses passos, nossa base de dados está criada e com todos os dados
 
 Para realizar uma prova de conceito em cada um dos sistemas *NewSQL* apresentados, foram desenvolvidas instruções *SQL* que atendem a três tipos de comandos, sendo eles de escrita-escrita, leitura-escrita e leitura-leitura. Escrita-escrita é relacionado a comandos *INSERT* que efetuam a gravação de um novo registro na base de dados, leitura-escrita inclui instruções como *UPDATE* (para atualizar) e *DELETE* (para apagar) um registro existente em banco, e leitura-leitura é associado aos comandos *SELECT* para selecionar dados de uma ou mais tabelas. Para manter um padrão na quantidade de comandos, foram desenvolvidas 20 instruções para cada um dos tipos mencionados, gerando assim um total de 60 comandos.
 
-A base de dados *Northwind* possui 14 tabelas no total (como mostrado na seção [Contextualização do Tutorial](#contexto-sec1c)), porém, vale ressaltar que os comandos apresentados para a prática destinam-se apenas às tabelas *“customers”* e *“orders”* (Figura 17). As instruções foram limitadas a estas duas tabelas justamente para ser possível avaliar resultados acerca da disponibilidade fornecida por diferentes sistemas *NewSQL* que foram submetidos ao mesmo conteúdo de prova.
+A base de dados *Northwind* possui 14 tabelas no total (como mostrado na [Seção 1.3](#contexto-sec1c)), porém, vale ressaltar que os comandos apresentados para a prática destinam-se apenas às tabelas *“customers”* e *“orders”* (Figura 17). As instruções foram limitadas a estas duas tabelas justamente para ser possível avaliar resultados acerca da disponibilidade fornecida por diferentes sistemas *NewSQL* que foram submetidos ao mesmo conteúdo de prova.
 
 <p align="center">
   <img src="images-praticas/tables2-estudo-caso.PNG" width="500">
@@ -524,7 +532,7 @@ Diante desta introdução, siga os procedimentos dados em cada estudo de caso a 
 <a id="estudo-cockroachdb-sec4a"></a>
 ## 4.1 Estudo de caso com o CockroachDB
 
-- **Passo 1:** Com o CockroachDB ativo com 3 nós em seu *cluster* e com o banco de dados Northwind pronto para uso, retorne para o terminal *SQL*. <br> Caso você tenha fechado esta tela, execute novamente a instrução `docker exec -it roach1 ./cockroach sql --insecure` em um terminal Linux e, na sequência, aplique um `USE northwind;`<br> Dentro do terminal *SQL* e do BD *Northwind* **execute os comandos do Grupo A de uma só vez, [os comandos do Grupo A podem ser encontrados aqui](codes-sql/GRUPOA_comandos.sql)**
+- **Passo 1:** Com o CockroachDB ativo com 3 nós em seu *cluster* e com o banco de dados *Northwind* pronto para uso, retorne para o terminal *SQL*. <br> Caso você tenha fechado esta tela, execute novamente a instrução `docker exec -it roach1 ./cockroach sql --insecure` em um terminal Linux e, na sequência, aplique um `USE northwind;`<br> Dentro do terminal *SQL* e do BD *Northwind* **execute os comandos do Grupo A de uma só vez, [os comandos do Grupo A podem ser encontrados aqui](codes-sql/GRUPOA_comandos.sql)**
 
 Observe as saídas emitidas pelo sistema. Se o CockroachDB permitir a execução dos comandos e tudo correr como esperado, o CockroachDB vai emitir o tempo de execução de cada comando. O retorno apresentado após a última instrução será semelhante ao mostrado na Figura 18.
 
@@ -568,7 +576,7 @@ Observe as saídas emitidas pelo sistema, semelhantes a Figura 21. Se o Cockroac
 
 **Observação:** Caso um nó crítico seja desativado, ao executar o Grupo B de comandos o seu terminal ficará em espera e irá aguardar até o *cluster* se recuperar. Isso representa que o sistema não conseguiu fornecer disponibilidade pois alguma informação essencial não está presente nos nós ativos e, assim, o mesmo para de responder para evitar falhas de integridade. 
 
-Em breve, uma avaliação deste resultado será feita na seção [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c).
+Em breve, uma avaliação deste resultado será feita na [Seção 4.3](#resultados-sec4c).
 
 **Atenção:** Antes de prosseguir para a seção seguinte, **não se esqueça de desativar o *cluster* do CockroachDB e ativar o do MemSQL**. Para isso, abra um terminal Linux, execute o comando `docker stop roach1 roach2 roch3` e aguarde o nome de todos os *containers* aparecerem na saída do terminal. Em seguida, execute `docker start memsql_memsql_1` e aguarde o nome do *container* ser exibido.
 
@@ -634,7 +642,7 @@ Uma avaliação dos resultados será feita na seção a seguir.
 <a id="resultados-sec4c"></a>
 ## 4.3 Resultados e comparações entre o CockroachDB e o MemSQL
 
-Na prova de conceito efetuada com o CockroachDB e o MemSQL sobre a disponibilidade dos sistemas, ambos tiveram resultados satisfatórios mesmo ao forçar a queda de um nó no *cluster*, conforme práticas efetuadas neste tutorial. Realmente as soluções cumprem o aspecto de alta disponibilidade (*high availability*) prometidos em suas documentações oficiais.
+Na prova de conceito efetuada com o CockroachDB e o MemSQL sobre a disponibilidade dos sistemas, ambos tiveram resultados satisfatórios mesmo ao forçar a queda de um nó no *cluster*, conforme práticas efetuadas neste tutorial. Realmente os sistemas cumprem o aspecto de alta disponibilidade (*high availability*) prometidos em suas documentações oficiais.
 
 Porém, foram notadas algumas caraterísticas que diferenciam cada sistema *NewSQL* utilizado quando se fala de alta disponibilidade na prática. O Quadro 1 apresenta um resumo dessas diferenças e de características presentes em cada prova de conceito realizada, sendo elas discutidas a seguir.
 
@@ -645,7 +653,7 @@ Porém, foram notadas algumas caraterísticas que diferenciam cada sistema *NewS
   <caption><span style="color:#4F4F4F"> Quadro 1: Características dos Sistemas CockroachDB e MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
-A justificativa para a elaboração desse *layout* na organização dos *clusters* deve-se à composição de uma estrutura mínima que atendesse ao fator de alta disponibilidade em cada sistema *NewSQL*. Portanto, o conteúdo prático das provas de conceito foram iguais nos dois estudos de caso, com o intuito de verificar se a disponibilidade dos dados era mantida mesmo diante da queda de um nó, mas cada solução necessitava de uma composição diferente em seu *cluster*.
+A justificativa para a elaboração desse *layout* na organização dos *clusters* deve-se à composição de uma estrutura mínima que atendesse ao fator de alta disponibilidade em cada sistema *NewSQL*. Portanto, o conteúdo prático das provas de conceito foram iguais nos dois estudos de caso, com o intuito de verificar se a disponibilidade dos dados era mantida mesmo diante da queda de um nó, mas cada sistema necessitava de uma composição diferente em seu *cluster*.
 
 Todavia, para os dois SGBDs *NewSQL*, a queda de um dos nós no teste não poderia ser o Principal (ou *Master*), devido a ambos usarem o modelo de distribuição de coordenador-subordinado e terem a necessidade do nó *Master* estar em operação para o sistema se manter disponível. 
 
@@ -694,7 +702,7 @@ A finalidade deste tutorial foi apresentar uma visão prática do aspecto de dis
 
 Sobre a preparação dos ambientes para a utilização de cada sistema, como a instalação de ferramentas e a organização do *cluster*, usuários com mais experiência em ambiente Linux e com conhecimentos prévios em Docker podem apresentar mais facilidade para a realização deste tutorial. Quanto a “subir” a base de dados *Northwind* e efetuar comandos (como leituras e gravações) os sistemas *NewSQL* podem ser de simples operação aos usuários que possuem conhecimentos básicos de *SQL*, uma vez que elas utilizam da mesma linguagem usada por SGBDs relacionais.
 
-Já em relação às provas de conceitos apresentadas neste tutorial, elas serviram para fornecer uma breve experiência sobre como cada sistema *NewSQL* iria se comportar, frente a queda de um nó no *cluster*. Como discutido na seção de [Resultados e comparações entre o CockroachDB e o MemSQL](#resultados-sec4c), cada sistema precisa de um ambiente mínimo diferente para fornecer alta disponibilidade dos dados e, por isso, o *cluster* de cada prova de conceito tinha quantidade de nós e configurações distintas. Todavia, os grupos de códigos e processos aplicados foram os mesmos nos dois estudos de caso.
+Já em relação às provas de conceitos apresentadas neste tutorial, elas serviram para fornecer uma breve experiência sobre como cada sistema *NewSQL* iria se comportar, frente a queda de um nó no *cluster*. Como discutido na [Seção 4.3](#resultados-sec4c), cada sistema precisa de um ambiente mínimo diferente para fornecer alta disponibilidade dos dados e, por isso, o *cluster* de cada prova de conceito tinha quantidade de nós e configurações distintas. Todavia, os grupos de códigos e processos aplicados foram os mesmos nos dois estudos de caso.
 
 
 Os dois estudos de caso apresentaram um funcionamento positivo de cada sistema, mantendo a disponibilidade dos dados mesmo com a queda de um nó. Porém, é preciso levar em conta o modelo de distribuição e a lógica de armazenamento em que cada sistema funciona, para compreender os diferentes cenários em que tanto o CockroachDB como o MemSQL são capazes de manter a disponibilidade dos dados. Outro fator para garantir a alta disponibilidade é a aquisição das versões pagas do CockroachDB e do MemSQL, tendo em vista que as versões gratuitas dos sistemas limitam o uso de determinadas configurações, capazes de manter a alta disponibilidade dos dados.
