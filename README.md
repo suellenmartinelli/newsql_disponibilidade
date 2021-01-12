@@ -547,7 +547,7 @@ Observe as saídas emitidas pelo sistema. Se o CockroachDB permitir a execução
 Observe saídas respectivas ao tempo de execução das instruções, uso de *hardware* e outras métricas ao acessar [http://localhost:8080](http://localhost:8080) no seu navegador. Ele dará acesso ao *Cockroach Labs*, ambiente gráfico do CockroachDB, como no exemplo da Figura 19. Para alterar a visualização dos tipos de gráficos, basta acessar as áreas destacadas em verde na imagem.
 
 <p align="center">
-  <img src="images-praticas/passo1-GA-CKLabs.png" width="570">
+  <img src="images-praticas/passo1-GA-CKLabs.png" width="600">
  </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 19: Exemplos de gráficos obtidos via Cockroach Labs <br> Fonte: Elaborado pelos autores </span></caption>
