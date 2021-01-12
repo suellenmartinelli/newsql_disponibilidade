@@ -556,7 +556,7 @@ Observe saídas respectivas ao tempo de execução das instruções, uso de *har
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso *cluster*** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do *container* ser mostrado na tela como retorno, como na Figura 20.
 
 <p align="center">
-  <img src="images-praticas/passo2-docker-stop.png" width="600" height="130">
+  <img src="images-praticas/passo2-docker-stop.png" width="600" height="100">
  </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 20: Desativando um nó no <em>cluster</em> do CockroachDB <br> Fonte: Elaborado pelos autores </span></caption>
