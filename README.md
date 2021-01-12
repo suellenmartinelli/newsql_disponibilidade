@@ -18,11 +18,11 @@ A estrutura deste tutorial online está fixada em seis tópicos gerais que trata
 	2.3 [MemSQL](#memsql-sec2c)<br>
 3. [Criação do *Cluster* Utilizando o Docker](#criar-cluster-sec3)<br>
 	3.1. [CockroachDB](#cockroach-sec3)<br>
-		&nbsp;3.1.1. [Topologia do *Cluster*](#topologia-cockroach-sec3)<br>
-		3.1.2. [Criação do *Cluster*](#cockroachdb-sec3a)<br>
+		&nbsp;&nbsp;&nbsp;3.1.1. [Topologia do *Cluster*](#topologia-cockroach-sec3)<br>
+		&nbsp;&nbsp;&nbsp;3.1.2. [Criação do *Cluster*](#cockroachdb-sec3a)<br>
 	3.2. [MemSQL](#memsql-sec3)<br>
-		3.2.1. [Topologia do *Cluster*](#topologia-memsql-sec3)<br>
-		3.2.2 [Criação do *Cluster*](#memsql-sec3b)<br>
+		&nbsp;&nbsp;&nbsp;3.2.1. [Topologia do *Cluster*](#topologia-memsql-sec3)<br>
+		&nbsp;&nbsp;&nbsp;3.2.2 [Criação do *Cluster*](#memsql-sec3b)<br>
 4. [Trabalhando com a Disponibilidade: Práticas e Resultados](#praticas-sec4)<br>
 	4.1. [Estudo de caso com o CockroachDB](#estudo-cockroachdb-sec4a)<br>
 	4.2. [Estudo de caso com o MemSQL](#estudo-memsql-sec4b)<br>
