@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="image-gerais/logos2.PNG" width="530" height="120">
+  <img src="image-gerais/logos2.PNG" width="530" height="130">
 </p>
 
 A estrutura deste tutorial online está fixada em seis tópicos gerais que tratam desde os aspectos teóricos até o passo a passo das práticas a serem desenvolvidas. Consulte o sumário a seguir para estudar um tópico em particular ou acesse na sequência os materiais apresentados.
@@ -7,11 +7,11 @@ A estrutura deste tutorial online está fixada em seis tópicos gerais que trata
 <a id="sumario"></a>
 # Sumário
 1. [Introdução](#intro-sec1)
-	1. [O que é *NewSQL*?](#newsql-sec1a)
-	2. [O que é Disponibilidade?](#disponibilidade-sec1b)
-	3. [Contextualização do Tutorial](#contexto-sec1c)
-	4. [Recursos Utilizados](#recursos-sec1d)
-	5. [*Benchmarks* com CockroachDB e MemSQL](#benchmark-sec1e)
+	1.1. [O que é *NewSQL*?](#newsql-sec1a)
+	1.2. [O que é Disponibilidade?](#disponibilidade-sec1b)
+	1.3. [Contextualização do Tutorial](#contexto-sec1c)
+	1.4. [Recursos Utilizados](#recursos-sec1d)
+	1.5. [*Benchmarks* com CockroachDB e MemSQL](#benchmark-sec1e)
 2. [Instalação das Ferramentas](#instalacoes-sec2)
 	1. [Docker](#docker-sec2a)
 	2. [CockroachDB](#cockroachdb-sec2b)
