@@ -237,7 +237,7 @@ Após adicionada a chave agora vamos adicionar o repositório da última versão
 Chegou a hora esperada: instalar o *docker-ce*. Para isto basta executar o comando: `sudo apt install docker-ce`. Após concluir o processo de instalação (que é todo automatizado) podemos confirmar se o Docker está ligado através do comando: `sudo systemctl status docker`, caso tenha ocorrido tudo bem devemos observar uma mensagem igual a da Figura 8.
 
 <p align="center">
-<img src="image-instalacoes/docker-status.png" width="580" height="100">
+<img src="image-instalacoes/docker-status.png" width="600" height="110">
 </p>
 <p align="center" style= "font-family: 'Courier New' " ><caption><span style="color:#4F4F4F"> Figura 8: Mensagem de ativação do Docker no Linux <br> Fonte: Elaborado pelos autores </span> </caption>
 </p>
