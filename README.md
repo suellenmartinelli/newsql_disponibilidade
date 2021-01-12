@@ -411,7 +411,7 @@ Basta copiar todo o conteúdo do arquivo de *create* [**disponível aqui**](code
   <caption><span style="color:#4F4F4F"> Figura 11: Saídas via terminal do CockroachDB <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
-Vamos fazer o mesmo com o arquivo de *insert* disponível [aqui](codes-sql/INSERT_northwind.sql), copiando todo o seu conteúdo e colando no terminal *SQL* ativo. Execute as instruções e aproveite para tomar um café…essa ação pode demorar aproximadamente 15 minutos. Aguarde todos os comandos serem executados para prosseguir.
+Vamos fazer o mesmo com o arquivo de *insert* [**disponível aqui**](codes-sql/INSERT_northwind.sql), copiando todo o seu conteúdo e colando no terminal *SQL* ativo. Execute as instruções e aproveite para tomar um café…essa ação pode demorar aproximadamente 15 minutos. Aguarde todos os comandos serem executados para prosseguir.
 
 Ao término desses passos, nossa base de dados está criada e pronta para uso. ;) 
 
@@ -494,7 +494,7 @@ Após executar este comando no *”SQL Editor”* todos os novos nós registrado
   <caption><span style="color:#4F4F4F"> Figura 15: Nós do grupo 1 e grupo 2 do <em>cluster</em> do MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
-Para criar e popular a base de dados *Northwind* utilizaremos novamente o *“SQL Editor”*. Basta agora copiar todo o conteúdo disponível [aqui](codes-sql/CREATE_northwind.sql) para criarmos a base e todas as tabelas do *Northwind*. Cole todo o conteúdo no *“SQL Editor”*, mantenha todo o código selecionado e execute-o (Figura 16). Note que ao executar as instruções, o MemSQL mostra uma aba como “saída” para cada tabela criada. Aguarde todos os comandos serem executados para prosseguir.
+Para criar e popular a base de dados *Northwind* utilizaremos novamente o *“SQL Editor”*. Basta agora copiar todo o conteúdo [**disponível aqui**](codes-sql/CREATE_northwind.sql) para criarmos a base e todas as tabelas do *Northwind*. Cole todo o conteúdo no *“SQL Editor”*, mantenha todo o código selecionado e execute-o (Figura 16). Note que ao executar as instruções, o MemSQL mostra uma aba como “saída” para cada tabela criada. Aguarde todos os comandos serem executados para prosseguir.
 
 <p align="center">
   <img src="image-cluster/create_memsql.png" width="580">
@@ -503,7 +503,7 @@ Para criar e popular a base de dados *Northwind* utilizaremos novamente o *“SQ
   <caption><span style="color:#4F4F4F"> Figura 16: <em>SQL Editor</em> do MemSQL Studio com comandos de <em>INSERT</em> <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
-Vamos fazer o mesmo com [o arquivo dos inserts](codes-sql/INSERT_northwind.sql), copiando todo o seu conteúdo e colando no *“SQL Editor”* do MemSQL. Mantenha todo o código selecionado e execute-o. Aproveite para tomar mais um café…. essa ação pode demorar aproximadamente 15 minutos. Aguarde todos os comandos serem executados para prosseguir.
+Vamos fazer o mesmo com o arquivo dos *inserts* [**disponível aqui**](codes-sql/INSERT_northwind.sql), copiando todo o seu conteúdo e colando no *“SQL Editor”* do MemSQL. Mantenha todo o código selecionado e execute-o. Aproveite para tomar mais um café…. essa ação pode demorar aproximadamente 15 minutos. Aguarde todos os comandos serem executados para prosseguir.
 
 Ao término desses passos, nossa base de dados está criada e com todos os dados prontos para uso ;) 
 
@@ -556,7 +556,7 @@ Observe saídas respectivas ao tempo de execução das instruções, uso de *har
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso *cluster*** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do *container* ser mostrado na tela como retorno, como na Figura 20.
 
 <p align="center">
-  <img src="images-praticas/passo2-docker-stop.png" width="600" height="100">
+  <img src="images-praticas/passo2-docker-stop.png" width="600"  height="100">
  </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 20: Desativando um nó no <em>cluster</em> do CockroachDB <br> Fonte: Elaborado pelos autores </span></caption>
