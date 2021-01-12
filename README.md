@@ -319,7 +319,7 @@ Ao final será formada a topologia abaixo, como mostra o diagrama da Figura 9.
 <a id="cockroachdb-sec3a"></a>
 ### 3.1.2. Criação do *Cluster*
 
-Para criar o *cluster* com o CockroachBD será necessário criar três *containers*, cada um terá uma instância do banco de dados e representará um computador diferente. A comunicação entre os *containers* acontecerá por meio de uma rede interna do Docker, e este será o primeiro passo para criar o *cluster*. Para criar a rede devemos executar o comando: 
+Para criar o *cluster* com o CockroachBD será necessário criar três *containers*, cada um terá uma instância do SGDB e representará um computador diferente. A comunicação entre os *containers* acontecerá por meio de uma rede interna do Docker, e este será o primeiro passo para criar o *cluster*. Para criar a rede devemos executar o comando: 
 
 `docker network create -d bridge roachnet`.
 
@@ -387,7 +387,7 @@ Após executar estes comandos com sucesso teremos três *containers* ligados, ca
 
 Este comando irá iniciar o sistema do CockroachDB dentro do *container* **roach1** e toda a configuração restante acontecerá automaticamente. Neste ponto teremos um *cluster* de CockroachDB ativo, onde o *container* **roach1** é o principal e os outros são seus nós secundários :).
 
-**Recordando**: Cada *container* é uma instalação única do CockroachDB. O único *container* que tem comunicação aberta com a máquina *host* é o “roach1”. Os dados utilizados pelo banco (incluindo os binários que salvam as informações armazenadas dentro do banco) serão salvos na pasta atrelada à *tag* `v`. A comunicação entre *containers* é feita via rede interna do Docker.
+**Recordando**: Cada *container* é uma instalação única do CockroachDB. O único *container* que tem comunicação aberta com a máquina *host* é o “roach1”. Os dados utilizados pelo sistema (incluindo os binários que salvam as informações armazenadas nas tabelas) serão salvos na pasta atrelada à *tag* `v`. A comunicação entre *containers* é feita via rede interna do Docker.
 
 Para criar a base de dados *Northwind* vamos utilizar um terminal *SQL* do CockroachDB. Para acessá-lo devemos abrir um terminal Linux e executar o seguinte comando:
 
@@ -482,7 +482,7 @@ Para executar comandos *SQL* basta acessar o item *“SQL Editor”* no menu esq
   <caption><span style="color:#4F4F4F"> Figura 14: Nós no grupo 1 do <em>cluster</em> do MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
 </p>
 
-Para incluir nós no grupo 2 precisamos informar ao algoritmo do banco que estamos montando uma estrutura de alta disponibilidade, e isto deve ser feito através do seguinte comando *SQL*:
+Para incluir nós no grupo 2 precisamos informar ao algoritmo do sistema que estamos montando uma estrutura de alta disponibilidade, e isto deve ser feito através do seguinte comando *SQL*:
 `SET @@GLOBAL.redundancy_level = 2;`
 
 Após executar este comando no *”SQL Editor”* todos os novos nós registrados serão automaticamente alocados no grupo 2. Agora basta repetir o processo de criar e registrar nós, porém, criando os nós nas portas 3309 e 3310, respectivamente. Após concluir a criação dos nós teremos então uma estrutura de alta disponibilidade formada por um nó agregador e quatro nós secundários divididos em dois grupos, onde o grupo 2 é uma réplica do grupo 1. Isso pode ser consultado ao replicar o comando `SHOW LEAVES;`, como no exemplo da Figura 15.
@@ -617,7 +617,7 @@ Para confirmar se o sistema está operando apenas com dois nós, consulte a list
 
 - **Passo 3:** Com esta nova configuração do *cluster*, vamos executar nosso segundo grupo de comandos (Grupo B). <br> Novamente, retorne ao *SQL Editor* do MemSQL Studio e **rode de uma só vez as [instruções do Grupo B disponíveis aqui](codes-sql/GRUPOB_comandos.sql)**. Para isso, deixe todos os comandos selecionados antes de clicar em *Run CTRL*.
 
-Observe as saídas emitidas pelo sistema, semelhantes a Figura 25. Se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com um nó a menos funcionando no *cluster*, **o banco manteve-se disponível.** 
+Observe as saídas emitidas pelo sistema, semelhantes a Figura 25. Se o MemSQL fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com um nó a menos funcionando no *cluster*, **o sistema manteve-se disponível.** 
 
 <p align="center">
   <img src="images-praticas/passo3-GB-memsql-NOVA.png" width="580">
