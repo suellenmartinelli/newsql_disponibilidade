@@ -160,10 +160,11 @@ Novamente, o MemSQL se mostrou superior ao CockroachDB em relação aos diferent
 Neste tópico serão abordados os passos e códigos utilizados para instalar as ferramentas utilizadas ao longo do tutorial. A seção contém informações como: *links* para tutoriais oficiais da instalação; recomendações sobre os ambientes de instalação; *prints* de tela; e informações relacionadas à configuração do ambiente.
 
 Antes de prosseguir, informamos que os requisitos de *software* e *hardware* considerados para as instalações das ferramentas deste tutorial foram:
-sistema operacional Linux Mint 18.3
-processador Intel i5 1.6GHz
-memória RAM de 8GB 
-armazenamento interno SSD de 240GB
+
+- sistema operacional Linux Mint 18.3
+- processador Intel i5 1.6GHz
+- memória RAM de 8GB 
+- armazenamento interno SSD de 240GB
 
 Esses requisitos foram viáveis de acordo com as provas de conceito [(Seção 4)](#praticas-sec4) desenvolvidas neste tutorial e, em caso de uso dos sistemas *NewSQL* em um ambiente real, é necessário consultar as documentações oficiais do [CockroachDB](https://www.cockroachlabs.com/docs/v20.2/install-cockroachdb-linux.html) e do [MemSQL](https://docs.singlestore.com/v7.3/reference/configuration-reference/cluster-configuration-reference/system-requirements/).
 
