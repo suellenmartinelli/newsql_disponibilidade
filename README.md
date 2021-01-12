@@ -629,7 +629,7 @@ Observe as saídas emitidas pelo sistema, semelhantes a Figura 25. Se o MemSQL f
 **Atenção:** Caso um nó crítico seja desativado, ao executar o Grupo B de comandos você terá uma saída semelhante a da Figura 26, com um erro tipo  **ERROR 1777 ER_DISTRIBUTED_PARTITION_HAS_NO_INSTANCES**. <br> Isso representa que o sistema não está disponível pois um nó que continha uma partição *master* foi desabilitado e não há nenhuma réplica deste nó *online*. Com isto o sistema para de responder com a finalidade de evitar problemas de integridade.
 
 <p align="center">
-  <img src="images-praticas/passo3-falha-GB-memsql.png" width="620">
+  <img src="images-praticas/passo3-falha-GB-memsql2.png" width="600">
  </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 26: Falha na execução com 4 nós ativos no MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
