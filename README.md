@@ -556,7 +556,7 @@ Observe saídas respectivas ao tempo de execução das instruções, uso de *har
 - **Passo 2:** Agora vamos **forçar a queda de um dos nós secundários do nosso *cluster*** no CockroachDB. Para isso, acesse um segundo terminal Linux e aplique o comando `docker stop roach2`. Execute o comando e aguarde o nome do *container* ser mostrado na tela como retorno, como na Figura 20.
 
 <p align="center">
-  <img src="images-praticas/passo2-docker-stop.png" width="600">
+  <img src="images-praticas/passo2-docker-stop.png" width="600" height="130">
  </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 20: Desativando um nó no <em>cluster</em> do CockroachDB <br> Fonte: Elaborado pelos autores </span></caption>
@@ -569,7 +569,7 @@ Para confirmar se o sistema está operando apenas com dois nós, execute a instr
 Observe as saídas emitidas pelo sistema, semelhantes a Figura 21. Se o CockroachDB fornecer uma mensagem semelhante ao retorno obtido no Passo 1, então quer dizer que mesmo com 2 nós em atividade o sistema manteve-se disponível. Caso queira observar outras métricas (gráficos) via Cockroach Labs, retorne ao [http://localhost:8080](http://localhost:8080).
 
 <p align="center">
-  <img src="images-praticas/saidas-GB-cockroachdb.png" width="570">
+  <img src="images-praticas/saidas-GB-cockroachdb.png" width="600">
   </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 21: Exemplos de saídas após executar os comandos <br> Fonte: Elaborado pelos autores </span></caption>
