@@ -488,7 +488,7 @@ Para incluir nós no grupo 2 precisamos informar ao algoritmo do banco que estam
 Após executar este comando no *”SQL Editor”* todos os novos nós registrados serão automaticamente alocados no grupo 2. Agora basta repetir o processo de criar e registrar nós, porém, criando os nós nas portas 3309 e 3310, respectivamente. Após concluir a criação dos nós teremos então uma estrutura de alta disponibilidade formada por um nó agregador e quatro nós secundários divididos em dois grupos, onde o grupo 2 é uma réplica do grupo 1. Isso pode ser consultado ao replicar o comando `SHOW LEAVES;`, como no exemplo da Figura 15.
 
 <p align="center">
-  <img src="image-cluster/cluster_doisgrupos_memsql.png" width="590">
+  <img src="image-cluster/cluster_doisgrupos_memsql2.png" width="590">
 </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 15: Nós do grupo 1 e grupo 2 do <em>cluster</em> do MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
