@@ -101,7 +101,7 @@ O CockroachDB é um dos SGBDs selecionados para o tutorial. Ele é um sistema de
 O CockroachDB é caracterizado por ser um sistema que permite o desenvolvimento de aplicações com alta disponibilidade. Seus recursos permitem manejar situações relacionadas a queda de alguns nós da infraestrutura de forma transparente, sem que a aplicação perca acesso aos dados [(PAT RESEARCH, 2020)](#PAT-2020). A versão utilizada neste tutorial é o CockroachDB Core (versão 20.1.7, gratuita), exibida na Figura 2.
 
 <p align="center">
-  <img src="image-intro/tela-geral-cockroach2.png" width="600">
+  <img src="image-intro/tela-geral-cockroach2.png" width="610">
 </p>
   <p align="center" style= "font-family: 'Courier New'" >
   <caption><span style="color:#4F4F4F"> Figura 2: Terminal <em>SQL</em> e ambiente de gestão do CockroachDB <br> Fonte: Elaborado pelos autores </span></caption>
@@ -114,7 +114,7 @@ O MemSQL é o segundo SGBD selecionado para o tutorial. Ele é um sistema de ban
 O MemSQL também tem como característica chave fornecer alta disponibilidade em um sistema distribuído através do compartilhamento de cópias dos dados entre os nós do *cluster*. Desta forma, é possível perder contato com alguns nós sem deixar o sistema todo inoperante. Quanto ao funcionamento das transações, para assegurar a disponibilidade, estas são confirmadas no disco como registros de *log* e replicadas automaticamente, suportando a queda de um nó e usando dados de *logs* para recuperar as transações confirmadas [(MEMSQL, 2020a)](#MEMSQL-2020A). A versão utilizada neste tutorial é o MemSQL Software (versão 7.1, gratuita), representada na Figura 3.
 
 <p align="center">
-  <img src="image-intro/tela-geral-memsql.png" width="610">
+  <img src="image-intro/tela-geral-memsql2.png" width="600">
 </p>
   <p align="center" style= "font-family: 'Courier New' " >
   <caption><span style="color:#4F4F4F"> Figura 3: Terminal <em>SQL</em> e ambiente de gestão do MemSQL <br> Fonte: Elaborado pelos autores </span></caption>
